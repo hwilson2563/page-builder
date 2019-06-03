@@ -1,0 +1,52 @@
+:root {
+/* Colors */
+
+/* Charcoal */
+ --main-primary: #63605A;
+/* Dark Charcoal */
+ --main-secondary: #252422;
+/* Orange */
+ --accent-primary: #E66D1C;
+/* Dark Orange */
+ --accent-primary-dark: #E05D05;
+/* Blue */
+ --accent-secondary: #1A6C96;
+/* Light Blue */
+ --accent-secondary-light: #8EB6C6;
+/* Grey */
+ --background: #CCC9C1;
+/* Lighter Grey */
+ --background-light: #D7D5CE;
+/* Lightest Grey */
+ --background-accent: #ebebeb;
+/* Dark Grey */
+ --pre-header-dark: #4B4B4B;
+/* Light Grey */
+ --pre-header-light: #C9C9C9;
+/* Black */
+ --font-main: #333333;
+/* White */
+ --font-overlay: #FFFFFF;
+/* Grey */
+ --font-menu: #CCC9C1;
+
+/* Font Families */
+
+ --font-basic: Arial, Helvetica, sans-serif;
+ --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
+ --font-titles: 'Playfair Display', Palatino, serif;
+ --font-line-height: 14px;
+ 
+/* Responsive queries
+
+ mobile less than 740 */
+/* more than 600 */
+ --tablet: 600px;
+/* more than 740 */
+ --tablet-header: 740px;
+/* more than 1011 */
+ --desktop: 1011px;
+}
+
+
+
