@@ -153,10 +153,7 @@ button:hover {
 }
 
 div#image-container {
-  /* margin-top: 72px; */
   position: relative;
-  /* height: 300px;
-  width: 300px; */
   width: 90vw;
   height: 90vw;
   overflow: hidden;
@@ -177,8 +174,6 @@ img.gallery-img.display-img {
 
 #bullet-container {
   margin-top: 10px;
-  /* margin: 25px 0; */
-  /* width: 300px; */
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
@@ -195,4 +190,34 @@ button.bullet {
 .active {
   background-color: #E66D1C;
   background-color: var(--accent-primary);
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    justify-items: left;
+    margin: 25px;
+    -ms-grid-rows: 1fr 3fr;
+    -ms-grid-columns: 1fr, 2fr;
+    grid-template-rows: 1fr, 3fr;
+    grid-template-columns: 1fr, 2fr;
+    grid-template-areas: "buttons buttons" "gallery info"
+    /* -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "buttons gallery info" */
+  }
+  div#image-container, img.gallery-img {
+    /* margin-top: 72px; */
+    height: 300px;
+    width: 300px;
+  }
+
+  #bullet-container {
+    margin: 25px 0;
+    width: 300px;
+  }
+
+  p {
+    margin-top: 18px;
+    margin-left: 20px;
+  }
 }
