@@ -112,6 +112,7 @@ html {
   width: 100%;
   background-color: #ebebeb;
   background-color: var(--background-accent);
+  margin-bottom: 40px;
 }
 
 #linking-temp .linking-text-container h3 {
@@ -161,6 +162,8 @@ html {
   }
   #linking-temp img {
     min-width: 330px;
+    width: 330px;
+    height: 330px;
   }
   #linking-temp .linking-text-container {
     margin-left: 30px;
@@ -172,6 +175,9 @@ html {
   #linking-temp .linking-text-container .linking-text {
     height: calc(100% - 40px);
     overflow-y: scroll;
+  }
+  #linking-temp div.linking-guide {
+    width: 100%;
   }
 }
 
