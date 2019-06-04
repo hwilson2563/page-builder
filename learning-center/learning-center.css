@@ -98,7 +98,6 @@ div {
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-/* END global styles */
 /* START one-image-text template */
 #one-image-text {
   display: flex;
@@ -120,7 +119,6 @@ div {
   background-color: #ebebeb;
   margin: 20px;
 }
-/* END one-image-text template */
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
   #one-image-text {
@@ -135,7 +133,6 @@ div {
   .text-container {
     width: 50%;
   }
-  /* END one-image-text template */
 }
 @media only screen and (min-width: 1200px) {
   /* START one-image-text template */
@@ -144,7 +141,6 @@ div {
     max-width: 500px;
     margin: 20px;
   }
-  /* END one-image-text template */
 }
 
 
