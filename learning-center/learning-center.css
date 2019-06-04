@@ -50,6 +50,7 @@
 /* Button Text Template */
 
 .button-text-template {
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: bold;
@@ -65,7 +66,7 @@
 
 @media screen and (min-width: 600px) {
   .button-text-template .button-text-template-text {
-    display: inline-block;
+    display: inline;
     margin-right: 35px;
   }
 }
@@ -77,6 +78,8 @@
   }
 }
 
+/* END Button Text Template */
+
 /* BUTTON */
 
 button {
@@ -84,10 +87,13 @@ button {
   border-style: none;
   outline: none;
   position: relative;
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   font-family: var(--font-body);
   text-align: center;
   padding: 15px 10px;
+  background-color: #E66D1C;
   background-color: var(--accent-primary);
+  color: #FFFFFF;
   color: var(--font-overlay);
   border-radius: 3px;
   font-size: 17px;
@@ -98,7 +104,8 @@ button {
 }
 
 button:hover {
-  background-color: var(--accent-primary-dark)
+  background-color: #E05D05;
+  background-color: var(--accent-primary-dark);
 }
 
 @media screen and (min-width: 1011px) {
