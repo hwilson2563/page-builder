@@ -48,11 +48,56 @@
 /* more than 1011 */
  --desktop: 1011px;
 }
-/* global responsive styles */
+/* START global responsive styles */
+#breadcrumbs {
+display: none
+}
+
+.left-nav {
+display: none;
+}
+
+#__enclosingtable {
+width: 100%;
+margin: 0 auto;
+padding: 0;
+display: block;
+}
+
+#__enclosingtable tbody {
+display: block;
+}
+
+#__enclosingtable #handle_itemMainPortlet {
+display: block;
+width: 100% !Important;
+}
+
+body {
+background-color: white;
+min-width: 0 !important;
+}
+
+.infopage_content {
+width: 100%
+}
+
+#div__body {
+width: auto !important;
+padding: 0 !important;
+}
+
+.portletHandle td,
+.portletHandle tr,
+.portletHandle table,
+.portletHandle tbody {
+display: block;
+}
 div {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
+/* END global styles */
 /* START one-image-text template */
 #one-image-text {
   display: flex;
