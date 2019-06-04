@@ -1,52 +1,110 @@
+/* Global Styles */
+
 :root {
-/* Colors */
-
-/* Charcoal */
- --main-primary: #63605A;
-/* Dark Charcoal */
- --main-secondary: #252422;
-/* Orange */
- --accent-primary: #E66D1C;
-/* Dark Orange */
- --accent-primary-dark: #E05D05;
-/* Blue */
- --accent-secondary: #1A6C96;
-/* Light Blue */
- --accent-secondary-light: #8EB6C6;
-/* Grey */
- --background: #CCC9C1;
-/* Lighter Grey */
- --background-light: #D7D5CE;
-/* Lightest Grey */
- --background-accent: #ebebeb;
-/* Dark Grey */
- --pre-header-dark: #4B4B4B;
-/* Light Grey */
- --pre-header-light: #C9C9C9;
-/* Black */
- --font-main: #333333;
-/* White */
- --font-overlay: #FFFFFF;
-/* Grey */
- --font-menu: #CCC9C1;
-
-/* Font Families */
-
- --font-basic: Arial, Helvetica, sans-serif;
- --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
- --font-titles: 'Playfair Display', Palatino, serif;
- --font-line-height: 14px;
- 
-/* Responsive queries
-
- mobile less than 740 */
-/* more than 600 */
- --tablet: 600px;
-/* more than 740 */
- --tablet-header: 740px;
-/* more than 1011 */
- --desktop: 1011px;
+  /* Colors */
+  /* Charcoal */
+  --main-primary: #63605A;
+  /* Dark Charcoal */
+  --main-secondary: #252422;
+  /* Orange */
+  --accent-primary: #E66D1C;
+  /* Dark Orange */
+  --accent-primary-dark: #E05D05;
+  /* Blue */
+  --accent-secondary: #1A6C96;
+  /* Light Blue */
+  --accent-secondary-light: #8EB6C6;
+  /* Grey */
+  --background: #CCC9C1;
+  /* Lighter Grey */
+  --background-light: #D7D5CE;
+  /* Lightest Grey */
+  --background-accent: #ebebeb;
+  /* Dark Grey */
+  --pre-header-dark: #4B4B4B;
+  /* Light Grey */
+  --pre-header-light: #C9C9C9;
+  /* Black */
+  --font-main: #333333;
+  /* White */
+  --font-overlay: #FFFFFF;
+  /* Grey */
+  --font-menu: #CCC9C1;
+  /* Font Families */
+  --font-basic: Arial, Helvetica, sans-serif;
+  --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
+  --font-titles: 'Playfair Display', Palatino, serif;
+  --font-line-height: 14px;
+  /* Responsive queries */
+  /* mobile less than 740
+  more than 600 */
+  --tablet: 600px;
+  /* more than 740 */
+  --tablet-header: 740px;
+  /* more than 1011 */
+  --desktop: 1011px;
 }
 
+/* END Global Styles */
 
+/* Button Text Template */
 
+.button-text-template {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 45px 25px 40px;
+}
+
+.button-text-template .button-text-template-text {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .button-text-template .button-text-template-text {
+    display: inline-block;
+    margin-right: 35px;
+  }
+}
+
+@media screen and (min-width: 1011px) {
+  .button-text-template .button-text-template-text {
+    font-size: 24px;
+    margin-right: 55px;
+  }
+}
+
+/* BUTTON */
+
+button {
+  margin: 30px auto 0;
+  border-style: none;
+  outline: none;
+  position: relative;
+  font-family: var(--font-body);
+  text-align: center;
+  padding: 15px 10px;
+  background-color: var(--accent-primary);
+  color: var(--font-overlay);
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 275px;
+}
+
+button:hover {
+  background-color: var(--accent-primary-dark)
+}
+
+@media screen and (min-width: 1011px) {
+  button {
+    font-size: 24px;
+  }
+}
+
+/* END BUTTON */
