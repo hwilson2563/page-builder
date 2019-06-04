@@ -145,3 +145,34 @@ div {
     margin: 20px;
   }
 }
+/* END one-image-text template */
+/* START three-img template */
+#three-img-temp {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 20px;
+}
+#three-img-temp h3, #three-img-temp h4 {
+  text-transform: uppercase;
+}
+
+#three-img-temp h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+#three-img-temp h4, #three-img-temp p {
+  font-size: 18px;
+}
+
+#three-img-temp img {
+  width: 100%;
+  background-color: var( --background-accent);
+  background-color: #ebebeb;
+  margin-bottom: 20px;
+}
+#three-img-temp .img-text-container {
+  margin-bottom: 40px;
+}
+/* END three-img template */
