@@ -52,7 +52,7 @@ html {
 #linking-temp {
   display: flex;
   flex-direction: column;
-  margin: 25px;
+  margin:25px 25px 40px;
   font-family: var(--font-body);
 }
 
@@ -82,5 +82,28 @@ html {
 #linking-temp div.linking-guide a:hover {
   color: var(--accent-primary-dark);
 }
-
+@media screen and (min-width: 600px) {
+  #linking-temp {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #linking-temp .image-text-container {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  #linking-temp img {
+    width: 330px;
+    height: 330px;
+  }
+  #linking-temp .linking-text-container {
+    margin-left: 30px;
+  }
+  #linking-temp .linking-text-container h3 {
+    margin-top: unset;
+  }
+  #linking-temp div.linking-guide {
+    width: 100%;
+  } 
+}
 /* linking-template styles END */
