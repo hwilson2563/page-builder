@@ -1,125 +1,126 @@
-
 :root {
-/* Colors */
-
-/* Charcoal */
- --main-primary: #63605A;
-/* Dark Charcoal */
- --main-secondary: #252422;
-/* Orange */
- --accent-primary: #E66D1C;
-/* Dark Orange */
- --accent-primary-dark: #E05D05;
-/* Blue */
- --accent-secondary: #1A6C96;
-/* Light Blue */
- --accent-secondary-light: #8EB6C6;
-/* Grey */
- --background: #CCC9C1;
-/* Lighter Grey */
- --background-light: #D7D5CE;
-/* Lightest Grey */
- --background-accent: #ebebeb;
-/* Dark Grey */
- --pre-header-dark: #4B4B4B;
-/* Light Grey */
- --pre-header-light: #C9C9C9;
-/* Black */
- --font-main: #333333;
-/* White */
- --font-overlay: #FFFFFF;
-/* Grey */
- --font-menu: #CCC9C1;
-
-/* Font Families */
-
- --font-basic: Arial, Helvetica, sans-serif;
- --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
- --font-titles: 'Playfair Display', Palatino, serif;
- --font-line-height: 14px;
- 
-/* Responsive queries
+  /* Colors */
+  /* Charcoal */
+  --main-primary: #63605A;
+  /* Dark Charcoal */
+  --main-secondary: #252422;
+  /* Orange */
+  --accent-primary: #E66D1C;
+  /* Dark Orange */
+  --accent-primary-dark: #E05D05;
+  /* Blue */
+  --accent-secondary: #1A6C96;
+  /* Light Blue */
+  --accent-secondary-light: #8EB6C6;
+  /* Grey */
+  --background: #CCC9C1;
+  /* Lighter Grey */
+  --background-light: #D7D5CE;
+  /* Lightest Grey */
+  --background-accent: #ebebeb;
+  /* Dark Grey */
+  --pre-header-dark: #4B4B4B;
+  /* Light Grey */
+  --pre-header-light: #C9C9C9;
+  /* Black */
+  --font-main: #333333;
+  /* White */
+  --font-overlay: #FFFFFF;
+  /* Grey */
+  --font-menu: #CCC9C1;
+  /* Font Families */
+  --font-basic: Arial, Helvetica, sans-serif;
+  --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
+  --font-titles: 'Playfair Display', Palatino, serif;
+  --font-line-height: 14px;
+  /* Responsive queries
 
  mobile less than 740 */
-/* more than 600 */
- --tablet: 600px;
-/* more than 740 */
- --tablet-header: 740px;
-/* more than 1011 */
- --desktop: 1011px;
+  /* more than 600 */
+  --tablet: 600px;
+  /* more than 740 */
+  --tablet-header: 740px;
+  /* more than 1011 */
+  --desktop: 1011px;
 }
+
 /* START global responsive styles */
+
 #breadcrumbs {
-display: none
+  display: none
 }
 
 .left-nav {
-display: none;
+  display: none;
 }
 
 #__enclosingtable {
-width: 100%;
-margin: 0 auto;
-padding: 0;
-display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
 }
 
 #__enclosingtable tbody {
-display: block;
+  display: block;
 }
 
 #__enclosingtable #handle_itemMainPortlet {
-display: block;
-width: 100% !Important;
+  display: block;
+  width: 100% !Important;
 }
 
 body {
-background-color: white;
-min-width: 0 !important;
+  background-color: white;
+  min-width: 0 !important;
 }
 
 .infopage_content {
-width: 100%
+  width: 100%
 }
 
 #div__body {
-width: auto !important;
-padding: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
 }
 
-.portletHandle td,
-.portletHandle tr,
-.portletHandle table,
-.portletHandle tbody {
-display: block;
+.portletHandle td, .portletHandle tr, .portletHandle table, .portletHandle tbody {
+  display: block;
 }
+
 div {
-  font-family: var(--font-body);
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
+
 /* START one-image-text template */
+
 #one-image-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
 }
+
 #one-image-text h3 {
   font-size: 24px;
   margin: 25px;
   text-transform: uppercase;
 }
+
 #one-image-text p {
   font-size: 18px;
   margin: 25px
 }
+
 #one-image-text img {
   width: 80%;
-  background-color: var( --background-accent);
   background-color: #ebebeb;
+  background-color: var( --background-accent);
   margin: 20px;
 }
+
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
   #one-image-text {
@@ -135,6 +136,7 @@ div {
     width: 50%;
   }
 }
+
 @media only screen and (min-width: 1200px) {
   /* START one-image-text template */
   #one-image-text img {
@@ -143,5 +145,3 @@ div {
     margin: 20px;
   }
 }
-
-
