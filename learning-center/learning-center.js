@@ -29,7 +29,7 @@ function handleGalleryClick (idx) {
   var selectedBullet = document.getElementsByClassName('bullet')
 
   // this finds the previously selected item and makes it false, and removes the active classes for the object
-  galleryImages.find(function (image, index) {
+  galleryImages.forEach(function (image, index) {
     if (image.selected === true) {
       image.selected = false
       selectedImage[index].classList.remove('display-img')
