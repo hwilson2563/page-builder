@@ -50,6 +50,8 @@
 
 #text-only-temp {
   max-width: 650px;
+  margin: 0 auto;
+  padding: 30px;
 }
 
 #text-only-temp h3{
