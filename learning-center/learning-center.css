@@ -48,5 +48,12 @@
  --desktop: 1011px;
 }
 
+#text-only-temp {
+  max-width: 650px;
+}
+
+#text-only-temp h3{
+  text-align: center;
+}
 
 
