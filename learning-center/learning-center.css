@@ -195,7 +195,7 @@ button.bullet {
 @media screen and (min-width: 600px) {
   .container {
     justify-items: left;
-    margin: 25px;
+    padding: 0 25px;
     -ms-grid-rows: 1fr 3fr;
     -ms-grid-columns: 1fr, 2fr;
     grid-template-rows: 1fr, 3fr;
@@ -212,12 +212,16 @@ button.bullet {
   }
 
   #bullet-container {
-    margin: 25px 0;
+    margin: 25px 0 10px;
     width: 300px;
   }
 
+  .title-center-mobile {
+    margin-top: 0px;
+  }
+
   p {
-    margin-top: 18px;
+    /* margin-top: 10px; */
     margin-left: 20px;
   }
 }
