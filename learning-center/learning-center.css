@@ -48,7 +48,9 @@
   --desktop: 1011px;
 }
 
-
+/* * {
+  border: 1px solid red;
+} */
 body {
   margin: 0;
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
@@ -63,6 +65,7 @@ body {
 }
 
 .container {
+  padding: 40px 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   max-width: 1220px;
@@ -70,33 +73,46 @@ body {
   display: -ms-grid;
   display: grid;
   grid-gap: 20px;
-  -ms-grid-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "buttons" "gallery" "info"
+
+  /* -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "buttons gallery info"
+  grid-template-areas: "buttons gallery info" */
 }
 
 div.button-section {
   grid-area: buttons;
-  -ms-grid-column: 1;
+  -ms-grid-rows: 1;
 }
 
 div.gallery-section {
   grid-area: gallery;
-  -ms-grid-column: 2;
+  -ms-grid-rows: 2;
 }
 
 div.info-section {
-  margin-top: 48px;
+  /* margin-top: 48px; */
   grid-area: info;
-  -ms-grid-column: 3;
+  -ms-grid-rows: 3;
+  width: 90%;
 }
 
 h2,
-h3 {
+h3.title-center-mobile {
   color: #252422;
   color: var(--main-secondary);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.title-center-mobile {
+  text-align: center;
+}
+.title-desktop {
+  display: none;
 }
 
 h2 {
@@ -108,6 +124,7 @@ h3 {
 }
 
 p {
+  margin: 0;
   font-size: 18px;
   color: #252422;
   color: var(--main-secondary);
@@ -136,17 +153,19 @@ button:hover {
 }
 
 div#image-container {
-  margin-top: 72px;
+  /* margin-top: 72px; */
   position: relative;
-  height: 300px;
-  width: 300px;
+  /* height: 300px;
+  width: 300px; */
+  width: 90vw;
+  height: 90vw;
   overflow: hidden;
 }
 
 img.gallery-img {
   position: absolute;
-  width: 300px;
-  height: auto;
+  width: 90vw;
+  height: 90vw;
   top: 0;
   opacity: 0;
   transition: .3s ease-in-out;
@@ -157,8 +176,10 @@ img.gallery-img.display-img {
 }
 
 #bullet-container {
-  margin: 25px 0;
-  width: 300px;
+  margin-top: 10px;
+  /* margin: 25px 0; */
+  /* width: 300px; */
+  width: 90vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

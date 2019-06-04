@@ -8,7 +8,7 @@
 // if you don't want the first one to display first, change selected to false and assign the one you want to display to true
 var galleryImages = [
   {
-    imageSource: 'https://via.placeholder.com/300',
+    imageSource: 'https://via.placeholder.com/700',
     altTag: 'alt tag text here',
     selected: true
   },
@@ -55,7 +55,6 @@ function handleGalleryClick (idx) {
       : imageTag.setAttribute('class', 'gallery-img')
     imageTag.setAttribute('src', image.imageSource)
     imageTag.setAttribute('alt', image.altTag)
-    imageTag.setAttribute('index', idx)
     imageContainer.appendChild(imageTag)
 
     // this builds the button associated with the image
@@ -65,7 +64,6 @@ function handleGalleryClick (idx) {
       ? buttonElement.setAttribute('class', 'bullet active')
       : buttonElement.setAttribute('class', 'bullet')
     buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
-    buttonElement.setAttribute('index', idx)
     buttonElement.onclick = function () {
       handleGalleryClick(idx)
     }
