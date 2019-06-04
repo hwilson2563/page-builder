@@ -69,6 +69,7 @@ body {
   margin: 0 auto;
   display: -ms-grid;
   display: grid;
+  grid-gap: 20px;
   -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "buttons gallery info"
@@ -85,6 +86,7 @@ div.gallery-section {
 }
 
 div.info-section {
+  margin-top: 48px;
   grid-area: info;
   -ms-grid-column: 3;
 }
@@ -134,14 +136,17 @@ button:hover {
 }
 
 div#image-container {
+  margin-top: 72px;
   position: relative;
   height: 300px;
   width: 300px;
+  overflow: hidden;
 }
 
 img.gallery-img {
   position: absolute;
-  margin-top: 72px;
+  width: 300px;
+  height: auto;
   top: 0;
   opacity: 0;
   transition: .3s ease-in-out;
@@ -152,16 +157,17 @@ img.gallery-img.display-img {
 }
 
 #bullet-container {
-  margin-top: 72px;
+  margin: 25px 0;
   width: 300px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 button.bullet {
   width: 20px;
+  margin: 5px;
   height: 20px;
-  margin: 30px 5px;
   border-radius: 100%;
 }
 
