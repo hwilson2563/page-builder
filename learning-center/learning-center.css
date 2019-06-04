@@ -1,52 +1,151 @@
 :root {
-/* Colors */
-
-/* Charcoal */
- --main-primary: #63605A;
-/* Dark Charcoal */
- --main-secondary: #252422;
-/* Orange */
- --accent-primary: #E66D1C;
-/* Dark Orange */
- --accent-primary-dark: #E05D05;
-/* Blue */
- --accent-secondary: #1A6C96;
-/* Light Blue */
- --accent-secondary-light: #8EB6C6;
-/* Grey */
- --background: #CCC9C1;
-/* Lighter Grey */
- --background-light: #D7D5CE;
-/* Lightest Grey */
- --background-accent: #ebebeb;
-/* Dark Grey */
- --pre-header-dark: #4B4B4B;
-/* Light Grey */
- --pre-header-light: #C9C9C9;
-/* Black */
- --font-main: #333333;
-/* White */
- --font-overlay: #FFFFFF;
-/* Grey */
- --font-menu: #CCC9C1;
-
-/* Font Families */
-
- --font-basic: Arial, Helvetica, sans-serif;
- --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
- --font-titles: 'Playfair Display', Palatino, serif;
- --font-line-height: 14px;
- 
-/* Responsive queries
-
- mobile less than 740 */
-/* more than 600 */
- --tablet: 600px;
-/* more than 740 */
- --tablet-header: 740px;
-/* more than 1011 */
- --desktop: 1011px;
-}
-
-
-
+  /* Colors */
+  
+  /* Charcoal */
+   --main-primary: #63605A;
+  /* Dark Charcoal */
+   --main-secondary: #252422;
+  /* Orange */
+   --accent-primary: #E66D1C;
+  /* Dark Orange */
+   --accent-primary-dark: #E05D05;
+  /* Blue */
+   --accent-secondary: #1A6C96;
+  /* Light Blue */
+   --accent-secondary-light: #8EB6C6;
+  /* Grey */
+   --background: #CCC9C1;
+  /* Lighter Grey */
+   --background-light: #D7D5CE;
+  /* Lightest Grey */
+   --background-accent: #ebebeb;
+  /* Dark Grey */
+   --pre-header-dark: #4B4B4B;
+  /* Light Grey */
+   --pre-header-light: #C9C9C9;
+  /* Black */
+   --font-main: #333333;
+  /* White */
+   --font-overlay: #FFFFFF;
+  /* Grey */
+   --font-menu: #CCC9C1;
+  
+  /* Font Families */
+  
+   --font-basic: Arial, Helvetica, sans-serif;
+   --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
+   --font-titles: 'Playfair Display', Palatino, serif;
+   --font-line-height: 14px;
+   
+  /* Responsive queries
+  
+   mobile less than 740 */
+  /* more than 600 */
+   --tablet: 600px;
+  /* more than 740 */
+   --tablet-header: 740px;
+  /* more than 1011 */
+   --desktop: 1011px;
+  }
+  
+  
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+  }
+  
+  .background {
+    width: 100%;
+    min-height: 400px;
+    background: var(--background-accent);
+  }
+  
+  .container {
+    border: 1px solid red;
+    box-sizing: border-box;
+    max-width: 1220px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  h2,
+  h3 {
+    color: #252422;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #252422;
+    text-decoration: none solid rgb(37, 36, 34)
+  }
+  
+  button {
+    height: 50px;
+    width: 280px;
+    margin-bottom: 10px;
+    border: 3px solid var(--accent-primary);
+    font-size: 18px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    background: transparent;
+    transition: .3s ease-in-out;
+    outline: none;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background: var(--accent-primary);
+    color: white;
+  }
+  
+  .gallery {
+    margin-top: 72px;
+  }
+  
+  div#image-container {
+    position: relative;
+    height: 300px;
+    width: 300px;
+  }
+  
+  img.gallery-img {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: .3s ease-in-out;
+  }
+  
+  img.gallery-img.display-img {
+    opacity: 1;
+  }
+  
+  #bullet-container {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  button.bullet {
+    width: 20px;
+    height: 20px;
+    margin: 30px 5px;
+    border-radius: 100%;
+  }
+  
+  .active {
+    background-color: var(--accent-primary);
+  }
+  
+  
+  
