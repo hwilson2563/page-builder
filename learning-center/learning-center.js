@@ -5,7 +5,7 @@
 
 // put image url and alt data below, in between the single quotes
 // copy from the first { to the }, to add another object or remove
-const galleryImages = [
+var galleryImages = [
   {
     imageSource: 'https://via.placeholder.com/300',
     altTag: 'alt tag text here',
@@ -21,29 +21,31 @@ const galleryImages = [
     altTag: 'alt tag text here',
     selected: false
   }
-]
-
+];
 // this function populates gallery
-const pageSetup = () => {
-  const imageContainer = document.getElementById('image-container')
-  const buttonContainer = document.getElementById('bullet-container')
-  galleryImages.forEach((image, idx) => {
+(function () {
+  var imageContainer = document.getElementById('image-container')
+  var buttonContainer = document.getElementById('bullet-container')
+  galleryImages.forEach(function (image, idx) {
     // this builds the image
-    let imageTag = document.createElement('img')
+    var imageTag = document.createElement('img')
     imageTag.setAttribute('id', 'img' + idx)
-    image.selected ? imageTag.setAttribute('class', 'gallery-img display-img') : imageTag.setAttribute('class', 'gallery-img')
+    image.selected
+      ? imageTag.setAttribute('class', 'gallery-img display-img')
+      : imageTag.setAttribute('class', 'gallery-img')
     imageTag.setAttribute('src', image.imageSource)
     imageTag.setAttribute('alt', image.altTag)
     imageTag.setAttribute('index', idx)
-    imageContainer.append(imageTag)
+    imageContainer.appendChild(imageTag)
 
     // this builds the button associated with the image
-    let buttonElement = document.createElement('button')
+    var buttonElement = document.createElement('button')
     buttonElement.setAttribute('id', 'button' + idx)
-    image.selected ? buttonElement.setAttribute('class', 'bullet active') : buttonElement.setAttribute('class', 'bullet')
+    image.selected
+      ? buttonElement.setAttribute('class', 'bullet active')
+      : buttonElement.setAttribute('class', 'bullet')
     buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
     buttonElement.setAttribute('index', idx)
-    buttonContainer.append(buttonElement)
+    buttonContainer.appendChild(buttonElement)
   })
-}
-pageSetup()
+})()
