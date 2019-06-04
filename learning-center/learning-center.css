@@ -45,7 +45,6 @@
 }
 
 /* START global responsive styles */
-
 #breadcrumbs {
   display: none
 }
@@ -115,21 +114,20 @@ div {
 }
 
 #one-image-text img {
-  width: 100%;
+  width: 80%;
   background-color: #ebebeb;
   background-color: var( --background-accent);
-  padding: 25px;
+  margin: 20px;
 }
 
 /* START text-only template */
-
 #text-only-temp {
   max-width: 650px;
   margin: 0 auto;
   padding: 30px;
 }
 
-#text-only-temp h3 {
+#text-only-temp h3{
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
@@ -138,7 +136,6 @@ div {
 #text-only-temp p {
   font-size: 18px;
 }
-
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
   #one-image-text {
