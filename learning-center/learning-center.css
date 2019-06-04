@@ -94,7 +94,6 @@ div {
 }
 
 /* START one-image-text template */
-
 #one-image-text {
   display: flex;
   flex-direction: column;
@@ -114,14 +113,13 @@ div {
 }
 
 #one-image-text img {
-  width: 80%;
+  width: 100%;
   background-color: #ebebeb;
   background-color: var( --background-accent);
-  margin: 20px;
+  padding: 25px;
 }
 
 /* START text-only template */
-
 #text-only-temp {
   max-width: 650px;
   margin: 0 auto;
