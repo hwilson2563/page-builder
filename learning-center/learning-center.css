@@ -180,6 +180,7 @@ html {
 }
 
 /* END one-image-text template */
+
 /* START text-only template */
 
 #text-only-temp {
@@ -196,7 +197,9 @@ html {
 #text-only-temp p {
   font-size: 18px;
 }
+
 /* END text-only template */
+
 @media screen and (min-width: 600px) {
   /* linking-template styles BEGIN */
   #linking-temp {
@@ -229,7 +232,9 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
-  /* linking-template styles END */
+}
+
+/* linking-template styles END */
 
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
