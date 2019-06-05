@@ -18,15 +18,15 @@ function handleGalleryClick (idx, galleryName) {
   galleriesJSON[galleryName].forEach(function (image, index) {
     if (image.selected === true) {
       image.selected = false
-      selectedImage[index].classList.remove('display-img')
-      selectedBullet[index].classList.remove('active')
+      selectedImage[index - 1].classList.remove('display-img')
+      selectedBullet[index - 1].classList.remove('active')
     }
   })
 
   // sets new selected and active objects
   galleriesJSON[galleryName][idx].selected = true
-  selectedImage[idx].classList.add('display-img')
-  selectedBullet[idx].classList.add('active')
+  selectedImage[idx - 1].classList.add('display-img')
+  selectedBullet[idx - 1].classList.add('active')
 }
 
 function changeGallery (galleryName) {
@@ -43,6 +43,15 @@ function changeGallery (galleryName) {
 
   selectedGallery = galleryName
   buildGallery(galleryName)
+}
+
+function changeInfoSection (galleryName) {
+  var infoHeader = document.getElementsByClassName('info-header')
+  var infoBody = document.getElementById('info-body')
+  Array.from(infoHeader).forEach(function (header) {
+    header.innerHTML = galleriesJSON[galleryName][0].infoTitle
+  })
+  infoBody.innerHTML = galleriesJSON[galleryName][0].infoText
 }
 
 // this builds the whole gallery section and functionality based on JSON
@@ -92,6 +101,7 @@ function buildGalleryButtons () {
     buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
     buttonElement.onclick = function () {
       changeGallery(galleryName)
+      changeInfoSection(galleryName)
     }
     buttonContainer.appendChild(buttonElement)
   })
@@ -107,6 +117,8 @@ function buildGalleryButtons () {
       buildGallery(selectedGallery)
       // this builds buttons
       buildGalleryButtons()
+      // this builds info section
+      changeInfoSection(selectedGallery)
     }
   })
 })()
