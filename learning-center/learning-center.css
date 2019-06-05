@@ -72,18 +72,24 @@ body {
   justify-items: center;
   -ms-grid-rows: auto 20px auto 20px auto;
   grid-template-rows: repeat(3, auto);
-      grid-template-areas: "buttons" "gallery" "info"
+  grid-template-areas: "buttons""gallery""info"
 }
 
 div.button-section {
+  width: 100%;
+  margin-left: 40px;
   -ms-grid-row: 1;
+  grid-row: 1;
   -ms-grid-column: 1;
+  grid-column: 1;
   grid-area: buttons;
   -ms-grid-rows: 1;
 }
 
 div.gallery-section {
   -ms-grid-row: 3;
+  grid-row: 3;
+  grid-column: 3;
   -ms-grid-column: 1;
   grid-area: gallery;
   -ms-grid-rows: 2;
@@ -91,13 +97,17 @@ div.gallery-section {
 
 div.info-section {
   -ms-grid-row: 5;
+  grid-row: 5;
   -ms-grid-column: 1;
+  grid-column: 1;
   grid-area: info;
   -ms-grid-rows: 3;
   width: 90%;
 }
 
-h2, h3.title-center-mobile, h3.title-desktop {
+h2,
+h3.title-center-mobile,
+h3.title-desktop {
   color: #252422;
   color: var(--main-secondary);
   font-weight: 700;
@@ -107,6 +117,7 @@ h2, h3.title-center-mobile, h3.title-desktop {
 .title-center-mobile {
   text-align: center;
 }
+
 .title-desktop {
   display: none;
 }
@@ -179,10 +190,10 @@ img.gallery-img.display-img {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 button.bullet {
@@ -202,18 +213,84 @@ button.bullet {
   background-color: var(--accent-primary);
 }
 
+button.dropdown-button {
+  margin: 0;
+  background-color: white;
+  color: var(--main-secondary);
+  color: #252422;
+  text-align: left;
+  padding-left: 15px;
+  width: 335px;
+  position: relative;
+  border: none;
+}
+
+button.dropdown-button:hover {
+  margin: 0;
+  background: white;
+  color: var(--main-secondary);
+  color: #252422;
+  text-align: left;
+  padding-left: 15px;
+  width: 335px;
+  position: relative;
+  border: none;
+}
+
+button.dropdown-button.active {
+  background: white;
+  border-bottom: 1px solid var(--background);
+  border-bottom: 1px solid #ccc9c1;
+}
+
+button.dropdown-button:hover {
+  background: #ebebeb;
+  background: var(--background-accent);
+}
+
+button.dropdown-button.active::after {
+  content: '';
+  background: url('https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/arrow.svg') center no-repeat;
+  height: 30px;
+  width: 25px;
+  position: absolute;
+  right: 12px;
+  transition: 0.3s ease-in-out;
+}
+
+#selection-container-btn:hover button.dropdown-button.active::after {
+  transform: rotate(-180deg);
+}
+
+#selection-container-btn {
+  height: 49px;
+  width: 335px;
+  border: 1px solid var(--background);
+  border: 1px solid #ccc9c1;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#selection-container-btn:hover {
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.4) 1px 3px 5px;
+}
+
 @media screen and (min-width: 600px) {
   .container {
     justify-items: left;
     padding: 0 25px;
+    grid-gap: 0;
     -ms-grid-columns: 1fr, 2fr;
     -ms-grid-rows: 1fr, 3fr;
     grid-template-rows: 1fr, 3fr;
     -ms-grid-columns: 1fr, 2fr;
     grid-template-columns: 1fr, 2fr;
-        grid-template-areas: "buttons buttons" "gallery info"
+    grid-template-areas: "buttons buttons""gallery info"
   }
-  div#image-container, img.gallery-img {
+
+  div#image-container,
+  img.gallery-img {
     height: 300px;
     width: 300px;
   }
@@ -230,18 +307,29 @@ button.bullet {
   p {
     margin-left: 20px;
   }
+
   div.button-section {
+    margin-left: 0;
+    margin-bottom: 30px;
     -ms-grid-row: 1;
+    grid-row: 1;
     -ms-grid-column: 1;
+    grid-column: 1;
     -ms-grid-column-span: 3
   }
+
   div.gallery-section {
     -ms-grid-row: 3;
-    -ms-grid-column: 1
+    grid-row: 3;
+    -ms-grid-column: 1;
+    grid-column: 1;
   }
+
   div.info-section {
     -ms-grid-row: 3;
-    -ms-grid-column: 3
+    grid-row: 3;
+    -ms-grid-column: 3;
+    grid-column: 3;
   }
 }
 
@@ -251,41 +339,76 @@ button.bullet {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "buttons gallery info"
   }
+
   div.info-section {
     margin-top: 58px;
   }
+
   div#image-container {
     margin-top: 82px;
   }
-  #selection-container {
+
+  #selection-container-btn {
     margin-top: 30px;
   }
+
   #bullet-container {
     margin: 25px 0 0;
   }
+
   .title-center-mobile {
     display: none;
   }
+
   .title-desktop {
     display: inline-block;
   }
+
   p {
     margin-left: 0;
   }
+
   .info-button {
     display: block;
   }
+
   div.button-section {
     -ms-grid-row: 1;
+    grid-row: 1;
     -ms-grid-column: 1;
-    -ms-grid-column-span: 1
+    grid-column: 1;
+    -ms-grid-column-span: 1;
   }
+
   div.gallery-section {
     -ms-grid-row: 1;
-    -ms-grid-column: 2
+    grid-row: 1;
+    -ms-grid-column: 2;
+    grid-column: 2;
   }
+
   div.info-section {
     -ms-grid-row: 1;
-    -ms-grid-column: 3
+    grid-row: 1;
+    -ms-grid-column: 3;
+    grid-column: 3;
+  }
+
+  #selection-container-btn {
+    height: auto;
+    width: auto;
+    border: none;
+  }
+
+  #selection-container-btn:hover {
+    box-shadow: none;
+  }
+
+  .info-button {
+    display: block;
+  }
+
+  .dropdown-button {
+    display: none;
   }
 }

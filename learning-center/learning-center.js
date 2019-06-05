@@ -93,7 +93,7 @@ function buildGallery (gallery) {
 }
 
 function buildGalleryButtons () {
-  var buttonContainer = document.getElementById('selection-container')
+  var buttonContainer = document.getElementById('selection-container-btn')
 
   objectProperyNames.forEach(function (galleryName, idx) {
     var buttonElement = document.createElement('button')
@@ -106,13 +106,23 @@ function buildGalleryButtons () {
       changeGallery(galleryName)
       changeInfoSection(galleryName)
     }
+    var dropDownElement = document.createElement('button')
+    objectProperyNames[idx] === selectedGallery
+      ? dropDownElement.setAttribute('class', 'dropdown-button active')
+      : dropDownElement.setAttribute('class', 'dropdown-button')
+    dropDownElement.innerText = objectProperyNames[idx]
+    dropDownElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
+    dropDownElement.onclick = function () {
+      changeGallery(galleryName)
+      changeInfoSection(galleryName)
+    }
     buttonContainer.appendChild(buttonElement)
+    buttonContainer.appendChild(dropDownElement)
   })
 }
 
 // this initially function populates gallery on load
 ;(function () {
-
   // have to do this because of IE >:[
   var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
     return galleriesJSON[gallery]
