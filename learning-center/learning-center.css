@@ -335,6 +335,7 @@ button.dropdown-button.active::after {
 
 @media screen and (min-width: 1011px) {
   .container {
+    padding-bottom: 25px;
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "buttons gallery info"
