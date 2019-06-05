@@ -213,8 +213,8 @@ div {
     display: block;
   }
   #three-img-temp .img-text-container.more .read-more-container {
-    overflow: unset;
-    max-height: unset;
+    overflow: visible;
+    max-height: none;
   }
 }
 
@@ -230,8 +230,8 @@ div {
     display: none;
   }
   #three-img-temp .img-text-container .read-more-container {
-    overflow: unset;
-    max-height: unset;
+    overflow: visible;
+    max-height: none;
   }
 }
 
