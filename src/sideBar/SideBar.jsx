@@ -13,6 +13,10 @@ const SideBarContainer = styled.div`
   &.open {
     width: 300px;
   }
+  &.close:hover svg{
+    transform:scale(1.1);
+    transition: transform .1s ease-in;
+  }
 `
 const NavHeader = styled.div`
   display: flex;
