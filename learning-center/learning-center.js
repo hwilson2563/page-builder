@@ -24,11 +24,13 @@ function handleGalleryClick (idx, galleryName) {
   selectedBullet[idx - 1].classList.add('active')
 }
 
+// in mobile and tablet, this updates the selected gallery in the drop down
 function updateActiveGallery (galleryIndex) {
   var selectedGallerySection = document.getElementById('selected-gallery')
   selectedGallerySection.innerText = objectProperyNames[galleryIndex]
 }
 
+// upon click, this updates the page to the selected gallery
 function changeGallery (galleryName) {
   var infoButtons = document.getElementsByClassName('info-button')
 
@@ -42,15 +44,17 @@ function changeGallery (galleryName) {
     }
   })
 
+  // update and build gallery
   selectedGallery = galleryName
   buildGallery(galleryName)
 }
 
+// this updates the info section with the new gallery info
 function changeInfoSection (galleryName) {
   var infoHeader = document.getElementsByClassName('info-header')
   var infoBody = document.getElementById('info-body')
-  // this is because of IE
-  var headersArray = [infoHeader[0], infoHeader[1]]
+
+  var headersArray = [infoHeader[0], infoHeader[1]]  // this is because of IE
 
   headersArray.forEach(function (header) {
     header.innerHTML = galleriesJSON[galleryName][0].infoTitle
@@ -67,7 +71,8 @@ function buildGallery (gallery) {
 
   // this loops through each gallery in the JSON
   galleriesJSON[gallery].forEach(function (image, idx) {
-    if (idx !== 0) {
+    var isValidImage = idx !== 0
+    if (isValidImage) {
       // this builds the images
       var imageTag = document.createElement('img')
       imageTag.setAttribute('id', 'img' + idx)
@@ -93,6 +98,7 @@ function buildGallery (gallery) {
   })
 }
 
+// this builds each gallery option for the user to select
 function buildGalleryButtons () {
   var buttonContainer = document.getElementById('selection-container-btn')
 
@@ -132,7 +138,7 @@ function buildGalleryButtons () {
 }
 
 // this initially function populates gallery on load
-;(function () {
+(function () {
   // have to do this because of IE >:[
   var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
     return galleriesJSON[gallery]
