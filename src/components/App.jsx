@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import TemplatesPreview from './TemplatesPreview'
-import { determineScreen } from './utils'
-import { theme } from './globalStyles'
+import { determineScreen } from '../utils/utils'
+import { theme } from '../utils/globalStyles'
 
 const App = () => {
   const [screen, setScreen] = useState()

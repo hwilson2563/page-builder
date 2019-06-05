@@ -33,8 +33,9 @@
     "parser": "babel-eslint",
     "globals": [
       "describe",
-      "test",
       "expect",
+      "it",
+      "test",
       "XMLHttpRequest"
     ]
   }

@@ -1,4 +1,4 @@
-import { determineScreen } from './utils'
+import { determineScreen } from '../utils/utils'
 
 describe('determineScreen return screen type based on window width', () => {
   test('Mobile screen is less than 600 window width', () => {
