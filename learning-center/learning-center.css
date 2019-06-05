@@ -103,7 +103,7 @@ html {
 #linking-temp {
   display: flex;
   flex-direction: column;
-  margin: 20px 20px 40px;
+  margin: 40px 20px 40px;
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   font-family: var(--font-body);
 }
@@ -220,26 +220,24 @@ html {
 #one-image-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  margin: 40px 20px;
 }
 
 #one-image-text h3 {
   font-size: 24px;
-  margin: 25px;
   text-transform: uppercase;
+  margin: 10px;
 }
 
 #one-image-text p {
   font-size: 18px;
-  margin: 25px
 }
 
 #one-image-text img {
-  width: 80%;
+  width: 100%;
   background-color: #ebebeb;
   background-color: var( --background-accent);
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 740px) {
@@ -247,22 +245,35 @@ html {
   #one-image-text {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    margin: 40px 0px; 
+  }
+  #one-image-text h3 {
+    margin-left: 0px;
   }
   #one-image-text img {
     width: 40%;
     max-width: 350px;
+    margin:0px 25px 25px 20px;
   }
   .text-container {
     width: 50%;
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1011px) {
   /* START one-image-text template */
+  #one-image-text {
+    max-width: 1090px;
+    margin:40px auto;
+  }
+  #one-image-text h3 {
+    margin-top: 20px;
+  }
   #one-image-text img {
     width: 30%;
     max-width: 500px;
     margin: 20px;
+    margin-left: 10px;
   }
+
 }
