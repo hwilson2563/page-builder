@@ -230,6 +230,7 @@ html {
 }
 .section-cont p {
   font-size: 18px !important;
+  padding-left: 0;
 }
 .section-one, .section-two {
   width: 100%;
