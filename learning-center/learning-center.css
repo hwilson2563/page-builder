@@ -197,6 +197,7 @@ button.bullet {
 }
 
 .active {
+  color: white;
   background-color: #E66D1C;
   background-color: var(--accent-primary);
 }

@@ -38,9 +38,11 @@ function changeGallery (gallery) {
 function buildGallery (gallery) {
   var imageContainer = document.getElementById('image-container')
   var buttonContainer = document.getElementById('bullet-container')
+  imageContainer.innerHTML = ''
+  buttonContainer.innerHTML = ''
 
   // this loops through each gallery in the JSON
-  gallery.forEach(function (image, idx) {
+  galleryImages[gallery].forEach(function (image, idx) {
     // this builds the images
     var imageTag = document.createElement('img')
     imageTag.setAttribute('id', 'img' + idx)
@@ -101,7 +103,7 @@ function buildGalleryButtons () {
     if (index === 0) {
       selectedGallery = objectProperyNames[index]
       // this loops through each gallery in the JSON
-      buildGallery(gallery)
+      buildGallery(selectedGallery)
       // this builds buttons
       buildGalleryButtons()
     }
