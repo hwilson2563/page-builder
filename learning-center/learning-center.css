@@ -213,6 +213,8 @@ html {
   text-transform: uppercase;
 }
 .section-cont {
+  display: flex;
+  flex-direction: column;
   font-size: 18px;
   width: 100%;
 }
@@ -225,6 +227,9 @@ html {
 .section-cont h4 {
   text-transform: uppercase;
   margin-top: 20px;
+}
+.one, .two {
+  width: 100%;
 }
 
 /* END TWO LARGE IMAGE TEMPLATE */
@@ -261,14 +266,10 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
-}
-
-/* linking-template styles END */
-
-/* START TWO LARGE IMAGE TEMPLATE */
+  /* linking-template styles END */
+  /* START TWO LARGE IMAGE TEMPLATE */
 
   .section-cont {
-    display: flex;
     flex-direction: row;
   }
   .one, .two {
@@ -279,6 +280,7 @@ html {
   }
 
 /* END TWO LARGE IMAGE TEMPLATE */
+}
 
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
