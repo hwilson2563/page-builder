@@ -5,10 +5,8 @@ const NavArrowSvg = styled.svg`
   height: 20px;
   width: 40px;
   transform: ${props => (props.navOpen ? 'rotate(180deg)' : '')};
-  transition: transform .4s;
-  margin-top: 20px;
   padding: 10px;
-  pointer: cursor;
+  cursor: pointer;
 `
 const NavArrow = props => {
   let { navOpen } = props
