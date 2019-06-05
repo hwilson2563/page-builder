@@ -45,6 +45,7 @@
 }
 
 /* START global responsive styles */
+
 #breadcrumbs {
   display: none
 }
@@ -121,13 +122,13 @@ div {
 }
 
 /* START text-only template */
+
 #text-only-temp {
-  max-width: 650px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
 }
 
-#text-only-temp h3{
+#text-only-temp h3 {
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
@@ -136,6 +137,7 @@ div {
 #text-only-temp p {
   font-size: 18px;
 }
+
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
   #one-image-text {
@@ -152,11 +154,15 @@ div {
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1011px) {
   /* START one-image-text template */
   #one-image-text img {
     width: 30%;
     max-width: 500px;
     margin: 20px;
+  }
+  /* START TEXT ONLY TEMPLATE */
+  #text-only-temp {
+    max-width: 650px;
   }
 }
