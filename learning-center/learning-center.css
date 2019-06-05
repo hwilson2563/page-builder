@@ -186,16 +186,14 @@ html {
 #large-image-temp {
   padding: 40px 20px;
   display: flex;
-  background-color: #ebebeb;
-  background-color: var( --background-accent);
 }
 #large-image-temp img {
   height: 100%;
   width: 100%;
   max-width: 650px;
   margin: 0 auto;
-  background-color: #FFFFFF;
-  background-color: var( --font-overlay);
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
 }
 
 /* END large image template */
