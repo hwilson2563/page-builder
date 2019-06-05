@@ -184,16 +184,18 @@ html {
 /* START large image template */
 
 #large-image-temp {
-  padding: 20px;
+  padding: 40px 20px;
   display: flex;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
 }
 #large-image-temp img {
   height: 100%;
   width: 100%;
   max-width: 650px;
   margin: 0 auto;
-  background-color: #ebebeb;
-  background-color: var( --background-accent);
+  background-color: #FFFFFF;
+  background-color: var( --font-overlay);
 }
 
 /* END large image template */
