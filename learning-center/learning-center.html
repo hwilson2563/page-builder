@@ -6,35 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="learning-center.css">
-<!-- <link src="learning-center.css" /> -->
+  <!-- <link src="learning-center.css" /> -->
 </head>
 
 
 <!-- paste templates between comments -->
 <!-- BEGIN CODE ENTRY -->
+
 <body>
   <div class='background'>
     <div class='container'>
       <div class='button-section'>
         <h2>Place Section Title Here</h2>
         <div class='selection-container'>
-            <button class='info-button'>1</button>
-            <button class='info-button'>2</button>
-            <button class='info-button'>3</button>
-            <button class='info-button'>4</button>
-            <button class='info-button'>5</button>
-            <button class='info-button'>6</button>
+          <button class='info-button'>1</button>
+          <button class='info-button'>2</button>
+          <button class='info-button'>3</button>
+          <button class='info-button'>4</button>
+          <button class='info-button'>5</button>
+          <button class='info-button'>6</button>
         </div>
       </div>
       <div class='gallery-section'>
-          <h3 class='title-center-mobile'>Place Info Item Title Here</h3>
+        <h3 class='title-center-mobile'>Place Info Item Title Here</h3>
 
-          <div id='image-container'>
-            <!-- Images will generate here on load -->
-          </div>
-          <div id='bullet-container'>
-            <!-- Bullets will generate here on load -->
-          </div>
+        <div id='image-container'>
+          <!-- Images will generate here on load -->
+        </div>
+        <div id='bullet-container'>
+          <!-- Bullets will generate here on load -->
+        </div>
       </div>
       <div class='info-section'>
         <h3 class='title-desktop'>Place Info Item Title Here</h3>
@@ -44,11 +45,50 @@
       </div>
     </div>
   </div>
+  <!-- <script id='galleries' type='application/json'> -->
+  <script id='galleries' type='application/json'>
+      {
+        "gallery1": [
+          {
+            "imageSource": "https://via.placeholder.com/700",
+            "altTag": "alt tag text here",
+            "selected": true
+          },
+          {
+            "imageSource": "https://via.placeholder.com/500",
+            "altTag": "alt tag text here",
+            "selected": false
+          },
+          {
+            "imageSource": "https://via.placeholder.com/600",
+            "altTag": "alt tag text here",
+            "selected": false
+          }
+        ],
+        "gallery2": [
+          {
+            "imageSource": "https://via.placeholder.com/100",
+            "altTag": "alt tag text here",
+            "selected": true
+          },
+          {
+            "imageSource": "https://via.placeholder.com/200",
+            "altTag": "alt tag text here",
+            "selected": false
+          },
+          {
+            "imageSource": "https://via.placeholder.com/300",
+            "altTag": "alt tag text here",
+            "selected": false
+          }
+        ]
+      }
+  </script>
 
 
-<!-- END CODE -->
+  <!-- END CODE -->
 
-<script src="learning-center.js"></script>
+  <script src="learning-center.js"></script>
 
 </body>
 
