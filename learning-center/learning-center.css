@@ -181,6 +181,23 @@ html {
 
 /* END one-image-text template */
 
+/* START large image template */
+
+#large-image-temp {
+  padding: 40px 20px;
+  display: flex;
+}
+#large-image-temp img {
+  height: 100%;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+}
+
+/* END large image template */
+
 /* START text-only template */
 
 #text-only-temp {
