@@ -228,9 +228,11 @@ html {
   text-transform: uppercase;
   margin-top: 20px;
 }
+.section-cont p {
+  font-size: 18px !important;
+}
 .section-one, .section-two {
   width: 100%;
-  font-size: 18px;
 }
 
 /* END TWO LARGE IMAGE TEMPLATE */
