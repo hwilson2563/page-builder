@@ -200,6 +200,35 @@ html {
 
 /* END text-only template */
 
+/* START TWO LARGE IMAGE TEMPLATE */
+
+#two-large-image-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+#two-large-image-temp h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.section-cont {
+  font-size: 18px;
+  width: 100%;
+}
+.section-cont img {
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  width: 100%;
+  margin-top: 30px;
+}
+.section-cont h4 {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+/* END TWO LARGE IMAGE TEMPLATE */
+
 @media screen and (min-width: 600px) {
   /* linking-template styles BEGIN */
   #linking-temp {
@@ -235,6 +264,21 @@ html {
 }
 
 /* linking-template styles END */
+
+/* START TWO LARGE IMAGE TEMPLATE */
+
+  .section-cont {
+    display: flex;
+    flex-direction: row;
+  }
+  .one, .two {
+    width: 50%;
+  }
+  .one {
+    margin-right: 40px;
+  }
+
+/* END TWO LARGE IMAGE TEMPLATE */
 
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
@@ -306,4 +350,12 @@ html {
     max-width: 650px;
   }
   /* END text-only template */
+  /* START TWO LARGE IMAGE TEMPLATE */
+  .section-cont {
+    max-width: 1090px;
+  }
+  .one {
+    margin-right: 90px;
+  }
+  /* END TWO LARGE IMAGE TEMPLATE */
 }
