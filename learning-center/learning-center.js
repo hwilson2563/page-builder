@@ -18,8 +18,9 @@ function readMore () {
     }
   }
 }
-// add readMore functionality to run on page resize
-window.addEventListener('resize', readMore())
+// add readMore functionality to run on page resize and on page load
+readMore()
+window.addEventListener('resize', readMore)
 //  start of onclick function attached to show more button
 function showMore (button) {
   var parentElement = button.parentElement
