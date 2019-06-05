@@ -18,13 +18,14 @@
     <div class='container'>
       <div class='button-section'>
         <h2>Place Section Title Here</h2>
-        <div class='selection-container'>
-          <button class='info-button'>1</button>
+        <div id='selection-container'>
+          <!-- Buttons will generate here on load -->
+          <!-- <button class='info-button'>1</button>
           <button class='info-button'>2</button>
           <button class='info-button'>3</button>
           <button class='info-button'>4</button>
           <button class='info-button'>5</button>
-          <button class='info-button'>6</button>
+          <button class='info-button'>6</button> -->
         </div>
       </div>
       <div class='gallery-section'>
@@ -48,37 +49,43 @@
   <!-- <script id='galleries' type='application/json'> -->
   <script id='galleries' type='application/json'>
       {
-        "gallery1": [
+        "Gallery Name 1": [
           {
             "imageSource": "https://via.placeholder.com/700",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": true
           },
           {
             "imageSource": "https://via.placeholder.com/500",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": false
           },
           {
             "imageSource": "https://via.placeholder.com/600",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": false
           }
         ],
-        "gallery2": [
+        "Gallery Name 2": [
           {
             "imageSource": "https://via.placeholder.com/100",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": true
           },
           {
             "imageSource": "https://via.placeholder.com/200",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": false
           },
           {
             "imageSource": "https://via.placeholder.com/300",
             "altTag": "alt tag text here",
+            "galleryButtonAriaLabel": "Read more on item",
             "selected": false
           }
         ]

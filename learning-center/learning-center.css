@@ -256,7 +256,7 @@ button.bullet {
   div#image-container {
     margin-top: 82px;
   }
-  .selection-container {
+  #selection-container {
     margin-top: 30px;
   }
   #bullet-container {
