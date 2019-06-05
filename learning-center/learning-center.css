@@ -103,61 +103,6 @@ div {
 
 /* END Global Responsive Styles */
 
-/* START BUTTON */
-
-.template-button {
-  margin: 0 auto;
-  border-style: none;
-  outline: none;
-  position: relative;
-  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
-  font-family: var(--font-body);
-  text-align: center;
-  padding: 15px 10px;
-  background-color: #E66D1C;
-  background-color: var(--accent-primary);
-  color: #FFFFFF;
-  color: var(--font-overlay);
-  border-radius: 3px;
-  font-size: 17px;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 275px;
-}
-
-.button-link {
-  text-decoration: none;
-}
-
-.template-button:hover {
-  background-color: #E05D05;
-  background-color: var(--accent-primary-dark);
-}
-
-/* END BUTTON */
-
-/* START Button Text Template */
-
-.button-text-template {
-  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 45px 25px 40px;
-  margin: 0 auto;
-}
-
-.button-text-template .button-text-template-text {
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-/* END Button Text Template */
-
 /* START linking-template styles */
 
 #linking-temp {
@@ -245,6 +190,7 @@ div {
   padding: 40px 20px;
   display: flex;
 }
+
 #large-image-temp img {
   height: 100%;
   width: 100%;
@@ -373,24 +319,6 @@ button:focus {
 }
 
 @media only screen and (min-width: 740px) {
-  /* START BUTTON */
-  .template-button {
-    display: inline-block;
-  }
-  /* END BUTTON */
-  /* START Button Text Template */
-  .button-text-template {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .button-text-template .button-text-template-text {
-    display: inline-block;
-    margin-right: 35px;
-    margin-bottom: 0;
-    max-width: 380px;
-  }
-  /* END Button Text Template */
   /* START one-image-text template */
   #one-image-text {
     flex-direction: row;
@@ -438,15 +366,6 @@ button:focus {
 }
 
 @media screen and (min-width: 1011px) {
-  /* START Button Text Template */
-  .button-text-template {
-    max-width: 630px;
-  }
-  .button-text-template .button-text-template-text {
-    font-size: 24px;
-    margin-right: 55px;
-  }
-  /* END Button Text Template */
   /* START linking-template styles */
   #linking-temp {
     flex-wrap: nowrap;
