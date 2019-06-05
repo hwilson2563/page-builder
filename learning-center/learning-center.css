@@ -53,14 +53,14 @@ body {
   font-family: var(--font-body);
 }
 
-.background {
+#gallery-template.background {
   width: 100%;
   min-height: 400px;
   background: #ebebeb;
   background: var(--background-accent);
 }
 
-.container {
+#gallery-template .container {
   padding: 40px 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -75,7 +75,7 @@ body {
   grid-template-areas: "buttons""gallery""info"
 }
 
-div.button-section {
+#gallery-template div.button-section {
   width: 100%;
   margin-left: 40px;
   -ms-grid-row: 1;
@@ -86,7 +86,7 @@ div.button-section {
   -ms-grid-rows: 1;
 }
 
-div.gallery-section {
+#gallery-template.gallery-section {
   -ms-grid-row: 3;
   grid-row: 3;
   grid-column: 3;
@@ -95,7 +95,7 @@ div.gallery-section {
   -ms-grid-rows: 2;
 }
 
-div.info-section {
+#gallery-template .info-section {
   -ms-grid-row: 5;
   grid-row: 5;
   -ms-grid-column: 1;
@@ -105,39 +105,39 @@ div.info-section {
   width: 90%;
 }
 
-h2,
-h3.title-center-mobile,
-h3.title-desktop {
+#gallery-template h2,
+#gallery-template .title-center-mobile,
+#gallery-template .title-desktop {
   color: #252422;
   color: var(--main-secondary);
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.title-center-mobile {
+#gallery-template .title-center-mobile {
   text-align: center;
 }
 
-.title-desktop {
+#gallery-template .title-desktop {
   display: none;
 }
 
-h2 {
+#gallery-template h2 {
   font-size: 24px;
 }
 
-h3 {
+#gallery-template h3 {
   font-size: 18px;
 }
 
-p {
+#gallery-template #info-body {
   margin: 0;
   font-size: 18px;
   color: #252422;
   color: var(--main-secondary);
 }
 
-button {
+#gallery-template button {
   height: 50px;
   width: 280px;
   margin-bottom: 10px;
@@ -154,24 +154,25 @@ button {
   outline: none;
 }
 
-button:hover {
+#gallery-template button:hover {
   cursor: pointer;
   background: #E66D1C;
   background: var(--accent-primary);
   color: white;
 }
 
-div#image-container {
+#gallery-template #image-container {
+  margin: 0 auto;
   position: relative;
-  width: 90vw;
-  height: 90vw;
+  width: 80vw;
+  height: 80vw;
   overflow: hidden;
 }
 
-img.gallery-img {
+#gallery-template .gallery-img {
   position: absolute;
-  width: 90vw;
-  height: 90vw;
+  width: 80vw;
+  height: 80vw;
   top: 0;
   opacity: 0;
   -webkit-transition: .3s ease-in-out;
@@ -179,11 +180,11 @@ img.gallery-img {
   transition: .3s ease-in-out;
 }
 
-img.gallery-img.display-img {
+#gallery-template img.gallery-img.display-img {
   opacity: 1;
 }
 
-#bullet-container {
+#gallery-template #bullet-container {
   margin-top: 10px;
   width: 90vw;
   display: -webkit-box;
@@ -196,59 +197,59 @@ img.gallery-img.display-img {
   justify-content: center;
 }
 
-button.bullet {
+#gallery-template button.bullet {
   width: 20px;
   margin: 5px;
   height: 20px;
   border-radius: 100%;
 }
 
-.info-button {
+#gallery-template .info-button {
   display: none;
 }
 
-.active {
+#gallery-template .active {
   color: white;
   background-color: #E66D1C;
   background-color: var(--accent-primary);
 }
 
-button.dropdown-button {
+#gallery-template button.dropdown-button {
   margin: 0;
   background-color: white;
   color: var(--main-secondary);
   color: #252422;
   text-align: left;
   padding-left: 15px;
-  width: 335px;
+  width: 100%;
   position: relative;
   border: none;
 }
 
-button.dropdown-button:hover {
+#gallery-template button.dropdown-button:hover {
   margin: 0;
   background: white;
   color: var(--main-secondary);
   color: #252422;
   text-align: left;
   padding-left: 15px;
-  width: 335px;
+  width: 100%;
   position: relative;
   border: none;
 }
 
-button.dropdown-button.active {
+#gallery-template button.dropdown-button.active {
   background: white;
   border-bottom: 1px solid var(--background);
   border-bottom: 1px solid #ccc9c1;
 }
 
-button.dropdown-button:hover {
+#gallery-template button.dropdown-button:hover {
   background: #ebebeb;
   background: var(--background-accent);
 }
 
-button.dropdown-button.active::after {
+#gallery-template button.dropdown-button.active::after {
   content: '';
   background: url('https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/arrow.svg') center no-repeat;
   height: 30px;
@@ -262,24 +263,24 @@ button.dropdown-button.active::after {
   transform: rotate(-180deg);
 }
 
-#selection-container-btn {
+#gallery-template #selection-container-btn {
   height: 49px;
-  width: 335px;
+  width: calc(100% - 40px);
   border: 1px solid var(--background);
   border: 1px solid #ccc9c1;
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
-#selection-container-btn:hover {
+#gallery-template #selection-container-btn:hover {
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.4) 1px 3px 5px;
 }
 
 @media screen and (min-width: 600px) {
-  .container {
+  #gallery-template .container {
     justify-items: left;
-    padding: 0 25px;
+    padding: 0 25px 25px;
     grid-gap: 0;
     -ms-grid-columns: 1fr, 2fr;
     -ms-grid-rows: 1fr, 3fr;
@@ -289,26 +290,26 @@ button.dropdown-button.active::after {
     grid-template-areas: "buttons buttons""gallery info"
   }
 
-  div#image-container,
-  img.gallery-img {
+  #gallery-template #image-container,
+  #gallery-template .gallery-img {
     height: 300px;
     width: 300px;
   }
 
-  #bullet-container {
+  #gallery-template #bullet-container {
     margin: 25px 0 10px;
     width: 300px;
   }
 
-  .title-center-mobile {
+  #gallery-template .title-center-mobile {
     margin-top: 0px;
   }
 
-  p {
+  #gallery-template .info-body {
     margin-left: 20px;
   }
 
-  div.button-section {
+  #gallery-template div.button-section {
     margin-left: 0;
     margin-bottom: 30px;
     -ms-grid-row: 1;
@@ -318,62 +319,65 @@ button.dropdown-button.active::after {
     -ms-grid-column-span: 3
   }
 
-  div.gallery-section {
+  #gallery-template .gallery-section {
     -ms-grid-row: 3;
     grid-row: 3;
     -ms-grid-column: 1;
     grid-column: 1;
   }
 
-  div.info-section {
+  #gallery-template .info-section {
     -ms-grid-row: 3;
     grid-row: 3;
     -ms-grid-column: 3;
     grid-column: 3;
   }
+  #gallery-template #selection-container-btn {
+    width: 335px;
+  }
 }
 
 @media screen and (min-width: 1011px) {
-  .container {
-    padding-bottom: 25px;
+  #gallery-template .container {
+    grid-gap: 20px;
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "buttons gallery info"
   }
 
-  div.info-section {
+  #gallery-template div.info-section {
     margin-top: 58px;
   }
 
-  div#image-container {
+  #gallery-template div#image-container {
     margin-top: 82px;
   }
 
-  #selection-container-btn {
+  #gallery-template #selection-container-btn {
     margin-top: 30px;
   }
 
-  #bullet-container {
+  #gallery-template #bullet-container {
     margin: 25px 0 0;
   }
 
-  .title-center-mobile {
+  #gallery-template .title-center-mobile {
     display: none;
   }
 
-  .title-desktop {
+  #gallery-template .title-desktop {
     display: inline-block;
   }
 
-  p {
+  #gallery-template #info-body {
     margin-left: 0;
   }
 
-  .info-button {
+  #gallery-template .info-button {
     display: block;
   }
 
-  div.button-section {
+  #gallery-template div.button-section {
     -ms-grid-row: 1;
     grid-row: 1;
     -ms-grid-column: 1;
@@ -381,35 +385,35 @@ button.dropdown-button.active::after {
     -ms-grid-column-span: 1;
   }
 
-  div.gallery-section {
+  #gallery-template div.gallery-section {
     -ms-grid-row: 1;
     grid-row: 1;
     -ms-grid-column: 2;
     grid-column: 2;
   }
 
-  div.info-section {
+  #gallery-template div.info-section {
     -ms-grid-row: 1;
     grid-row: 1;
     -ms-grid-column: 3;
     grid-column: 3;
   }
 
-  #selection-container-btn {
+  #gallery-template #selection-container-btn {
     height: auto;
     width: auto;
     border: none;
   }
 
-  #selection-container-btn:hover {
+  #gallery-template #selection-container-btn:hover {
     box-shadow: none;
   }
 
-  .info-button {
+  #gallery-template .info-button {
     display: block;
   }
 
-  .dropdown-button {
+  #gallery-template .dropdown-button {
     display: none;
   }
 }
