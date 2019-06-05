@@ -230,6 +230,7 @@ html {
 }
 .section-one, .section-two {
   width: 100%;
+  font-size: 18px;
 }
 
 /* END TWO LARGE IMAGE TEMPLATE */
