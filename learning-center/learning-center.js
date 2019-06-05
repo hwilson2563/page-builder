@@ -6,16 +6,16 @@
 // put image url and alt data below, in between the single quotes
 // copy from the first { to the }, to add another object or remove
 // if you don't want the first one to display first, change selected to false and assign the one you want to display to true
-var galleryImages = JSON.parse(document.getElementById('galleries').innerHTML)
+var galleriesJSON = JSON.parse(document.getElementById('galleries').innerHTML)
 var selectedGallery = null
-var objectProperyNames = Object.getOwnPropertyNames(galleryImages)
+var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON)
 
 function handleGalleryClick (idx, galleryName) {
   var selectedImage = document.getElementsByClassName('gallery-img')
   var selectedBullet = document.getElementsByClassName('bullet')
 
   // this finds the previously selected item and makes it false, and removes the active classes for the object
-  galleryImages[galleryName].forEach(function (image, index) {
+  galleriesJSON[galleryName].forEach(function (image, index) {
     if (image.selected === true) {
       image.selected = false
       selectedImage[index].classList.remove('display-img')
@@ -24,14 +24,25 @@ function handleGalleryClick (idx, galleryName) {
   })
 
   // sets new selected and active objects
-  galleryImages[galleryName][idx].selected = true
+  galleriesJSON[galleryName][idx].selected = true
   selectedImage[idx].classList.add('display-img')
   selectedBullet[idx].classList.add('active')
 }
 
-function changeGallery (gallery) {
-  selectedGallery = gallery
-  buildGallery(gallery)
+function changeGallery (galleryName) {
+  var infoButtons = document.getElementsByClassName('info-button')
+
+  // adds and removes the active css class
+  Object.keys(galleriesJSON).forEach(function (gallery, index) {
+    if (gallery === galleryName) {
+      infoButtons[index].classList.add('active')
+    } else {
+      infoButtons[index].classList.remove('active')
+    }
+  })
+
+  selectedGallery = galleryName
+  buildGallery(galleryName)
 }
 
 // this builds the whole gallery section and functionality based on JSON
@@ -42,7 +53,7 @@ function buildGallery (gallery) {
   buttonContainer.innerHTML = ''
 
   // this loops through each gallery in the JSON
-  galleryImages[gallery].forEach(function (image, idx) {
+  galleriesJSON[gallery].forEach(function (image, idx) {
     // this builds the images
     var imageTag = document.createElement('img')
     imageTag.setAttribute('id', 'img' + idx)
@@ -70,15 +81,15 @@ function buildGallery (gallery) {
 function buildGalleryButtons () {
   var buttonContainer = document.getElementById('selection-container')
 
-  objectProperyNames.forEach(function (gallery, idx) {
+  objectProperyNames.forEach(function (galleryName, idx) {
     var buttonElement = document.createElement('button')
     objectProperyNames[idx] === selectedGallery
       ? buttonElement.setAttribute('class', 'info-button active')
       : buttonElement.setAttribute('class', 'info-button')
     buttonElement.innerText = objectProperyNames[idx]
-    buttonElement.setAttribute('aria-label', galleryImages[gallery][idx].galleryButtonAriaLabel)
+    buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][idx].galleryButtonAriaLabel)
     buttonElement.onclick = function () {
-      changeGallery(gallery)
+      changeGallery(galleryName)
     }
     buttonContainer.appendChild(buttonElement)
   })
@@ -98,8 +109,7 @@ function buildGalleryButtons () {
 // this initially function populates gallery on load
 ;(function () {
   // this loops through JSON
-  Object.values(galleryImages).forEach(function (gallery, index) {
-    console.log(gallery)
+  Object.values(galleriesJSON).forEach(function (gallery, index) {
     if (index === 0) {
       selectedGallery = objectProperyNames[index]
       // this loops through each gallery in the JSON
