@@ -54,27 +54,29 @@ function buildGallery (gallery) {
 
   // this loops through each gallery in the JSON
   galleriesJSON[gallery].forEach(function (image, idx) {
-    // this builds the images
-    var imageTag = document.createElement('img')
-    imageTag.setAttribute('id', 'img' + idx)
-    image.selected
-      ? imageTag.setAttribute('class', 'gallery-img display-img')
-      : imageTag.setAttribute('class', 'gallery-img')
-    imageTag.setAttribute('src', image.imageSource)
-    imageTag.setAttribute('alt', image.altTag)
-    imageContainer.appendChild(imageTag)
+    if (idx !== 0) {
+      // this builds the images
+      var imageTag = document.createElement('img')
+      imageTag.setAttribute('id', 'img' + idx)
+      image.selected
+        ? imageTag.setAttribute('class', 'gallery-img display-img')
+        : imageTag.setAttribute('class', 'gallery-img')
+      imageTag.setAttribute('src', image.imageSource)
+      imageTag.setAttribute('alt', image.altTag)
+      imageContainer.appendChild(imageTag)
 
-    // this builds the button associated with the image
-    var buttonElement = document.createElement('button')
-    buttonElement.setAttribute('id', 'button' + idx)
-    image.selected
-      ? buttonElement.setAttribute('class', 'bullet active')
-      : buttonElement.setAttribute('class', 'bullet')
-    buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
-    buttonElement.onclick = function () {
-      handleGalleryClick(idx, selectedGallery)
+      // this builds the button associated with the image
+      var buttonElement = document.createElement('button')
+      buttonElement.setAttribute('id', 'button' + idx)
+      image.selected
+        ? buttonElement.setAttribute('class', 'bullet active')
+        : buttonElement.setAttribute('class', 'bullet')
+      buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
+      buttonElement.onclick = function () {
+        handleGalleryClick(idx, selectedGallery)
+      }
+      buttonContainer.appendChild(buttonElement)
     }
-    buttonContainer.appendChild(buttonElement)
   })
 }
 
@@ -87,23 +89,12 @@ function buildGalleryButtons () {
       ? buttonElement.setAttribute('class', 'info-button active')
       : buttonElement.setAttribute('class', 'info-button')
     buttonElement.innerText = objectProperyNames[idx]
-    buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][idx].galleryButtonAriaLabel)
+    buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
     buttonElement.onclick = function () {
       changeGallery(galleryName)
     }
     buttonContainer.appendChild(buttonElement)
   })
-
-  // var buttonElement = document.createElement('button')
-  // buttonElement.setAttribute('id', 'button' + idx)
-  // image.selected
-  //   ? buttonElement.setAttribute('class', 'bullet active')
-  //   : buttonElement.setAttribute('class', 'bullet')
-  // buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
-  // buttonElement.onclick = function () {
-  //   handleGalleryClick(idx, selectedGallery)
-  // }
-  // buttonContainer.appendChild(buttonElement)
 }
 
 // this initially function populates gallery on load
