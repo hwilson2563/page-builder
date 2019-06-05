@@ -106,7 +106,7 @@ div {
 /* START BUTTON */
 
 .template-button {
-  margin: 30px auto 0;
+  margin: 0 auto;
   border-style: none;
   outline: none;
   position: relative;
@@ -147,11 +147,13 @@ div {
   text-transform: uppercase;
   text-align: center;
   padding: 45px 25px 40px;
+  margin: 0 auto;
 }
 
 .button-text-template .button-text-template-text {
   font-size: 17px;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
 /* END Button Text Template */
@@ -298,9 +300,16 @@ div {
   }
   /* END BUTTON */
   /* START Button Text Template */
+  .button-text-template {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .button-text-template .button-text-template-text {
-    display: inline;
+    display: inline-block;
     margin-right: 35px;
+    margin-bottom: 0;
+    max-width: 380px;
   }
   /* END Button Text Template */
   /* START one-image-text template */
@@ -322,6 +331,9 @@ div {
 
 @media screen and (min-width: 1011px) {
   /* START Button Text Template */
+  .button-text-template {
+    max-width: 630px;
+  }
   .button-text-template .button-text-template-text {
     font-size: 24px;
     margin-right: 55px;
