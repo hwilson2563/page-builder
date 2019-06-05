@@ -249,7 +249,7 @@ button.bullet {
   .container {
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas: "buttons gallery info"
+    grid-template-areas: "buttons gallery info"
   }
   div.info-section {
     margin-top: 58px;
@@ -282,10 +282,10 @@ button.bullet {
   }
   div.gallery-section {
     -ms-grid-row: 1;
-    -ms-grid-column: 3
+    -ms-grid-column: 2
   }
   div.info-section {
     -ms-grid-row: 1;
-    -ms-grid-column: 5
+    -ms-grid-column: 3
   }
 }

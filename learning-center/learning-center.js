@@ -48,7 +48,10 @@ function changeGallery (galleryName) {
 function changeInfoSection (galleryName) {
   var infoHeader = document.getElementsByClassName('info-header')
   var infoBody = document.getElementById('info-body')
-  Array.from(infoHeader).forEach(function (header) {
+  // this is because of IE
+  var headersArray = [infoHeader[0], infoHeader[1]]
+
+  headersArray.forEach(function (header) {
     header.innerHTML = galleriesJSON[galleryName][0].infoTitle
   })
   infoBody.innerHTML = galleriesJSON[galleryName][0].infoText
@@ -109,8 +112,14 @@ function buildGalleryButtons () {
 
 // this initially function populates gallery on load
 ;(function () {
-  // this loops through JSON
-  Object.values(galleriesJSON).forEach(function (gallery, index) {
+
+  // have to do this because of IE >:[
+  var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
+    return galleriesJSON[gallery]
+  })
+
+  // this loops through array of galleries
+  galleryValues.forEach(function (gallery, index) {
     if (index === 0) {
       selectedGallery = objectProperyNames[index]
       // this loops through each gallery in the JSON
