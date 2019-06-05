@@ -97,7 +97,9 @@ div {
 html {
   scroll-behavior: smooth;
 }
+
 /* END global styles */
+
 /* linking-template styles BEGIN */
 
 #linking-temp {
@@ -149,7 +151,37 @@ html {
   color: var(--accent-primary-dark);
 }
 
+/* linking-template styles END */
+
+/* START one-image-text template */
+
+#one-image-text {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 20px;
+}
+
+#one-image-text h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+#one-image-text p {
+  font-size: 18px;
+}
+
+#one-image-text img {
+  width: 100%;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  margin-bottom: 20px;
+}
+
+/* END one-image-text template */
+
 @media screen and (min-width: 600px) {
+  /* linking-template styles BEGIN */
   #linking-temp {
     display: flex;
     flex-direction: row;
@@ -180,9 +212,32 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
+  /* linking-template styles END */
+}
+
+@media only screen and (min-width: 740px) {
+  /* START one-image-text template */
+  #one-image-text {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 40px 0px;
+  }
+  #one-image-text h3 {
+    margin-left: 0px;
+  }
+  #one-image-text img {
+    width: 40%;
+    max-width: 350px;
+    margin: 0px 25px 25px 20px;
+  }
+  .text-container {
+    width: 50%;
+  }
+  /* END one-image-text template */
 }
 
 @media screen and (min-width: 1011px) {
+  /* linking-template styles BEGIN */
   #linking-temp {
     flex-wrap: nowrap;
     max-width: 1090px;
@@ -212,59 +267,11 @@ html {
     margin-top: 60px;
     margin-left: 25px;
   }
-}
-
-/* linking-template styles END */
-/* START one-image-text template */
-
-#one-image-text {
-  display: flex;
-  flex-direction: column;
-  margin: 40px 20px;
-}
-
-#one-image-text h3 {
-  font-size: 24px;
-  text-transform: uppercase;
-  margin: 10px;
-}
-
-#one-image-text p {
-  font-size: 18px;
-}
-
-#one-image-text img {
-  width: 100%;
-  background-color: #ebebeb;
-  background-color: var( --background-accent);
-  margin-bottom: 20px;
-}
-
-@media only screen and (min-width: 740px) {
-  /* START one-image-text template */
-  #one-image-text {
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 40px 0px; 
-  }
-  #one-image-text h3 {
-    margin-left: 0px;
-  }
-  #one-image-text img {
-    width: 40%;
-    max-width: 350px;
-    margin:0px 25px 25px 20px;
-  }
-  .text-container {
-    width: 50%;
-  }
-}
-
-@media only screen and (min-width: 1011px) {
+  /* linking-template styles END */
   /* START one-image-text template */
   #one-image-text {
     max-width: 1090px;
-    margin:40px auto;
+    margin: 40px auto;
   }
   #one-image-text h3 {
     margin-top: 20px;
@@ -275,5 +282,5 @@ html {
     margin: 20px;
     margin-left: 10px;
   }
-
+  /* END one-image-text template */
 }
