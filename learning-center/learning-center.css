@@ -507,6 +507,67 @@ div {
 /* END gallery template */
 
 
+/* START three-img template */
+
+#three-img-temp {
+  margin: 40px 20px;
+}
+
+#three-img-temp h3, #three-img-temp h4 {
+  text-transform: uppercase;
+}
+
+#three-img-temp h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+#three-img-temp h4, #three-img-temp p {
+  font-size: 18px;
+}
+
+#three-img-temp p {
+  margin: 20px 0px;
+  line-height: 20px;
+}
+
+#three-img-temp img {
+  width: 100%;
+  background-color: var( --background-accent);
+  background-color: #ebebeb;
+  margin-bottom: 20px;
+}
+
+#three-img-temp .img-text-container {
+  margin-bottom: 40px;
+}
+
+#three-img-temp .img-text-container button {
+  display: none;
+}
+
+/* END three-img template */
+
+/* START read more button */
+
+.read button {
+  background-color: white;
+  border: none;
+  color: #E66D1C;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: unset;
+  font-size: 15px;
+  margin: 5px 0px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/* END read more button */
 /* START BANNER TEMPLATE */
 
 #banner-temp {
@@ -739,6 +800,35 @@ div {
   }
 
   /* END one-image-text template */
+  /* START three-img template */
+  #three-img-temp .three-img-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+  }
+  #three-img-temp h3 {
+    width: 100%;
+  }
+  #three-img-temp .img-text-container {
+    width: 320px;
+  }
+  #three-img-temp .read-more-container {
+    overflow: hidden;
+    max-height: 300px;
+  }
+  #three-img-temp .img-text-container button {
+    display: none;
+  }
+  #three-img-temp .img-text-container.read button {
+    display: block;
+  }
+  #three-img-temp .img-text-container.more .read-more-container {
+    overflow: visible;
+    max-height: none;
+  }
+  /* END three-img template */
 }
 
 @media screen and (min-width: 1011px) {
@@ -803,12 +893,27 @@ div {
   }
 
   /* END one-image-text template */
-  /* START TEXT ONLY TEMPLATE */
+  /* START text only template */
   #text-only-temp {
     max-width: 650px;
   }
-
-  /* END text-only template */
+  /* END text only template  */
+  /* START three img template */
+  #three-img-temp .three-img-text {
+    width: 100%;
+    max-width: 1090px;
+  }
+  #three-img-temp .img-text-container {
+    width: 300px;
+  }
+  #three-img-temp .img-text-container.read button {
+    display: none;
+  }
+  #three-img-temp .img-text-container .read-more-container {
+    overflow: visible;
+    max-height: none;
+  }
+  /* END three img template */
   /* gallery-template styles BEGIN */
   #gallery-template .container {
     padding: 0 0 25px;
