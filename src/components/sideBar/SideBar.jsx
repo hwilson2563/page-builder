@@ -12,18 +12,16 @@ const SideBarContainer = styled.div`
   overflow: hidden;
   height: 100%;
   font-family: ${props => props.theme.fontBasic};
-  &.close {
-    cursor: pointer;
-  }
   &.open {
     width: 350px;
   }
   &.open .nav-arrow {
-    animation: fadeOut 0.8s;
-    @keyframes fadeOut {
+    transform: rotate(180deg);
+    animation: fadeOutOpen 0.8s;
+    @keyframes fadeOutOpen {
       0% {
-        transform: rotate(180deg);
         opacity: 0;
+        transform: rotate(180deg);
         padding-left: 20px;
       }
       100% {
@@ -33,28 +31,51 @@ const SideBarContainer = styled.div`
     }
   }
   &.open .nav-arrow:hover {
-    transform: rotate(0);
+    transform: rotate(0deg);
     padding-right: 20px;
-    animation: fadeIn 0.8s;
-    @keyframes fadeIn {
+    animation: fadeInOpen 0.8s;
+    @keyframes fadeInOpen {
       0% {
         opacity: 0;
         padding-right: 10px;
-        transform: rotate(180);
+        transform: rotate(0deg);
       }
       100% {
         opacity: 1;
         padding-right: 20px;
+
       }
     }
   }
   &.close .nav-arrow {
-    transform: scale(1);
-    transition: transform 0.1s ease-in;
+    transform: rotate(0deg);
+    animation: fadeOutClose 0.8s;
+    @keyframes fadeOutClose {
+      0% {
+        opacity: 0;
+        padding-left: 15px;
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
   }
-  &.close:hover .nav-arrow {
-    transform: scale(1.1);
-    transition: transform 0.1s ease-in;
+  &.close .nav-arrow:hover {
+    transform: rotate(180deg);
+    padding-right: 15px;
+    animation: fadeInClose 0.8s;
+    @keyframes fadeInClose {
+      0% {
+        opacity: 0;
+        padding-right: 10px;
+        transform: rotate(180deg);
+      }
+      100% {
+        opacity: 1;
+        padding-right: 15px;
+      }
+    }
   }
   &.open .idx-container {
     animation: navOpen 1.5s;
@@ -99,14 +120,14 @@ const IndexContainer = styled.div`
   height: 100%;
 `
 const SideBar = () => {
-  const [navOpen, setNavOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(true)
   const toggleNav = () => {
     setNavOpen(!navOpen)
   }
   let navStatus = navOpen ? 'open' : 'close'
   return (
-    <SideBarContainer className={navStatus} onClick={() => toggleNav()} navOpen={navOpen}>
-      <NavHeader>
+    <SideBarContainer className={navStatus} navOpen={navOpen}>
+      <NavHeader onClick={() => toggleNav()} >
         {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>

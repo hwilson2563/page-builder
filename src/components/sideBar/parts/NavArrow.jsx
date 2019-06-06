@@ -4,14 +4,12 @@ import styled from 'styled-components'
 const NavArrowSvg = styled.svg`
   height: 20px;
   width: 40px;
-  transform: ${props => (props.navOpen ? 'rotate(180deg)' : '')};
   padding: 10px;
   cursor: pointer;
 `
-const NavArrow = props => {
-  let { navOpen } = props
+const NavArrow = () => {
   return (
-    <NavArrowSvg className={'nav-arrow'} viewBox='0 0 48.248 28.625' navOpen={navOpen}>
+    <NavArrowSvg className={'nav-arrow'} viewBox='0 0 48.248 28.625'>
       <g transform='translate(65.525 59.149) rotate(180)'>
         <g transform='translate(17.277 30.525)'>
           <path
