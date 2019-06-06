@@ -8,6 +8,7 @@ import { theme } from '../utils/globalStyles'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
+  const [selectedTemplates, setSelectedTemplates] = useState([])
 
   useEffect(() => {
     const updateScreen = () => {
@@ -26,7 +27,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <SideBar />
-        <TemplatesPreview screen={screen} />
+        <TemplatesPreview screen={screen} selectedTemplates={selectedTemplates} />
       </>
     </ThemeProvider>
   )
