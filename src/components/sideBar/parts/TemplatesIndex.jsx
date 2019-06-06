@@ -8,7 +8,7 @@ const Template = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   &:last-child {
     margin-bottom: 50px;
   }
