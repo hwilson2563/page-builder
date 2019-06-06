@@ -41,6 +41,7 @@ const TemplateName = styled.div`
   margin-left: 20px;
 `
 const AddButton = styled.button`
+  outline:0;
   border: none;
   background-color: unset;
   width: 35px;

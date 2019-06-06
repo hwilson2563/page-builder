@@ -48,6 +48,10 @@ const SideBarContainer = styled.div`
       }
     }
   }
+  &.close .nav-arrow {
+    transform: scale(1);
+    transition: transform 0.1s ease-in;
+  }
   &.close:hover .nav-arrow {
     transform: scale(1.1);
     transition: transform 0.1s ease-in;
@@ -103,7 +107,7 @@ const SideBar = () => {
   return (
     <SideBarContainer className={navStatus} onClick={() => toggleNav()} navOpen={navOpen}>
       <NavHeader>
-        {navOpen && <Title>templates</Title>}
+        {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
       <IndexContainer className={'idx-container'}>{navOpen && <TemplatesIndex />}</IndexContainer>
