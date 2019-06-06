@@ -2,35 +2,61 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import NavArrow from './parts/NavArrow'
+import TemplatesIndex from './parts/TemplatesIndex'
 
 const SideBarContainer = styled.div`
   background-color: black;
   opacity: 0.75;
-  height: 100%;
   position: absolute;
-  width:60px;
-  transition: width .5s ease;
-  &.open {
-    width: 300px;
-  }
-  &.close:hover svg{
-    transform:scale(1.1);
-    transition: transform .1s ease-in;
-  }
-`
-const NavHeader = styled.div`
-  display: flex;
-  position: relative;
+  width: 60px;
+  transition: width 0.5s ease;
   overflow: hidden;
-  justify-content: space-around;
-  align-items: center;
-`
-const Title = styled.div`
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: navOpen .3s;
-  @keyframes navOpen {
+  height: 100%;
+  &.close {
+    cursor: pointer;
+  }
+  &.open {
+    width: 350px;
+  }
+  &.open .nav-arrow {
+    animation: fadeOut .8s;
+    @keyframes fadeOut {
+      0% {
+        transform: rotate(180deg);
+        opacity: 0;
+        padding-left: 20px;
+      }
+      100% {
+        opacity: 1;
+        padding-left: 10px;
+      }
+    }
+  }
+  &.open .nav-arrow:hover {
+    transform: rotate(0);
+    padding-right: 20px;
+    animation: fadeIn .8s;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        padding-right: 10px;
+        transform: rotate(180);
+      }
+      100% {
+        opacity: 1;
+        padding-right: 20px;
+      }
+    }
+  }
+  &.close:hover .nav-arrow {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in;
+  }
+  &.open .idx-container {
+  animation: navOpen 1.5s;
+  opacity: 1;
+  height: 100%;
+    @keyframes navOpen {
       0% {
         opacity: 0;
       }
@@ -38,6 +64,35 @@ const Title = styled.div`
         opacity: 1;
       }
     }
+  } 
+`
+const NavHeader = styled.div`
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+`
+const Title = styled.div`
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 20px;
+  animation: navOpen 2s;
+  @keyframes navOpen {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`
+const IndexContainer = styled.div`
+  overflow: scroll;
+  height: 0px;
+  opacity: 0;
+  height: 100%;
 `
 const SideBar = () => {
   const [navOpen, setNavOpen] = useState(false)
@@ -51,6 +106,7 @@ const SideBar = () => {
         {navOpen && <Title>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
+      <IndexContainer className={'idx-container'}>{navOpen && <TemplatesIndex />}</IndexContainer>
     </SideBarContainer>
   )
 }
