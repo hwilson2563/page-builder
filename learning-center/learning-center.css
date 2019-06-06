@@ -282,7 +282,7 @@ html {
 
 #gallery-template .title-center-mobile {
   text-align: center;
-  margin: 20px 0 30px;
+  margin: 0 0 18px;
 }
 
 #gallery-template .title-desktop {
@@ -291,6 +291,7 @@ html {
 
 #gallery-template h2 {
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 #gallery-template h3 {
@@ -298,7 +299,7 @@ html {
 }
 
 #gallery-template #info-body {
-  margin: 20px 0 0 0;
+  margin: 0;
   font-size: 18px;
   color: #252422;
   color: var(--main-secondary);
