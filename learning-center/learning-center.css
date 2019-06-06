@@ -444,8 +444,8 @@ div {
 #gallery-template button.dropdown-button {
   margin: 0;
   background-color: white;
-  color: var(--main-secondary);
   color: #252422;
+  color: var(--main-secondary);
   text-align: left;
   padding-left: 15px;
   width: 100%;
@@ -456,8 +456,8 @@ div {
 #gallery-template button.dropdown-button:hover {
   margin: 0;
   background: white;
-  color: var(--main-secondary);
   color: #252422;
+  color: var(--main-secondary);
   text-align: left;
   padding-left: 15px;
   width: 100%;
@@ -467,8 +467,8 @@ div {
 
 #gallery-template button.dropdown-button.active {
   background: white;
-  border-bottom: 1px solid var(--background);
   border-bottom: 1px solid #ccc9c1;
+  border-bottom: 1px solid var(--background);
 }
 
 #gallery-template button.dropdown-button:hover {
@@ -493,8 +493,8 @@ div {
 #gallery-template #selection-container-btn {
   height: 49px;
   width: calc(100% - 40px);
-  border: 1px solid var(--background);
   border: 1px solid #ccc9c1;
+  border: 1px solid var(--background);
   transition: all 0.3s ease;
   overflow: hidden;
 }
