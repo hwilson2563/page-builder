@@ -1018,10 +1018,10 @@ button:focus {
     /* START FOUR IMAGE TEMPLATE */
     #four-img-template div.center-container {
       margin: 0 auto;
-      max-width: 1091px;
+      max-width: 1090px;
     }
     #four-img-template div.text-img-container {
-      width: 23%;
+      width: 22%;
     }
     /* END FOUR IMAGE TEMPLATE */
 }
