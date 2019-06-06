@@ -1,3 +1,5 @@
+/* Global Styles */
+
 :root {
   /* Colors */
   /* Charcoal */
@@ -33,10 +35,9 @@
   --font-body: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-titles: 'Playfair Display', Palatino, serif;
   --font-line-height: 14px;
-  /* Responsive queries
-
- mobile less than 740 */
-  /* more than 600 */
+  /* Responsive queries */
+  /* mobile less than 740
+  more than 600 */
   --tablet: 600px;
   /* more than 740 */
   --tablet-header: 740px;
@@ -44,7 +45,13 @@
   --desktop: 1011px;
 }
 
+/* END Global Styles */
+
 /* START global responsive styles */
+
+html {
+  scroll-behavior: smooth;
+}
 
 #breadcrumbs {
   display: none
@@ -94,13 +101,65 @@ div {
   -webkit-font-smoothing: antialiased;
 }
 
-html {
-  scroll-behavior: smooth;
+/* END Global Responsive Styles */
+
+/* START BUTTON */
+
+.template-button {
+  margin: 0 auto;
+  border-style: none;
+  outline: none;
+  position: relative;
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
+  font-family: var(--font-body);
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #E66D1C;
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  color: var(--font-overlay);
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 275px;
 }
 
-/* END global styles */
+.button-link {
+  text-decoration: none;
+}
 
-/* linking-template styles BEGIN */
+.template-button:hover {
+  background-color: #E05D05;
+  background-color: var(--accent-primary-dark);
+}
+
+/* END BUTTON */
+
+/* START Button Text Template */
+
+.button-text-template {
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 45px 25px 40px;
+  margin: 0 auto;
+}
+
+.button-text-template .button-text-template-text {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+/* END Button Text Template */
+
+/* START linking-template styles */
 
 #linking-temp {
   display: flex;
@@ -151,7 +210,7 @@ html {
   color: var(--accent-primary-dark);
 }
 
-/* linking-template styles END */
+/* END linking-template styles */
 
 /* START one-image-text template */
 
@@ -251,8 +310,85 @@ html {
 
 /* END two small images template */
 
+/* START BANNER TEMPLATE */
+
+#banner-temp {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ebebeb
+}
+
+.banner-text {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner-text h1 {
+  font-family: 'Playfair Display', Palatino, serif;
+  font-family: var(--font-titles);
+  font-size: 38px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.banner-text p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* END BANNER TEMPLATE */
+
+/* START TWO LARGE IMAGE TEMPLATE */
+
+#two-large-image-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#two-large-image-temp h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.section-cont {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 100%;
+}
+
+.section-cont img {
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  width: 100%;
+  margin-top: 30px;
+}
+
+.section-cont h4 {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.section-cont p {
+  font-size: 18px !important;
+  padding-left: 0;
+}
+
+.section-one, .section-two {
+  width: 100%;
+}
+
+/* END TWO LARGE IMAGE TEMPLATE */
+
 @media screen and (min-width: 600px) {
-  /* linking-template styles BEGIN */
+  /* START linking-template styles */
   #linking-temp {
     display: flex;
     flex-direction: row;
@@ -283,8 +419,18 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
-  /* linking-template styles END */
-
+  /* END linking-template styles */
+  /* START TWO LARGE IMAGE TEMPLATE */
+  .section-cont {
+    flex-direction: row;
+  }
+  .section-one, .section-two {
+    width: 50%;
+  }
+  .section-one {
+    margin-right: 40px;
+  }
+  /* END TWO LARGE IMAGE TEMPLATE */
   /* START two small image template */
   .images-container {
     display: flex;
@@ -298,6 +444,23 @@ html {
 }
 
 @media only screen and (min-width: 740px) {
+  /* START BUTTON */
+  .template-button {
+    display: inline-block;
+  }
+  /* END BUTTON */
+  /* START Button Text Template */
+  .button-text-template {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button-text-template .button-text-template-text {
+    display: inline-block;
+    margin-right: 35px;
+    margin-bottom: 0;
+  }
+  /* END Button Text Template */
   /* START one-image-text template */
   #one-image-text {
     flex-direction: row;
@@ -316,7 +479,12 @@ html {
 }
 
 @media screen and (min-width: 1011px) {
-  /* linking-template styles BEGIN */
+  /* START Button Text Template */
+  .button-text-template .button-text-template-text {
+    margin-right: 55px;
+  }
+  /* END Button Text Template */
+  /* START linking-template styles */
   #linking-temp {
     flex-wrap: nowrap;
     max-width: 1090px;
@@ -346,7 +514,7 @@ html {
     margin-top: 60px;
     margin-left: 25px;
   }
-  /* linking-template styles END */
+  /* END linking-template styles */
   /* START one-image-text template */
   #one-image-text {
     max-width: 1090px;
@@ -390,4 +558,21 @@ html {
     margin-left: 20px;
   }
   /* END two small image template */
+ /* START BANNER TEMPLATE */
+  .banner-text h1 {
+    font-size: 50px;
+  }
+  /* END BANNER TEMPLATE */
+  /* START TWO LARGE IMAGE TEMPLATE */
+  .section-cont {
+    max-width: 1090px;
+  }
+  .section-cont h4 {
+    max-width: 1090px;
+    text-align: center;
+  }
+  .section-one {
+    margin-right: 90px;
+  }
+  /* END TWO LARGE IMAGE TEMPLATE */
 }
