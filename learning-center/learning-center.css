@@ -707,6 +707,7 @@ html {
   /* END text-only template */
   /* gallery-template styles BEGIN */
   #gallery-template .container {
+    padding: 0 0 25px;
     grid-gap: 20px;
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
