@@ -5,7 +5,7 @@ import NavArrow from './parts/NavArrow'
 import TemplatesIndex from './parts/TemplatesIndex'
 
 const SideBarContainer = styled.div`
-  background-color: ${props=>props.theme.fontMain + 'BF'};
+  background-color: ${props => props.theme.fontMain + 'BF'};
   position: fixed;
   width: 60px;
   transition: width 0.5s ease;
@@ -19,7 +19,7 @@ const SideBarContainer = styled.div`
     width: 350px;
   }
   &.open .nav-arrow {
-    animation: fadeOut .8s;
+    animation: fadeOut 0.8s;
     @keyframes fadeOut {
       0% {
         transform: rotate(180deg);
@@ -35,7 +35,7 @@ const SideBarContainer = styled.div`
   &.open .nav-arrow:hover {
     transform: rotate(0);
     padding-right: 20px;
-    animation: fadeIn .8s;
+    animation: fadeIn 0.8s;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -57,9 +57,9 @@ const SideBarContainer = styled.div`
     transition: transform 0.1s ease-in;
   }
   &.open .idx-container {
-  animation: navOpen 1.5s;
-  opacity: 1;
-  height: 100%;
+    animation: navOpen 1.5s;
+    opacity: 1;
+    height: 100%;
     @keyframes navOpen {
       0% {
         opacity: 0;
@@ -68,7 +68,7 @@ const SideBarContainer = styled.div`
         opacity: 1;
       }
     }
-  } 
+  }
 `
 const NavHeader = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ const NavHeader = styled.div`
   align-items: center;
 `
 const Title = styled.div`
-  color:${props => props.theme.fontOverlay};
+  color: ${props => props.theme.fontOverlay};
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 20px;
@@ -110,9 +110,7 @@ const SideBar = () => {
         {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
-      <IndexContainer className={'idx-container'}>
-        {navOpen && <TemplatesIndex />}
-      </IndexContainer>
+      <IndexContainer className={'idx-container'}>{navOpen && <TemplatesIndex />}</IndexContainer>
     </SideBarContainer>
   )
 }

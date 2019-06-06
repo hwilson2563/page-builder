@@ -31,7 +31,7 @@ const TemplateImg = styled.img`
   margin-bottom: 5px;
 `
 const TemplateName = styled.div`
-  color: ${props=>props.theme.fontOverlay};
+  color: ${props => props.theme.fontOverlay};
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
@@ -41,7 +41,7 @@ const TemplateName = styled.div`
   margin-left: 20px;
 `
 const AddButton = styled.button`
-  outline:0;
+  outline: 0;
   border: none;
   background-color: unset;
   width: 35px;
