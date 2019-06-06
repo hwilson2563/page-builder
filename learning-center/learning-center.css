@@ -154,6 +154,7 @@ div {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 30px;
+  margin-top: 0;
 }
 
 /* END Button Text Template */
@@ -309,7 +310,6 @@ div {
     display: inline-block;
     margin-right: 35px;
     margin-bottom: 0;
-    max-width: 380px;
   }
   /* END Button Text Template */
   /* START one-image-text template */
@@ -331,11 +331,7 @@ div {
 
 @media screen and (min-width: 1011px) {
   /* START Button Text Template */
-  .button-text-template {
-    max-width: 630px;
-  }
   .button-text-template .button-text-template-text {
-    font-size: 24px;
     margin-right: 55px;
   }
   /* END Button Text Template */
