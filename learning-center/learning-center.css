@@ -524,7 +524,6 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
-<<<<<<< HEAD
 
   /* linking-template styles END */
 
@@ -593,8 +592,6 @@ html {
   }
 
   /* END gallery template */
-=======
-  /* linking-template styles END */
   /* START TWO LARGE IMAGE TEMPLATE */
 
   .section-cont {
@@ -608,7 +605,6 @@ html {
   }
 
 /* END TWO LARGE IMAGE TEMPLATE */
->>>>>>> 1ff3d57351afe4ef71eac31a01053db454010a02
 }
 
 @media only screen and (min-width: 740px) {
@@ -698,7 +694,6 @@ html {
   }
 
   /* END text-only template */
-<<<<<<< HEAD
   /* gallery-template styles BEGIN */
   #gallery-template .container {
     grid-gap: 20px;
@@ -780,7 +775,6 @@ html {
   }
 
   /* END gallery template */
-=======
   /* START TWO LARGE IMAGE TEMPLATE */
   .section-cont {
     max-width: 1090px;
@@ -793,5 +787,4 @@ html {
     margin-right: 90px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
->>>>>>> 1ff3d57351afe4ef71eac31a01053db454010a02
 }
