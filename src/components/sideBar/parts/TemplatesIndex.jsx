@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import AddIcon from './AddIcon'
-import { templates } from '../../templates.js'
+import { templates } from '../../../utils/templates.js'
 
 const Template = styled.div`
   display: flex;

@@ -12,6 +12,7 @@ const SideBarContainer = styled.div`
   transition: width 0.5s ease;
   overflow: hidden;
   height: 100%;
+  font-family: ${props => props.theme.fontBasic};
   &.close {
     cursor: pointer;
   }
