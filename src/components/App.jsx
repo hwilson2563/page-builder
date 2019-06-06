@@ -7,7 +7,7 @@ import { determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
 const App = () => {
-  const [screen, setScreen] = useState()
+  const [screen, setScreen] = useState('desktop')
 
   useEffect(() => {
     const updateScreen = () => {

@@ -23,7 +23,7 @@ const TemplatesPreview = props => {
     <>
       <HeaderFooterImg
         className={'header-image'}
-        src={screen && 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
+        src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
         alt={'Header'}
       />
       <TemplatesContainer className={'templates-container'}>
@@ -33,7 +33,7 @@ const TemplatesPreview = props => {
       </TemplatesContainer>
       <HeaderFooterImg
         className={'footer-image'}
-        src={screen && 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/footer-' + screen + '.png'}
+        src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/footer-' + screen + '.png'}
         alt={'Footer'}
       />
     </>

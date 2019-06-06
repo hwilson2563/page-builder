@@ -110,7 +110,11 @@ const SideBar = () => {
         {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
-      <IndexContainer className={'idx-container'}>{navOpen && <TemplatesIndex />}</IndexContainer>
+      {navOpen && (
+        <IndexContainer className={'idx-container'}>
+          <TemplatesIndex />
+        </IndexContainer>
+      )}
     </SideBarContainer>
   )
 }
