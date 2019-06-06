@@ -277,7 +277,6 @@ div {
 
 /* END text-only template */
 
-<<<<<<< HEAD
 /* START three-img template */
 
 #three-img-temp {
@@ -339,7 +338,6 @@ button:focus {
 }
 
 /* END read more button */
-=======
 /* START BANNER TEMPLATE */
 
 #banner-temp {
@@ -416,7 +414,6 @@ button:focus {
 }
 
 /* END TWO LARGE IMAGE TEMPLATE */
->>>>>>> 103e90a754e37cc6850360d2a3bbe395e121ae8a
 
 @media screen and (min-width: 600px) {
   /* START linking-template styles */
@@ -465,8 +462,6 @@ button:focus {
 }
 
 @media only screen and (min-width: 740px) {
-<<<<<<< HEAD
-=======
   /* START BUTTON */
   .template-button {
     display: inline-block;
@@ -484,7 +479,6 @@ button:focus {
     margin-bottom: 0;
   }
   /* END Button Text Template */
->>>>>>> 103e90a754e37cc6850360d2a3bbe395e121ae8a
   /* START one-image-text template */
   #one-image-text {
     flex-direction: row;
@@ -532,14 +526,11 @@ button:focus {
 }
 
 @media screen and (min-width: 1011px) {
-<<<<<<< HEAD
-=======
   /* START Button Text Template */
   .button-text-template .button-text-template-text {
     margin-right: 55px;
   }
   /* END Button Text Template */
->>>>>>> 103e90a754e37cc6850360d2a3bbe395e121ae8a
   /* START linking-template styles */
   #linking-temp {
     flex-wrap: nowrap;
@@ -590,7 +581,6 @@ button:focus {
   #text-only-temp {
     max-width: 650px;
   }
-<<<<<<< HEAD
   /* END text only template  */
   /* START three img template */
   #three-img-temp .three-img-text {
@@ -608,8 +598,6 @@ button:focus {
     max-height: none;
   }
   /* END three img template */
-=======
-  /* END text-only template */
   /* START BANNER TEMPLATE */
   .banner-text h1 {
     font-size: 50px;
@@ -627,5 +615,4 @@ button:focus {
     margin-right: 90px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
->>>>>>> 103e90a754e37cc6850360d2a3bbe395e121ae8a
 }
