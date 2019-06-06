@@ -220,10 +220,6 @@ html {
 
 /* START two small images template */
 
-/* #two-small-image-temp {
-  padding: 20px;
-} */
-
 #two-small-image-temp h3 {
   text-align: center;
   text-transform: uppercase;
@@ -239,12 +235,17 @@ html {
 }
 
 .single-img-cont {
-  font-size: 18px;
   margin: 20px;
 }
 
 .single-img-cont h4 {
   text-transform: uppercase;
+}
+
+.single-img-cont p {
+  font-size: 18px !important;
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* END two small images template */
