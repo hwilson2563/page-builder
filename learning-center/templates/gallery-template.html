@@ -51,6 +51,22 @@
           - Edit the text between the quotations to assign the text
       c. 'selected' please don't edit this. :)
 
+   ADD ANOTHER GALLERY
+   1. After last bracket ] past the following code from comma to end bracket:
+    ,
+   "Assign Gallery Name": [
+          {
+            "galleryButtonAriaLabel": "add aria-label text for button here",
+            "infoTitle": "place info section title here",
+            "infoText": "place info body text here"
+          },
+          {
+            "imageSource": "https://via.placeholder.com/700",
+            "altTag": "alt tag text here",
+            "selected": true
+          }
+        ]
+
    ADDING AND REMOVING IMAGES FROM GALLERY
    1. TO ADD:
       a. Copy this, from comma to closing curly bracket
@@ -62,8 +78,7 @@
       b. Paste this after the first closing curly brace } of the last image set
   `2. TO REMOVE
       a. Remove everything from the comma seperating the curly brackets {} to the last curly bracket } (The same amount that you would copy and paste from above)
-    
-      ADD ANOTHER GALLERY
+  
    -->
   <script id='galleries' type='application/json'>
       {
