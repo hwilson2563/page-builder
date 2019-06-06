@@ -5,8 +5,7 @@ import NavArrow from './parts/NavArrow'
 import TemplatesIndex from './parts/TemplatesIndex'
 
 const SideBarContainer = styled.div`
-  background-color: black;
-  opacity: 0.75;
+  background-color: ${props=>props.theme.fontMain + 'BF'};
   position: absolute;
   width: 60px;
   transition: width 0.5s ease;

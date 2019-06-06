@@ -181,6 +181,23 @@ html {
 
 /* END one-image-text template */
 
+/* START large image template */
+
+#large-image-temp {
+  padding: 40px 20px;
+  display: flex;
+}
+#large-image-temp img {
+  height: 100%;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+}
+
+/* END large image template */
+
 /* START text-only template */
 
 #text-only-temp {
@@ -199,6 +216,74 @@ html {
 }
 
 /* END text-only template */
+
+/* START BANNER TEMPLATE */
+
+#banner-temp {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ebebeb
+}
+.banner-text {
+  margin: 0 auto;
+  text-align: center;
+}
+.banner-text h1 {
+  font-family: 'Playfair Display', Palatino, serif;
+  font-family: var(--font-titles);
+  font-size: 38px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.banner-text p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* END BANNER TEMPLATE */
+/* START TWO LARGE IMAGE TEMPLATE */
+
+#two-large-image-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+#two-large-image-temp h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.section-cont {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 100%;
+}
+.section-cont img {
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  width: 100%;
+  margin-top: 30px;
+}
+.section-cont h4 {
+  text-transform: uppercase;
+  margin-top: 20px;
+
+}
+.section-cont p {
+  font-size: 18px !important;
+  padding-left: 0;
+}
+.section-one, .section-two {
+  width: 100%;
+}
+
+/* END TWO LARGE IMAGE TEMPLATE */
 
 @media screen and (min-width: 600px) {
   /* linking-template styles BEGIN */
@@ -232,9 +317,21 @@ html {
   #linking-temp div.linking-guide {
     width: 100%;
   }
-}
+  /* linking-template styles END */
+  /* START TWO LARGE IMAGE TEMPLATE */
 
-/* linking-template styles END */
+  .section-cont {
+    flex-direction: row;
+  }
+  .section-one, .section-two {
+    width: 50%;
+  }
+  .section-one {
+    margin-right: 40px;
+  }
+
+/* END TWO LARGE IMAGE TEMPLATE */
+}
 
 @media only screen and (min-width: 740px) {
   /* START one-image-text template */
@@ -306,4 +403,21 @@ html {
     max-width: 650px;
   }
   /* END text-only template */
+  /* START BANNER TEMPLATE */
+  .banner-text h1 {
+    font-size: 50px;
+  }
+  /* END BANNER TEMPLATE */
+  /* START TWO LARGE IMAGE TEMPLATE */
+  .section-cont {
+    max-width: 1090px;
+  }
+  .section-cont h4 {
+    max-width: 1090px;
+    text-align: center;
+  }
+  .section-one {
+    margin-right: 90px;
+  }
+  /* END TWO LARGE IMAGE TEMPLATE */
 }
