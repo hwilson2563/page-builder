@@ -51,7 +51,6 @@ const AddButton = styled.button`
   transform: scale(1);
 `
 const TemplatesIndex = () => {
-  console.log(templates)
   return (
     <>
       {templates.map((template, idx) => {
