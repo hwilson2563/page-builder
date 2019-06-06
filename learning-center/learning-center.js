@@ -93,7 +93,7 @@ function buildGallery (gallery) {
       image.selected
         ? buttonElement.setAttribute('class', 'bullet active')
         : buttonElement.setAttribute('class', 'bullet')
-      buttonElement.setAttribute('aria-label', 'view image number' + (idx + 1))
+      buttonElement.setAttribute('aria-label', 'view image number ' + (idx))
       buttonElement.onclick = function () {
         handleGalleryClick(idx, selectedGallery)
       }
