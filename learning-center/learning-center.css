@@ -252,7 +252,7 @@ html {
   -ms-grid-rows: 1;
 }
 
-#gallery-template.gallery-section {
+#gallery-template .gallery-section {
   -ms-grid-row: 3;
   grid-row: 3;
   grid-column: 3;
@@ -454,32 +454,39 @@ html {
   align-items: center;
   padding: 20px;
 }
+
 #two-large-image-temp h3 {
   font-size: 24px;
   text-transform: uppercase;
 }
+
 .section-cont {
   display: flex;
   flex-direction: column;
   font-size: 18px;
   width: 100%;
 }
+
 .section-cont img {
   background-color: #ebebeb;
-  background-color: var( --background-accent);
+  background-color: var(--background-accent);
   width: 100%;
   margin-top: 30px;
 }
+
 .section-cont h4 {
   text-transform: uppercase;
   margin-top: 20px;
 
 }
+
 .section-cont p {
   font-size: 18px !important;
   padding-left: 0;
 }
-.section-one, .section-two {
+
+.section-one,
+.section-two {
   width: 100%;
 }
 
@@ -552,7 +559,7 @@ html {
   }
 
   #gallery-template .title-center-mobile {
-    margin-top: 0px;
+    margin: 0 0 30px
   }
 
   #gallery-template .info-body {
@@ -574,17 +581,18 @@ html {
   }
 
   #gallery-template .gallery-section {
-    -ms-grid-row: 3;
-    grid-row: 3;
+    margin-right: 10px;
+    -ms-grid-row: 2;
+    grid-row: 2;
     -ms-grid-column: 1;
     grid-column: 1;
   }
 
   #gallery-template .info-section {
-    -ms-grid-row: 3;
-    grid-row: 3;
-    -ms-grid-column: 3;
-    grid-column: 3;
+    -ms-grid-row: 2;
+    grid-row: 2;
+    -ms-grid-column: 2;
+    grid-column: 2;
   }
 
   #gallery-template #selection-container-btn {
@@ -597,14 +605,17 @@ html {
   .section-cont {
     flex-direction: row;
   }
-  .section-one, .section-two {
+
+  .section-one,
+  .section-two {
     width: 50%;
   }
+
   .section-one {
     margin-right: 40px;
   }
 
-/* END TWO LARGE IMAGE TEMPLATE */
+  /* END TWO LARGE IMAGE TEMPLATE */
 }
 
 @media only screen and (min-width: 740px) {
@@ -707,7 +718,7 @@ html {
   }
 
   #gallery-template div#image-container {
-    margin-top: 82px;
+    margin-top: 62px;
   }
 
   #gallery-template #selection-container-btn {
@@ -779,12 +790,15 @@ html {
   .section-cont {
     max-width: 1090px;
   }
+
   .section-cont h4 {
     max-width: 1090px;
     text-align: center;
   }
+
   .section-one {
     margin-right: 90px;
   }
+
   /* END TWO LARGE IMAGE TEMPLATE */
 }
