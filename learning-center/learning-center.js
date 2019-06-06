@@ -1,5 +1,8 @@
 'use strict'
 
+//
+// GALLERY TEMPLATE BEGINS
+//
 var galleriesJSON = JSON.parse(document.getElementById('galleries').innerHTML) // gets JSON on page
 var selectedGallery = null // currently selected gallery to display
 var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
@@ -162,3 +165,6 @@ function buildGalleryButtons () {
     }
   })
 })()
+//
+// GALLERY TEMPLATE ENDS
+//
