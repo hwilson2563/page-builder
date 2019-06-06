@@ -11,17 +11,20 @@ function handleGalleryClick (idx, galleryName) {
 
   // this finds the previously selected item and makes it false, and removes the active classes for the object
   galleriesJSON[galleryName].forEach(function (image, index) {
-    if (image.selected === true) {
+    var isSelectedImage = image.selected === true
+    var galleryIdx = index - 1
+    if (isSelectedImage) {
       image.selected = false
-      selectedImage[index - 1].classList.remove('display-img')
-      selectedBullet[index - 1].classList.remove('active')
+      selectedImage[galleryIdx].classList.remove('display-img')
+      selectedBullet[galleryIdx].classList.remove('active')
     }
   })
 
   // sets new selected and active objects
+  var activeGalleryIdx = idx - 1
   galleriesJSON[galleryName][idx].selected = true
-  selectedImage[idx - 1].classList.add('display-img')
-  selectedBullet[idx - 1].classList.add('active')
+  selectedImage[activeGalleryIdx].classList.add('display-img')
+  selectedBullet[activeGalleryIdx].classList.add('active')
 }
 
 // in mobile and tablet, this updates the selected gallery in the drop down
@@ -36,7 +39,8 @@ function changeGallery (galleryName) {
 
   // adds and removes the active css class
   Object.keys(galleriesJSON).forEach(function (gallery, index) {
-    if (gallery === galleryName) {
+    var galleryIsCurrentlySetAsActive = gallery === galleryName
+    if (galleryIsCurrentlySetAsActive) {
       infoButtons[index].classList.add('active')
       updateActiveGallery(index)
     } else {
@@ -146,7 +150,8 @@ function buildGalleryButtons () {
 
   // this loops through array of galleries
   galleryValues.forEach(function (gallery, index) {
-    if (index === 0) {
+    var onlyRunForFirstGallery = index === 0
+    if (onlyRunForFirstGallery) {
       selectedGallery = objectProperyNames[index]
       // this loops through each gallery in the JSON
       buildGallery(selectedGallery)
