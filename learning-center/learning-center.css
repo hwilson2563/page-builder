@@ -217,6 +217,35 @@ html {
 
 /* END text-only template */
 
+/* START BANNER TEMPLATE */
+
+#banner-temp {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ebebeb
+}
+.banner-text {
+  margin: 0 auto;
+  text-align: center;
+}
+.banner-text h1 {
+  font-family: 'Playfair Display', Palatino, serif;
+  font-family: var(--font-titles);
+  font-size: 38px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.banner-text p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* END BANNER TEMPLATE */
 /* START TWO LARGE IMAGE TEMPLATE */
 
 #two-large-image-temp {
@@ -374,6 +403,11 @@ html {
     max-width: 650px;
   }
   /* END text-only template */
+  /* START BANNER TEMPLATE */
+  .banner-text h1 {
+    font-size: 50px;
+  }
+  /* END BANNER TEMPLATE */
   /* START TWO LARGE IMAGE TEMPLATE */
   .section-cont {
     max-width: 1090px;
