@@ -6,7 +6,7 @@ import TemplatesIndex from './parts/TemplatesIndex'
 
 const SideBarContainer = styled.div`
   background-color: ${props=>props.theme.fontMain + 'BF'};
-  position: absolute;
+  position: fixed;
   width: 60px;
   transition: width 0.5s ease;
   overflow: hidden;
@@ -78,7 +78,7 @@ const NavHeader = styled.div`
   align-items: center;
 `
 const Title = styled.div`
-  color: white;
+  color:${props => props.theme.fontOverlay};
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 20px;
@@ -110,7 +110,9 @@ const SideBar = () => {
         {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
-      <IndexContainer className={'idx-container'}>{navOpen && <TemplatesIndex />}</IndexContainer>
+      <IndexContainer className={'idx-container'}>
+        {navOpen && <TemplatesIndex />}
+      </IndexContainer>
     </SideBarContainer>
   )
 }

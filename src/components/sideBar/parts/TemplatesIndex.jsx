@@ -31,7 +31,7 @@ const TemplateImg = styled.img`
   margin-bottom: 5px;
 `
 const TemplateName = styled.div`
-  color: white;
+  color: ${props=>props.theme.fontOverlay};
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
