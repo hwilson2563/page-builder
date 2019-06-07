@@ -25,6 +25,11 @@ const TemplateDirections = styled.div`
 const TemplatesPreview = props => {
   const { screen, selectedTemplates } = props
   let noSelections = selectedTemplates.length === 0
+
+  const exportHTML = () => {
+    console.log('hi')
+  }
+
   return (
     <>
       <HeaderFooterImg
@@ -32,7 +37,9 @@ const TemplatesPreview = props => {
         src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
         alt={'Header'}
       />
-      <ExportIcon />
+      <button onClick={exportHTML}>
+        <ExportIcon />
+      </button>
       <TemplatesContainer className={'templates-container'}>
         {noSelections ? (
           <TemplateDirections className={'template-directions'}>
