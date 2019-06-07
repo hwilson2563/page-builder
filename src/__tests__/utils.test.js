@@ -1,4 +1,4 @@
-import { determineScreen } from '../utils/utils'
+import { determineScreen, removeSelectedTemplates } from '../utils/utils'
 
 describe('determineScreen return screen type based on window width', () => {
   test('Mobile screen is less than 600 window width', () => {
@@ -21,5 +21,14 @@ describe('determineScreen return screen type based on window width', () => {
   })
   test('Desktop screen is more than 1010 window width', () => {
     expect(determineScreen(1011, 'headerFooter')).toBe('desktop')
+  })
+})
+
+describe('removeSelectedTemplates removes a template from the component array', () => {
+  test('remove template from array', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['Banner', 'TwoImage']
+    expect(removeSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
   })
 })

@@ -25,14 +25,6 @@ export const determineScreen = (width, headerFooter) => {
 }
 
 export const removeSelectedTemplates = (templates, idx) => {
-  const confirmation = window.confirm(
-    'By removing this template you are removing any data filled out for this template. Once removed all data will be lost. Do you wish to continue?'
-  )
-  if (confirmation) {
-    let removeTemplate = templates.indexOf(idx)
-    templates.splice(removeTemplate, 1)
-    return templates
-  } else {
-    return templates
-  }
+  templates.splice(idx, 1)
+  return templates
 }
