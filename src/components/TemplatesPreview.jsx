@@ -8,6 +8,10 @@ const TemplatesContainer = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
+  div {
+    padding: 100px 0;
+    border: 2px solid purple;
+  }
 `
 const TemplateDirections = styled.div`
   text-transform: uppercase;
