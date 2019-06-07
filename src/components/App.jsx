@@ -5,11 +5,10 @@ import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
 import { determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
-import { templates } from '../utils/templates'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
-  const [selectedTemplates, setSelectedTemplates] = useState([templates[0].component])
+  const [selectedTemplates, setSelectedTemplates] = useState([])
 
   useEffect(() => {
     const updateScreen = () => {
