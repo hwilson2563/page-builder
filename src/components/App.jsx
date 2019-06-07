@@ -5,7 +5,7 @@ import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
 import { addSelectedTemplates, determineScreen, removeSelectedTemplates } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
-import Banner from './templates/Banner'
+
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
