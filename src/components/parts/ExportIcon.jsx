@@ -8,7 +8,7 @@ const Container = styled.div`
   right: 10px;
   top: 270px;
   display: grid;
-  transform: scale(.75);
+  transform: scale(0.75);
 `
 const Export = styled.svg`
   fill: ${props => props.theme.accentPrimary};
@@ -25,6 +25,7 @@ const ExportText = styled.div`
   color: transparent;
   background-color: transparent;
   font-family: ${props => props.theme.fontBody};
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -33,18 +34,12 @@ const ExportText = styled.div`
     cursor: pointer;
     color: white;
     background-color: ${props => props.theme.accentPrimary};
-    .solid {
-      fill: ${props => props.theme.accentPrimary};
-    }
-    .export-text {
-      color: white;
-    }
+    color: white;
   }
 `
-
 const ExportIcon = props => {
   return (
-    <Container>
+    <Container className='export-container'>
       <Export>
         <g id='Group_25' data-name='Group 25' transform='translate(-1809 -255)'>
           <g id='noun_export_2303934' transform='translate(1835 281)'>

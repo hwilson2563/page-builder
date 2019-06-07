@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 import styled from 'styled-components'
 
 import SelectedTemplatesContainer from './SelectedTemplatesContainer'
@@ -27,7 +28,10 @@ const TemplatesPreview = props => {
   let noSelections = selectedTemplates.length === 0
 
   const exportHTML = () => {
-    console.log('hi')
+    // console.log(ReactDOMServer.renderToStaticMarkup(<SelectedTemplatesContainer />))
+    console.log(ReactDOMServer.renderToStaticMarkup(<ExportIcon />))
+    console.log(ReactDOMServer.renderToStaticMarkup(<HeaderFooterImg />))
+    console.log(ReactDOMServer.renderToStaticMarkup(<TemplatesContainer />))
   }
 
   return (
