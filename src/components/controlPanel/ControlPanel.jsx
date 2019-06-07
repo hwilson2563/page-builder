@@ -10,6 +10,7 @@ const Panel = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
+  font-family: ${props => props.theme.fontBody};
 `
 const IconContainer = styled.div`
   height: 50px;

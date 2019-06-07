@@ -10,7 +10,6 @@ const HeaderFooterImg = styled.img`
 const TemplatesContainer = styled.div`
   text-align: center;
   align-items: center;
-  font-family: ${props=> props.theme.fontBody};
   div.template-container {
     padding: 100px 0;
     border: 2px solid fuchsia;
