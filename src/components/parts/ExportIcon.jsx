@@ -19,8 +19,8 @@ const ExportText = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 51px;
-  height: 51px;
+  width: 53px;
+  height: 53px;
   border-radius: 100%;
   color: transparent;
   background-color: transparent;
@@ -28,10 +28,8 @@ const ExportText = styled.section`
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
   transition: 0.3s ease-in-out;
   :hover {
-    cursor: pointer;
     color: white;
     background-color: ${props => props.theme.accentPrimary};
     color: white;
