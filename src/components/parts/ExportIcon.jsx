@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Container = styled.section`
   width: 95px;
   height: 95px;
-  position: absolute;
-  right: 10px;
-  top: 270px;
   display: grid;
   transform: scale(0.75);
 `
@@ -14,7 +11,7 @@ const Export = styled.svg`
   fill: ${props => props.theme.accentPrimary};
 `
 
-const ExportText = styled.div`
+const ExportText = styled.section`
   z-index: 1;
   display: flex;
   align-items: center;

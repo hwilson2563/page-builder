@@ -16,7 +16,23 @@ const TemplatesContainer = styled.div`
     padding: 100px 0;
     border: 2px solid fuchsia;
   }
+  :hover {
+    button.export-btn {
+      opacity: 1;
+    }
+  }
 `
+const Button = styled.button`
+    display: ${props => props.noSelections ? 'none' : 'block'};
+    opacity: 0;
+    border: none;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    right: 0;
+    top: 230px;
+`
+
 const TemplateDirections = styled.div`
   text-transform: uppercase;
   font-family: ${props => props.theme.fontBody};
@@ -29,10 +45,11 @@ const TemplatesPreview = props => {
   let noSelections = selectedTemplates.length === 0
 
   const exportHTML = () => {
-    // console.log(ReactDOMServer.renderToStaticMarkup(<SelectedTemplatesContainer />))
-    console.log(ReactDOMServer.renderToStaticMarkup(<ExportIcon />))
-    console.log(ReactDOMServer.renderToStaticMarkup(<HeaderFooterImg />))
-    console.log(ReactDOMServer.renderToStaticMarkup(<TemplatesContainer />))
+    if (selectedTemplates.length) {
+      console.log(
+        ReactDOMServer.renderToStaticMarkup(<SelectedTemplatesContainer selectedTemplates={selectedTemplates} />)
+      )
+    }
   }
 
   return (
@@ -42,10 +59,10 @@ const TemplatesPreview = props => {
         src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
         alt={'Header'}
       />
-      <button onClick={exportHTML}>
-        <ExportIcon />
-      </button>
       <TemplatesContainer className={'templates-container'}>
+        <Button noSelections={noSelections} onClick={exportHTML} className={'export-btn'}>
+          <ExportIcon />
+        </Button>
         {noSelections ? (
           <TemplateDirections className={'template-directions'}>
             build your page by selecting a template from the left!
