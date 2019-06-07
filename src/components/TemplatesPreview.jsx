@@ -9,7 +9,7 @@ const HeaderFooterImg = styled.img`
 const TemplatesContainer = styled.div`
   text-align: center;
   align-items: center;
-  div {
+  div.template-container {
     padding: 100px 0;
     border: 2px solid purple;
   }

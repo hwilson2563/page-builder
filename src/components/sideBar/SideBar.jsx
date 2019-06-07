@@ -12,6 +12,7 @@ const SideBarContainer = styled.div`
   overflow: hidden;
   height: 100%;
   font-family: ${props => props.theme.fontBasic};
+  z-index: 10;
   &.open {
     width: 350px;
   }

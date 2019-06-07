@@ -9,7 +9,7 @@ import Banner from './templates/Banner'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
-  const [selectedTemplates, setSelectedTemplates] = useState([Banner])
+  const [selectedTemplates, setSelectedTemplates] = useState([Banner, Banner, Banner])
 
   useEffect(() => {
     const updateScreen = () => {
