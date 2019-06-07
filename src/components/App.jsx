@@ -5,10 +5,11 @@ import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
 import { determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
+import Banner from './templates/Banner'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
-  const [selectedTemplates, setSelectedTemplates] = useState([])
+  const [selectedTemplates, setSelectedTemplates] = useState([Banner])
 
   useEffect(() => {
     const updateScreen = () => {
