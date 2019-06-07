@@ -1,3 +1,4 @@
+'use strict'
 function readMore () {
   var inTabletView = window.innerWidth < 1020 && window.innerWidth > 740
   if (inTabletView) {
@@ -31,12 +32,16 @@ function showMore (button) {
     button.textContent = 'read more'
   }
 }
-'use strict'
 
 //
 // GALLERY TEMPLATE BEGINS
 //
-var galleriesJSON = JSON.parse(document.getElementById('galleries').innerHTML) // gets JSON on page
+var galleriesJSON = document.getElementById('galleries') // gets JSON on page
+if (galleriesJSON !== null && galleriesJSON) {
+  galleriesJSON = JSON.parse(document.getElementById('galleries').innerText)
+} else {
+  galleriesJSON = false
+}
 var selectedGallery = null // currently selected gallery to display
 var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
@@ -94,7 +99,7 @@ function changeInfoSection (galleryName) {
   var infoHeader = document.getElementsByClassName('info-header')
   var infoBody = document.getElementById('info-body')
 
-  var headersArray = [infoHeader[0], infoHeader[1]]  // this is because of IE
+  var headersArray = [infoHeader[0], infoHeader[1]] // this is because of IE
 
   headersArray.forEach(function (header) {
     header.innerHTML = galleriesJSON[galleryName][0].infoTitle
@@ -129,7 +134,7 @@ function buildGallery (gallery) {
       image.selected
         ? buttonElement.setAttribute('class', 'bullet active')
         : buttonElement.setAttribute('class', 'bullet')
-      buttonElement.setAttribute('aria-label', 'view image number ' + (idx))
+      buttonElement.setAttribute('aria-label', 'view image number ' + idx)
       buttonElement.onclick = function () {
         handleGalleryClick(idx, selectedGallery)
       }
@@ -179,24 +184,28 @@ function buildGalleryButtons () {
 
 // this initially function populates gallery on load
 (function () {
-  // have to do this because of IE >:[
-  var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
-    return galleriesJSON[gallery]
-  })
 
-  // this loops through array of galleries
-  galleryValues.forEach(function (gallery, index) {
-    var onlyRunForFirstGallery = index === 0
-    if (onlyRunForFirstGallery) {
-      selectedGallery = objectProperyNames[index]
-      // this loops through each gallery in the JSON
-      buildGallery(selectedGallery)
-      // this builds buttons
-      buildGalleryButtons()
-      // this builds info section
-      changeInfoSection(selectedGallery)
-    }
-  })
+  // only begins build is galleriesJSON is not false
+  if (galleriesJSON) {
+    // have to do this because of IE >:[
+    var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
+      return galleriesJSON[gallery]
+    })
+
+    // this loops through array of galleries
+    galleryValues.forEach(function (gallery, index) {
+      var onlyRunForFirstGallery = index === 0
+      if (onlyRunForFirstGallery) {
+        selectedGallery = objectProperyNames[index]
+        // this loops through each gallery in the JSON
+        buildGallery(selectedGallery)
+        // this builds buttons
+        buildGalleryButtons()
+        // this builds info section
+        changeInfoSection(selectedGallery)
+      }
+    })
+  }
 })()
 //
 // GALLERY TEMPLATE ENDS
