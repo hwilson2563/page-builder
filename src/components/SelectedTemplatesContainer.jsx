@@ -12,14 +12,14 @@ const TemplateContainer = styled.div`
   }
 `
 const SelectedTemplatesContainer = props => {
-  const { selectedTemplates, removeSelectedTemplates } = props
+  const { selectedTemplates, updateSelectedTemplates } = props
   return (
     <>
       {selectedTemplates.map((Template, idx) => {
         return (
           <TemplateContainer className={'template-container'} key={idx}>
             <Template />
-            <ControlPanel removeSelectedTemplates={removeSelectedTemplates} idx={idx} />
+            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
           </TemplateContainer>
         )
       })}
