@@ -17,13 +17,12 @@ const IconContainer = styled.div`
   padding: 10px 5px;
   cursor: pointer;
   position: relative;
-  &.down-container {
-    transform: rotate(180deg);
-  }
-  transition: opacity .3s ease-in-out;
+  transform: scale(1);
+  transition: all .3s ease-in-out;
   &:hover {
     display: block;
-    transform: scale(1.1) rotate(0deg);;
+    transform: scale(1.1) rotate(0deg);
+    transition: all .3s ease-in-out;
     circle {
     fill: ${props => props.theme.accentPrimary};
     }
@@ -43,6 +42,7 @@ const Text = styled.div`
   transform: translateX(-50%) translateY(-50%);
   text-transform: uppercase;
   font-weight: bold;
+  z-index: 1;
 `
 const ControlPanel = props => {
   let { updateSelectedTemplates, idx } = props
@@ -54,11 +54,11 @@ const ControlPanel = props => {
       </IconContainer>
       <IconContainer className={'down-container'}>
         <Text className={'text'}>down</Text>
-        <MoveIcon />
+        <MoveIcon direction={'down'}/>
       </IconContainer>
       <IconContainer className={'up-container'}>
         <Text className={'text'}>up</Text>
-        <MoveIcon />
+        <MoveIcon direction={'up'}/>
       </IconContainer>
       <IconContainer
         className={'remove-container'}
