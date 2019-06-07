@@ -23,14 +23,20 @@ const TemplatesContainer = styled.div`
   }
 `
 const Button = styled.button`
-    display: ${props => props.noSelections ? 'none' : 'block'};
+    display: ${props => (props.noSelections ? 'none' : 'block')};
     opacity: 0;
+    background: transparent;
+    height: 65px;
+    width: 65px;
     border: none;
     outline: none;
     transition: 0.3s ease-in-out;
     position: absolute;
-    right: 0;
-    top: 230px;
+    right: 10px;
+    top: 200px;
+    :hover {
+      transform: scale(1.1);
+    }
 `
 
 const TemplateDirections = styled.div`
