@@ -24,6 +24,11 @@ export const determineScreen = (width, headerFooter) => {
   return screen
 }
 
+export const removeSelectedTemplates = (templates, idx) => {
+  templates.splice(idx, 1)
+  return templates
+}
+
 export const addSelectedTemplates = (component, templates) => {
   templates.push(component)
   return templates
