@@ -670,6 +670,11 @@ button:focus {
   background-color: #ebebeb;
   background-color: var(--background-accent);
   padding-bottom: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.single-product:hover {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .single-product img {
@@ -828,17 +833,13 @@ button:focus {
     margin-right: 40px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
-<<<<<<< HEAD
   /* START PRODUCT TEMPLATE */
   .product-container {
-    /* -ms-grid-columns: (200px)[2]; */
     grid-template-columns: repeat(2, 200px);
     -webkit-box-pack: center;
-    /* -ms-flex-pack: center; */
     justify-content: center;
   }
   /* END PRODUCT TEMPLATE */
-=======
   /* START two small image template */
   .images-container {
     display: flex;
@@ -849,7 +850,6 @@ button:focus {
     margin: 20px;
   }
   /* END two small image template */
->>>>>>> 29457c22a55a8937e095b0a0b59c8645d8a11e11
 }
 
 @media only screen and (min-width: 740px) {
