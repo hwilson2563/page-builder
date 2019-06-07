@@ -673,6 +673,7 @@ button:focus {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .single-product:hover {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -695,6 +696,7 @@ button:focus {
 }
 
 /* END PRODUCT TEMPLATE */
+
 /* START FOUR IMAGE TEMPLATE */
 
 #four-img-template {
@@ -741,7 +743,7 @@ button:focus {
 
 .single-quote-cont {
   font-size: 16px;
-  margin: 40px ;
+  margin: 40px;
   padding-left: 20px;
   border-left: 3px solid #E66D1C;
 }
@@ -862,15 +864,6 @@ button:focus {
     margin-right: 40px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
-
-  /* START QUOTE TEMPLATE */
-
-  .single-quote-cont {
-    margin: 40 auto;
-    max-width: 560px;
-  }
-
-  /* END QUOTE TEMPLATE */
   /* START PRODUCT TEMPLATE */
   .product-container {
     grid-template-columns: repeat(2, 200px);
@@ -987,6 +980,12 @@ button:focus {
     max-height: none;
   }
   /* END FOUR IMAGE TEMPLATE */
+  /* START QUOTE TEMPLATE */
+  .single-quote-cont {
+    margin: 40 auto;
+    max-width: 560px;
+  }
+  /* END QUOTE TEMPLATE */
 }
 
 @media screen and (min-width: 1011px) {
