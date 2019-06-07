@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
+import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
 import { determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
 const App = () => {
-  const [screen, setScreen] = useState()
+  const [screen, setScreen] = useState('desktop')
+  const [selectedTemplates, setSelectedTemplates] = useState([])
 
   useEffect(() => {
     const updateScreen = () => {
@@ -23,7 +25,10 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <TemplatesPreview screen={screen} />
+      <>
+        <SideBar />
+        <TemplatesPreview screen={screen} selectedTemplates={selectedTemplates} />
+      </>
     </ThemeProvider>
   )
 }

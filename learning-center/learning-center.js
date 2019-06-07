@@ -1,3 +1,4 @@
+'use strict'
 function readMore () {
   var inTabletView = window.innerWidth < 1020 && window.innerWidth > 740
   if (inTabletView) {
@@ -31,7 +32,6 @@ function showMore (button) {
     button.textContent = 'read more'
   }
 }
-'use strict'
 
 //
 // GALLERY TEMPLATE BEGINS
