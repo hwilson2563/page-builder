@@ -7,13 +7,14 @@ import ExportIcon from './parts/ExportIcon'
 
 const HeaderFooterImg = styled.img`
   width: 100%;
+  margin-bottom: -4px;
 `
 const TemplatesContainer = styled.div`
   text-align: center;
   align-items: center;
   div {
     padding: 100px 0;
-    border: 2px solid purple;
+    border: 2px solid fuchsia;
   }
 `
 const TemplateDirections = styled.div`

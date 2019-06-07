@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 
 import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
-import { determineScreen } from '../utils/utils'
+import { addSelectedTemplates, determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
 const App = () => {
@@ -22,11 +22,18 @@ const App = () => {
     window.addEventListener('resize', updateScreen)
     return () => window.removeEventListener('resize', updateScreen)
   }, []) // Empty array ensures that effect is only run on mount and unmount
-
+  const updateSelectedTemplates = (action, component) => {
+    let templates = [...selectedTemplates]
+    let updatedTemplates
+    if (action === 'add') {
+      updatedTemplates = addSelectedTemplates(component, templates)
+    }
+    setSelectedTemplates(updatedTemplates)
+  }
   return (
     <ThemeProvider theme={theme}>
       <>
-        <SideBar />
+        <SideBar updateSelectedTemplates={updateSelectedTemplates} />
         <TemplatesPreview screen={screen} selectedTemplates={selectedTemplates} />
       </>
     </ThemeProvider>

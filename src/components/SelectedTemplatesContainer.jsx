@@ -4,8 +4,8 @@ const SelectedTemplatesContainer = props => {
   const { selectedTemplates } = props
   return (
     <>
-      {selectedTemplates.map(Template => {
-        return <Template />
+      {selectedTemplates.map((Template, idx) => {
+        return <Template key={idx} />
       })}
     </>
   )
