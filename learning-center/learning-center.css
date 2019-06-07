@@ -690,6 +690,31 @@ button:focus {
 
 /* START QUOTES TEMPLATE */
 
+.single-quote-cont {
+  font-size: 16px;
+  margin: 40px ;
+  padding-left: 20px;
+  border-left: 3px solid #E66D1C;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.single-quote-cont h3 {
+  text-transform: uppercase;
+  color: #E66D1C;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.single-quote-cont p {
+  padding-bottom: 5px;
+  margin-left: 5px;
+  font-style: italic;
+}
+
 /* END QUOTES TEMPLATE */
 
 @media screen and (min-width: 600px) {
@@ -788,6 +813,15 @@ button:focus {
     margin-right: 40px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
+
+  /* START QUOTE TEMPLATE */
+
+  .single-quote-cont {
+    margin: 40 auto;
+    max-width: 560px;
+  }
+
+  /* END QUOTE TEMPLATE */
 }
 
 @media only screen and (min-width: 740px) {
