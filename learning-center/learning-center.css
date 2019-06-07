@@ -530,7 +530,7 @@ div {
 
 #three-img-temp img {
   width: 100%;
-  background-color: var( --background-accent);
+  background-color: var(--background-accent);
   background-color: #ebebeb;
   margin-bottom: 20px;
 }
@@ -640,6 +640,10 @@ button:focus {
   width: 100%;
 }
 
+#four-img-template .text-img-container button {
+  display: none;
+}
+
 /* END TWO LARGE IMAGE TEMPLATE */
 
 /* START PRODUCT TEMPLATE */
@@ -686,6 +690,47 @@ button:focus {
 }
 
 /* END PRODUCT TEMPLATE */
+/* START FOUR IMAGE TEMPLATE */
+
+#four-img-template {
+  padding: 20px;
+}
+
+#four-img-template div.center-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#four-img-template h2.header, #four-img-template h3.subheader {
+  color: #252422;
+  color: var(--main-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#four-img-template h2.header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#four-img-template h3.subheader {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+#four-img-template p.body-text {
+  margin: 0 0 18px 0;
+  font-size: 18px;
+  color: #252422;
+  color: var(--main-secondary);
+}
+
+#four-img-template div.text-img-container {
+  margin-bottom: 50px;
+}
+
+/* END FOUR IMAGE TEMPLATE */
 
 @media screen and (min-width: 600px) {
   /* START linking-template styles */
@@ -864,6 +909,33 @@ button:focus {
     grid-template-columns: repeat(3, 200px);
   }
   /* END PRODUCT TEMPLATE */
+  /* START FOUR IMAGE TEMPLATE */
+  #four-img-template div.center-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #four-img-template h2.header {
+    width: 100%;
+  }
+  #four-img-template div.text-img-container {
+    width: 45%;
+  }
+  #four-img-template .text-img-container button {
+    display: none;
+  }
+  #four-img-template .text-img-container.read button {
+    display: block;
+  }
+  #four-img-template .text-img-container .read-more-container {
+    overflow: hidden;
+    max-height: 309px;
+  }
+  #four-img-template .text-img-container.more .read-more-container {
+    overflow: visible;
+    max-height: none;
+  }
+  /* END FOUR IMAGE TEMPLATE */
 }
 
 @media screen and (min-width: 1011px) {
@@ -1023,4 +1095,20 @@ button:focus {
     margin-right: 90px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
+  /* START FOUR IMAGE TEMPLATE */
+  #four-img-template div.center-container {
+    margin: 0 auto;
+    max-width: 1090px;
+  }
+  #four-img-template div.text-img-container {
+    width: 22%;
+  }
+  #four-img-template .text-img-container button {
+    display: none!important;
+  }
+  #four-img-template .text-img-container .read-more-container {
+    max-height: fit-content;
+    overflow: visible;
+  }
+  /* END FOUR IMAGE TEMPLATE */
 }
