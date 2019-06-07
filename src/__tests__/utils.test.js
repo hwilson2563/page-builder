@@ -1,4 +1,4 @@
-import { determineScreen } from '../utils/utils'
+import { determineScreen, addSelectedTemplates } from '../utils/utils'
 
 describe('determineScreen return screen type based on window width', () => {
   test('Mobile screen is less than 600 window width', () => {
@@ -21,5 +21,14 @@ describe('determineScreen return screen type based on window width', () => {
   })
   test('Desktop screen is more than 1010 window width', () => {
     expect(determineScreen(1011, 'headerFooter')).toBe('desktop')
+  })
+})
+
+describe('addSelectedTemplates', () => {
+  test('should return an array of selected templates including the added one', () => {
+    let templates = ['template1', 'template2']
+    let component = 'component'
+    let updatedTemplates = ['template1', 'template2', 'component']
+    expect(addSelectedTemplates(component, templates)).toEqual(updatedTemplates)
   })
 })
