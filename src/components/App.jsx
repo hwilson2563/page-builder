@@ -14,7 +14,14 @@ const App = () => {
     let templates = [...selectedTemplates]
     let updatedTemplates
     if (action === 'remove') {
-      updatedTemplates = removeSelectedTemplates(templates, idx)
+      const confirmation = window.confirm(
+        'By removing this template you are removing any data filled out for this template. Once removed all data will be lost. Do you wish to continue?'
+      )
+      if (confirmation) {
+        updatedTemplates = removeSelectedTemplates(templates, idx)
+      } else {
+        updatedTemplates = templates
+      }
     }
     setSelectedTemplates(updatedTemplates)
   }

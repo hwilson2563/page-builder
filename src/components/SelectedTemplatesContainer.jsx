@@ -10,6 +10,9 @@ const TemplateContainer = styled.div`
   :last-child .down-container {
     display: none;
   }
+  :hover .control-panel {
+    display: flex;
+  }
 `
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates } = props
