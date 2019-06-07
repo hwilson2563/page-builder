@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import SelectedTemplatesContainer from './SelectedTemplatesContainer'
+import ExportIcon from './parts/ExportIcon'
 
 const HeaderFooterImg = styled.img`
   width: 100%;
@@ -31,6 +32,7 @@ const TemplatesPreview = props => {
         src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
         alt={'Header'}
       />
+      <ExportIcon />
       <TemplatesContainer className={'templates-container'}>
         {noSelections ? (
           <TemplateDirections className={'template-directions'}>
