@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import SelectedTemplatesContainer from './SelectedTemplatesContainer'
+
 const HeaderFooterImg = styled.img`
   width: 100%;
 `
 const TemplatesContainer = styled.div`
-  display: flex;
   text-align: center;
   align-items: center;
   div {
@@ -21,8 +22,8 @@ const TemplateDirections = styled.div`
 `
 
 const TemplatesPreview = props => {
-  const { screen } = props
-
+  const { screen, selectedTemplates } = props
+  let noSelections = selectedTemplates.length === 0
   return (
     <>
       <HeaderFooterImg
@@ -31,9 +32,13 @@ const TemplatesPreview = props => {
         alt={'Header'}
       />
       <TemplatesContainer className={'templates-container'}>
-        <TemplateDirections className={'template-directions'}>
-          build your page by selecting a template from the left!
-        </TemplateDirections>
+        {noSelections ? (
+          <TemplateDirections className={'template-directions'}>
+            build your page by selecting a template from the left!
+          </TemplateDirections>
+        ) : (
+          <SelectedTemplatesContainer selectedTemplates={selectedTemplates} />
+        )}
       </TemplatesContainer>
       <HeaderFooterImg
         className={'footer-image'}
