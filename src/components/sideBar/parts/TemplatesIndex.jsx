@@ -50,14 +50,20 @@ const AddButton = styled.button`
   margin-left: 10px;
   transform: scale(1);
 `
-const TemplatesIndex = () => {
+const TemplatesIndex = props => {
+  const { updateSelectedTemplates } = props
   return (
     <>
       {templates.map((template, idx) => {
         const { tempName, thumbnailImg } = template
         let imgUrl = 'https:///dev.woodlanddirect.com/learningcenter/pagebuilder+/templateimgs/' + thumbnailImg
         return (
-          <Template key={idx} className={'idx-template-container'}>
+          <Template
+            key={idx}
+            className={'idx-template-container'}
+            onClick={() => {
+              updateSelectedTemplates('add', template.component)
+            }}>
             <ImgIcon className={'img-icon'}>
               <TemplateImg src={imgUrl} className={'template-img'} />
               <AddButton className={'add-button'}>

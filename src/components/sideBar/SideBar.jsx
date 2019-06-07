@@ -43,7 +43,6 @@ const SideBarContainer = styled.div`
       100% {
         opacity: 1;
         padding-right: 20px;
-
       }
     }
   }
@@ -119,7 +118,8 @@ const IndexContainer = styled.div`
   opacity: 0;
   height: 100%;
 `
-const SideBar = () => {
+const SideBar = props => {
+  const { updateSelectedTemplates } = props
   const [navOpen, setNavOpen] = useState(true)
   const toggleNav = () => {
     setNavOpen(!navOpen)
@@ -127,13 +127,13 @@ const SideBar = () => {
   let navStatus = navOpen ? 'open' : 'close'
   return (
     <SideBarContainer className={navStatus} navOpen={navOpen}>
-      <NavHeader onClick={() => toggleNav()} >
+      <NavHeader onClick={() => toggleNav()}>
         {navOpen && <Title className={'sidebar-title'}>templates</Title>}
         <NavArrow navOpen={navOpen} />
       </NavHeader>
       {navOpen && (
         <IndexContainer className={'idx-container'}>
-          <TemplatesIndex />
+          <TemplatesIndex updateSelectedTemplates={updateSelectedTemplates} />
         </IndexContainer>
       )}
     </SideBarContainer>

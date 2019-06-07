@@ -23,3 +23,8 @@ export const determineScreen = (width, headerFooter) => {
   }
   return screen
 }
+
+export const addSelectedTemplates = (component, templates) => {
+  templates.push(component)
+  return templates
+}
