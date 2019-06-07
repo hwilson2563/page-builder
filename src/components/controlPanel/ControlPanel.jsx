@@ -15,23 +15,29 @@ const IconContainer = styled.div`
   height: 50px;
   width: 50px;
   padding: 10px 5px;
+  cursor: pointer;
   &.down-container {
     transform: rotate(180deg);
   }
 `
-const ControlPanel = () => {
+const ControlPanel = props => {
+  let { removeSelectedTemplates, idx } = props
   return (
     <Panel className={'control-panel'}>
       <IconContainer className={'edit-container'}>
         <EditIcon />
       </IconContainer>
-      <IconContainer className={'down-container'} >
+      <IconContainer className={'down-container'}>
         <MoveIcon />
       </IconContainer>
       <IconContainer className={'up-container'}>
         <MoveIcon />
       </IconContainer>
-      <IconContainer className={'remove-container'}>
+      <IconContainer
+        className={'remove-container'}
+        onClick={() => {
+          removeSelectedTemplates(idx)
+        }}>
         <RemoveIcon />
       </IconContainer>
     </Panel>
