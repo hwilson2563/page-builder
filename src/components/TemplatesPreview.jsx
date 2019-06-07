@@ -10,7 +10,7 @@ const HeaderFooterImg = styled.img`
 const TemplatesContainer = styled.div`
   text-align: center;
   align-items: center;
-  div {
+  div.template-container {
     padding: 100px 0;
     border: 2px solid fuchsia;
   }
@@ -23,7 +23,7 @@ const TemplateDirections = styled.div`
 `
 
 const TemplatesPreview = props => {
-  const { screen, selectedTemplates } = props
+  const { screen, selectedTemplates, updateSelectedTemplates } = props
   let noSelections = selectedTemplates.length === 0
   return (
     <>
@@ -38,7 +38,10 @@ const TemplatesPreview = props => {
             build your page by selecting a template from the left!
           </TemplateDirections>
         ) : (
-          <SelectedTemplatesContainer selectedTemplates={selectedTemplates} />
+          <SelectedTemplatesContainer
+            selectedTemplates={selectedTemplates}
+            updateSelectedTemplates={updateSelectedTemplates}
+          />
         )}
       </TemplatesContainer>
       <HeaderFooterImg
