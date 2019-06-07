@@ -650,7 +650,8 @@ button:focus {
 }
 
 .product-container {
-  display: -ms-grid;
+  display: flex;
+  flex-wrap: wrap;
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
@@ -659,7 +660,7 @@ button:focus {
 }
 
 .single-product {
-  width: 180px;
+  width: 170px;
   margin: 10px;
   padding: 10px;
   background-color: #ebebeb;
@@ -784,10 +785,10 @@ button:focus {
   /* END TWO LARGE IMAGE TEMPLATE */
   /* START PRODUCT TEMPLATE */
   .product-container {
-    -ms-grid-columns: (200px)[2];
+    /* -ms-grid-columns: (200px)[2]; */
     grid-template-columns: repeat(2, 200px);
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    /* -ms-flex-pack: center; */
     justify-content: center;
   }
   /* END PRODUCT TEMPLATE */
