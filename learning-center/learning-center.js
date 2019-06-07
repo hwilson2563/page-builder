@@ -36,7 +36,10 @@ function showMore (button) {
 //
 // GALLERY TEMPLATE BEGINS
 //
-var galleriesJSON = JSON.parse(document.getElementById('galleries').innerHTML) // gets JSON on page
+var galleriesJSON = document.getElementById('galleries') // gets JSON on page
+if (galleriesJSON !== null) {
+  galleriesJSON = JSON.parse(document.getElementById('galleries').innerText)
+}
 var selectedGallery = null // currently selected gallery to display
 var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
