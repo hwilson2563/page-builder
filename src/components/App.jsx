@@ -3,16 +3,19 @@ import { ThemeProvider } from 'styled-components'
 
 import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
-import { determineScreen, removeSelectedTemplates } from '../utils/utils'
+import { addSelectedTemplates, determineScreen, removeSelectedTemplates } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 import Banner from './templates/Banner'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
-  const [selectedTemplates, setSelectedTemplates] = useState([Banner, Banner, Banner])
-  const updateSelectedTemplates = (action, idx) => {
+  const [selectedTemplates, setSelectedTemplates] = useState([])
+  const updateSelectedTemplates = (action, component, idx) => {
     let templates = [...selectedTemplates]
     let updatedTemplates
+    if (action === 'add') {
+      updatedTemplates = addSelectedTemplates(component, templates)
+    }
     if (action === 'remove') {
       const confirmation = window.confirm(
         'By removing this template you are removing any data filled out for this template. Once removed all data will be lost. Do you wish to continue?'
@@ -37,11 +40,10 @@ const App = () => {
     window.addEventListener('resize', updateScreen)
     return () => window.removeEventListener('resize', updateScreen)
   }, []) // Empty array ensures that effect is only run on mount and unmount
-
   return (
     <ThemeProvider theme={theme}>
       <>
-        <SideBar />
+        <SideBar updateSelectedTemplates={updateSelectedTemplates} />
         <TemplatesPreview
           screen={screen}
           selectedTemplates={selectedTemplates}

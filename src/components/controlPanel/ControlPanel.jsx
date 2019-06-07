@@ -18,17 +18,17 @@ const IconContainer = styled.div`
   cursor: pointer;
   position: relative;
   transform: scale(1);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:hover {
     display: block;
     transform: scale(1.1) rotate(0deg);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     circle {
-    fill: ${props => props.theme.accentPrimary};
+      fill: ${props => props.theme.accentPrimary};
     }
     .text {
       opacity: 1;
-      transition: opacity .3s ease-in-out;
+      transition: opacity 0.3s ease-in-out;
     }
   }
 `
@@ -54,16 +54,16 @@ const ControlPanel = props => {
       </IconContainer>
       <IconContainer className={'down-container'}>
         <Text className={'text'}>down</Text>
-        <MoveIcon direction={'down'}/>
+        <MoveIcon direction={'down'} />
       </IconContainer>
       <IconContainer className={'up-container'}>
         <Text className={'text'}>up</Text>
-        <MoveIcon direction={'up'}/>
+        <MoveIcon direction={'up'} />
       </IconContainer>
       <IconContainer
         className={'remove-container'}
         onClick={() => {
-          updateSelectedTemplates('remove', idx)
+          updateSelectedTemplates('remove', '', idx)
         }}>
         <Text className={'text'}>remove</Text>
         <RemoveIcon />

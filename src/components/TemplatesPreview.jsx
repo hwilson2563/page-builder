@@ -5,6 +5,7 @@ import SelectedTemplatesContainer from './SelectedTemplatesContainer'
 
 const HeaderFooterImg = styled.img`
   width: 100%;
+  margin-bottom: -4px;
 `
 const TemplatesContainer = styled.div`
   text-align: center;
