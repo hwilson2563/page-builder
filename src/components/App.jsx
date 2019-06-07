@@ -5,10 +5,11 @@ import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
 import { determineScreen } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
+import { templates } from '../utils/templates'
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
-  const [selectedTemplates, setSelectedTemplates] = useState([])
+  const [selectedTemplates, setSelectedTemplates] = useState([templates[0].component])
 
   useEffect(() => {
     const updateScreen = () => {
@@ -22,11 +23,15 @@ const App = () => {
     window.addEventListener('resize', updateScreen)
     return () => window.removeEventListener('resize', updateScreen)
   }, []) // Empty array ensures that effect is only run on mount and unmount
-
+  const updateSelectedTemplates = component => {
+    let templates = [...selectedTemplates]
+    templates.push(component)
+    setSelectedTemplates(templates)
+  }
   return (
     <ThemeProvider theme={theme}>
       <>
-        <SideBar />
+        <SideBar updateSelectedTemplates={updateSelectedTemplates} />
         <TemplatesPreview screen={screen} selectedTemplates={selectedTemplates} />
       </>
     </ThemeProvider>

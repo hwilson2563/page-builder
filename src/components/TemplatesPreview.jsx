@@ -11,7 +11,7 @@ const TemplatesContainer = styled.div`
   align-items: center;
   div {
     padding: 100px 0;
-    border: 2px solid purple;
+    border: 2px solid fuchsia;
   }
 `
 const TemplateDirections = styled.div`
