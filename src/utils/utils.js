@@ -33,3 +33,14 @@ export const addSelectedTemplates = (component, templates) => {
   templates.push(component)
   return templates
 }
+
+// template functionality //
+export const showMore = button => {
+  var parentElement = button.parentElement
+  parentElement.classList.toggle('more')
+  if (button.textContent === 'read more') {
+    button.textContent = 'read less'
+  } else {
+    button.textContent = 'read more'
+  }
+}
