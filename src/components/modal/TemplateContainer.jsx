@@ -38,7 +38,7 @@ const TemplateContainer = props => {
   const { idx, screen, template, updateSelectedTemplates } = props
   const Component = template.component
   const CmsModal = () => {
-    return <CMSModal formData={template.modalData} formProps={Component} />
+    return <CMSModal tempName={template.tempName} formData={template.modalData} formProps={template.modal} />
   }
   return (
     <TemplateContain className={'template-container'}>

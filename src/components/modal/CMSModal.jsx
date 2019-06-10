@@ -1,14 +1,25 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import Form from './Form'
-import BannerModal from '../modals/BannerModal'
+
+const CMSDiv = styled.div`
+  padding: 30px;
+  background-color: #fff;
+`
+const Title = styled.h2`
+  font-family: ${props => props.theme.fontBody};
+  font-size: 20px;
+  font-weight: normal;
+`
 
 const CMSModal = props => {
-  const { formData } = props
+  const { formData, formProps, tempName } = props
   return (
-    <div>
-      <Form formData={formData} formProps={BannerModal} />
-    </div>
+    <CMSDiv className={'cms-div'}>
+      <Title>{tempName}</Title>
+      <Form formData={formData} formProps={formProps} />
+    </CMSDiv>
   )
 }
 
