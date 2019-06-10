@@ -742,7 +742,6 @@ button:focus {
 /* START QUOTES TEMPLATE */
 
 .single-quote-cont {
-  font-size: 16px;
   margin: 40px;
   padding-left: 20px;
   border-left: 3px solid #E66D1C;
@@ -764,6 +763,7 @@ button:focus {
   padding-bottom: 5px;
   margin-left: 5px;
   font-style: italic;
+  font-size: 16px !important;
 }
 
 /* END QUOTES TEMPLATE */
@@ -982,7 +982,7 @@ button:focus {
   /* END FOUR IMAGE TEMPLATE */
   /* START QUOTE TEMPLATE */
   .single-quote-cont {
-    margin: 40 auto;
+    margin: 40px auto;
     max-width: 560px;
   }
   /* END QUOTE TEMPLATE */
