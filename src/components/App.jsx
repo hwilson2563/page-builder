@@ -3,9 +3,14 @@ import { ThemeProvider } from 'styled-components'
 
 import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
-import { addSelectedTemplates, determineScreen, removeSelectedTemplates } from '../utils/utils'
+import {
+  addSelectedTemplates,
+  determineScreen,
+  removeSelectedTemplates,
+  moveUpSelectedTemplates,
+  moveDownSelectedTemplates
+} from '../utils/utils'
 import { theme } from '../utils/globalStyles'
-
 
 const App = () => {
   const [screen, setScreen] = useState('desktop')
@@ -25,6 +30,12 @@ const App = () => {
       } else {
         updatedTemplates = templates
       }
+    }
+    if (action === 'up') {
+      updatedTemplates = moveUpSelectedTemplates(templates, idx)
+    }
+    if (action === 'down') {
+      updatedTemplates = moveDownSelectedTemplates(templates, idx)
     }
     setSelectedTemplates(updatedTemplates)
   }

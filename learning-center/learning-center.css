@@ -739,6 +739,31 @@ button:focus {
 
 /* END FOUR IMAGE TEMPLATE */
 
+/* START VIDEO TEMPLATE */
+
+#video-template {
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 20px;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 64.25%;
+  height: 0;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* END VIDEO TEMPLATE */
+
 /* START QUOTES TEMPLATE */
 
 .single-quote-cont {
