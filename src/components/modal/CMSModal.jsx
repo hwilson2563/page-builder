@@ -17,7 +17,7 @@ const CMSModal = props => {
   const { formData, formProps, tempName } = props
   return (
     <CMSDiv className={'cms-div'}>
-      <Title>{tempName}</Title>
+      <Title className={'template-title'}>{tempName}</Title>
       <Form formData={formData} formProps={formProps} />
     </CMSDiv>
   )
