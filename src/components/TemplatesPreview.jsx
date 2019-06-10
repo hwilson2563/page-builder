@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import SelectedTemplatesContainer from './SelectedTemplatesContainer'
 import BannerModal from './modals/BannerModal'
+import ButtonText from './modals/ButtonTextModal'
+import FourImage from './modals/FourImageModal'
 
 const HeaderFooterImg = styled.img`
   width: 100%;
@@ -39,6 +41,8 @@ const TemplatesPreview = props => {
       />
       <ModalContainers>
         <BannerModal />
+        <ButtonText />
+        <FourImage />
       </ModalContainers>
       <TemplatesContainer className={'templates-container'}>
         {noSelections ? (
