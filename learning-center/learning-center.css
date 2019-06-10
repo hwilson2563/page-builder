@@ -737,6 +737,19 @@ button:focus {
 
 /* END FOUR IMAGE TEMPLATE */
 
+/* START VIDEO TEMPLATE */
+
+#video-template {
+  padding: 40px 20px;
+}
+
+.iframe-container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* END VIDEO TEMPLATE */
+
 @media screen and (min-width: 600px) {
   /* START linking-template styles */
   #linking-temp {
