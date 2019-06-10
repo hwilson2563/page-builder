@@ -41,8 +41,8 @@ const Button = styled.button`
 `
 
 const TextArea = styled.textarea`
-  height: ${props => (props.showCopy ? '200px' : 0)};
-  width: ${props => (props.showCopy ? '300px' : 0)};
+  height: ${props => (props.showCopy ? '150px' : '0px')};
+  width: ${props => (props.showCopy ? '300px' : '0px')};
   opacity: ${props => (props.showCopy ? 1 : 0)};
   z-index: 1;
   position: absolute;
@@ -50,12 +50,13 @@ const TextArea = styled.textarea`
   top: 10px;
   border: none;
   border-radius: 6px 6px 6px 6px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   font-size: 10px;
   line-height: 1.4em;
   padding: 5px 8px;
   resize: none;
-  transition: height 0.3s ease-in-out;
+  background-color: ${props => props.theme.backgroundAccent + 'E3'};
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity .3s ease-in-out;
 `
 
 const SelectedTemplatesContainer = props => {
@@ -77,11 +78,14 @@ const SelectedTemplatesContainer = props => {
     setTimeout(() => setShowCopy(false), 3000)
   }
 
-  useEffect(() => {
-    let textarea = document.getElementById('copy-textarea')
-    textarea.select()
-    document.execCommand('copy')
-  }, [copyData])
+  useEffect(
+    () => {
+      let textarea = document.getElementById('copy-textarea')
+      textarea.select()
+      document.execCommand('copy')
+    },
+    [copyData]
+  )
 
   return (
     <TemplateContainer>
