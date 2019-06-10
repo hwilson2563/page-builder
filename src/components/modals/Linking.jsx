@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const LargeImg = props => {
+const Linking = props => {
   const { updateFormData } = props
   return (
     <>
@@ -88,4 +88,4 @@ const LargeImg = props => {
     </>
   )
 }
-export default LargeImg
+export default Linking

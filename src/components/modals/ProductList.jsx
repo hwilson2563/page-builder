@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const OneImageText = props => {
+const ProductList = props => {
   const { updateFormData } = props
   return (
     <>
@@ -26,4 +26,4 @@ const OneImageText = props => {
     </>
   )
 }
-export default OneImageText
+export default ProductList

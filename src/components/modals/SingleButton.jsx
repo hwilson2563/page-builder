@@ -1,10 +1,9 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const ButtonText = props => {
+const SingleButton = props => {
   const { updateFormData } = props
   return (
     <>
-      <FormEntry type={'input'} label={'Call To Action Text'} name={'call-to-action'} error={null} updateFormData={updateFormData} required />
       <FormEntry
         type={'input'}
         label={'Button Text'}
@@ -16,4 +15,4 @@ const ButtonText = props => {
     </>
   )
 }
-export default ButtonText
+export default SingleButton
