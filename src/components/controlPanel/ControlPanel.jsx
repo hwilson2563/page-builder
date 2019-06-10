@@ -6,11 +6,13 @@ import RemoveIcon from './parts/RemoveIcon'
 import MoveIcon from './parts/MoveIcon'
 
 const Panel = styled.div`
-  display: none;
   position: absolute;
   bottom: 0;
   right: 10px;
   font-family: ${props => props.theme.fontBody};
+  display: flex;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
 `
 const IconContainer = styled.div`
   height: 50px;
