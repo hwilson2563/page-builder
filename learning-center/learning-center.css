@@ -300,7 +300,7 @@ div {
 }
 
 #gallery-template div.button-section {
-  width: 100%;
+  width: auto;
   margin-left: 40px;
   -ms-grid-row: 1;
   grid-row: 1;
@@ -604,10 +604,6 @@ button:focus {
   display: flex;
   align-items: center;
   height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ebebeb
 }
 
 .banner-text {
