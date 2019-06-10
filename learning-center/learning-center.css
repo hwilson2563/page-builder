@@ -565,6 +565,39 @@ button:focus {
 
 /* END read more button */
 
+/* START two small images template */
+
+#two-small-image-temp h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-top: 20;
+}
+
+.single-img-cont img {
+  width: 100%;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  margin-bottom: 20px;
+}
+
+.single-img-cont {
+  margin: 20px;
+}
+
+.single-img-cont h4 {
+  font-size: 18px !important;
+  text-transform: uppercase;
+}
+
+.single-img-cont p {
+  font-size: 18px !important;
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif !important;
+  font-family: var(--font-body) !important;
+}
+
+/* END two small images template */
+
 /* START BANNER TEMPLATE */
 
 #banner-temp {
