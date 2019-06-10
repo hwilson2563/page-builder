@@ -55,7 +55,7 @@ const TextArea = styled.textarea`
   line-height: 1.4em;
   padding: 5px 8px;
   resize: none;
-  background-color: ${props => props.theme.backgroundAccent + 'E3'};
+  background-color: ${props => props.theme.backgroundAccent + 'CC'};
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity .3s ease-in-out;
 `
 
