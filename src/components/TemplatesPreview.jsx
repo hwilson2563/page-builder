@@ -11,6 +11,7 @@ const TemplatesContainer = styled.div`
   text-align: center;
   align-items: center;
 `
+
 const TemplateDirections = styled.div`
   text-transform: uppercase;
   font-family: ${props => props.theme.fontBody};
@@ -21,6 +22,7 @@ const TemplateDirections = styled.div`
 const TemplatesPreview = props => {
   const { screen, selectedTemplates, updateSelectedTemplates } = props
   let noSelections = selectedTemplates.length === 0
+
   return (
     <>
       <HeaderFooterImg

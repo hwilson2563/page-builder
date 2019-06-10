@@ -6,11 +6,13 @@ import RemoveIcon from './parts/RemoveIcon'
 import MoveIcon from './parts/MoveIcon'
 
 const Panel = styled.div`
-  display: none;
   position: absolute;
   bottom: 0;
   right: 10px;
   font-family: ${props => props.theme.fontBody};
+  display: flex;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
 `
 const IconContainer = styled.div`
   height: 50px;
@@ -53,11 +55,19 @@ const ControlPanel = props => {
         <Text className={'text'}>edit</Text>
         <EditIcon />
       </IconContainer>
-      <IconContainer className={'down-container'}>
+      <IconContainer
+        className={'down-container'}
+        onClick={() => {
+          updateSelectedTemplates('down', '', idx)
+        }}>
         <Text className={'text'}>down</Text>
         <MoveIcon direction={'down'} />
       </IconContainer>
-      <IconContainer className={'up-container'}>
+      <IconContainer
+        className={'up-container'}
+        onClick={() => {
+          updateSelectedTemplates('up', '', idx)
+        }}>
         <Text className={'text'}>up</Text>
         <MoveIcon direction={'up'} />
       </IconContainer>

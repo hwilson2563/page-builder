@@ -34,6 +34,18 @@ export const addSelectedTemplates = (component, templates) => {
   return templates
 }
 
+export const moveUpSelectedTemplates = (templates, idx) => {
+  let newLocation = idx - 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
+export const moveDownSelectedTemplates = (templates, idx) => {
+  let newLocation = idx + 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
 // template functionality //
 export const showMore = button => {
   var parentElement = button.parentElement

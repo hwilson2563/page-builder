@@ -1,4 +1,10 @@
-import { determineScreen, removeSelectedTemplates, addSelectedTemplates } from '../utils/utils'
+import {
+  determineScreen,
+  removeSelectedTemplates,
+  addSelectedTemplates,
+  moveUpSelectedTemplates,
+  moveDownSelectedTemplates
+} from '../utils/utils'
 
 describe('determineScreen return screen type based on window width', () => {
   test('Mobile screen is less than 600 window width', () => {
@@ -39,5 +45,23 @@ describe('addSelectedTemplates', () => {
     let component = 'component'
     let updatedTemplates = ['template1', 'template2', 'component']
     expect(addSelectedTemplates(component, templates)).toEqual(updatedTemplates)
+  })
+})
+
+describe('moveUpSelectedTemplates', () => {
+  test('should return an array with the template moved up in array position', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['OneImage', 'Banner', 'TwoImage']
+    expect(moveUpSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
+  })
+})
+
+describe('moveDownSelectedTemplates', () => {
+  test('should return an array with the template moved down in array position', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['Banner', 'TwoImage', 'OneImage']
+    expect(moveDownSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
   })
 })
