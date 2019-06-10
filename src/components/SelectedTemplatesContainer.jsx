@@ -13,11 +13,8 @@ const TemplateContainer = styled.div`
   :last-child .down-container {
     display: none;
   }
-  :hover .control-panel {
-    display: flex;
-  }
   :hover {
-    button.export-btn {
+    button.export-btn, .control-panel {
       opacity: 1;
     }
   }
