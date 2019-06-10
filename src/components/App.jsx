@@ -6,7 +6,6 @@ import TemplatesPreview from './TemplatesPreview'
 import { addSelectedTemplates, determineScreen, removeSelectedTemplates } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
-
 const App = () => {
   const [screen, setScreen] = useState('desktop')
   const [selectedTemplates, setSelectedTemplates] = useState([])

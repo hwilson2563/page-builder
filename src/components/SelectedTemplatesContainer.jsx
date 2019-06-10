@@ -1,30 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import ControlPanel from './controlPanel/ControlPanel'
+import TemplateContainer from './modal/TemplateContainer'
 
-const TemplateContainer = styled.div`
-  position: relative;
-  :first-child .up-container {
-    display: none;
-  }
-  :last-child .down-container {
-    display: none;
-  }
-  :hover .control-panel {
-    display: flex;
-  }
-`
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates } = props
   return (
     <>
-      {selectedTemplates.map((Template, idx) => {
+      {selectedTemplates.map((template, idx) => {
         return (
-          <TemplateContainer className={'template-container'} key={idx}>
-            <Template />
-            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
-          </TemplateContainer>
+          <TemplateContainer
+            key={idx}
+            idx={idx}
+            template={template}
+            updateSelectedTemplates={updateSelectedTemplates}
+          />
         )
       })}
     </>

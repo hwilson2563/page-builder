@@ -8,7 +8,8 @@ const Form = props => {
 
   const updateFormData = updatedData => {
     let newFormData = [...data]
-    newFormData.map(newData => {
+    newFormData.forEach(newData => {
+      // forEach removes a warning in the console instead of map
       if (newData.name === updatedData.name) {
         newData.value = updatedData.value
         newData.error = updatedData.error

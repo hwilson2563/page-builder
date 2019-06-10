@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import EditIcon from './parts/EditIcon'
 import RemoveIcon from './parts/RemoveIcon'
 import MoveIcon from './parts/MoveIcon'
-import BannerModal from '../modals/BannerModal'
-import Modal from '../modal/Modal'
-import CMSModal from '../modal/CMSModal'
 
 const Panel = styled.div`
   display: none;
@@ -49,23 +46,7 @@ const Text = styled.div`
   z-index: 1;
 `
 const ControlPanel = props => {
-  let { updateSelectedTemplates, idx, screen } = props
-  const [displayForm, setDisplayForm] = useState(false)
-
-  // modal functions
-  const toggleDisplayForm = () => {
-    setDisplayForm(!displayForm)
-  }
-  const handleClick = () => {
-    toggleDisplayForm()
-  }
-  const closeModal = (e, value) => {
-    e.stopPropagation()
-    if (value === 'close') {
-      toggleDisplayForm()
-    }
-  }
-  // end modal functions
+  let { updateSelectedTemplates, handleClick, idx } = props
 
   return (
     <Panel className={'control-panel'}>
@@ -89,7 +70,6 @@ const ControlPanel = props => {
         <Text className={'text'}>remove</Text>
         <RemoveIcon />
       </IconContainer>
-      {displayForm && <Modal displayModal={displayForm} modal={CMSModal} closeModal={closeModal} screen={screen} />}
     </Panel>
   )
 }

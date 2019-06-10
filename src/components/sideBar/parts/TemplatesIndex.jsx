@@ -62,7 +62,7 @@ const TemplatesIndex = props => {
             key={idx}
             className={'idx-template-container'}
             onClick={() => {
-              updateSelectedTemplates('add', template.component)
+              updateSelectedTemplates('add', template)
             }}>
             <ImgIcon className={'img-icon'}>
               <TemplateImg src={imgUrl} className={'template-img'} />

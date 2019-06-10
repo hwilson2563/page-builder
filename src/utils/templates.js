@@ -12,12 +12,40 @@ import TextOnly from '../components/templates/TextOnly'
 import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
+import BannerModal from '../components/modals/BannerModal'
 
 export const templates = [
   {
     thumbnailImg: 'banner_temp.png',
     tempName: 'Banner Template',
-    component: Banner
+    component: Banner,
+    modal: BannerModal,
+    modalData: [
+      {
+        label: 'Image url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Atl Text',
+        name: 'altText',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subtitle',
+        name: 'subtitle',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'button_text_temp.png',
