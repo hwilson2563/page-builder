@@ -45,3 +45,14 @@ export const moveDownSelectedTemplates = (templates, idx) => {
   templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
   return templates
 }
+
+// template functionality //
+export const showMore = button => {
+  var parentElement = button.parentElement
+  parentElement.classList.toggle('more')
+  if (button.textContent === 'read more') {
+    button.textContent = 'read less'
+  } else {
+    button.textContent = 'read more'
+  }
+}
