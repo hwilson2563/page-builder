@@ -23,7 +23,10 @@ const SelectedTemplatesContainer = props => {
         return (
           <TemplateContainer className={'template-container'} key={idx}>
             <Template />
-            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
+            <ControlPanel
+              updateSelectedTemplates={updateSelectedTemplates}
+              idx={idx}
+            />
           </TemplateContainer>
         )
       })}
