@@ -74,21 +74,15 @@ const SelectedTemplatesContainer = props => {
     }
     setCopyData(templates)
     setShowCopy(true)
-    // copyDataToClipboard()
-    // setTimeout(() => setShowCopy(false), 3000)
+    setTimeout(() => setShowCopy(false), 3000)
   }
 
   useEffect(() => {
     let textarea = document.getElementById('copy-textarea')
     textarea.select()
     document.execCommand('copy')
-    setTimeout(() => setShowCopy(false), 3000)
   }, [copyData])
-  // const copyDataToClipboard = () => {
-  //   let textarea = document.getElementById('copy-textarea')
-  //   textarea.select()
-  //   document.execCommand('copy')
-  // }
+
   return (
     <TemplateContainer>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
