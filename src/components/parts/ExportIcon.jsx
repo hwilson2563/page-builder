@@ -22,20 +22,21 @@ const ExportText = styled.section`
   width: 53px;
   height: 53px;
   border-radius: 100%;
-  color: transparent;
-  background-color: transparent;
+  color: ${props => props.showCopy ? 'white' : 'transparent'};
+  background-color: ${props => props.showCopy ? props.theme.accentPrimary : 'transparent'};;
   font-family: ${props => props.theme.fontBody};
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   transition: 0.3s ease-in-out;
   :hover {
-    color: white;
     background-color: ${props => props.theme.accentPrimary};
     color: white;
   }
 `
 const ExportIcon = props => {
+  const { showCopy } = props
+  let exportText = showCopy ? 'copied!' : 'Export'
   return (
     <Container className='export-container'>
       <Export viewBox={'0 0 92.954 92.954'}>
@@ -65,7 +66,7 @@ const ExportIcon = props => {
           />
         </g>
       </Export>
-      <ExportText className={'export-text'}>Export</ExportText>
+      <ExportText showCopy={showCopy} className={'export-text'}>{exportText}</ExportText>
     </Container>
   )
 }

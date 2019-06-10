@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ReactDOMServer from 'react-dom/server'
 
@@ -23,7 +23,7 @@ const TemplateContainer = styled.div`
   }
 `
 const Button = styled.button`
-  opacity: 0;
+  opacity: ${props => (props.showCopy ? 1 : 0)};
   background: transparent;
   height: 67px;
   width: 67px;
@@ -40,23 +40,60 @@ const Button = styled.button`
   }
 `
 
+const TextArea = styled.textarea`
+  height: ${props => (props.showCopy ? '200px' : 0)};
+  width: ${props => (props.showCopy ? '300px' : 0)};
+  opacity: ${props => (props.showCopy ? 1 : 0)};
+  z-index: 1;
+  position: absolute;
+  right: 80px;
+  top: 10px;
+  border: none;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  font-size: 10px;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  resize: none;
+  transition: height 0.3s ease-in-out;
+`
+
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates } = props
+  const [copyData, setCopyData] = useState()
+  const [showCopy, setShowCopy] = useState(false)
   const exportHTML = () => {
+    let templates
     if (selectedTemplates.length) {
-      console.log(
-        ReactDOMServer.renderToStaticMarkup(
-          selectedTemplates.map((Template, idx) => {
-            return <Template />
-          })
-        )
-      )
+      selectedTemplates.map(Template => {
+        return (templates =
+          templates === undefined
+            ? ReactDOMServer.renderToStaticMarkup(<Template />)
+            : templates + ReactDOMServer.renderToStaticMarkup(<Template />))
+      })
     }
+    setCopyData(templates)
+    setShowCopy(true)
+    // copyDataToClipboard()
+    // setTimeout(() => setShowCopy(false), 3000)
   }
+
+  useEffect(() => {
+    let textarea = document.getElementById('copy-textarea')
+    textarea.select()
+    document.execCommand('copy')
+    setTimeout(() => setShowCopy(false), 3000)
+  }, [copyData])
+  // const copyDataToClipboard = () => {
+  //   let textarea = document.getElementById('copy-textarea')
+  //   textarea.select()
+  //   document.execCommand('copy')
+  // }
   return (
     <TemplateContainer>
-      <Button onClick={exportHTML} className={'export-btn'}>
-        <ExportIcon />
+      <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
+      <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
+        <ExportIcon showCopy={showCopy} />
       </Button>
 
       {selectedTemplates.map((Template, idx) => {
