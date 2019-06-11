@@ -14,11 +14,17 @@ const Title = styled.h2`
 `
 
 const CMSModal = props => {
-  const { formData, formProps, tempName } = props
+  const { formData, formProps, template, tempName, updateTemplateData } = props
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>
       <Form formData={formData} formProps={formProps} />
+      <button
+        onClick={() => {
+          updateTemplateData(template)
+        }}>
+        Save
+      </button>
     </CMSDiv>
   )
 }

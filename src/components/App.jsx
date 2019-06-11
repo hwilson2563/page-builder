@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 
 import SideBar from './sideBar/SideBar'
 import TemplatesPreview from './TemplatesPreview'
-import { addSelectedTemplates, determineScreen, removeSelectedTemplates } from '../utils/utils'
+import { addSelectedTemplates, determineScreen, removeSelectedTemplates, editSelectedTemplates } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
       }
     }
     setSelectedTemplates(updatedTemplates)
+    // setTemplateData(updatedTemplatesData)
   }
   useEffect(() => {
     const updateScreen = () => {
@@ -39,6 +40,8 @@ const App = () => {
     window.addEventListener('resize', updateScreen)
     return () => window.removeEventListener('resize', updateScreen)
   }, []) // Empty array ensures that effect is only run on mount and unmount
+  // console.log(templateData)
+  console.log(selectedTemplates)
   return (
     <ThemeProvider theme={theme}>
       <>
