@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const OneImageText = props => {
+const OneImageTextModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -14,22 +14,7 @@ const OneImageText = props => {
         required
       />
       <FormEntry type={'input'} label={'Title'} name={'title'} error={null} updateFormData={updateFormData} required />
-      <FormEntry
-        type={'input'}
-        label={'Paragraph'}
-        name={'paragraph'}
-        error={null}
-        updateFormData={updateFormData}
-        required
-      />
-      <FormEntry
-        type={'input'}
-        label={'Paragraph'}
-        name={'paragraph'}
-        error={null}
-        updateFormData={updateFormData}
-        required
-      />
+      {/* MORE PARAGRAPHS TO BE ADDED */}
       <FormEntry
         type={'input'}
         label={'Paragraph'}
@@ -41,4 +26,4 @@ const OneImageText = props => {
     </>
   )
 }
-export default OneImageText
+export default OneImageTextModal

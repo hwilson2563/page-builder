@@ -17,6 +17,11 @@ import ButtonTextModal from '../components/modals/ButtonTextModal'
 import FourImageModal from '../components/modals/FourImageModal'
 import LargeImgModal from '../components/modals/LargeImgModal'
 import LinkingModal from '../components/modals/LinkingModal'
+import OneImageTextModal from '../components/modals/OneImageTextModal'
+import ProductListModal from '../components/modals/ProductListModal'
+import QuotesModal from '../components/modals/QuotesModal'
+import SingleButtonModal from '../components/modals/SingleButtonModal'
+import TextOnlyModal from '../components/modals/TextOnlyModal'
 
 export const templates = [
   {
@@ -26,14 +31,26 @@ export const templates = [
     modal: BannerModal,
     modalData: [
       {
-        label: 'Image url',
-        name: 'image',
+        label: 'Image Mobile',
+        name: 'image-mobile',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Tablet',
+        name: 'image-tablet',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Desktop',
+        name: 'image-desktop',
         value: '',
         error: null
       },
       {
         label: 'Image Atl Text',
-        name: 'altText',
+        name: 'alt-text',
         value: '',
         error: null
       },
@@ -257,11 +274,29 @@ export const templates = [
     thumbnailImg: 'one_img_text_temp.png',
     tempName: 'One Image Text Template',
     component: OneImageText,
-    modal: null,
+    modal: OneImageTextModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Image Url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Paragraph',
+        name: 'paragprah',
         value: '',
         error: null
       }
@@ -271,11 +306,35 @@ export const templates = [
     thumbnailImg: 'product_temp.png',
     tempName: 'Product Template',
     component: Product,
-    modal: null,
+    modal: ProductListModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Image Url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Product Name',
+        name: 'product-name',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Price',
+        name: 'price',
         value: '',
         error: null
       }
@@ -285,11 +344,29 @@ export const templates = [
     thumbnailImg: 'quote_temp.png',
     tempName: 'Quote Template',
     component: Quote,
-    modal: null,
+    modal: QuotesModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'FAQ - Question',
+        name: 'faq',
+        value: '',
+        error: null
+      },
+      {
+        label: 'FAQ - Answer',
+        name: 'answer',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Pro Tip',
+        name: 'pro-tip',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Customer Feedback',
+        name: 'customer-feedback',
         value: '',
         error: null
       }
@@ -299,11 +376,11 @@ export const templates = [
     thumbnailImg: 'single_button_temp.png',
     tempName: 'Single Button Template',
     component: SingleButton,
-    modal: null,
+    modal: SingleButtonModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Button Text',
+        name: 'button-text',
         value: '',
         error: null
       }
@@ -313,11 +390,17 @@ export const templates = [
     thumbnailImg: 'text_only_temp.png',
     tempName: 'Text Only Template',
     component: TextOnly,
-    modal: null,
+    modal: TextOnlyModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Paragraph',
+        name: 'paragraph',
         value: '',
         error: null
       }

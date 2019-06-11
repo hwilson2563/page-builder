@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const ProductList = props => {
+const ProductListModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -26,4 +26,4 @@ const ProductList = props => {
     </>
   )
 }
-export default ProductList
+export default ProductListModal

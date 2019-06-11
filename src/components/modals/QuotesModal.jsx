@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const Quotes = props => {
+const QuotesModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -39,4 +39,4 @@ const Quotes = props => {
     </>
   )
 }
-export default Quotes
+export default QuotesModal

@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const TextOnly = props => {
+const TextOnlyModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -16,4 +16,4 @@ const TextOnly = props => {
     </>
   )
 }
-export default TextOnly
+export default TextOnlyModal

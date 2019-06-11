@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const SingleButton = props => {
+const SingleButtonModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -15,4 +15,4 @@ const SingleButton = props => {
     </>
   )
 }
-export default SingleButton
+export default SingleButtonModal
