@@ -12,17 +12,40 @@ import TextOnly from '../components/templates/TextOnly'
 import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
+import BannerModal from '../components/modals/BannerModal'
+import ButtonTextModal from '../components/modals/ButtonTextModal'
+import FourImageModal from '../components/modals/FourImageModal'
+import LargeImgModal from '../components/modals/LargeImgModal'
+import LinkingModal from '../components/modals/LinkingModal'
 
 export const templates = [
   {
     thumbnailImg: 'banner_temp.png',
     tempName: 'Banner Template',
     component: Banner,
-    modal: null,
+    modal: BannerModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Image url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Atl Text',
+        name: 'altText',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subtitle',
+        name: 'subtitle',
         value: '',
         error: null
       }
@@ -32,11 +55,17 @@ export const templates = [
     thumbnailImg: 'button_text_temp.png',
     tempName: 'Button Text Template',
     component: ButtonText,
-    modal: null,
+    modal: ButtonTextModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Call To Action Text',
+        name: 'call-to-action',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Button Text',
+        name: 'button',
         value: '',
         error: null
       }
@@ -46,11 +75,107 @@ export const templates = [
     thumbnailImg: 'four_img_temp.png',
     tempName: 'Four Image Template',
     component: FourImage,
-    modal: null,
+    modal: FourImageModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Section Title',
+        name: 'section-title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 1',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 2',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 3',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 4',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
         value: '',
         error: null
       }
@@ -63,10 +188,10 @@ export const templates = [
     modal: null,
     modalData: [
       {
-        label: '',
-        name: '',
-        value: '',
-        error: null
+        // label: '',
+        // name: '',
+        // value: '',
+        // error: null
       }
     ]
   },
@@ -74,11 +199,17 @@ export const templates = [
     thumbnailImg: 'large_img_temp.png',
     tempName: 'Large Image Template',
     component: LargeImage,
-    modal: null,
+    modal: LargeImgModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Image Url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
         value: '',
         error: null
       }
@@ -88,11 +219,35 @@ export const templates = [
     thumbnailImg: 'linking_temp.png',
     tempName: 'Linking Template',
     component: Linking,
-    modal: null,
+    modal: LinkingModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Image Url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Title',
+        name: 'title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Link',
+        name: 'link',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Link Arial Label',
+        name: 'link-aria-label',
         value: '',
         error: null
       }

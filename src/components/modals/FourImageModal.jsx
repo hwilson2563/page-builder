@@ -1,6 +1,6 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-const FourImage = props => {
+const FourImageModal = props => {
   const { updateFormData } = props
   return (
     <>
@@ -119,4 +119,4 @@ const FourImage = props => {
     </>
   )
 }
-export default FourImage
+export default FourImageModal
