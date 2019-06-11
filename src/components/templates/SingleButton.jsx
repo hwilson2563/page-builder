@@ -4,9 +4,9 @@ const SingleButton = () => {
   return (
   // <!-- START SINGLE BUTTON -->
 
-    <div id='button-text-template' class='button-text-template'>
-      <a class='button-link' href='' aria-label=''>
-        <button class='template-button'>press this button</button>
+    <div id='button-text-template' className='button-text-template'>
+      <a className='button-link' href='' aria-label=''>
+        <button className='template-button'>press this button</button>
       </a>
     </div>
 

@@ -6,8 +6,8 @@ const Quote = () => {
     <div id='quotes-template'>
       {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
   <!-- QUESTION TEMPLATE STARTS --> */}
-      <div class='single-quote-cont'>
-        <div class='title-container'>
+      <div className='single-quote-cont'>
+        <div className='title-container'>
           <img
             src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg'
             alt='question mark icon'
@@ -22,8 +22,8 @@ const Quote = () => {
       </div>
       {/* <!-- QUESTION TEMPLATE ENDS -->
   <!-- PRO TIP TEMPLATE STARTS --> */}
-      <div class='single-quote-cont'>
-        <div class='title-container'>
+      <div className='single-quote-cont'>
+        <div className='title-container'>
           <img
             src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'
             alt='pro-tip wrench icon'
@@ -38,8 +38,8 @@ const Quote = () => {
       </div>
       {/* <!-- PRO TIP TEMPLATE ENDS -->
   <!-- CUSTOMER FEEDBACK TEMPLATE STARTS --> */}
-      <div class='single-quote-cont'>
-        <div class='title-container'>
+      <div className='single-quote-cont'>
+        <div className='title-container'>
           <img
             src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'
             alt='star icon'
