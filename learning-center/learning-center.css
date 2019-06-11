@@ -1004,7 +1004,7 @@ button:focus {
   }
   #three-img-temp .img-text-container.more .read-more-container {
     overflow: visible;
-    max-height: none;
+    max-height: auto;
   }
   /* END three-img template */
   /* START PRODUCT TEMPLATE */
@@ -1039,7 +1039,7 @@ button:focus {
   }
   #four-img-template .text-img-container.more .read-more-container {
     overflow: visible;
-    max-height: none;
+    max-height: auto;
   }
   /* END FOUR IMAGE TEMPLATE */
   /* START QUOTE TEMPLATE */
@@ -1143,7 +1143,7 @@ button:focus {
   }
   #three-img-temp .img-text-container .read-more-container {
     overflow: visible;
-    max-height: none;
+    max-height: auto;
   }
   /* END three img template */
   /* gallery-template styles BEGIN */
@@ -1242,7 +1242,7 @@ button:focus {
     display: none!important;
   }
   #four-img-template .text-img-container .read-more-container {
-    max-height: fit-content;
+    max-height: auto;
     overflow: visible;
   }
   /* END FOUR IMAGE TEMPLATE */
