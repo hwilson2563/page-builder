@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import SelectedTemplatesContainer from './SelectedTemplatesContainer'
-import BannerModal from './modals/BannerModal'
-import ButtonText from './modals/ButtonTextModal'
-import FourImage from './modals/FourImageModal'
 
 const HeaderFooterImg = styled.img`
   width: 100%;
@@ -25,10 +22,6 @@ const TemplateDirections = styled.div`
   font-size: 26px;
   margin: 300px auto;
 `
-const ModalContainers = styled.div`
-  margin: 0 auto;
-  max-width: 200px;
-`
 
 const TemplatesPreview = props => {
   const { screen, selectedTemplates, updateSelectedTemplates } = props
@@ -41,11 +34,6 @@ const TemplatesPreview = props => {
         src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/header-footer/header-' + screen + '.png'}
         alt={'Header'}
       />
-      <ModalContainers>
-        <BannerModal />
-        <ButtonText />
-        <FourImage />
-      </ModalContainers>
       <TemplatesContainer className={'templates-container'}>
         {noSelections ? (
           <TemplateDirections className={'template-directions'}>

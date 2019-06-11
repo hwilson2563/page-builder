@@ -23,7 +23,7 @@ import ProductListModal from '../components/modals/ProductListModal'
 import QuotesModal from '../components/modals/QuotesModal'
 import SingleButtonModal from '../components/modals/SingleButtonModal'
 import TextOnlyModal from '../components/modals/TextOnlyModal'
-import ThreeImgModal from '../components/modals/ThreeImgModal'
+import ThreeImageModal from '../components/modals/ThreeImageModal'
 import TwoLargeImgModal from '../components/modals/TwoLargeImgModal'
 import TwoSmallImgModal from '../components/modals/TwoSmallImgModal'
 import VideoModal from '../components/modals/VideoModal'
@@ -467,7 +467,7 @@ export const templates = [
     thumbnailImg: 'three_img_temp.png',
     tempName: 'Three Image Template',
     component: ThreeImage,
-    modal: ThreeImgModal,
+    modal: ThreeImageModal,
     modalData: [
       { label: 'background', name: 'background', value: false, error: null },
       { label: 'padding', name: 'padding', value: false, error: null },
