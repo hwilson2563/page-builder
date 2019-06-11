@@ -1063,10 +1063,10 @@ button:focus {
   #linking-temp img {
     min-width: auto;
     width: 300px;
-    margin-left: 10px;
   }
   #linking-temp .image-text-container {
     height: auto;
+    margin-left: 20px;
   }
   #linking-temp .linking-text-container h3 {
     margin-bottom: 10px;
@@ -1108,7 +1108,6 @@ button:focus {
   #two-small-image-temp {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0 auto;
   }
   .images-container {
