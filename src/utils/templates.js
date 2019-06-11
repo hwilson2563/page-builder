@@ -22,6 +22,9 @@ import ProductListModal from '../components/modals/ProductListModal'
 import QuotesModal from '../components/modals/QuotesModal'
 import SingleButtonModal from '../components/modals/SingleButtonModal'
 import TextOnlyModal from '../components/modals/TextOnlyModal'
+import ThreeImgModal from '../components/modals/ThreeImgModal'
+import TwoLargeImgModal from '../components/modals/TwoLargeImgModal'
+import TwoSmallImgModal from '../components/modals/TwoSmallImgModal'
 
 export const templates = [
   {
@@ -205,10 +208,40 @@ export const templates = [
     modal: null,
     modalData: [
       {
-        // label: '',
-        // name: '',
-        // value: '',
-        // error: null
+        label: 'Gallery Name Button',
+        name: 'gallery-name',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Button Aria Label',
+        name: 'aria-label',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Info Title',
+        name: 'info-title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Info Body Text',
+        name: 'info-body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Url',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'img-alt-text',
+        value: '',
+        error: null
       }
     ]
   },
@@ -410,11 +443,83 @@ export const templates = [
     thumbnailImg: 'three_img_temp.png',
     tempName: 'Three Image Template',
     component: ThreeImage,
-    modal: null,
+    modal: ThreeImgModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Section Title',
+        name: 'section-title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 1',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 2',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 3',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
         value: '',
         error: null
       }
@@ -424,11 +529,59 @@ export const templates = [
     thumbnailImg: 'two_large_img_temp.png',
     tempName: 'Two Large Image Template',
     component: TwoLargeImage,
-    modal: null,
+    modal: TwoLargeImgModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Section Title',
+        name: 'section-title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 1',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 2',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
         value: '',
         error: null
       }
@@ -438,11 +591,59 @@ export const templates = [
     thumbnailImg: 'two_small_img_temp.png',
     tempName: 'Two Small Image Template',
     component: TwoSmallImage,
-    modal: null,
+    modal: TwoSmallImgModal,
     modalData: [
       {
-        label: '',
-        name: '',
+        label: 'Section Title',
+        name: 'section-title',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 1',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image 2',
+        name: 'image',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Image Alt Text',
+        name: 'image-alt-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Subheader',
+        name: 'subheader-text',
+        value: '',
+        error: null
+      },
+      {
+        label: 'Body text',
+        name: 'body-text',
         value: '',
         error: null
       }
