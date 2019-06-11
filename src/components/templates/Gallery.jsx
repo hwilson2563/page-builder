@@ -202,23 +202,23 @@ const Gallery = () => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id='gallery-template' class='background'>
-        <div class='container'>
-          <div class='button-section'>
+      <div id='gallery-template' className='background'>
+        <div className='container'>
+          <div className='button-section'>
             <h2>Place Section Title Here</h2>
             <div id='selection-container-btn'>
-              <button id='selected-gallery' class='dropdown-button active' />
+              <button id='selected-gallery' className='dropdown-button active' />
               {/* <!-- Buttons will generate here --> */}
             </div>
           </div>
-          <div class='gallery-section'>
-            <h3 class='info-header title-center-mobile'>{/* <!-- Info header will generate here --> */}</h3>
+          <div className='gallery-section'>
+            <h3 className='info-header title-center-mobile'>{/* <!-- Info header will generate here --> */}</h3>
 
             <div id='image-container'>{/* <!-- Images will generate here --> */}</div>
             <div id='bullet-container'>{/* <!-- Bullets will generate here --> */}</div>
           </div>
-          <div class='info-section'>
-            <h3 class='info-header title-desktop'>{/* <!-- Info header will generate here --> */}</h3>
+          <div className='info-section'>
+            <h3 className='info-header title-desktop'>{/* <!-- Info header will generate here --> */}</h3>
             <p id='info-body'>{/* <!-- Info body will generate here --> */}</p>
           </div>
         </div>
