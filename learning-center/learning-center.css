@@ -568,7 +568,7 @@ button:focus {
   text-align: center;
   text-transform: uppercase;
   font-size: 24px;
-  margin-top: 20;
+  margin-top: 20px;
 }
 
 .single-img-cont img {
@@ -1096,7 +1096,6 @@ button:focus {
     width: 45%;
     max-width: 500px;
     margin: 20px;
-    margin-left: 10px;
   }
   /* END one-image-text template */
   /* START text only template */
@@ -1109,14 +1108,16 @@ button:focus {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    padding: 0px 20px;
   }
   .images-container {
     width: 100%;
     max-width: 1090px;
-    margin-top: 20px;
+    margin: 20px auto 0px auto;
   }
   .single-img-cont {
     display: flex;
+    margin: unset;
   }
   .images-container img {
     width: 45%;
