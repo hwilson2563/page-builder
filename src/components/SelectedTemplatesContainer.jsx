@@ -5,23 +5,27 @@ import ReactDOMServer from 'react-dom/server'
 import ControlPanel from './controlPanel/ControlPanel'
 import ExportIcon from './parts/ExportIcon'
 
-const TemplateContainer = styled.div`
+const TemplatesContainer = styled.div`
   position: relative;
-  :first-child .up-container {
-    display: none;
-  }
-  :last-child .down-container {
-    display: none;
-  }
   :hover {
     button.export-btn {
       opacity: 1;
     }
   }
-  .template-container:hover {
+`
+const TemplateContainer = styled.div`
+  position: relative;
+  :hover {
     .control-panel {
       opacity: 1;
     }
+  }
+  .up-container {
+    display: ${props => (props.idx === 0 ? 'none' : 'default')};
+  }
+  .down-container {
+    display: ${props =>
+    props.selectedTemplateLength === props.idx ? 'none' : 'default'};
   }
 `
 const Button = styled.button`
@@ -58,7 +62,7 @@ const TextArea = styled.textarea`
   padding: 5px 8px;
   resize: none;
   background-color: ${props => props.theme.backgroundAccent + 'CC'};
-  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity .3s ease-in-out;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
 
 const SelectedTemplatesContainer = props => {
@@ -90,24 +94,26 @@ const SelectedTemplatesContainer = props => {
   )
 
   return (
-    <TemplateContainer>
+    <TemplatesContainer>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
       <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
         <ExportIcon showCopy={showCopy} />
       </Button>
 
       {selectedTemplates.map((Template, idx) => {
+        let selectedTemplateLength = selectedTemplates.length - 1
         return (
-          <TemplateContainer className={'template-container'} key={idx}>
+          <TemplateContainer
+            className={'template-container'}
+            key={idx}
+            idx={idx}
+            selectedTemplateLength={selectedTemplateLength}>
             <Template />
-            <ControlPanel
-              updateSelectedTemplates={updateSelectedTemplates}
-              idx={idx}
-            />
+            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
           </TemplateContainer>
         )
       })}
-    </TemplateContainer>
+    </TemplatesContainer>
   )
 }
 
