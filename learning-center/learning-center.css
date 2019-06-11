@@ -386,17 +386,14 @@ div {
 
 #gallery-template #image-container {
   margin: 0 auto;
-  position: relative;
   width: 80vw;
-  height: 80vw;
+  height: auto;
   overflow: hidden;
 }
 
 #gallery-template .gallery-img {
-  position: absolute;
   width: 80vw;
-  height: 80vw;
-  top: 0;
+  height: 0px;
   opacity: 0;
   -webkit-transition: .3s ease-in-out;
   -o-transition: .3s ease-in-out;
@@ -405,6 +402,7 @@ div {
 
 #gallery-template img.gallery-img.display-img {
   opacity: 1;
+  height: auto;
 }
 
 #gallery-template #bullet-container {
@@ -843,12 +841,11 @@ button:focus {
   #linking-temp .image-text-container {
     display: flex;
     margin-bottom: 40px;
-    height: 330px;
+    align-items: flex-start;
   }
   #linking-temp img {
     min-width: 330px;
     width: 330px;
-    height: 330px;
     margin-bottom: unset;
   }
   #linking-temp .linking-text-container {
@@ -878,7 +875,6 @@ button:focus {
     grid-template-areas: "buttons buttons""gallery info"
   }
   #gallery-template #image-container, #gallery-template .gallery-img {
-    height: 300px;
     width: 300px;
   }
   #gallery-template #bullet-container {
@@ -1067,7 +1063,6 @@ button:focus {
   #linking-temp img {
     min-width: auto;
     width: 300px;
-    height: 300px;
     margin-left: 10px;
   }
   #linking-temp .image-text-container {
