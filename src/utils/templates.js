@@ -12,6 +12,7 @@ import TextOnly from '../components/templates/TextOnly'
 import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
+import Video from '../components/templates/Video'
 import BannerModal from '../components/modals/BannerModal'
 import ButtonTextModal from '../components/modals/ButtonTextModal'
 import FourImageModal from '../components/modals/FourImageModal'
@@ -25,6 +26,7 @@ import TextOnlyModal from '../components/modals/TextOnlyModal'
 import ThreeImgModal from '../components/modals/ThreeImgModal'
 import TwoLargeImgModal from '../components/modals/TwoLargeImgModal'
 import TwoSmallImgModal from '../components/modals/TwoSmallImgModal'
+import VideoModal from '../components/modals/VideoModal'
 
 export const templates = [
   {
@@ -644,6 +646,20 @@ export const templates = [
       {
         label: 'Body text',
         name: 'body-text',
+        value: '',
+        error: null
+      }
+    ]
+  },
+  {
+    thumbnailImg: 'video-template.png',
+    tempName: 'Video Template',
+    component: Video,
+    modal: VideoModal,
+    modalData: [
+      {
+        label: 'Video Url',
+        name: 'video',
         value: '',
         error: null
       }
