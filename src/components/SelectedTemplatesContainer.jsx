@@ -14,7 +14,12 @@ const TemplateContainer = styled.div`
     display: none;
   }
   :hover {
-    button.export-btn, .control-panel {
+    button.export-btn {
+      opacity: 1;
+    }
+  }
+  .template-container:hover {
+    .control-panel {
       opacity: 1;
     }
   }
