@@ -6,8 +6,8 @@ const TwoLargeImage = () => {
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
     <div id='two-large-image-temp'>
       <h3>Place Section Title Here</h3>
-      <div class='section-cont'>
-        <div class='section-one'>
+      <div className='section-cont'>
+        <div className='section-one'>
           <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
           <h4>Place Info Item Title Here</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
@@ -15,7 +15,7 @@ const TwoLargeImage = () => {
           <p>place paragraph text here</p>
           <p>place paragraph text here</p>
         </div>
-        <div class='section-two'>
+        <div className='section-two'>
           <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
           <h4>Place Info Item Title Here</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
