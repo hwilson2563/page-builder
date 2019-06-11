@@ -100,7 +100,6 @@ div {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
-
 /* END Global Responsive Styles */
 
 /* START BUTTON */
@@ -300,7 +299,7 @@ div {
 }
 
 #gallery-template div.button-section {
-  width: 100%;
+  width: auto;
   margin-left: 40px;
   -ms-grid-row: 1;
   grid-row: 1;
@@ -387,17 +386,14 @@ div {
 
 #gallery-template #image-container {
   margin: 0 auto;
-  position: relative;
   width: 80vw;
-  height: 80vw;
+  height: auto;
   overflow: hidden;
 }
 
 #gallery-template .gallery-img {
-  position: absolute;
   width: 80vw;
-  height: 80vw;
-  top: 0;
+  height: 0px;
   opacity: 0;
   -webkit-transition: .3s ease-in-out;
   -o-transition: .3s ease-in-out;
@@ -406,6 +402,7 @@ div {
 
 #gallery-template img.gallery-img.display-img {
   opacity: 1;
+  height: auto;
 }
 
 #gallery-template #bullet-container {
@@ -565,16 +562,45 @@ button:focus {
 
 /* END read more button */
 
+/* START two small images template */
+
+#two-small-image-temp h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.single-img-cont img {
+  width: 100%;
+  background-color: #ebebeb;
+  background-color: var( --background-accent);
+  margin-bottom: 20px;
+}
+
+.single-img-cont {
+  margin: 20px;
+}
+
+.single-img-cont h4 {
+  font-size: 18px !important;
+  text-transform: uppercase;
+}
+
+.single-img-cont p {
+  font-size: 18px !important;
+  font-family: 'Open Sans', 'Trebuchet MS', sans-serif !important;
+  font-family: var(--font-body) !important;
+}
+
+/* END two small images template */
+
 /* START BANNER TEMPLATE */
 
 #banner-temp {
   display: flex;
   align-items: center;
   height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ebebeb
 }
 
 .banner-text {
@@ -653,6 +679,17 @@ button:focus {
   margin: 20px 0;
 }
 
+
+#product-list-temp a{
+  text-decoration: none;
+  color: #333333;
+  color: var(--font-main);
+}
+#product-list-temp a:visited {
+  color: #333;
+  color: var(--font-main);
+}
+
 .product-container {
   display: flex;
   flex-wrap: wrap;
@@ -685,7 +722,7 @@ button:focus {
   margin-bottom: 15px;
 }
 
-.single-product p, h4 {
+.single-product p, .single-product h4 {
   margin: 0 5px;
   font-size: 16px;
 }
@@ -726,11 +763,12 @@ button:focus {
   margin: 20px 0;
 }
 
-#four-img-template p.body-text {
-  margin: 0 0 18px 0;
+#four-img-template p {
+  margin: 0 0 20px 0;
   font-size: 18px;
   color: #252422;
   color: var(--main-secondary);
+  line-height: 20px;
 }
 
 #four-img-template div.text-img-container {
@@ -803,12 +841,11 @@ button:focus {
   #linking-temp .image-text-container {
     display: flex;
     margin-bottom: 40px;
-    height: 330px;
+    align-items: flex-start;
   }
   #linking-temp img {
     min-width: 330px;
     width: 330px;
-    height: 330px;
     margin-bottom: unset;
   }
   #linking-temp .linking-text-container {
@@ -831,15 +868,13 @@ button:focus {
     justify-items: left;
     padding: 0 25px 25px;
     grid-gap: 0;
-    -ms-grid-columns: 1fr, 2fr;
-    -ms-grid-rows: 1fr, 3fr;
-    grid-template-rows: 1fr, 3fr;
-    -ms-grid-columns: 1fr, 2fr;
-    grid-template-columns: 1fr, 2fr;
+    -ms-grid-rows: auto 3fr;
+    grid-template-rows: 1fr 3fr;
+    -ms-grid-columns: auto 2fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas: "buttons buttons""gallery info"
   }
   #gallery-template #image-container, #gallery-template .gallery-img {
-    height: 300px;
     width: 300px;
   }
   #gallery-template #bullet-container {
@@ -1026,13 +1061,12 @@ button:focus {
     margin: 25px auto;
   }
   #linking-temp img {
-    min-width: unset;
+    min-width: auto;
     width: 300px;
-    height: 300px;
-    margin-left: 10px;
   }
   #linking-temp .image-text-container {
     height: auto;
+    margin-left: 20px;
   }
   #linking-temp .linking-text-container h3 {
     margin-bottom: 10px;
@@ -1062,7 +1096,6 @@ button:focus {
     width: 45%;
     max-width: 500px;
     margin: 20px;
-    margin-left: 10px;
   }
   /* END one-image-text template */
   /* START text only template */
@@ -1074,16 +1107,17 @@ button:focus {
   #two-small-image-temp {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0 auto;
+    padding: 0px 20px;
   }
   .images-container {
     width: 100%;
     max-width: 1090px;
-    margin-top: 20px;
+    margin: 20px auto 0px auto;
   }
   .single-img-cont {
     display: flex;
+    margin: unset;
   }
   .images-container img {
     width: 45%;
@@ -1113,6 +1147,7 @@ button:focus {
   #gallery-template .container {
     padding: 0 0 25px;
     grid-gap: 20px;
+    grid-template-rows: auto;
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "buttons gallery info"
@@ -1205,7 +1240,7 @@ button:focus {
     display: none!important;
   }
   #four-img-template .text-img-container .read-more-container {
-    max-height: fit-content;
+    max-height: none;
     overflow: visible;
   }
   /* END FOUR IMAGE TEMPLATE */
