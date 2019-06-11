@@ -35,6 +35,8 @@ export const templates = [
     component: Banner,
     modal: BannerModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Image Mobile',
         name: 'image-mobile',
@@ -54,7 +56,7 @@ export const templates = [
         error: null
       },
       {
-        label: 'Image Atl Text',
+        label: 'Image Alt Text',
         name: 'alt-text',
         value: '',
         error: null
@@ -79,6 +81,8 @@ export const templates = [
     component: ButtonText,
     modal: ButtonTextModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Call To Action Text',
         name: 'call-to-action',
@@ -99,6 +103,8 @@ export const templates = [
     component: FourImage,
     modal: FourImageModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Section Title',
         name: 'section-title',
@@ -209,6 +215,8 @@ export const templates = [
     component: Gallery,
     modal: null,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Gallery Name Button',
         name: 'gallery-name',
@@ -253,6 +261,8 @@ export const templates = [
     component: LargeImage,
     modal: LargeImgModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Image Url',
         name: 'image',
@@ -273,6 +283,8 @@ export const templates = [
     component: Linking,
     modal: LinkingModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Image Url',
         name: 'image',
@@ -311,6 +323,8 @@ export const templates = [
     component: OneImageText,
     modal: OneImageTextModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Image Url',
         name: 'image',
@@ -343,6 +357,8 @@ export const templates = [
     component: Product,
     modal: ProductListModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Image Url',
         name: 'image',
@@ -381,6 +397,8 @@ export const templates = [
     component: Quote,
     modal: QuotesModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'FAQ - Question',
         name: 'faq',
@@ -413,6 +431,8 @@ export const templates = [
     component: SingleButton,
     modal: SingleButtonModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Button Text',
         name: 'button-text',
@@ -427,6 +447,8 @@ export const templates = [
     component: TextOnly,
     modal: TextOnlyModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Title',
         name: 'title',
@@ -447,6 +469,8 @@ export const templates = [
     component: ThreeImage,
     modal: ThreeImgModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Section Title',
         name: 'section-title',
@@ -533,6 +557,8 @@ export const templates = [
     component: TwoLargeImage,
     modal: TwoLargeImgModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Section Title',
         name: 'section-title',
@@ -595,6 +621,8 @@ export const templates = [
     component: TwoSmallImage,
     modal: TwoSmallImgModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Section Title',
         name: 'section-title',
@@ -657,6 +685,8 @@ export const templates = [
     component: Video,
     modal: VideoModal,
     modalData: [
+      { label: 'background', name: 'background', value: false, error: null },
+      { label: 'padding', name: 'padding', value: false, error: null },
       {
         label: 'Video Url',
         name: 'video',

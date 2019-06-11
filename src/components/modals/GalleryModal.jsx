@@ -4,6 +4,14 @@ const GalleryModal = props => {
   const { updateFormData } = props
   return (
     <>
+      <div>
+        <input type={'checkbox'} name={'background'} />
+        <label htmlFor={'background'}>Check for grey background</label>
+      </div>
+      <div>
+        <input type={'checkbox'} name={'padding'} />
+        <label htmlFor={'padding'}>Check for added padding</label>
+      </div>
       {/* MORE CAN BE CREATED */}
       <FormEntry
         type={'input'}

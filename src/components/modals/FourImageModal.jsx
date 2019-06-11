@@ -4,6 +4,14 @@ const FourImageModal = props => {
   const { updateFormData } = props
   return (
     <>
+      <div>
+        <input type={'checkbox'} name={'background'} />
+        <label htmlFor={'background'}>Check for grey background</label>
+      </div>
+      <div>
+        <input type={'checkbox'} name={'padding'} />
+        <label htmlFor={'padding'}>Check for added padding</label>
+      </div>
       <FormEntry
         type={'input'}
         label={'Section Title'}
@@ -13,7 +21,14 @@ const FourImageModal = props => {
         required
       />
       {/* First Img Temp */}
-      <FormEntry type={'input'} label={'Image 1'} name={'image'} error={null} updateFormData={updateFormData} required />
+      <FormEntry
+        type={'input'}
+        label={'Image 1'}
+        name={'image'}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
@@ -39,7 +54,14 @@ const FourImageModal = props => {
         required
       />
       {/* Second Img Temp */}
-      <FormEntry type={'input'} label={'Image 2'} name={'image'} error={null} updateFormData={updateFormData} required />
+      <FormEntry
+        type={'input'}
+        label={'Image 2'}
+        name={'image'}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
@@ -65,7 +87,14 @@ const FourImageModal = props => {
         required
       />
       {/* Third Img Temp */}
-      <FormEntry type={'input'} label={'Image 3'} name={'image'} error={null} updateFormData={updateFormData} required />
+      <FormEntry
+        type={'input'}
+        label={'Image 3'}
+        name={'image'}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
@@ -91,7 +120,14 @@ const FourImageModal = props => {
         required
       />
       {/* Fourth Img Temp */}
-      <FormEntry type={'input'} label={'Image 4'} name={'image'} error={null} updateFormData={updateFormData} required />
+      <FormEntry
+        type={'input'}
+        label={'Image 4'}
+        name={'image'}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
