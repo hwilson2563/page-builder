@@ -1,4 +1,4 @@
-'use strict'
+// display read more button only in tablet and only if height is larger than 300px
 function readMore () {
   var inTabletView = window.innerWidth < 1020 && window.innerWidth > 740
   if (inTabletView) {
@@ -19,8 +19,7 @@ function readMore () {
     }
   }
 }
-// add readMore functionality to run on page resize and on page load
-readMore()
+// when window resizes make sure to hide read more button if not in tablet
 window.addEventListener('resize', readMore)
 //  start of onclick function attached to show more button
 function showMore (button) {
@@ -32,6 +31,19 @@ function showMore (button) {
     button.textContent = 'read more'
   }
 }
+function AddReadMoreClicks () {
+  readMore()
+  var readMoreButtons = document.getElementsByClassName('read-more-button')
+  if (readMoreButtons && readMoreButtons.length > 0) {
+    for (var x = 0; x < readMoreButtons.length; x++) {
+      readMoreButtons[x].addEventListener('click', function () {
+        showMore(this)
+      })
+    }
+  }
+}
+// add read more funtions to the read more read less buttons
+window.onload = AddReadMoreClicks()
 
 //
 // GALLERY TEMPLATE BEGINS
@@ -183,8 +195,7 @@ function buildGalleryButtons () {
 }
 
 // this initially function populates gallery on load
-(function () {
-
+;(function () {
   // only begins build is galleriesJSON is not false
   if (galleriesJSON) {
     // have to do this because of IE >:[
