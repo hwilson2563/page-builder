@@ -868,11 +868,10 @@ button:focus {
     justify-items: left;
     padding: 0 25px 25px;
     grid-gap: 0;
-    -ms-grid-columns: 1fr, 2fr;
-    -ms-grid-rows: 1fr, 3fr;
-    grid-template-rows: 1fr, 3fr;
-    -ms-grid-columns: 1fr, 2fr;
-    grid-template-columns: 1fr, 2fr;
+    -ms-grid-rows: auto 3fr;
+    grid-template-rows: 1fr 3fr;
+    -ms-grid-columns: auto 2fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas: "buttons buttons""gallery info"
   }
   #gallery-template #image-container, #gallery-template .gallery-img {
@@ -1150,6 +1149,7 @@ button:focus {
   #gallery-template .container {
     padding: 0 0 25px;
     grid-gap: 20px;
+    grid-template-rows: auto;
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "buttons gallery info"
