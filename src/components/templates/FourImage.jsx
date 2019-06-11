@@ -13,7 +13,7 @@ const FourImage = () => {
           <h3 className='subheader'>Place info item title here</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p className='body-text'>place paragraph text here</p>
+            <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button onClick={e => showMore(e.target)}>read more</button>
@@ -25,7 +25,7 @@ const FourImage = () => {
           <h3 className='subheader'>Place info item title here</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p className='body-text'>place paragraph text here</p>
+            <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button onClick={e => showMore(e.target)}>read more</button>
@@ -37,7 +37,7 @@ const FourImage = () => {
           <h3 className='subheader'>Place info item title here</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p className='body-text'>
+            <p>
               place paragraph text here
             </p>
             {/* <!-- End of paragraph tags --> */}
@@ -51,7 +51,7 @@ const FourImage = () => {
           <h3 className='subheader'>Place info item title here</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p className='body-text'>place paragraph text here</p>
+            <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button onClick={e => showMore(e.target)}>read more</button>
