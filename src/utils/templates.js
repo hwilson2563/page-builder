@@ -17,71 +17,197 @@ export const templates = [
   {
     thumbnailImg: 'banner_temp.png',
     tempName: 'Banner Template',
-    component: Banner
+    component: Banner,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'button_text_temp.png',
     tempName: 'Button Text Template',
-    component: ButtonText
+    component: ButtonText,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'four_img_temp.png',
     tempName: 'Four Image Template',
-    component: FourImage
+    component: FourImage,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'gallery_temp.png',
     tempName: 'Gallery Template',
-    component: Gallery
+    component: Gallery,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'large_img_temp.png',
     tempName: 'Large Image Template',
-    component: LargeImage
+    component: LargeImage,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'linking_temp.png',
     tempName: 'Linking Template',
-    component: Linking
+    component: Linking,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'one_img_text_temp.png',
     tempName: 'One Image Text Template',
-    component: OneImageText
+    component: OneImageText,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'product_temp.png',
     tempName: 'Product Template',
-    component: Product
+    component: Product,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'quote_temp.png',
     tempName: 'Quote Template',
-    component: Quote
+    component: Quote,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'single_button_temp.png',
     tempName: 'Single Button Template',
-    component: SingleButton
+    component: SingleButton,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'text_only_temp.png',
     tempName: 'Text Only Template',
-    component: TextOnly
+    component: TextOnly,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'three_img_temp.png',
     tempName: 'Three Image Template',
-    component: ThreeImage
+    component: ThreeImage,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'two_large_img_temp.png',
     tempName: 'Two Large Image Template',
-    component: TwoLargeImage
+    component: TwoLargeImage,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   },
   {
     thumbnailImg: 'two_small_img_temp.png',
     tempName: 'Two Small Image Template',
-    component: TwoSmallImage
+    component: TwoSmallImage,
+    modal: null,
+    modalData: [
+      {
+        label: '',
+        name: '',
+        value: '',
+        error: null
+      }
+    ]
   }
 ]
