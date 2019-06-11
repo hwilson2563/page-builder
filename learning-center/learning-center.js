@@ -43,7 +43,7 @@ function AddReadMoreClicks () {
   }
 }
 // add read more funtions to the read more read less buttons
-window.addEventListener('click', AddReadMoreClicks())
+window.addEventListener('load', AddReadMoreClicks())
 
 //
 // GALLERY TEMPLATE BEGINS
