@@ -76,7 +76,6 @@ const SelectedTemplatesContainer = props => {
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map(Template => {
-        console.log(Template)
         return (templates += ReactDOMServer.renderToStaticMarkup(<Template />))
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
