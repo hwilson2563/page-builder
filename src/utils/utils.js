@@ -165,10 +165,11 @@ export const buildGallery = () => {
 
   // this updates the info section with the new gallery info
   const changeInfoSection = galleryName => {
+    var infoIndex = galleryIndex * 2
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
 
-    var headersArray = [infoHeader[0], infoHeader[1]] // this is because of IE
+    var headersArray = [infoHeader[infoIndex], infoHeader[infoIndex+1]] // this is because of IE
 
     headersArray.forEach(function (header) {
       header.innerHTML = galleriesJSON[galleryName][0].infoTitle
