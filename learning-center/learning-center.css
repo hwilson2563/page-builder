@@ -100,6 +100,7 @@ div {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
+
 /* END Global Responsive Styles */
 
 /* START BUTTON */
@@ -395,6 +396,7 @@ div {
   width: 80vw;
   height: 0px;
   opacity: 0;
+  display: none;
   -webkit-transition: .3s ease-in-out;
   -o-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
@@ -403,6 +405,7 @@ div {
 #gallery-template img.gallery-img.display-img {
   opacity: 1;
   height: auto;
+  display: block;
 }
 
 #gallery-template #bullet-container {
@@ -679,12 +682,12 @@ button:focus {
   margin: 20px 0;
 }
 
-
-#product-list-temp a{
+#product-list-temp a {
   text-decoration: none;
   color: #333333;
   color: var(--font-main);
 }
+
 #product-list-temp a:visited {
   color: #333;
   color: var(--font-main);

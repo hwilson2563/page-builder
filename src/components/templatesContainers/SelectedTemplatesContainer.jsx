@@ -5,10 +5,12 @@ import ReactDOMServer from 'react-dom/server'
 import TemplateContainer from './TemplateContainer'
 import ExportIcon from '../parts/ExportIcon'
 
-const TemplateWrapper = styled.div`
+const TemplatesContainer = styled.div`
   position: relative;
-  :hover button.export-btn {
-    opacity: 1;
+  :hover {
+    button.export-btn {
+      opacity: 1;
+    }
   }
 `
 const Button = styled.button`
@@ -78,23 +80,25 @@ const SelectedTemplatesContainer = props => {
   )
 
   return (
-    <TemplateWrapper>
+    <TemplatesContainer>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
       <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
         <ExportIcon showCopy={showCopy} />
       </Button>
 
       {selectedTemplates.map((template, idx) => {
+        let selectedTemplateLength = selectedTemplates.length - 1
         return (
           <TemplateContainer
             key={idx}
             idx={idx}
+            selectedTemplateLength={selectedTemplateLength}
             template={template}
             updateSelectedTemplates={updateSelectedTemplates}
           />
         )
       })}
-    </TemplateWrapper>
+    </TemplatesContainer>
   )
 }
 

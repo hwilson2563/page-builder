@@ -7,18 +7,20 @@ import CMSModal from '../modal/CMSModal'
 
 const TemplateContain = styled.div`
   position: relative;
-  :first-child .up-container {
-    display: none;
+  :hover {
+    .control-panel {
+      opacity: 1;
+    }
   }
-  :last-child .down-container {
-    display: none;
+  .up-container {
+    display: ${props => (props.idx === 0 ? 'none' : 'default')};
   }
-  :hover .control-panel {
-    opacity: 1;
+  .down-container {
+    display: ${props => (props.selectedTemplateLength === props.idx ? 'none' : 'default')};
   }
 `
 const TemplateContainer = props => {
-  const { idx, screen, template, updateSelectedTemplates } = props
+  const { idx, screen, selectedTemplateLength, template, updateSelectedTemplates } = props
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [templateData, setTemplateData] = useState({})
@@ -53,7 +55,7 @@ const TemplateContainer = props => {
     )
   }
   return (
-    <TemplateContain className={'template-container'}>
+    <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
       <Component />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
