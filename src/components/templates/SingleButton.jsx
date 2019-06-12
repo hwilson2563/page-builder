@@ -5,7 +5,7 @@ const SingleButton = () => {
   // <!-- START SINGLE BUTTON -->
 
     <div id='button-text-template' className='button-text-template'>
-      <a className='button-link' href='' aria-label=''>
+      <a className='button-link' href={'link here'} aria-label=''>
         <button className='template-button'>press this button</button>
       </a>
     </div>

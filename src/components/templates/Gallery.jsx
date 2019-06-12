@@ -174,7 +174,7 @@ const Gallery = () => {
         })
       }
     })()
-  }, [])
+  })
   var object = `{
     "Assign Gallery Name": [
       {
