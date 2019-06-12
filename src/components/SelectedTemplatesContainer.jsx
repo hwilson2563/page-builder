@@ -14,7 +14,8 @@ const TemplateContainer = styled.div`
     display: none;
   }
   :hover {
-    button.export-btn, .control-panel {
+    button.export-btn,
+    .control-panel {
       opacity: 1;
     }
   }
@@ -53,8 +54,18 @@ const TextArea = styled.textarea`
   padding: 5px 8px;
   resize: none;
   background-color: ${props => props.theme.backgroundAccent + 'CC'};
-  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity .3s ease-in-out;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
+
+const CssLink = () => {
+  return (
+    <link rel='stylesheet' href='https://dev.woodlanddirect.com/learningcenter/learning-center.css' type='text/css' />
+  )
+}
+
+const JsLink = () => {
+  return <script src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
+}
 
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates } = props
@@ -63,12 +74,11 @@ const SelectedTemplatesContainer = props => {
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
+      templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map(Template => {
-        return (templates =
-          templates === undefined
-            ? ReactDOMServer.renderToStaticMarkup(<Template />)
-            : templates + ReactDOMServer.renderToStaticMarkup(<Template />))
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template />))
       })
+      templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
     setCopyData(templates)
     setShowCopy(true)
@@ -95,10 +105,7 @@ const SelectedTemplatesContainer = props => {
         return (
           <TemplateContainer className={'template-container'} key={idx}>
             <Template />
-            <ControlPanel
-              updateSelectedTemplates={updateSelectedTemplates}
-              idx={idx}
-            />
+            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
           </TemplateContainer>
         )
       })}
