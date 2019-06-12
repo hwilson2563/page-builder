@@ -23,16 +23,60 @@ const Gallery = () => {
         altTag: 'alt tag text here',
         selected: false
       }
+    ],
+    'Assign Gallery Name 2': [
+      {
+        galleryButtonAriaLabel: 'add aria-label text for button here',
+        infoTitle: 'info section title here',
+        infoText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit enim, earum eius id tenetur consectetur consequuntur provident autem totam, doloremque maiores nihil qui, exercitationem debitis nam fugit eveniet in illum.'
+      },
+      {
+        imageSource: 'https://via.placeholder.com/700',
+        altTag: 'alt tag text here',
+        selected: true
+      },
+      {
+        imageSource: 'https://via.placeholder.com/500',
+        altTag: 'alt tag text here',
+        selected: false
+      },
+      {
+        imageSource: 'https://via.placeholder.com/600',
+        altTag: 'alt tag text here',
+        selected: false
+      }
+    ],
+    'Assign Gallery Name 3': [
+      {
+        galleryButtonAriaLabel: 'add aria-label text for button here',
+        infoTitle: 'place info section title here',
+        infoText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam sequi soluta fugit corporis magni commodi, dicta, facere excepturi beatae natus, blanditiis aliquam iste ea voluptatum ex fugiat consectetur mollitia.'
+      },
+      {
+        imageSource: 'https://via.placeholder.com/700',
+        altTag: 'alt tag text here',
+        selected: true
+      },
+      {
+        imageSource: 'https://via.placeholder.com/500',
+        altTag: 'alt tag text here',
+        selected: false
+      },
+      {
+        imageSource: 'https://via.placeholder.com/600',
+        altTag: 'alt tag text here',
+        selected: false
+      }
     ]
   }
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id='gallery-template' className='background'>
+      <div id='gallery-template' className='gallery-templates background'>
         <div className='container'>
           <div className='button-section'>
             <h2>Place Section Title Here</h2>
-            <div id='selection-container-btn'>
+            <div id='selection-container-btn' className={'selection-container-btn'}>
               <button id='selected-gallery' className='dropdown-button active' />
               {/* <!-- Buttons will generate here --> */}
             </div>
@@ -40,12 +84,12 @@ const Gallery = () => {
           <div className='gallery-section'>
             <h3 className='info-header title-center-mobile'>{/* <!-- Info header will generate here --> */}</h3>
 
-            <div id='image-container'>{/* <!-- Images will generate here --> */}</div>
-            <div id='bullet-container'>{/* <!-- Bullets will generate here --> */}</div>
+            <div id='image-container' className={'image-container'}>{/* <!-- Images will generate here --> */}</div>
+            <div id='bullet-container' className={'bullet-container'}>{/* <!-- Bullets will generate here --> */}</div>
           </div>
           <div className='info-section'>
             <h3 className='info-header title-desktop'>{/* <!-- Info header will generate here --> */}</h3>
-            <p id='info-body'>{/* <!-- Info body will generate here --> */}</p>
+            <p id='info-body' className={'info-body'}>{/* <!-- Info body will generate here --> */}</p>
           </div>
         </div>
       </div>

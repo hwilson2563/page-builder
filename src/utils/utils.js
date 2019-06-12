@@ -91,9 +91,23 @@ export const addReadMoreClicks = () => {
 }
 
 export const buildGallery = () => {
+  var galleryIndex
+
+  var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
   var galleriesJSON = document.getElementById('galleries')
+  var imageContainer
+  var bulletContainer
+  var buttonContainer
+
   if (galleriesJSON !== null && galleriesJSON) {
-    galleriesJSON = JSON.parse(document.getElementById('galleries').innerText)
+    galleryIndex = galleriesHTMLCollection.length - 1
+    galleriesJSON.id = galleriesHTMLCollection ? 'galleries' + galleriesHTMLCollection.length : 'galleries' + galleryIndex
+
+    imageContainer = document.getElementsByClassName('image-container')[galleryIndex]
+    bulletContainer = document.getElementsByClassName('bullet-container')[galleryIndex]
+    buttonContainer = document.getElementsByClassName('selection-container-btn')[galleryIndex]
+
+    galleriesJSON = JSON.parse(document.getElementById(galleriesJSON.id).innerText)
   } else {
     galleriesJSON = false
   }
@@ -152,7 +166,7 @@ export const buildGallery = () => {
   // this updates the info section with the new gallery info
   const changeInfoSection = galleryName => {
     var infoHeader = document.getElementsByClassName('info-header')
-    var infoBody = document.getElementById('info-body')
+    var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
 
     var headersArray = [infoHeader[0], infoHeader[1]] // this is because of IE
 
@@ -164,10 +178,8 @@ export const buildGallery = () => {
 
   // this builds the whole gallery section and functionality based on JSON
   const buildGallery = gallery => {
-    var imageContainer = document.getElementById('image-container')
-    var buttonContainer = document.getElementById('bullet-container')
     imageContainer.innerHTML = ''
-    buttonContainer.innerHTML = ''
+    bulletContainer.innerHTML = ''
 
     // this loops through each gallery in the JSON
     galleriesJSON[gallery].forEach(function (image, idx) {
@@ -193,14 +205,14 @@ export const buildGallery = () => {
         buttonElement.onclick = function () {
           handleGalleryClick(idx, selectedGallery)
         }
-        buttonContainer.appendChild(buttonElement)
+        bulletContainer.appendChild(buttonElement)
       }
     })
   }
 
   // this builds each gallery option for the user to select
   const buildGalleryButtons = () => {
-    var buttonContainer = document.getElementById('selection-container-btn')
+    // var buttonContainer = document.getElementById('selection-container-btn')
 
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
