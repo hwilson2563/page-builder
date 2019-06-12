@@ -18,9 +18,7 @@ const CMSModal = props => {
 
   const updateFormData = updatedData => {
     let newFormData = { ...data }
-    let editedData = newFormData[updatedData.name]
-    if (editedData) {
-    } else newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+    newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
     setData(newFormData)
   }
 
