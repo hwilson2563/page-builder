@@ -55,7 +55,8 @@ const SelectedTemplatesContainer = props => {
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
-      selectedTemplates.map(Template => {
+      selectedTemplates.map(template => {
+        const Template = template.component
         return (templates =
           templates === undefined
             ? ReactDOMServer.renderToStaticMarkup(<Template />)
