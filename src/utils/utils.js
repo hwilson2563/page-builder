@@ -145,6 +145,7 @@ export const buildGallery = () => {
 
   // upon click, this updates the page to the selected gallery
   const changeGallery = (galleryName) => {
+    console.log(this)
     var infoButtons = document.getElementsByClassName('info-button')
 
     // adds and removes the active css class
@@ -165,7 +166,7 @@ export const buildGallery = () => {
 
   // this updates the info section with the new gallery info
   const changeInfoSection = galleryName => {
-    var infoIndex = galleryIndex * 2
+    var infoIndex = galleryIndex * 2 //because each section has two infoIndex
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
 
@@ -217,12 +218,12 @@ export const buildGallery = () => {
 
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
-
+console.log(galleryName)
       // this creates buttons for desktop
       var buttonElement = document.createElement('button')
       isActiveGallery
-        ? buttonElement.setAttribute('class', 'info-button active')
-        : buttonElement.setAttribute('class', 'info-button')
+        ? buttonElement.setAttribute('class', `info-button ${galleryName} active`)
+        : buttonElement.setAttribute('class', `info-button ${galleryName}`)
       buttonElement.innerText = objectProperyNames[idx]
       buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
       buttonElement.onclick = function () {
