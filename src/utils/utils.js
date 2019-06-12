@@ -101,7 +101,7 @@ export const buildGallery = () => {
   var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
   // when I gallery is selected, this runs.
-  function handleGalleryClick (idx, galleryName) {
+  const handleGalleryClick = (idx, galleryName) => {
     var selectedImage = document.getElementsByClassName('gallery-img')
     var selectedBullet = document.getElementsByClassName('bullet')
 
@@ -130,7 +130,7 @@ export const buildGallery = () => {
   }
 
   // upon click, this updates the page to the selected gallery
-  function changeGallery (galleryName) {
+  const changeGallery = (galleryName) => {
     var infoButtons = document.getElementsByClassName('info-button')
 
     // adds and removes the active css class
@@ -150,7 +150,7 @@ export const buildGallery = () => {
   }
 
   // this updates the info section with the new gallery info
-  function changeInfoSection (galleryName) {
+  const changeInfoSection = galleryName => {
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementById('info-body')
 
@@ -163,7 +163,7 @@ export const buildGallery = () => {
   }
 
   // this builds the whole gallery section and functionality based on JSON
-  function buildGallery (gallery) {
+  const buildGallery = gallery => {
     var imageContainer = document.getElementById('image-container')
     var buttonContainer = document.getElementById('bullet-container')
     imageContainer.innerHTML = ''
@@ -199,7 +199,7 @@ export const buildGallery = () => {
   }
 
   // this builds each gallery option for the user to select
-  function buildGalleryButtons () {
+  const buildGalleryButtons = () => {
     var buttonContainer = document.getElementById('selection-container-btn')
 
     objectProperyNames.forEach(function (galleryName, idx) {
@@ -238,27 +238,25 @@ export const buildGallery = () => {
   }
 
   // this initially function populates gallery on load
-  ;(function () {
-    // only begins build is galleriesJSON is not false
-    if (galleriesJSON) {
-      // have to do this because of IE >:[
-      var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
-        return galleriesJSON[gallery]
-      })
+  // only begins build is galleriesJSON is not false
+  if (galleriesJSON) {
+    // have to do this because of IE >:[
+    var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
+      return galleriesJSON[gallery]
+    })
 
-      // this loops through array of galleries
-      galleryValues.forEach(function (gallery, index) {
-        var onlyRunForFirstGallery = index === 0
-        if (onlyRunForFirstGallery) {
-          selectedGallery = objectProperyNames[index]
-          // this loops through each gallery in the JSON
-          buildGallery(selectedGallery)
-          // this builds buttons
-          buildGalleryButtons()
-          // this builds info section
-          changeInfoSection(selectedGallery)
-        }
-      })
-    }
-  })()
+    // this loops through array of galleries
+    galleryValues.forEach(function (gallery, index) {
+      var onlyRunForFirstGallery = index === 0
+      if (onlyRunForFirstGallery) {
+        selectedGallery = objectProperyNames[index]
+        // this loops through each gallery in the JSON
+        buildGallery(selectedGallery)
+        // this builds buttons
+        buildGalleryButtons()
+        // this builds info section
+        changeInfoSection(selectedGallery)
+      }
+    })
+  }
 }
