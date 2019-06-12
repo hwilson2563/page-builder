@@ -218,11 +218,10 @@ export const buildGallery = () => {
 
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
-console.log(galleryName)
       // this creates buttons for desktop
       var buttonElement = document.createElement('button')
       isActiveGallery
-        ? buttonElement.setAttribute('class', `info-button ${galleryName} active`)
+        ? buttonElement.setAttribute('class', `info-button ${galleryName + idx} active`)
         : buttonElement.setAttribute('class', `info-button ${galleryName}`)
       buttonElement.innerText = objectProperyNames[idx]
       buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
