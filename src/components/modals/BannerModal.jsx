@@ -11,7 +11,7 @@ const BannerModal = props => {
         name={'image'}
         error={null}
         updateFormData={updateFormData}
-        value={data[0].value}
+        value={data['image'] ? data['image'].value : ''}
         required
       />
       <FormEntry
@@ -20,7 +20,7 @@ const BannerModal = props => {
         name={'altText'}
         error={null}
         updateFormData={updateFormData}
-        value={data[1].value}
+        value={data['altText'] ? data['altText'].value : ''}
         required
       />
       <FormEntry
@@ -29,7 +29,7 @@ const BannerModal = props => {
         name={'title'}
         error={null}
         updateFormData={updateFormData}
-        value={data[2].value}
+        value={data['title'] ? data['title'].value : ''}
         required
       />
       <FormEntry
@@ -38,7 +38,7 @@ const BannerModal = props => {
         name={'subtitle'}
         error={null}
         updateFormData={updateFormData}
-        value={data[3].value}
+        value={data['subtitle'] ? data['subtitle'].value : ''}
         required
       />
     </>

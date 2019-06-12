@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from './Modal'
 import CMSModal from './CMSModal'
-import { editSelectedTemplates } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -22,7 +21,7 @@ const TemplateContainer = props => {
   const { idx, screen, template, updateSelectedTemplates } = props
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
-  const [templateData, setTemplateData] = useState(template.modalData)
+  const [templateData, setTemplateData] = useState({})
 
   // modal functions
   const toggleDisplayForm = () => {
@@ -40,11 +39,10 @@ const TemplateContainer = props => {
   // end modal functions
 
   const updateTemplateData = data => {
-    const newData = [...templateData]
-    let updatedTemplates = editSelectedTemplates(data, newData)
-    setTemplateData(updatedTemplates)
+    setTemplateData(data)
   }
   const CmsModal = () => {
+    console.log(templateData)
     return (
       <CMSModal
         tempName={template.tempName}

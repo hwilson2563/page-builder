@@ -30,24 +30,9 @@ export const removeSelectedTemplates = (templates, idx) => {
 }
 
 export const addSelectedTemplates = (component, templates) => {
-  let position = templates.length + 1
-  component['position'] = position
   templates.push(component)
   return templates
 }
-
-export const editSelectedTemplates = (component, templates) => {
-  let updatedTemplates = []
-  templates.map(template => {
-    if (template.position === component.position) {
-      updatedTemplates.push(component)
-    } else {
-      updatedTemplates.push(template)
-    }
-  })
-  return updatedTemplates
-}
-
 export const moveUpSelectedTemplates = (templates, idx) => {
   let newLocation = idx - 1
   templates.splice(newLocation, 0, templates.splice(idx, 1)[0])

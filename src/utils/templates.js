@@ -19,33 +19,7 @@ export const templates = [
     thumbnailImg: 'banner_temp.png',
     tempName: 'Banner Template',
     component: Banner,
-    modal: BannerModal,
-    modalData: [
-      {
-        label: 'Image url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Atl Text',
-        name: 'altText',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subtitle',
-        name: 'subtitle',
-        value: '',
-        error: null
-      }
-    ]
+    modal: BannerModal
   },
   {
     thumbnailImg: 'button_text_temp.png',
