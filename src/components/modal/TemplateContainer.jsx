@@ -15,7 +15,7 @@ const TemplateContain = styled.div`
     display: none;
   }
   :hover .control-panel {
-    display: flex;
+    opacity: 1;
   }
 `
 const TemplateContainer = props => {
