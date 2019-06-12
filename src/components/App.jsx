@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import SideBar from './sideBar/SideBar'
-import TemplatesPreview from './TemplatesPreview'
+import TemplatesPreview from './templatesContainers/TemplatesPreview'
 import {
   addSelectedTemplates,
   determineScreen,

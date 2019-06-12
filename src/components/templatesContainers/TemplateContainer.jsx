@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
-import Modal from './Modal'
-import CMSModal from './CMSModal'
+import Modal from '../modal/Modal'
+import CMSModal from '../modal/CMSModal'
 
 const TemplateContain = styled.div`
   position: relative;

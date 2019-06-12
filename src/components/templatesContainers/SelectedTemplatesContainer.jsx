@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ReactDOMServer from 'react-dom/server'
 
-import TemplateContainer from './modal/TemplateContainer'
-import ExportIcon from './parts/ExportIcon'
+import TemplateContainer from './TemplateContainer'
+import ExportIcon from '../parts/ExportIcon'
 
 const TemplateWrapper = styled.div`
   position: relative;
