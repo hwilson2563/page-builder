@@ -91,9 +91,7 @@ export const addReadMoreClicks = () => {
 }
 
 export const buildGallery = () => {
-  var galleriesJSON = document.getElementById('galleries') // gets JSON on page
-  // galleriesJSON.innerHTML = ''
-  // galleriesJSON.append(object)
+  var galleriesJSON = document.getElementById('galleries')
   if (galleriesJSON !== null && galleriesJSON) {
     galleriesJSON = JSON.parse(document.getElementById('galleries').innerText)
   } else {
