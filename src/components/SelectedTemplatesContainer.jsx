@@ -64,7 +64,7 @@ const CssLink = () => {
 }
 
 const JsLink = () => {
-  return <script src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
+  return <script  className={'react'} /src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
 }
 
 const SelectedTemplatesContainer = props => {
