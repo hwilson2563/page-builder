@@ -29,6 +29,12 @@ const CMSModal = props => {
       <Title className={'template-title'}>{tempName}</Title>
       <FormProps data={data} updateFormData={updateFormData} />
       <button
+        onClick={() => {
+          updateTemplateData({})
+        }}>
+        Clear All
+      </button>
+      <button
         onClick={e => {
           updateTemplateData(data)
           closeModal(e, 'close')
