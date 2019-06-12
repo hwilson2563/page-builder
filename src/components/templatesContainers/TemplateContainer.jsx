@@ -42,12 +42,12 @@ const TemplateContainer = props => {
     setTemplateData(data)
   }
   const CmsModal = () => {
-    console.log(templateData)
     return (
       <CMSModal
         closeModal={closeModal}
         tempName={template.tempName}
         formData={templateData}
+        formProps={template.modal}
         updateTemplateData={updateTemplateData}
       />
     )
