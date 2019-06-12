@@ -16,7 +16,7 @@ const FourImage = () => {
             <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
-          <button onClick={e => showMore(e.target)}>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
 
         {/* <!-- Second Gallery Set --> */}
@@ -28,7 +28,7 @@ const FourImage = () => {
             <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
-          <button onClick={e => showMore(e.target)}>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
 
         {/* <!-- Third Gallery Set --> */}
@@ -42,7 +42,7 @@ const FourImage = () => {
             </p>
             {/* <!-- End of paragraph tags --> */}
           </div>
-          <button onClick={e => showMore(e.target)}>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
 
         {/* <!-- Fourth Gallery Set --> */}
@@ -54,7 +54,7 @@ const FourImage = () => {
             <p>place paragraph text here</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
-          <button onClick={e => showMore(e.target)}>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
       </div>
     </div>

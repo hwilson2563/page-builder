@@ -15,7 +15,7 @@ const ThreeImage = () => {
             <p>place paragraph here.</p>
             {/* <!-- END of p tags --> */}
           </div>
-          <button onclick='showMore(this)'>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
         <div className='img-text-container'>
           <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
@@ -26,7 +26,7 @@ const ThreeImage = () => {
             <p>place paragraph here.</p>
             {/* <!-- END of p tags --> */}
           </div>
-          <button onclick='showMore(this)'>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
         <div className='img-text-container'>
           <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
@@ -37,7 +37,7 @@ const ThreeImage = () => {
             <p>place paragraph here.</p>
             {/* <!-- END of p tags --> */}
           </div>
-          <button onclick='showMore(this)'>read more</button>
+          <button className={'read-more-button'}>read more</button>
         </div>
       </div>
     </div>
