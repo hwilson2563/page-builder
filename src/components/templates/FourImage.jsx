@@ -1,5 +1,5 @@
 import React from 'react'
-import { showMore } from '../../utils/utils'
+
 const FourImage = () => {
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
