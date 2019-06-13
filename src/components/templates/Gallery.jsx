@@ -72,24 +72,24 @@ const Gallery = () => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id='gallery-template' className='gallery-templates background'>
-        <div className='container'>
-          <div className='button-section'>
+      <div id={'gallery-template'} className={'gallery-templates background'}>
+        <div className={'container'}>
+          <div className={'button-section'}>
             <h2>Place Section Title Here</h2>
-            <div id='selection-container-btn' className={'selection-container-btn'}>
-              <button id='selected-gallery' className='selected-gallery dropdown-button active' />
+            <div id={'selection-container-btn'} className={'selection-container-btn'}>
+              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'} />
               {/* <!-- Buttons will generate here --> */}
             </div>
           </div>
-          <div className='gallery-section'>
-            <h3 className='info-header title-center-mobile'>{/* <!-- Info header will generate here --> */}</h3>
+          <div className={'gallery-section'}>
+            <h3 className={'info-header title-center-mobile'}>{/* <!-- Info header will generate here --> */}</h3>
 
-            <div id='image-container' className={'image-container'}>{/* <!-- Images will generate here --> */}</div>
-            <div id='bullet-container' className={'bullet-container'}>{/* <!-- Bullets will generate here --> */}</div>
+            <div id={'image-container'} className={'image-container'}>{/* <!-- Images will generate here --> */}</div>
+            <div id={'bullet-container'} className={'bullet-container'}>{/* <!-- Bullets will generate here --> */}</div>
           </div>
-          <div className='info-section'>
-            <h3 className='info-header title-desktop'>{/* <!-- Info header will generate here --> */}</h3>
-            <p id='info-body' className={'info-body'}>{/* <!-- Info body will generate here --> */}</p>
+          <div className={'info-section'}>
+            <h3 className={'info-header title-desktop'}>{/* <!-- Info header will generate here --> */}</h3>
+            <p id={'info-body'} className={'info-body'}>{/* <!-- Info body will generate here --> */}</p>
           </div>
         </div>
       </div>

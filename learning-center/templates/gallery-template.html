@@ -1,39 +1,38 @@
 <!-- GALLERY TEMPLATE BEGIN -->
-<div id='gallery-template' class='background'>
-    <div class='container'>
-      <div class='button-section'>
-        <h2>Place Section Title Here</h2>
-        <div id='selection-container-btn'>
-          <button id='selected-gallery' class='dropdown-button active'></button>
-          <!-- Buttons will generate here -->
-        </div>
-      </div>
-      <div class='gallery-section'>
-        <h3 class='info-header title-center-mobile'>
-          <!-- Info header will generate here -->
-        </h3>
-
-        <div id='image-container'>
-          <!-- Images will generate here -->
-        </div>
-        <div id='bullet-container'>
-          <!-- Bullets will generate here -->
-        </div>
-      </div>
-      <div class='info-section'>
-        <h3 class='info-header title-desktop'>
-          <!-- Info header will generate here -->
-        </h3>
-        <p id='info-body'>
-          <!-- Info body will generate here -->
-        </p>
+<div id='gallery-template' className='gallery-templates background'>
+  <div className='container'>
+    <div className='button-section'>
+      <h2>Place Section Title Here</h2>
+      <div id='selection-container-btn' className='selection-container-btn'>
+        <button id='selected-gallery' className='selected-gallery dropdown-button active'></button>
+        <!-- Buttons will generate here -->
       </div>
     </div>
-  </div>
+    <div className='gallery-section'>
+      <h3 className='info-header title-center-mobile'>
+        <!-- Info header will generate here -->
+      </h3>
 
-  <!-- ONLY THE SCRIPT BELOW WILL BE EDITED -->
-  <!-- STEPS -->
-  <!-- 
+      <div id='image-container' className='image-container'>
+        <!-- Images will generate here -->
+      </div>
+      <div id='bullet-container' className='bullet-container'>
+        <!-- Bullets will generate here -->
+      </div>
+    </div>
+    <div className='info-section'>
+      <h3 className='info-header title-desktop'>
+        <!-- Info header will generate here -->
+      </h3>
+      <p id='info-body' className='info-body'>
+        <!-- Info body will generate here -->
+      </p>
+    </div>
+  </div>
+</div>
+<!-- ONLY THE SCRIPT BELOW WILL BE EDITED -->
+<!-- STEPS -->
+<!-- 
     NOTE: DO NOT REMOVE QUOTATIONS WHEN EDITING. CHANGE TEXT BETWEEN QUOTATIONS AND AFTER COLONS ONLY
     1. Assign gallery name where it says 'Assign Gallery Name' (regarding the above warning, this one is actually before the colon ;P)
     2. The first group of text between the curly brackets {} is the info for the section.
@@ -80,7 +79,7 @@
       a. Remove everything from the comma seperating the curly brackets {} to the last curly bracket } (The same amount that you would copy and paste from above)
   
    -->
-  <script id='galleries' type='application/json'>
+<script id='galleries' type='application/json'>
       {
         "Assign Gallery Name": [
           {
