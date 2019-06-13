@@ -5,19 +5,27 @@ import ReactDOMServer from 'react-dom/server'
 import ControlPanel from './controlPanel/ControlPanel'
 import ExportIcon from './parts/ExportIcon'
 
+const TemplatesContainer = styled.div`
+  position: relative;
+  :hover {
+    button.export-btn {
+      opacity: 1;
+    }
+  }
+`
 const TemplateContainer = styled.div`
   position: relative;
-  :first-child .up-container {
-    display: none;
-  }
-  :last-child .down-container {
-    display: none;
-  }
   :hover {
-    button.export-btn,
     .control-panel {
       opacity: 1;
     }
+  }
+  .up-container {
+    display: ${props => (props.idx === 0 ? 'none' : 'default')};
+  }
+  .down-container {
+    display: ${props =>
+    props.selectedTemplateLength === props.idx ? 'none' : 'default'};
   }
 `
 const Button = styled.button`
@@ -95,21 +103,26 @@ const SelectedTemplatesContainer = props => {
   )
 
   return (
-    <TemplateContainer>
+    <TemplatesContainer>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
       <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
         <ExportIcon showCopy={showCopy} />
       </Button>
 
       {selectedTemplates.map((Template, idx) => {
+        let selectedTemplateLength = selectedTemplates.length - 1
         return (
-          <TemplateContainer className={'template-container'} key={idx}>
+          <TemplateContainer
+            className={'template-container'}
+            key={idx}
+            idx={idx}
+            selectedTemplateLength={selectedTemplateLength}>
             <Template />
             <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
           </TemplateContainer>
         )
       })}
-    </TemplateContainer>
+    </TemplatesContainer>
   )
 }
 
