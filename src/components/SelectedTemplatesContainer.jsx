@@ -65,6 +65,16 @@ const TextArea = styled.textarea`
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
 
+const CssLink = () => {
+  return (
+    <link rel='stylesheet' href='https://dev.woodlanddirect.com/learningcenter/learning-center.css' type='text/css' />
+  )
+}
+
+const JsLink = () => {
+  return <script className={'react'} src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
+}
+
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates } = props
   const [copyData, setCopyData] = useState()
@@ -72,12 +82,11 @@ const SelectedTemplatesContainer = props => {
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
+      templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map(Template => {
-        return (templates =
-          templates === undefined
-            ? ReactDOMServer.renderToStaticMarkup(<Template />)
-            : templates + ReactDOMServer.renderToStaticMarkup(<Template />))
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template />))
       })
+      templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
     setCopyData(templates)
     setShowCopy(true)

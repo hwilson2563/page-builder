@@ -12,6 +12,7 @@ import TextOnly from '../components/templates/TextOnly'
 import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
+import Video from '../components/templates/Video'
 
 export const templates = [
   {
@@ -83,5 +84,10 @@ export const templates = [
     thumbnailImg: 'two_small_img_temp.png',
     tempName: 'Two Small Image Template',
     component: TwoSmallImage
+  },
+  {
+    thumbnailImg: 'video_temp.png',
+    tempName: 'Video Template',
+    component: Video
   }
 ]

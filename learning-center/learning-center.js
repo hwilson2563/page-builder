@@ -31,7 +31,7 @@ function showMore (button) {
     button.textContent = 'read more'
   }
 }
-function AddReadMoreClicks () {
+function addReadMoreClicks () {
   readMore()
   var readMoreButtons = document.getElementsByClassName('read-more-button')
   if (readMoreButtons && readMoreButtons.length > 0) {
@@ -43,7 +43,7 @@ function AddReadMoreClicks () {
   }
 }
 // add read more funtions to the read more read less buttons
-window.addEventListener('load', AddReadMoreClicks())
+window.addEventListener('load', addReadMoreClicks())
 
 //
 // GALLERY TEMPLATE BEGINS
@@ -195,7 +195,7 @@ function buildGalleryButtons () {
 }
 
 // this initially function populates gallery on load
-;(function () {
+(function () {
   // only begins build is galleriesJSON is not false
   if (galleriesJSON) {
     // have to do this because of IE >:[
