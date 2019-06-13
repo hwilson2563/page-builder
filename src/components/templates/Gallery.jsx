@@ -2,24 +2,24 @@ import React from 'react'
 
 const Gallery = () => {
   var object = {
-    'Assign Gallery Name': [
+    'Assign Gallery Name 1': [
       {
         galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'place info section title here',
-        infoText: 'place info body text here'
+        infoTitle: 'Assign Gallery Name 1 Info Title',
+        infoText: 'Assign Gallery Name 1 Info Text'
       },
       {
-        imageSource: 'https://via.placeholder.com/700',
+        imageSource: 'https://via.placeholder.com/100',
         altTag: 'alt tag text here',
         selected: true
       },
       {
-        imageSource: 'https://via.placeholder.com/500',
+        imageSource: 'https://via.placeholder.com/200',
         altTag: 'alt tag text here',
         selected: false
       },
       {
-        imageSource: 'https://via.placeholder.com/600',
+        imageSource: 'https://via.placeholder.com/300',
         altTag: 'alt tag text here',
         selected: false
       }
@@ -27,11 +27,11 @@ const Gallery = () => {
     'Assign Gallery Name 2': [
       {
         galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'info section title here',
-        infoText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit enim, earum eius id tenetur consectetur consequuntur provident autem totam, doloremque maiores nihil qui, exercitationem debitis nam fugit eveniet in illum.'
+        infoTitle: 'Assign Gallery Name 2 Info Title',
+        infoText: 'Assign Gallery Name 2 Info Text'
       },
       {
-        imageSource: 'https://via.placeholder.com/700',
+        imageSource: 'https://via.placeholder.com/400',
         altTag: 'alt tag text here',
         selected: true
       },
@@ -49,8 +49,8 @@ const Gallery = () => {
     'Assign Gallery Name 3': [
       {
         galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'place info section title here',
-        infoText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam sequi soluta fugit corporis magni commodi, dicta, facere excepturi beatae natus, blanditiis aliquam iste ea voluptatum ex fugiat consectetur mollitia.'
+        infoTitle: 'Assign Gallery Name 3 Info Title',
+        infoText: 'Assign Gallery Name 3 Info Text'
       },
       {
         imageSource: 'https://via.placeholder.com/700',
@@ -58,12 +58,12 @@ const Gallery = () => {
         selected: true
       },
       {
-        imageSource: 'https://via.placeholder.com/500',
+        imageSource: 'https://via.placeholder.com/800',
         altTag: 'alt tag text here',
         selected: false
       },
       {
-        imageSource: 'https://via.placeholder.com/600',
+        imageSource: 'https://via.placeholder.com/900',
         altTag: 'alt tag text here',
         selected: false
       }
