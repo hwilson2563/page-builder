@@ -12,20 +12,14 @@ const Title = styled.h2`
 `
 
 const CMSModal = props => {
-  const { closeModal, formData, tempName, updateTemplateData } = props
+  const { closeModal, formData, updateFormData, tempName, updateTemplateData } = props
   const FormProps = props.formProps
-  const [data, setData] = useState(formData)
-
-  const updateFormData = updatedData => {
-    let newFormData = { ...data }
-    newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
-    setData(newFormData)
-  }
+  
 
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>
-      <FormProps data={data} updateFormData={updateFormData} />
+      <FormProps data={formData} updateFormData={updateFormData} />
       <button
         onClick={() => {
           updateTemplateData({})
@@ -34,7 +28,7 @@ const CMSModal = props => {
       </button>
       <button
         onClick={e => {
-          updateTemplateData(data)
+          updateTemplateData(formData)
           closeModal(e, 'close')
         }}>
         Save

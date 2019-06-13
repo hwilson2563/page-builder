@@ -23,7 +23,13 @@ const TemplateContainer = props => {
   const { idx, screen, selectedTemplateLength, template, updateSelectedTemplates, giveSelectedTemplateData } = props
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
+  const [data, setData] = useState(template.data)
 
+  const updateFormData = updatedData => {
+    let newFormData = { ...data }
+    newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+    setData(newFormData)
+  }
   // modal functions
   const toggleDisplayForm = () => {
     setDisplayForm(!displayForm)
@@ -35,6 +41,7 @@ const TemplateContainer = props => {
     e.stopPropagation()
     if (value === 'close') {
       toggleDisplayForm()
+      updateTemplateData(data)
     }
   }
   // end modal functions
@@ -47,8 +54,9 @@ const TemplateContainer = props => {
       <CMSModal
         closeModal={closeModal}
         tempName={template.tempName}
-        formData={template.data}
+        formData={data}
         formProps={template.modal}
+        updateFormData={updateFormData}
         updateTemplateData={updateTemplateData}
       />
     )
