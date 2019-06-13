@@ -95,13 +95,17 @@ export const buildGallery = () => {
 
   var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
   var galleriesJSON = document.getElementById('galleries')
+  var activeGalleryButton
+  var galleryPosition
   var imageContainer
   var bulletContainer
   var buttonContainer
 
   if (galleriesJSON !== null && galleriesJSON) {
     galleryIndex = galleriesHTMLCollection.length - 1
-    galleriesJSON.id = galleriesHTMLCollection ? 'galleries' + galleriesHTMLCollection.length : 'galleries' + galleryIndex
+    galleriesJSON.id = galleriesHTMLCollection
+      ? 'galleries' + galleriesHTMLCollection.length
+      : 'galleries' + galleryIndex
 
     imageContainer = document.getElementsByClassName('image-container')[galleryIndex]
     bulletContainer = document.getElementsByClassName('bullet-container')[galleryIndex]
@@ -137,25 +141,25 @@ export const buildGallery = () => {
     selectedBullet[activeGalleryIdx].classList.add('active')
   }
 
-  // in mobile and tablet, this updates the selected gallery in the drop down
-  function updateActiveGallery (galleryIndex) {
-    var selectedGallerySection = document.getElementById('selected-gallery')
-    selectedGallerySection.innerText = objectProperyNames[galleryIndex]
+  // in mobile and tablet, this updates the selected gallery buttons in the drop down
+  function updateActiveGallery (galleryButtonIdx) {
+    var selectedGallerySection = document.getElementsByClassName('selected-gallery')
+    selectedGallerySection[galleryPosition].innerText = objectProperyNames[galleryButtonIdx]
   }
 
   // upon click, this updates the page to the selected gallery
-  const changeGallery = (galleryName) => {
-    console.log(this)
-    var infoButtons = document.getElementsByClassName('info-button')
+  const changeGallery = (galleryName, idx) => {
+    var className = galleryName + galleryIndex + idx
+    var newActiveGalleryButton = document.getElementsByClassName(className)
 
     // adds and removes the active css class
     Object.keys(galleriesJSON).forEach(function (gallery, index) {
       var galleryIsCurrentlySetAsActive = gallery === galleryName
       if (galleryIsCurrentlySetAsActive) {
-        infoButtons[index].classList.add('active')
+        activeGalleryButton[0].classList.remove('active')
+        activeGalleryButton = newActiveGalleryButton
+        newActiveGalleryButton[0].classList.add('active')
         updateActiveGallery(index)
-      } else {
-        infoButtons[index].classList.remove('active')
       }
     })
 
@@ -166,11 +170,11 @@ export const buildGallery = () => {
 
   // this updates the info section with the new gallery info
   const changeInfoSection = galleryName => {
-    var infoIndex = galleryIndex * 2 //because each section has two infoIndex
+    var infoIndex = galleryIndex * 2 // time two because each section has two infoIndex
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
 
-    var headersArray = [infoHeader[infoIndex], infoHeader[infoIndex+1]] // this is because of IE
+    var headersArray = [infoHeader[infoIndex], infoHeader[infoIndex + 1]] // this is because of IE
 
     headersArray.forEach(function (header) {
       header.innerHTML = galleriesJSON[galleryName][0].infoTitle
@@ -214,35 +218,42 @@ export const buildGallery = () => {
 
   // this builds each gallery option for the user to select
   const buildGalleryButtons = () => {
-    // var buttonContainer = document.getElementById('selection-container-btn')
-
+    galleryPosition = galleriesHTMLCollection.length - 1
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
       // this creates buttons for desktop
       var buttonElement = document.createElement('button')
       isActiveGallery
-        ? buttonElement.setAttribute('class', `info-button ${galleryName + idx} active`)
-        : buttonElement.setAttribute('class', `info-button ${galleryName}`)
+        ? buttonElement.setAttribute('class', `info-button ${galleryName + galleryIndex + idx} active`)
+        : buttonElement.setAttribute('class', `info-button ${galleryName + galleryIndex + idx}`)
       buttonElement.innerText = objectProperyNames[idx]
       buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
       buttonElement.onclick = function () {
-        changeGallery(galleryName)
+        changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
 
       // this creates styled dropdown for mobile
       var dropDownElement = document.createElement('button')
-      dropDownElement.setAttribute('class', 'dropdown-button')
+      dropDownElement.setAttribute('class', `dropdown-button  ${galleryName + galleryIndex + idx}`)
       dropDownElement.innerText = objectProperyNames[idx]
       dropDownElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
       dropDownElement.onclick = function () {
-        changeGallery(galleryName)
+        changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
 
       buttonContainer.appendChild(buttonElement)
       buttonContainer.appendChild(dropDownElement)
 
+      if (idx === 0) {
+        // sets the initial active button in the gallery for changing later
+        // GalleryName + indx of which gallery is being build + indx of button within gallery
+        // example: GalleryName10
+        activeGalleryButton = document.getElementsByClassName(
+          objectProperyNames[0] + (galleryPosition) + '0'
+        )
+      }
       // this populates the selected gallery button in dropdown
       if (isActiveGallery) {
         updateActiveGallery(idx)

@@ -77,7 +77,7 @@ const Gallery = () => {
           <div className='button-section'>
             <h2>Place Section Title Here</h2>
             <div id='selection-container-btn' className={'selection-container-btn'}>
-              <button id='selected-gallery' className='dropdown-button active' />
+              <button id='selected-gallery' className='selected-gallery dropdown-button active' />
               {/* <!-- Buttons will generate here --> */}
             </div>
           </div>
