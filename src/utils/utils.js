@@ -119,28 +119,29 @@ export const buildGallery = () => {
   var selectedGallery = null // currently selected gallery to display
   var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
-  // when I gallery is selected, this runs.
-  const handleGalleryClick = (idx, galleryName, galleryNamingConvention) => {
-    var selectedImage = document.getElementsByClassName('gallery-img')
+  // when a gallery is selected, this runs.
+  const handleGalleryClick = (idx, galleryName, galleryNamingConvention, imgNamingConvention) => {
     var newSelectedBullet = document.getElementsByClassName(galleryNamingConvention)
-    debugger
+    var newSelectedImg = document.getElementsByClassName(imgNamingConvention)
+
     // this finds the previously selected item and makes it false, and removes the active classes for the object
     galleriesJSON[galleryName].forEach(function (image, index) {
       var isSelectedImage = image.selected === true
-      // var galleryIdx = index - 1
       if (isSelectedImage) {
         image.selected = false
-        // selectedImage[galleryIdx].classList.remove('display-img')
+        displayedImage[0].classList.remove('display-img')
         activeImageBullet[0].classList.remove('active')
       }
     })
 
     // sets new selected and active objects
-    // var activeGalleryIdx = idx - 1
     galleriesJSON[galleryName][idx].selected = true
-    // selectedImage[activeGalleryIdx].classList.add('display-img')
+    newSelectedImg[0].classList.add('display-img')
     newSelectedBullet[0].classList.add('active')
+
+    // sets currently selected
     activeImageBullet = newSelectedBullet
+    displayedImage = newSelectedImg
   }
 
   // in mobile and tablet, this updates the selected gallery buttons in the drop down
@@ -191,15 +192,16 @@ export const buildGallery = () => {
 
     // this loops through each gallery in the JSON
     galleriesJSON[gallery].forEach(function (image, idx) {
-      var galleryNamingConvention = gallery + galleryIndex + idx
+      var bulletNamingConvention = 'bullet' + gallery + galleryIndex + idx
+      var imgNamingConvention = 'img' + gallery + galleryIndex + idx
       var isValidImage = idx !== 0
       if (isValidImage) {
         // this builds the images
         var imageTag = document.createElement('img')
         imageTag.setAttribute('id', 'img' + idx)
         image.selected
-          ? imageTag.setAttribute('class', 'gallery-img display-img')
-          : imageTag.setAttribute('class', 'gallery-img')
+          ? imageTag.setAttribute('class', `gallery-img display-img ${imgNamingConvention}`)
+          : imageTag.setAttribute('class', `gallery-img ${imgNamingConvention}`)
         imageTag.setAttribute('src', image.imageSource)
         imageTag.setAttribute('alt', image.altTag)
         imageContainer.appendChild(imageTag)
@@ -208,17 +210,17 @@ export const buildGallery = () => {
         var buttonElement = document.createElement('button')
         buttonElement.setAttribute('id', 'button' + idx)
         image.selected
-          ? buttonElement.setAttribute('class', `bullet ${galleryNamingConvention} active`)
-          : buttonElement.setAttribute('class', `bullet ${galleryNamingConvention}`)
+          ? buttonElement.setAttribute('class', `bullet ${bulletNamingConvention} active`)
+          : buttonElement.setAttribute('class', `bullet ${bulletNamingConvention}`)
         buttonElement.setAttribute('aria-label', 'view image number ' + idx)
         buttonElement.onclick = function () {
-          handleGalleryClick(idx, selectedGallery, galleryNamingConvention)
+          handleGalleryClick(idx, selectedGallery, bulletNamingConvention, imgNamingConvention)
         }
         bulletContainer.appendChild(buttonElement)
-
-        if (idx === 1) {
-          activeImageBullet = document.getElementsByClassName(gallery + galleryIndex + 1)
-        }
+      }
+      if (image.selected) {
+        activeImageBullet = document.getElementsByClassName('bullet' + gallery + galleryIndex + idx)
+        displayedImage = document.getElementsByClassName('img' + gallery + galleryIndex + idx)
       }
     })
   }
