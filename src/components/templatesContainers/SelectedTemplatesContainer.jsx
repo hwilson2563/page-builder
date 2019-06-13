@@ -51,7 +51,7 @@ const TextArea = styled.textarea`
 `
 
 const SelectedTemplatesContainer = props => {
-  const { selectedTemplates, updateSelectedTemplates } = props
+  const { selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   const [copyData, setCopyData] = useState()
   const [showCopy, setShowCopy] = useState(false)
   const exportHTML = () => {
@@ -95,6 +95,7 @@ const SelectedTemplatesContainer = props => {
             selectedTemplateLength={selectedTemplateLength}
             template={template}
             updateSelectedTemplates={updateSelectedTemplates}
+            giveSelectedTemplateData={giveSelectedTemplateData}
           />
         )
       })}

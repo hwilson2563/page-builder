@@ -14,76 +14,107 @@ import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
 import BannerModal from '../components/modals/BannerModal'
 
-export const templates = [
+export const templatesIdx = [
   {
     thumbnailImg: 'banner_temp.png',
-    tempName: 'Banner Template',
-    component: Banner,
-    modal: BannerModal
+    tempName: 'Banner Template'
   },
   {
     thumbnailImg: 'button_text_temp.png',
-    tempName: 'Button Text Template',
-    component: ButtonText
+    tempName: 'Button Text Template'
   },
   {
     thumbnailImg: 'four_img_temp.png',
-    tempName: 'Four Image Template',
-    component: FourImage
+    tempName: 'Four Image Template'
   },
   {
     thumbnailImg: 'gallery_temp.png',
-    tempName: 'Gallery Template',
-    component: Gallery
+    tempName: 'Gallery Template'
   },
   {
     thumbnailImg: 'large_img_temp.png',
-    tempName: 'Large Image Template',
-    component: LargeImage
+    tempName: 'Large Image Template'
   },
   {
     thumbnailImg: 'linking_temp.png',
-    tempName: 'Linking Template',
-    component: Linking
+    tempName: 'Linking Template'
   },
   {
     thumbnailImg: 'one_img_text_temp.png',
-    tempName: 'One Image Text Template',
-    component: OneImageText
+    tempName: 'One Image Text Template'
   },
   {
     thumbnailImg: 'product_temp.png',
-    tempName: 'Product Template',
-    component: Product
+    tempName: 'Product Template'
   },
   {
     thumbnailImg: 'quote_temp.png',
-    tempName: 'Quote Template',
-    component: Quote
+    tempName: 'Quote Template'
   },
   {
     thumbnailImg: 'single_button_temp.png',
-    tempName: 'Single Button Template',
-    component: SingleButton
+    tempName: 'Single Button Template'
   },
   {
     thumbnailImg: 'text_only_temp.png',
-    tempName: 'Text Only Template',
-    component: TextOnly
+    tempName: 'Text Only Template'
   },
   {
     thumbnailImg: 'three_img_temp.png',
-    tempName: 'Three Image Template',
-    component: ThreeImage
+    tempName: 'Three Image Template'
   },
   {
     thumbnailImg: 'two_large_img_temp.png',
-    tempName: 'Two Large Image Template',
-    component: TwoLargeImage
+    tempName: 'Two Large Image Template'
   },
   {
     thumbnailImg: 'two_small_img_temp.png',
-    tempName: 'Two Small Image Template',
-    component: TwoSmallImage
+    tempName: 'Two Small Image Template'
   }
 ]
+
+export const templatesData = {
+  'Banner Template': {
+    component: Banner,
+    modal: BannerModal
+  },
+  'Button Text Template': {
+    component: ButtonText
+  },
+  'Four Image Template': {
+    component: FourImage
+  },
+  'Gallery Template': {
+    component: Gallery
+  },
+  'Large Image Template': {
+    component: LargeImage
+  },
+  'Linking Template': {
+    component: Linking
+  },
+  'One Image Text Template': {
+    component: OneImageText
+  },
+  'Product Template': {
+    component: Product
+  },
+  'Quote Template': {
+    component: Quote
+  },
+  'Single Button Template': {
+    component: SingleButton
+  },
+  'Text Only Template': {
+    component: TextOnly
+  },
+  'Three Image Template': {
+    component: ThreeImage
+  },
+  'Two Large Image Template': {
+    component: TwoLargeImage
+  },
+  'Two Small Image Template': {
+    component: TwoSmallImage
+  }
+}

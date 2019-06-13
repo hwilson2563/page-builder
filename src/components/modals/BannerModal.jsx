@@ -16,7 +16,7 @@ const BannerModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Image Atl Text'}
+        label={'Image Alt Text'}
         name={'altText'}
         error={null}
         updateFormData={updateFormData}

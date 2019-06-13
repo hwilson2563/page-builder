@@ -49,7 +49,6 @@ const Text = styled.div`
 `
 const ControlPanel = props => {
   let { updateSelectedTemplates, handleClick, idx } = props
-
   return (
     <Panel className={'control-panel'}>
       <IconContainer className={'edit-container'} onClick={handleClick}>

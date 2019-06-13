@@ -30,6 +30,7 @@ export const removeSelectedTemplates = (templates, idx) => {
 }
 
 export const addSelectedTemplates = (component, templates) => {
+  component.data = {}
   templates.push(component)
   return templates
 }
