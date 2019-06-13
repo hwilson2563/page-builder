@@ -28,14 +28,19 @@ const App = () => {
       updatedTemplates = addSelectedTemplates(newTemplate, clone)
     }
     if (action === 'remove') {
-      const confirmation = window.confirm(
-        'By removing this template you are removing any data filled out for this template. Once removed all data will be lost. Do you wish to continue?'
-      )
-      if (confirmation) {
-        updatedTemplates = removeSelectedTemplates(clone, idx)
+      const hasData = Object.keys(selectedTemplates[idx].data).length !== 0
+      if (hasData) {
+        const confirmation = window.confirm(
+          'By removing this template you are removing any data filled out for this template. Once removed all data will be lost. Do you wish to continue?'
+        )
+
+        if (confirmation) {
+          updatedTemplates = removeSelectedTemplates(clone, idx)
+        } else {
+          updatedTemplates = selectedTemplates
+        }
       } else {
-        // updatedTemplates
-        updatedTemplates = selectedTemplates
+        updatedTemplates = removeSelectedTemplates(clone, idx)
       }
     }
     if (action === 'up') {

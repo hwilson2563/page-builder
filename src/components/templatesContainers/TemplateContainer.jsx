@@ -40,7 +40,6 @@ const TemplateContainer = props => {
   // end modal functions
 
   const updateTemplateData = data => {
-    debugger
     giveSelectedTemplateData(idx, data)
   }
   const CmsModal = () => {
