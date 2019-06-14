@@ -1,26 +1,41 @@
 import React from 'react'
 
-const Gallery = () => {
+const Gallery = props => {
+  const {templateData} = props
+
+  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
+  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  
+  let infoTitle = templateData.infoTitle ? templateData.infoTitle : 'place info section title here'
+  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel : 'add aria-label text for button here'
+  let infoText = templateData.infoText ? templateData.infoText : 'place info body text here'
+  let image1 = templateData.image1 ? templateData.image1 : 'https://via.placeholder.com/700'
+  let alt1 = templateData.alt1 ? templateData.alt1 : 'alt tag text here'
+  let image2 = templateData.image2 ? templateData.image2 : 'https://via.placeholder.com/500'
+  let alt2 = templateData.alt2 ? templateData.alt2 : 'alt tag text here'
+  let image3 = templateData.image3 ? templateData.image3 : 'https://via.placeholder.com/600'
+  let alt3 = templateData.alt3 ? templateData.alt3 : 'alt tag text here'
+
   var object = {
     'Assign Gallery Name': [
       {
-        galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'place info section title here',
-        infoText: 'place info body text here'
+        galleryButtonAriaLabel: ariaLabel,
+        infoTitle: infoTitle,
+        infoText: infoText
       },
       {
-        imageSource: 'https://via.placeholder.com/700',
-        altTag: 'alt tag text here',
+        imageSource: image1,
+        altTag: alt1,
         selected: true
       },
       {
-        imageSource: 'https://via.placeholder.com/500',
-        altTag: 'alt tag text here',
+        imageSource: image2,
+        altTag: alt2,
         selected: false
       },
       {
-        imageSource: 'https://via.placeholder.com/600',
-        altTag: 'alt tag text here',
+        imageSource: image3,
+        altTag: alt3,
         selected: false
       }
     ]
@@ -28,7 +43,7 @@ const Gallery = () => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id='gallery-template' className='background'>
+      <div id='gallery-template' className={'background ' + backgroundDark + ' ' + addPadding}>
         <div className='container'>
           <div className='button-section'>
             <h2>Place Section Title Here</h2>
