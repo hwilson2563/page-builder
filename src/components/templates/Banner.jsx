@@ -2,7 +2,6 @@ import React from 'react'
 
 const Banner = props => {
   let { templateData } = props
-  console.log(templateData)
   return (
     <div
       style={{
