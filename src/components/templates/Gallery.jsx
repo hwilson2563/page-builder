@@ -143,7 +143,7 @@ const Gallery = () => {
   //     a. Remove everything from the comma seperating the curly brackets {} to the last curly bracket } (The same amount that you would copy and paste from above)
 
   //  --> */}
-      <script id='galleries' type='application/json' dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }} />
+      <script className={'galleries'} type='application/json' dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }} />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
   )

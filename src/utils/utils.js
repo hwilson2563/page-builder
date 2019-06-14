@@ -89,34 +89,48 @@ export const addReadMoreClicks = () => {
     }
   }
 }
-
 export const buildGallery = () => {
-  var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
-  var galleriesJSON = document.getElementById('galleries')
-  var activeGalleryButton
-  var activeImageBullet
-  var displayedImage
-  var galleryPositionInDOM
-  var galleryIndex
-  var imageContainer
-  var bulletContainer
-  var buttonContainer
+  // var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
+  var galleriesJSON = document.getElementsByClassName('galleries')
+  var imageContainer // container for gallery images HTML element
+  var bulletContainer // container for image bullet buttons HTML element
+  var buttonContainer // container for gallery buttons HTML element
 
-  if (galleriesJSON !== null && galleriesJSON) {
-    galleryIndex = galleriesHTMLCollection.length - 1
-    galleriesJSON.id = galleriesHTMLCollection
-      ? 'galleries' + galleriesHTMLCollection.length
-      : 'galleries' + galleryIndex
+  if (galleriesJSON !== null && galleriesJSON.length !== 0) {
+    Array.from(galleriesJSON).forEach((gallery, idx) => {
+      gallery.id = 'galleries' + idx
+      imageContainer = document.getElementsByClassName('image-container')[idx]
+      bulletContainer = document.getElementsByClassName('bullet-container')[idx]
+      buttonContainer = document.getElementsByClassName('selection-container-btn')[idx]
+      var scriptInnerText = JSON.parse(document.getElementById(galleriesJSON[idx].id).innerText)
 
-    imageContainer = document.getElementsByClassName('image-container')[galleryIndex]
-    bulletContainer = document.getElementsByClassName('bullet-container')[galleryIndex]
-    buttonContainer = document.getElementsByClassName('selection-container-btn')[galleryIndex]
+      var galleryData = {
+        galleryIndex: idx,
+        imageContainer: imageContainer,
+        bulletContainer: bulletContainer,
+        buttonContainer: buttonContainer,
+        galleriesJSON: scriptInnerText
+      }
 
-    galleriesJSON = JSON.parse(document.getElementById(galleriesJSON.id).innerText)
+      buildSingleGallery(galleryData)
+    })
   } else {
     galleriesJSON = false
   }
-  var selectedGallery = null // currently selected gallery to display
+}
+
+const buildSingleGallery = (galleryData) => {
+  var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
+  var galleriesJSON = galleryData.galleriesJSON
+  var activeGalleryButton // currently selected gallery button HTML element
+  var activeImageBullet // currently bullet selected in gallery HTML element
+  var displayedImage // current image displayed in gallery HTML element
+  var galleryIndex = galleryData.galleryIndex // assigned with gallery index for unique name assignment
+  var imageContainer = galleryData.imageContainer // container for gallery images HTML element
+  var bulletContainer = galleryData.bulletContainer // container for image bullet buttons HTML element
+  var buttonContainer = galleryData.buttonContainer // container for gallery buttons HTML element
+  var selectedGallery // currently selected gallery name to display
+
   var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
   // when a gallery is selected, this runs.
@@ -147,7 +161,7 @@ export const buildGallery = () => {
   // in mobile and tablet, this updates the selected gallery buttons in the drop down
   function updateActiveGallery (galleryButtonIdx) {
     var selectedGallerySection = document.getElementsByClassName('selected-gallery')
-    selectedGallerySection[galleryPositionInDOM].innerText = objectProperyNames[galleryButtonIdx]
+    selectedGallerySection[galleryIndex].innerText = objectProperyNames[galleryButtonIdx]
   }
 
   // upon click, this updates the page to the selected gallery
@@ -227,7 +241,6 @@ export const buildGallery = () => {
 
   // this builds each gallery option for the user to select
   const buildGalleryButtons = () => {
-    galleryPositionInDOM = galleriesHTMLCollection.length - 1
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
       var galleryNamingConvention = galleryName + galleryIndex + idx
@@ -260,7 +273,7 @@ export const buildGallery = () => {
         // sets the initial active button in the gallery for changing later
         // GalleryName + indx of which gallery is being build + indx of button within gallery
         // example: GalleryName10
-        activeGalleryButton = document.getElementsByClassName(objectProperyNames[0] + galleryPositionInDOM + '0')
+        activeGalleryButton = document.getElementsByClassName(objectProperyNames[0] + galleryIndex + '0')
       }
       // this populates the selected gallery button in dropdown
       if (isActiveGallery) {
@@ -268,7 +281,6 @@ export const buildGallery = () => {
       }
     })
   }
-
   // this initially function populates gallery on load
   // only begins build is galleriesJSON is not false
   if (galleriesJSON) {
@@ -276,19 +288,23 @@ export const buildGallery = () => {
     var galleryValues = Object.keys(galleriesJSON).map(function (gallery) {
       return galleriesJSON[gallery]
     })
+    var lastGalleryEmpty =
+      galleriesHTMLCollection[galleryIndex].children[0].children[0].children[1].children.length === 1
 
-    // this loops through array of galleries
-    galleryValues.forEach(function (gallery, index) {
-      var onlyRunForFirstGallery = index === 0
-      if (onlyRunForFirstGallery) {
-        selectedGallery = objectProperyNames[index]
-        // this loops through each gallery in the JSON
-        buildGallery(selectedGallery)
-        // this builds buttons
-        buildGalleryButtons()
-        // this builds info section
-        changeInfoSection(selectedGallery)
-      }
-    })
+    if (lastGalleryEmpty) {
+      // this loops through array of galleries
+      galleryValues.forEach(function (gallery, index) {
+        var onlyRunForFirstGallery = index === 0
+        if (onlyRunForFirstGallery) {
+          selectedGallery = objectProperyNames[index]
+          // this loops through each gallery in the JSON
+          buildGallery(selectedGallery)
+          // this builds buttons
+          buildGalleryButtons()
+          // this builds info section
+          changeInfoSection(selectedGallery)
+        }
+      })
+    }
   }
 }
