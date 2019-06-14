@@ -265,7 +265,6 @@ function buildGallery () {
     var arrayFromGalleriesJson = Object.keys(galleriesJSON).map(function (gallery) {
       return galleriesJSON[gallery]
     })
-    console.log(arrayFromGalleriesJson)
     arrayFromGalleriesJson.forEach(function (gallery, idx) {
       gallery.id = 'galleries' + idx
       imageContainer = document.getElementsByClassName('image-container')[idx]

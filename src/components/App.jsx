@@ -59,7 +59,6 @@ const App = () => {
   useEffect(
     () => {
       buildGallery()
-      console.log('running')
       addReadMoreClicks()
     },
     [selectedTemplates]
