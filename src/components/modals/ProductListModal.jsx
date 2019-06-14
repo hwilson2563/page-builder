@@ -1,8 +1,7 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-
-const BannerModal = props => {
-  const { data, updateFormData } = props
+const ProductListModal = props => {
+  const { updateFormData, data } = props
   return (
     <>
       <FormEntry
@@ -28,17 +27,17 @@ const BannerModal = props => {
         label={'Image'}
         name={'image'}
         error={null}
-        updateFormData={updateFormData}
         value={data['image'] ? data['image'].value : ''}
+        updateFormData={updateFormData}
         required
       />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'altText'}
+        name={'imageAltText'}
         error={null}
+        value={data['imageAltText'] ? data['imageAltText'].value : ''}
         updateFormData={updateFormData}
-        value={data['altText'] ? data['altText'].value : ''}
         required
       />
       <FormEntry
@@ -46,20 +45,38 @@ const BannerModal = props => {
         label={'Title'}
         name={'title'}
         error={null}
-        updateFormData={updateFormData}
         value={data['title'] ? data['title'].value : ''}
+        updateFormData={updateFormData}
         required
       />
       <FormEntry
         type={'input'}
-        label={'Subtitle'}
-        name={'subtitle'}
+        label={'Product Name'}
+        name={'productName'}
         error={null}
+        value={data['productName'] ? data['productName'].value : ''}
         updateFormData={updateFormData}
-        value={data['subtitle'] ? data['subtitle'].value : ''}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'Product Page URL'}
+        name={'productPage'}
+        error={null}
+        value={data['productPage'] ? data['productPage'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'Price'}
+        name={'price'}
+        error={null}
+        value={data['price'] ? data['price'].value : ''}
+        updateFormData={updateFormData}
         required
       />
     </>
   )
 }
-export default BannerModal
+export default ProductListModal

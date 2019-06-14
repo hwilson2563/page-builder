@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const CMSDiv = styled.div`
   padding: 30px;
   background-color: #fff;
+  width: 500px;
 `
 const Title = styled.h2`
   font-family: ${props => props.theme.fontBody};
@@ -14,8 +15,6 @@ const Title = styled.h2`
 const CMSModal = props => {
   const { closeModal, formData, updateFormData, tempName, updateTemplateData } = props
   const FormProps = props.formProps
-  
-
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>
