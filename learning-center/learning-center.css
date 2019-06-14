@@ -604,13 +604,13 @@ button:focus {
   display: flex;
   align-items: center;
   height: 400px;
-  color: #FFFFFF;
-  color: var(--font-overlay);
 }
 
 .banner-text {
   margin: 0 auto;
   text-align: center;
+  color: #FFFFFF;
+  color: var(--font-overlay);
 }
 
 .banner-text h1 {
