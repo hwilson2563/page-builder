@@ -19,7 +19,7 @@ const TemplateDirections = styled.div`
 `
 
 const TemplatesPreview = props => {
-  const { screen, selectedTemplates, updateSelectedTemplates } = props
+  const { screen, selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   let noSelections = selectedTemplates.length === 0
 
   return (
@@ -38,6 +38,7 @@ const TemplatesPreview = props => {
           <SelectedTemplatesContainer
             selectedTemplates={selectedTemplates}
             updateSelectedTemplates={updateSelectedTemplates}
+            giveSelectedTemplateData={giveSelectedTemplateData}
           />
         )}
       </TemplatesContainer>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import AddIcon from './AddIcon'
-import { templates } from '../../../utils/templates.js'
+import { templatesIdx } from '../../../utils/templates'
 
 const Template = styled.div`
   display: flex;
@@ -54,15 +54,16 @@ const TemplatesIndex = props => {
   const { updateSelectedTemplates } = props
   return (
     <>
-      {templates.map((template, idx) => {
-        const { tempName, thumbnailImg } = template
+      {templatesIdx.map((template, idx) => {
+        const newTemplate = template
+        const { tempName, thumbnailImg } = newTemplate
         let imgUrl = 'https:///dev.woodlanddirect.com/learningcenter/pagebuilder+/templateimgs/' + thumbnailImg
         return (
           <Template
             key={idx}
             className={'idx-template-container'}
             onClick={() => {
-              updateSelectedTemplates('add', template.component)
+              updateSelectedTemplates('add', template.tempName)
             }}>
             <ImgIcon className={'img-icon'}>
               <TemplateImg src={imgUrl} className={'template-img'} />

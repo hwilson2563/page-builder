@@ -30,10 +30,10 @@ export const removeSelectedTemplates = (templates, idx) => {
 }
 
 export const addSelectedTemplates = (component, templates) => {
+  component.data = {}
   templates.push(component)
   return templates
 }
-
 export const moveUpSelectedTemplates = (templates, idx) => {
   let newLocation = idx - 1
   templates.splice(newLocation, 0, templates.splice(idx, 1)[0])

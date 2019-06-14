@@ -41,9 +41,9 @@ describe('removeSelectedTemplates removes a template from the component array', 
 
 describe('addSelectedTemplates', () => {
   test('should return an array of selected templates including the added one', () => {
-    let templates = ['template1', 'template2']
-    let component = 'component'
-    let updatedTemplates = ['template1', 'template2', 'component']
+    let templates = [{ title: 'template1', data: {} }, { title: 'template2', data: {} }]
+    let component = { title: 'component', data: {} }
+    let updatedTemplates = [{ title: 'template1', data: {} }, { title: 'template2', data: {} }, component]
     expect(addSelectedTemplates(component, templates)).toEqual(updatedTemplates)
   })
 })

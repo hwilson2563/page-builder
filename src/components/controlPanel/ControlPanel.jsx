@@ -48,10 +48,10 @@ const Text = styled.div`
   z-index: 1;
 `
 const ControlPanel = props => {
-  let { updateSelectedTemplates, idx } = props
+  let { updateSelectedTemplates, handleClick, idx } = props
   return (
     <Panel className={'control-panel'}>
-      <IconContainer className={'edit-container'}>
+      <IconContainer className={'edit-container'} onClick={handleClick}>
         <Text className={'text'}>edit</Text>
         <EditIcon />
       </IconContainer>

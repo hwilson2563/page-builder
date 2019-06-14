@@ -609,6 +609,8 @@ button:focus {
 .banner-text {
   margin: 0 auto;
   text-align: center;
+  color: #FFFFFF;
+  color: var(--font-overlay);
 }
 
 .banner-text h1 {

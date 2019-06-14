@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ReactDOMServer from 'react-dom/server'
 
-import ControlPanel from './controlPanel/ControlPanel'
-import ExportIcon from './parts/ExportIcon'
+import TemplateContainer from './TemplateContainer'
+import ExportIcon from '../parts/ExportIcon'
 
 const TemplatesContainer = styled.div`
   position: relative;
@@ -11,21 +11,6 @@ const TemplatesContainer = styled.div`
     button.export-btn {
       opacity: 1;
     }
-  }
-`
-const TemplateContainer = styled.div`
-  position: relative;
-  :hover {
-    .control-panel {
-      opacity: 1;
-    }
-  }
-  .up-container {
-    display: ${props => (props.idx === 0 ? 'none' : 'default')};
-  }
-  .down-container {
-    display: ${props =>
-    props.selectedTemplateLength === props.idx ? 'none' : 'default'};
   }
 `
 const Button = styled.button`
@@ -76,15 +61,16 @@ const JsLink = () => {
 }
 
 const SelectedTemplatesContainer = props => {
-  const { selectedTemplates, updateSelectedTemplates } = props
+  const { selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   const [copyData, setCopyData] = useState()
   const [showCopy, setShowCopy] = useState(false)
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
-      selectedTemplates.map(Template => {
-        return (templates += ReactDOMServer.renderToStaticMarkup(<Template />))
+      selectedTemplates.map(template => {
+        let Template = template.component
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
@@ -109,17 +95,17 @@ const SelectedTemplatesContainer = props => {
         <ExportIcon showCopy={showCopy} />
       </Button>
 
-      {selectedTemplates.map((Template, idx) => {
+      {selectedTemplates.map((template, idx) => {
         let selectedTemplateLength = selectedTemplates.length - 1
         return (
           <TemplateContainer
-            className={'template-container'}
             key={idx}
             idx={idx}
-            selectedTemplateLength={selectedTemplateLength}>
-            <Template />
-            <ControlPanel updateSelectedTemplates={updateSelectedTemplates} idx={idx} />
-          </TemplateContainer>
+            selectedTemplateLength={selectedTemplateLength}
+            template={template}
+            updateSelectedTemplates={updateSelectedTemplates}
+            giveSelectedTemplateData={giveSelectedTemplateData}
+          />
         )
       })}
     </TemplatesContainer>
