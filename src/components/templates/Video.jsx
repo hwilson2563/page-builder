@@ -4,7 +4,7 @@ const Video = props => {
   const { templateData } = props
   let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
   let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
-  let video = templateData.video ? templateData.video : 'https://www.youtube.com/embed/ZY3J3Y_OU0w'
+  let video = templateData.video ? templateData.video.value : 'https://www.youtube.com/embed/ZY3J3Y_OU0w'
 
   return (
     // <!-- START VIDEO TEMPLATE -->

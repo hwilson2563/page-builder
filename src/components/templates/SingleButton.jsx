@@ -5,9 +5,9 @@ const SingleButton = props => {
 
   let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
   let addPadding = templateData.addPadding ? 'add-padding' : ''
-  let href = templateData.href ? templateData.href : 'place link here'
-  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel : ''
-  let buttonText = templateData.buttonText ? templateData.buttonText : 'press this button'
+  let href = templateData.href ? templateData.href.value : 'place link here'
+  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : ''
+  let buttonText = templateData.buttonText ? templateData.buttonText.value : 'press this button'
 
   return (
   // <!-- START SINGLE BUTTON -->
