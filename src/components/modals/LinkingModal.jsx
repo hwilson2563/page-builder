@@ -53,7 +53,7 @@ const LinkingModal = props => {
       {/* MORE LINKS CAN BE ADDED */}
       <FormEntry
         type={'input'}
-        label={'ClassName of template you wish to link to'}
+        label={'Id of template you wish to link to'}
         name={'link'}
         error={null}
         value={data['link'] ? data['link'].value : ''}
