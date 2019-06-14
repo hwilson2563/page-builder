@@ -89,37 +89,12 @@ export const addReadMoreClicks = () => {
     }
   }
 }
-export const buildGallery = () => {
-  // var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
-  var galleriesJSON = document.getElementsByClassName('galleries')
-  var imageContainer // container for gallery images HTML element
-  var bulletContainer // container for image bullet buttons HTML element
-  var buttonContainer // container for gallery buttons HTML element
 
-  if (galleriesJSON !== null && galleriesJSON.length !== 0) {
-    Array.from(galleriesJSON).forEach((gallery, idx) => {
-      gallery.id = 'galleries' + idx
-      imageContainer = document.getElementsByClassName('image-container')[idx]
-      bulletContainer = document.getElementsByClassName('bullet-container')[idx]
-      buttonContainer = document.getElementsByClassName('selection-container-btn')[idx]
-      var scriptInnerText = JSON.parse(document.getElementById(galleriesJSON[idx].id).innerText)
+//
+// GALLERY TEMPLATE BEGINS
+//
 
-      var galleryData = {
-        galleryIndex: idx,
-        imageContainer: imageContainer,
-        bulletContainer: bulletContainer,
-        buttonContainer: buttonContainer,
-        galleriesJSON: scriptInnerText
-      }
-
-      buildSingleGallery(galleryData)
-    })
-  } else {
-    galleriesJSON = false
-  }
-}
-
-const buildSingleGallery = (galleryData) => {
+function buildSingleGallery (galleryData) {
   var galleriesHTMLCollection = document.getElementsByClassName('gallery-templates')
   var galleriesJSON = galleryData.galleriesJSON
   var activeGalleryButton // currently selected gallery button HTML element
@@ -134,7 +109,7 @@ const buildSingleGallery = (galleryData) => {
   var objectProperyNames = Object.getOwnPropertyNames(galleriesJSON) // name of each gallery in JSON
 
   // when a gallery is selected, this runs.
-  const handleGalleryClick = (idx, galleryName, galleryNamingConvention, imgNamingConvention) => {
+  function handleGalleryClick (idx, galleryName, galleryNamingConvention, imgNamingConvention) {
     var newSelectedBullet = document.getElementsByClassName(galleryNamingConvention)
     var newSelectedImg = document.getElementsByClassName(imgNamingConvention)
 
@@ -165,7 +140,7 @@ const buildSingleGallery = (galleryData) => {
   }
 
   // upon click, this updates the page to the selected gallery
-  const changeGallery = (galleryName, idx) => {
+  function changeGallery (galleryName, idx) {
     var className = galleryName + galleryIndex + idx
     var newActiveGalleryButton = document.getElementsByClassName(className)
 
@@ -186,7 +161,7 @@ const buildSingleGallery = (galleryData) => {
   }
 
   // this updates the info section with the new gallery info
-  const changeInfoSection = galleryName => {
+  function changeInfoSection (galleryName) {
     var infoIndex = galleryIndex * 2 // time two because each section has two infoIndex
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
@@ -200,7 +175,7 @@ const buildSingleGallery = (galleryData) => {
   }
 
   // this builds the whole gallery section and functionality based on JSON
-  const buildGallery = gallery => {
+  function buildGallery (gallery) {
     imageContainer.innerHTML = ''
     bulletContainer.innerHTML = ''
 
@@ -213,24 +188,34 @@ const buildSingleGallery = (galleryData) => {
         // this builds the images
         var imageTag = document.createElement('img')
         imageTag.setAttribute('id', 'img' + idx)
-        image.selected
-          ? imageTag.setAttribute('class', `gallery-img display-img ${imgNamingConvention}`)
-          : imageTag.setAttribute('class', `gallery-img ${imgNamingConvention}`)
+        // image.selected
+        imageTag.setAttribute('class', imgNamingConvention)
+        // : imageTag.setAttribute('class', 'gallery-img')
         imageTag.setAttribute('src', image.imageSource)
         imageTag.setAttribute('alt', image.altTag)
         imageContainer.appendChild(imageTag)
 
+        // have to do this because IE
+        var currentImage = document.getElementsByClassName(imgNamingConvention)
+        image.selected
+          ? currentImage[currentImage.length - 1].classList.add('gallery-img', 'display-img')
+          : currentImage[currentImage.length - 1].classList.add('gallery-img')
+
         // this builds the button associated with the image
         var buttonElement = document.createElement('button')
         buttonElement.setAttribute('id', 'button' + idx)
-        image.selected
-          ? buttonElement.setAttribute('class', `bullet ${bulletNamingConvention} active`)
-          : buttonElement.setAttribute('class', `bullet ${bulletNamingConvention}`)
+        buttonElement.setAttribute('class', bulletNamingConvention)
         buttonElement.setAttribute('aria-label', 'view image number ' + idx)
         buttonElement.onclick = function () {
           handleGalleryClick(idx, selectedGallery, bulletNamingConvention, imgNamingConvention)
         }
         bulletContainer.appendChild(buttonElement)
+
+        // have to do this because IE
+        var currentBullet = document.getElementsByClassName(bulletNamingConvention)
+        image.selected
+          ? currentBullet[currentBullet.length - 1].classList.add('bullet', 'active')
+          : currentBullet[currentBullet.length - 1].classList.add('bullet')
       }
       if (image.selected) {
         activeImageBullet = document.getElementsByClassName('bullet' + gallery + galleryIndex + idx)
@@ -240,15 +225,15 @@ const buildSingleGallery = (galleryData) => {
   }
 
   // this builds each gallery option for the user to select
-  const buildGalleryButtons = () => {
+  function buildGalleryButtons () {
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
       var galleryNamingConvention = galleryName + galleryIndex + idx
       // this creates buttons for desktop
       var buttonElement = document.createElement('button')
       isActiveGallery
-        ? buttonElement.setAttribute('class', `info-button ${galleryNamingConvention} active`)
-        : buttonElement.setAttribute('class', `info-button ${galleryNamingConvention}`)
+        ? buttonElement.setAttribute('class', galleryNamingConvention)
+        : buttonElement.setAttribute('class', galleryNamingConvention)
       buttonElement.innerText = objectProperyNames[idx]
       buttonElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
       buttonElement.onclick = function () {
@@ -258,7 +243,7 @@ const buildSingleGallery = (galleryData) => {
 
       // this creates styled dropdown for mobile
       var dropDownElement = document.createElement('button')
-      dropDownElement.setAttribute('class', `dropdown-button  ${galleryNamingConvention}`)
+      dropDownElement.setAttribute('class', galleryNamingConvention)
       dropDownElement.innerText = objectProperyNames[idx]
       dropDownElement.setAttribute('aria-label', galleriesJSON[galleryName][0].galleryButtonAriaLabel)
       dropDownElement.onclick = function () {
@@ -268,6 +253,14 @@ const buildSingleGallery = (galleryData) => {
 
       buttonContainer.appendChild(buttonElement)
       buttonContainer.appendChild(dropDownElement)
+
+      // have to do this because IE
+      var currentButton = document.getElementsByClassName(galleryNamingConvention)
+      currentButton[currentButton.length - 2].classList.add('info-button')
+      currentButton[currentButton.length - 1].classList.add('dropdown-button')
+      if (isActiveGallery) {
+        currentButton[currentButton.length - 2].classList.add('active')
+      }
 
       if (idx === 0) {
         // sets the initial active button in the gallery for changing later
@@ -306,5 +299,38 @@ const buildSingleGallery = (galleryData) => {
         }
       })
     }
+  }
+}
+
+export function buildGallery () {
+  var galleriesJSON = document.getElementsByClassName('galleries')
+  var imageContainer // container for gallery images HTML element
+  var bulletContainer // container for image bullet buttons HTML element
+  var buttonContainer // container for gallery buttons HTML element
+
+  if (galleriesJSON !== null && galleriesJSON.length !== 0) {
+    var arrayFromGalleriesJson = Object.keys(galleriesJSON).map(function (gallery) {
+      return galleriesJSON[gallery]
+    })
+    console.log(arrayFromGalleriesJson)
+    arrayFromGalleriesJson.forEach(function (gallery, idx) {
+      gallery.id = 'galleries' + idx
+      imageContainer = document.getElementsByClassName('image-container')[idx]
+      bulletContainer = document.getElementsByClassName('bullet-container')[idx]
+      buttonContainer = document.getElementsByClassName('selection-container-btn')[idx]
+      var scriptInnerText = JSON.parse(document.getElementById(galleriesJSON[idx].id).innerText)
+
+      var galleryData = {
+        galleryIndex: idx,
+        imageContainer: imageContainer,
+        bulletContainer: bulletContainer,
+        buttonContainer: buttonContainer,
+        galleriesJSON: scriptInnerText
+      }
+
+      buildSingleGallery(galleryData)
+    })
+  } else {
+    galleriesJSON = false
   }
 }
