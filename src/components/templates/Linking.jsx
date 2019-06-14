@@ -12,6 +12,7 @@ const Linking = props => {
   let bodyText = templateData.bodyText ? templateData.bodyText.value : 'Place a paragraph here'
   let link = templateData.link ? templateData.link.value : '#section-id'
   let linkAriaLabel = templateData.linkAriaLabel ? templateData.linkAriaLabel.value : ''
+  let anchorTitle = templateData.anchorTitle ? templateData.anchorTitle.value : 'Anchor Link Title 1'
 
   return (
     // <!-- START OF LINKING TEMPLATE -->
@@ -34,7 +35,7 @@ const Linking = props => {
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
         <a href={link} aria-label={linkAriaLabel}>
-          Anchor Link Title 1
+          {anchorTitle}
         </a>
         {/* <!-- END OF ANCHOR SECTION --> */}
       </div>
