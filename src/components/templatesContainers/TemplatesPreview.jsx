@@ -8,15 +8,10 @@ const HeaderFooterImg = styled.img`
   margin-bottom: -4px;
 `
 const TemplatesContainer = styled.div`
-  text-align: center;
-  align-items: center;
-  div.template-container {
-    padding: 100px 0;
-    border: 2px solid fuchsia;
-  }
 `
 
 const TemplateDirections = styled.div`
+  text-align: center;
   text-transform: uppercase;
   font-family: ${props => props.theme.fontBody};
   font-size: 26px;
@@ -24,7 +19,7 @@ const TemplateDirections = styled.div`
 `
 
 const TemplatesPreview = props => {
-  const { screen, selectedTemplates, updateSelectedTemplates } = props
+  const { screen, selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   let noSelections = selectedTemplates.length === 0
 
   return (
@@ -43,6 +38,7 @@ const TemplatesPreview = props => {
           <SelectedTemplatesContainer
             selectedTemplates={selectedTemplates}
             updateSelectedTemplates={updateSelectedTemplates}
+            giveSelectedTemplateData={giveSelectedTemplateData}
           />
         )}
       </TemplatesContainer>

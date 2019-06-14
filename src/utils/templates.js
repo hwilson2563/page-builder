@@ -28,671 +28,127 @@ import TwoLargeImgModal from '../components/modals/TwoLargeImgModal'
 import TwoSmallImgModal from '../components/modals/TwoSmallImgModal'
 import VideoModal from '../components/modals/VideoModal'
 
-export const templates = [
+export const templatesIdx = [
   {
     thumbnailImg: 'banner_temp.png',
-    tempName: 'Banner Template',
-    component: Banner,
-    modal: BannerModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Image Mobile',
-        name: 'image-mobile',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Tablet',
-        name: 'image-tablet',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Desktop',
-        name: 'image-desktop',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subtitle',
-        name: 'subtitle',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Banner Template'
   },
   {
     thumbnailImg: 'button_text_temp.png',
-    tempName: 'Button Text Template',
-    component: ButtonText,
-    modal: ButtonTextModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Call To Action Text',
-        name: 'call-to-action',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Button Text',
-        name: 'button',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Button Text Template'
   },
   {
     thumbnailImg: 'four_img_temp.png',
-    tempName: 'Four Image Template',
-    component: FourImage,
-    modal: FourImageModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Section Title',
-        name: 'section-title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 1',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 2',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 3',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 4',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Four Image Template'
   },
   {
     thumbnailImg: 'gallery_temp.png',
-    tempName: 'Gallery Template',
-    component: Gallery,
-    modal: null,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Gallery Name Button',
-        name: 'gallery-name',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Button Aria Label',
-        name: 'aria-label',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Info Title',
-        name: 'info-title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Info Body Text',
-        name: 'info-body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'img-alt-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Gallery Template'
   },
   {
     thumbnailImg: 'large_img_temp.png',
-    tempName: 'Large Image Template',
-    component: LargeImage,
-    modal: LargeImgModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Image Url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Large Image Template'
   },
   {
     thumbnailImg: 'linking_temp.png',
-    tempName: 'Linking Template',
-    component: Linking,
-    modal: LinkingModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Image Url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Link',
-        name: 'link',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Link Arial Label',
-        name: 'link-aria-label',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Linking Template'
   },
   {
     thumbnailImg: 'one_img_text_temp.png',
-    tempName: 'One Image Text Template',
-    component: OneImageText,
-    modal: OneImageTextModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Image Url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Paragraph',
-        name: 'paragprah',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'One Image Text Template'
   },
   {
     thumbnailImg: 'product_temp.png',
-    tempName: 'Product Template',
-    component: Product,
-    modal: ProductListModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Image Url',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Product Name',
-        name: 'product-name',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Price',
-        name: 'price',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Product Template'
   },
   {
     thumbnailImg: 'quote_temp.png',
-    tempName: 'Quote Template',
-    component: Quote,
-    modal: QuotesModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'FAQ - Question',
-        name: 'faq',
-        value: '',
-        error: null
-      },
-      {
-        label: 'FAQ - Answer',
-        name: 'answer',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Pro Tip',
-        name: 'pro-tip',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Customer Feedback',
-        name: 'customer-feedback',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Quote Template'
   },
   {
     thumbnailImg: 'single_button_temp.png',
-    tempName: 'Single Button Template',
-    component: SingleButton,
-    modal: SingleButtonModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Button Text',
-        name: 'button-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Single Button Template'
   },
   {
     thumbnailImg: 'text_only_temp.png',
-    tempName: 'Text Only Template',
-    component: TextOnly,
-    modal: TextOnlyModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Title',
-        name: 'title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Paragraph',
-        name: 'paragraph',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Text Only Template'
   },
   {
     thumbnailImg: 'three_img_temp.png',
-    tempName: 'Three Image Template',
-    component: ThreeImage,
-    modal: ThreeImageModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Section Title',
-        name: 'section-title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 1',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 2',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 3',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Three Image Template'
   },
   {
     thumbnailImg: 'two_large_img_temp.png',
-    tempName: 'Two Large Image Template',
-    component: TwoLargeImage,
-    modal: TwoLargeImgModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Section Title',
-        name: 'section-title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 1',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 2',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Two Large Image Template'
   },
   {
     thumbnailImg: 'two_small_img_temp.png',
-    tempName: 'Two Small Image Template',
-    component: TwoSmallImage,
-    modal: TwoSmallImgModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Section Title',
-        name: 'section-title',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 1',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image 2',
-        name: 'image',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Image Alt Text',
-        name: 'image-alt-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Subheader',
-        name: 'subheader-text',
-        value: '',
-        error: null
-      },
-      {
-        label: 'Body text',
-        name: 'body-text',
-        value: '',
-        error: null
-      }
-    ]
+    tempName: 'Two Small Image Template'
   },
   {
-    thumbnailImg: 'video-template.png',
-    tempName: 'Video Template',
-    component: Video,
-    modal: VideoModal,
-    modalData: [
-      { label: 'background', name: 'background', value: false, error: null },
-      { label: 'padding', name: 'padding', value: false, error: null },
-      {
-        label: 'Video Url',
-        name: 'video',
-        value: '',
-        error: null
-      }
-    ]
+    thumbnailImg: 'video_temp.png',
+    tempName: 'Video Template'
   }
 ]
+
+export const templatesData = {
+  'Banner Template': {
+    component: Banner,
+    modal: BannerModal
+  },
+  'Button Text Template': {
+    component: ButtonText,
+    modal: ButtonTextModal
+  },
+  'Four Image Template': {
+    component: FourImage,
+    modal: FourImageModal
+  },
+  'Gallery Template': {
+    component: Gallery
+  },
+  'Large Image Template': {
+    component: LargeImage,
+    modal: LargeImgModal
+  },
+  'Linking Template': {
+    component: Linking,
+    modal: LinkingModal
+  },
+  'One Image Text Template': {
+    component: OneImageText,
+    modal: OneImageTextModal
+  },
+  'Product Template': {
+    component: Product,
+    modal: ProductListModal
+  },
+  'Quote Template': {
+    component: Quote,
+    modal: QuotesModal
+  },
+  'Single Button Template': {
+    component: SingleButton,
+    modal: SingleButtonModal
+  },
+  'Text Only Template': {
+    component: TextOnly,
+    modal: TextOnlyModal 
+  },
+  'Three Image Template': {
+    component: ThreeImage,
+    modal: ThreeImageModal
+  },
+  'Two Large Image Template': {
+    component: TwoLargeImage,
+    modal: TwoLargeImgModal
+  },
+  'Two Small Image Template': {
+    component: TwoSmallImage,
+    modal: TwoSmallImgModal
+  },
+  'Video Template': {
+    component: Video,
+    modal: VideoModal
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
 const BannerModal = props => {
-  const { updateFormData } = props
+  const { updateFormData, data } = props
   return (
     <>
       <div>
@@ -23,35 +23,29 @@ const BannerModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Image Tablet'}
-        name={'image-tablet'}
+        label={'Image Alt Text'}
+        name={'altText'}
         error={null}
         updateFormData={updateFormData}
+        value={data['altText'] ? data['altText'].value : ''}
         required
       />
       <FormEntry
         type={'input'}
-        label={'Image Desktop'}
-        name={'image-desktop'}
+        label={'Title'}
+        name={'title'}
         error={null}
         updateFormData={updateFormData}
+        value={data['title'] ? data['title'].value : ''}
         required
       />
-      <FormEntry
-        type={'input'}
-        label={'Image Atl Text'}
-        name={'alt-text'}
-        error={null}
-        updateFormData={updateFormData}
-        required
-      />
-      <FormEntry type={'input'} label={'Title'} name={'title'} error={null} updateFormData={updateFormData} required />
       <FormEntry
         type={'input'}
         label={'Subtitle'}
         name={'subtitle'}
         error={null}
         updateFormData={updateFormData}
+        value={data['subtitle'] ? data['subtitle'].value : ''}
         required
       />
     </>

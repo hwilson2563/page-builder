@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ReactDOMServer from 'react-dom/server'
 
-import ControlPanel from './controlPanel/ControlPanel'
-import ExportIcon from './parts/ExportIcon'
+import TemplateContainer from './TemplateContainer'
+import ExportIcon from '../parts/ExportIcon'
 
-const TemplateContainer = styled.div`
+const TemplatesContainer = styled.div`
   position: relative;
-  :first-child .up-container {
-    display: none;
-  }
-  :last-child .down-container {
-    display: none;
-  }
   :hover {
-    button.export-btn, .control-panel {
+    button.export-btn {
       opacity: 1;
     }
   }
@@ -53,22 +47,32 @@ const TextArea = styled.textarea`
   padding: 5px 8px;
   resize: none;
   background-color: ${props => props.theme.backgroundAccent + 'CC'};
-  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity .3s ease-in-out;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
 
+const CssLink = () => {
+  return (
+    <link rel='stylesheet' href='https://dev.woodlanddirect.com/learningcenter/learning-center.css' type='text/css' />
+  )
+}
+
+const JsLink = () => {
+  return <script className={'react'} src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
+}
+
 const SelectedTemplatesContainer = props => {
-  const { selectedTemplates, updateSelectedTemplates } = props
+  const { selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   const [copyData, setCopyData] = useState()
   const [showCopy, setShowCopy] = useState(false)
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
-      selectedTemplates.map(Template => {
-        return (templates =
-          templates === undefined
-            ? ReactDOMServer.renderToStaticMarkup(<Template />)
-            : templates + ReactDOMServer.renderToStaticMarkup(<Template />))
+      templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
+      selectedTemplates.map(template => {
+        let Template = template.component
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
       })
+      templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
     setCopyData(templates)
     setShowCopy(true)
@@ -85,24 +89,26 @@ const SelectedTemplatesContainer = props => {
   )
 
   return (
-    <TemplateContainer>
+    <TemplatesContainer>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
       <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
         <ExportIcon showCopy={showCopy} />
       </Button>
 
-      {selectedTemplates.map((Template, idx) => {
+      {selectedTemplates.map((template, idx) => {
+        let selectedTemplateLength = selectedTemplates.length - 1
         return (
-          <TemplateContainer className={'template-container'} key={idx}>
-            <Template />
-            <ControlPanel
-              updateSelectedTemplates={updateSelectedTemplates}
-              idx={idx}
-            />
-          </TemplateContainer>
+          <TemplateContainer
+            key={idx}
+            idx={idx}
+            selectedTemplateLength={selectedTemplateLength}
+            template={template}
+            updateSelectedTemplates={updateSelectedTemplates}
+            giveSelectedTemplateData={giveSelectedTemplateData}
+          />
         )
       })}
-    </TemplateContainer>
+    </TemplatesContainer>
   )
 }
 
