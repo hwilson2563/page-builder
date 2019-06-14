@@ -1,18 +1,29 @@
 import React from 'react'
 
-const Linking = () => {
+const Linking = props => {
+  const { templateData } = props
+
+  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
+  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+
+  let image = templateData.image ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
+  let title = templateData.title ? templateData.title.value : 'Place Title Here'
+  let bodyText = templateData.bodyText ? templateData.bodyText.value : 'Place a paragraph here'
+  let link = templateData.link ? templateData.link.value : '#section-id'
+  let linkAriaLabel = templateData.linkAriaLabel ? templateData.linkAriaLabel.value : ''
+
   return (
     // <!-- START OF LINKING TEMPLATE -->
-    <div id='linking-temp'>
+    <div id='linking-temp' className={backgroundDark + ' ' + addPadding}>
       <div className='image-text-container'>
-        <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
+        <img src={image} alt={imageAltText} />
         <div className='linking-text-container'>
-          <h3>Place Title Here</h3>
+          <h3>{title}</h3>
           {/* <!-- below add/remove p tags for more/less paragraph breaks --> */}
           <div className='linking-text'>
             {/* <!-- BEGINNING OF PARAGRAPH SECTION --> */}
-            <p>Place a paragraph here.</p>
-            <p>Place a paragraph here.</p>
+            <p>{bodyText}</p>
             {/* <!-- END OF PARAGRAPH SECTION --> */}
           </div>
         </div>
@@ -22,23 +33,8 @@ const Linking = () => {
         <!-- replace each #section-id with the section's id you wish to link to  -->
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
-        <a href='#section-id' aria-label='section title'>
+        <a href={link} aria-label={linkAriaLabel}>
           Anchor Link Title 1
-        </a>
-        <a href='#section-id' aria-label='section title'>
-          Anchor Link Title 2
-        </a>
-        <a href='#section-id' aria-label='section title'>
-          Anchor Link Title 3
-        </a>
-        <a href='#section-id' aria-label='section title'>
-          Anchor Link Title 4
-        </a>
-        <a href='#section-id' aria-label='section title'>
-          Anchor Link Title 5
-        </a>
-        <a href='#section-id' aria-label='section title'>
-          Anchor Link Title 6
         </a>
         {/* <!-- END OF ANCHOR SECTION --> */}
       </div>

@@ -6,12 +6,12 @@ const LargeImage = props => {
   let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
   let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
 
-  let image = templateData.image ? templateData.image : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let alt = templateData.alt ? templateData.alt : ''
+  let image = templateData.image ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
   return (
     // <!-- START LARGE IMAGE TEMPLATE -->
     <div id='large-image-temp' className={backgroundDark + ' ' + addPadding}>
-      <img src={image} alt={alt} />
+      <img src={image} alt={imageAltText} />
     </div>
     //* <!-- END LARGE IMAGE TEMPLATE --> */
   )

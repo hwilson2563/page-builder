@@ -5,34 +5,31 @@ const FourImage = props => {
   let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
   let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
 
-  let title = templateData.title ? templateData.title : 'Place section title here'
+  let title = templateData.title ? templateData.title.value : 'Place section title here'
   let image1 = templateData.image1
     ? templateData.image1
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let alt1 = templateData.alt1 ? templateData.alt1 : ''
-  let subheader1 = templateData.subheader1 ? templateData.subheader1 : 'place info item title here'
-  let body1 = templateData.body1 ? templateData.body1 : 'put paragraph text here'
+  let alt1 = templateData.alt1 ? templateData.alt1.value : ''
+  let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
+  let body1 = templateData.body1 ? templateData.body1.value : 'put paragraph text here'
 
   let image2 = templateData.image2
-    ? templateData.image2
-    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let alt2 = templateData.alt2 ? templateData.alt2 : ''
-  let subheader2 = templateData.subheader2 ? templateData.subheader2 : 'place info item title here'
-  let body2 = templateData.body2 ? templateData.body2 : 'put paragraph text here'
+    ? templateData.image2.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt2 = templateData.alt2 ? templateData.alt2.value : ''
+  let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
+  let body2 = templateData.body2 ? templateData.body2.value : 'put paragraph text here'
 
   let image3 = templateData.image3
-    ? templateData.image3
-    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let alt3 = templateData.alt3 ? templateData.alt3 : ''
-  let subheader3 = templateData.subheader3 ? templateData.subheader3 : 'place info item title here'
-  let body3 = templateData.body3 ? templateData.body3 : 'put paragraph text here'
+    ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt3 = templateData.alt3 ? templateData.alt3.value : ''
+  let subheader3 = templateData.subheader3 ? templateData.subheader3.value : 'place info item title here'
+  let body3 = templateData.body3 ? templateData.body3.value : 'put paragraph text here'
 
   let image4 = templateData.image4
-    ? templateData.image4
-    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let alt4 = templateData.alt4 ? templateData.alt4 : ''
-  let subheader4 = templateData.subheader4 ? templateData.subheader4 : 'place info item title here'
-  let body4 = templateData.body4 ? templateData.body4 : 'put paragraph text here'
+    ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt4 = templateData.alt4 ? templateData.alt4.value : ''
+  let subheader4 = templateData.subheader4 ? templateData.subheader4.value : 'place info item title here'
+  let body4 = templateData.body4 ? templateData.body4.value : 'put paragraph text here'
 
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
