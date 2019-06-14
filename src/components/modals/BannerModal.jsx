@@ -3,7 +3,6 @@ import FormEntry from '../modal/FormEntry'
 
 const BannerModal = props => {
   const { data, updateFormData } = props
-  console.log(data)
   return (
     <>
       <FormEntry

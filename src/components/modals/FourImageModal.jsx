@@ -47,6 +47,7 @@ const FourImageModal = props => {
         label={'Sub Header'}
         name={'subHeader1'}
         error={null}
+        value={data['subHeader1'] ? data['subHeader1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -55,6 +56,7 @@ const FourImageModal = props => {
         label={'Body Text'}
         name={'bodyText1'}
         error={null}
+        value={data['bodyText1'] ? data['bodyText1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -83,6 +85,7 @@ const FourImageModal = props => {
         label={'Sub Header'}
         name={'subHeader2'}
         error={null}
+        value={data['subHeader2'] ? data['subHeader2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -91,6 +94,7 @@ const FourImageModal = props => {
         label={'Body Text'}
         name={'bodyText2'}
         error={null}
+        value={data['bodyText2'] ? data['bodyText2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -113,12 +117,13 @@ const FourImageModal = props => {
         value={data['imageAltText3'] ? data['imageAltText3'].value : ''}
         updateFormData={updateFormData}
         required
-      />
+      />{' '}
       <FormEntry
         type={'input'}
         label={'Sub Header'}
         name={'subHeader3'}
         error={null}
+        value={data['subHeader3'] ? data['subHeader3'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -127,6 +132,7 @@ const FourImageModal = props => {
         label={'Body Text'}
         name={'bodyText3'}
         error={null}
+        value={data['bodyText3'] ? data['bodyText3'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -155,6 +161,7 @@ const FourImageModal = props => {
         label={'Sub Header'}
         name={'subHeader4'}
         error={null}
+        value={data['subHeader4'] ? data['subHeader4'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -163,6 +170,7 @@ const FourImageModal = props => {
         label={'Body Text'}
         name={'bodyText4'}
         error={null}
+        value={data['bodyText4'] ? data['bodyText4'].value : ''}
         updateFormData={updateFormData}
         required
       />

@@ -28,6 +28,7 @@ const GalleryModal = props => {
         label={'Gallery Name Button'}
         name={'galleryName'}
         error={null}
+        value={data['galleryName'] ? data['galleryName'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -35,7 +36,7 @@ const GalleryModal = props => {
         type={'input'}
         label={'Button Aria Label'}
         name={'ariaLabel'}
-        error={null}
+        error={null}value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -44,6 +45,7 @@ const GalleryModal = props => {
         label={'Info Title'}
         name={'infoTitle'}
         error={null}
+        value={data['infoTitle'] ? data['infoTitle'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -52,6 +54,7 @@ const GalleryModal = props => {
         label={'Info Body Text'}
         name={'infoBodyText'}
         error={null}
+        value={data['infoBodyText'] ? data['infoBodyText'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -61,6 +64,7 @@ const GalleryModal = props => {
         label={'Image Url'}
         name={'image'}
         error={null}
+        value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -69,6 +73,7 @@ const GalleryModal = props => {
         label={'Image Alt Text'}
         name={'imgAltText'}
         error={null}
+        value={data['imgAltText'] ? data['imgAltText'].value : ''}
         updateFormData={updateFormData}
         required
       />

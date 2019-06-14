@@ -15,7 +15,6 @@ const Title = styled.h2`
 const CMSModal = props => {
   const { closeModal, formData, updateFormData, tempName, updateTemplateData } = props
   const FormProps = props.formProps
-  console.log(formData)
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>

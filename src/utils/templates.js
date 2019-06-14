@@ -16,6 +16,7 @@ import Video from '../components/templates/Video'
 import BannerModal from '../components/modals/BannerModal'
 import ButtonTextModal from '../components/modals/ButtonTextModal'
 import FourImageModal from '../components/modals/FourImageModal'
+import GalleryModal from '../components/modals/GalleryModal'
 import LargeImgModal from '../components/modals/LargeImgModal'
 import LinkingModal from '../components/modals/LinkingModal'
 import OneImageTextModal from '../components/modals/OneImageTextModal'
@@ -105,7 +106,8 @@ export const templatesData = {
     modal: FourImageModal
   },
   'Gallery Template': {
-    component: Gallery
+    component: Gallery,
+    modal: GalleryModal
   },
   'Large Image Template': {
     component: LargeImage,
@@ -133,7 +135,7 @@ export const templatesData = {
   },
   'Text Only Template': {
     component: TextOnly,
-    modal: TextOnlyModal 
+    modal: TextOnlyModal
   },
   'Three Image Template': {
     component: ThreeImage,

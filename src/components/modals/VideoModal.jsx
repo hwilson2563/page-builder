@@ -1,22 +1,33 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
 const TwoSmallImgModal = props => {
-  const { updateFormData } = props
+  const { updateFormData, data } = props
   return (
     <>
-      <div>
-        <input type={'checkbox'} name={'background'} />
-        <label htmlFor={'background'}>Check for grey background</label>
-      </div>
-      <div>
-        <input type={'checkbox'} name={'padding'} />
-        <label htmlFor={'padding'}>Check for added padding</label>
-      </div>
+      <FormEntry
+        type={'checkbox'}
+        label={'gray background'}
+        name={'backgroundDark'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['backgroundDark'] ? data['backgroundDark'].value : false}
+        required
+      />
+      <FormEntry
+        type={'checkbox'}
+        label={'Additional Padding Top & Bottom'}
+        name={'addPadding'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['addPadding'] ? data['addPadding'].value : false}
+        required
+      />
       <FormEntry
         type={'input'}
-        label={'Video Url'}
+        label={'Video URL'}
         name={'video'}
         error={null}
+        value={data['video'] ? data['video'].value : ''}
         updateFormData={updateFormData}
         required
       />

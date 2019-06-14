@@ -10,7 +10,7 @@ export const Label = styled.label`
   font-family: ${props => props.theme.fontBody};
   font-size: ${props => (props.selected ? '14px' : '14px')};
   font-weight: normal !Important; /* this is to override core */
-  top: ${props => (props.type !== 'checkbox' ? '20px' : '')};
+  top: ${props => (props.type !== 'checkbox' ? '20px' : '3px')};
   left: ${props => (props.type !== 'checkbox' ? '10px' : '20px')};
   cursor: text;
   pointer-events: none;
