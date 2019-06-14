@@ -44,7 +44,7 @@ const ThreeImage = props => {
           <button className={'read-more-button'}>read more</button>
         </div>
         <div className='img-text-container'>
-          <img src={image2}alt={alt2} />
+          <img src={image2} alt={alt2} />
           <h4>{subheader2}</h4>
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
