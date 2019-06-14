@@ -13,6 +13,7 @@ import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
 import BannerModal from '../components/modals/BannerModal'
+import Video from '../components/templates/Video'
 
 export const templatesIdx = [
   {
@@ -70,6 +71,10 @@ export const templatesIdx = [
   {
     thumbnailImg: 'two_small_img_temp.png',
     tempName: 'Two Small Image Template'
+  },
+  {
+    thumbnailImg: 'video_temp.png',
+    tempName: 'Video Template'
   }
 ]
 
@@ -116,5 +121,8 @@ export const templatesData = {
   },
   'Two Small Image Template': {
     component: TwoSmallImage
+  },
+  'Video Template': {
+    component: Video
   }
 }

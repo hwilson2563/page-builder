@@ -50,6 +50,16 @@ const TextArea = styled.textarea`
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
 
+const CssLink = () => {
+  return (
+    <link rel='stylesheet' href='https://dev.woodlanddirect.com/learningcenter/learning-center.css' type='text/css' />
+  )
+}
+
+const JsLink = () => {
+  return <script className={'react'} src='https://dev.woodlanddirect.com/learningcenter/learning-center.js' />
+}
+
 const SelectedTemplatesContainer = props => {
   const { selectedTemplates, updateSelectedTemplates, giveSelectedTemplateData } = props
   const [copyData, setCopyData] = useState()
@@ -57,20 +67,12 @@ const SelectedTemplatesContainer = props => {
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
-      let container = document.getElementsByClassName('template-container')[0].children
-      console.log(container[0].innerHTML)
-      debugger
+      templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map(template => {
-        const Template = template.component
-        console.log(<Template formData={template.data} />)
-        const html = ReactDOMServer.renderToString(<Template templateData ={template.data} />)
-        console.log(html)
-        console.log(html)
-        return (templates =
-          templates === undefined
-            ? ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />)
-            : templates + ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
+        let Template = template.component
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
       })
+      templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
     setCopyData(templates)
     setShowCopy(true)

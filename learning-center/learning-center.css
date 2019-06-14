@@ -604,6 +604,8 @@ button:focus {
   display: flex;
   align-items: center;
   height: 400px;
+  color: #FFFFFF;
+  color: var(--font-overlay);
 }
 
 .banner-text {

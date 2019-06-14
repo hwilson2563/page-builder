@@ -9,7 +9,10 @@ import {
   determineScreen,
   removeSelectedTemplates,
   moveUpSelectedTemplates,
-  moveDownSelectedTemplates
+  moveDownSelectedTemplates,
+  buildGallery,
+  addReadMoreClicks,
+  readMore
 } from '../utils/utils'
 import { theme } from '../utils/globalStyles'
 
@@ -61,14 +64,23 @@ const App = () => {
     updateScreen()
     // add event listener
     window.addEventListener('resize', updateScreen)
+    window.addEventListener('resize', readMore)
     return () => window.removeEventListener('resize', updateScreen)
   }, []) // Empty array ensures that effect is only run on mount and unmount
-
+  // attach data to the selected template
   const giveSelectedTemplateData = (idx, data) => {
     let clone = [...selectedTemplates]
     clone[idx].data = data
     setSelectedTemplates(clone)
   }
+  // useeffect to add funtionality to html
+  useEffect(
+    () => {
+      buildGallery()
+      addReadMoreClicks()
+    },
+    [selectedTemplates]
+  )
   return (
     <ThemeProvider theme={theme}>
       <>

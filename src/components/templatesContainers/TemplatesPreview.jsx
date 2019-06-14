@@ -8,11 +8,10 @@ const HeaderFooterImg = styled.img`
   margin-bottom: -4px;
 `
 const TemplatesContainer = styled.div`
-  text-align: center;
-  align-items: center;
 `
 
 const TemplateDirections = styled.div`
+  text-align: center;
   text-transform: uppercase;
   font-family: ${props => props.theme.fontBody};
   font-size: 26px;

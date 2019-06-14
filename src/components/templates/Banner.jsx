@@ -2,11 +2,12 @@ import React from 'react'
 
 const Banner = props => {
   let { templateData } = props
+  console.log(templateData)
   return (
     <div
       style={{
         background:
-          `url(${templateData && templateData.image ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'}) center no-repeat`
+          `url(${templateData && templateData.image ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'}) no-repeat center/cover #ebebeb`
       }}
       id='banner-temp' alt={templateData && templateData.altText ? templateData.altText.value : 'Place Title Here'}>
       <div className='banner-text'>
