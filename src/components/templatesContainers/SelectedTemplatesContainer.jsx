@@ -57,12 +57,19 @@ const SelectedTemplatesContainer = props => {
   const exportHTML = () => {
     let templates
     if (selectedTemplates.length) {
+      let container = document.getElementsByClassName('template-container')[0].children
+      console.log(container[0].innerHTML)
+      debugger
       selectedTemplates.map(template => {
         const Template = template.component
+        console.log(<Template formData={template.data} />)
+        const html = ReactDOMServer.renderToString(<Template templateData ={template.data} />)
+        console.log(html)
+        console.log(html)
         return (templates =
           templates === undefined
-            ? ReactDOMServer.renderToStaticMarkup(<Template />)
-            : templates + ReactDOMServer.renderToStaticMarkup(<Template />))
+            ? ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />)
+            : templates + ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
       })
     }
     setCopyData(templates)
