@@ -188,9 +188,7 @@ function buildSingleGallery (galleryData) {
         // this builds the images
         var imageTag = document.createElement('img')
         imageTag.setAttribute('id', 'img' + idx)
-        // image.selected
         imageTag.setAttribute('class', imgNamingConvention)
-        // : imageTag.setAttribute('class', 'gallery-img')
         imageTag.setAttribute('src', image.imageSource)
         imageTag.setAttribute('alt', image.altTag)
         imageContainer.appendChild(imageTag)
