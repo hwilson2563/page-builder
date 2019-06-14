@@ -6,7 +6,7 @@ import { EntryContainer, Input, Label } from './formEntryStyles'
 const FormEntry = props => {
   const { name, required, type, updateFormData } = props
   let label = props.required ? props.label : props.label + ' (Optional)'
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(props.value)
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(null)
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
+
 const BannerModal = props => {
-  const { updateFormData, data } = props
+  const { data, updateFormData } = props
   return (
     <>
       <div>
@@ -12,13 +13,13 @@ const BannerModal = props => {
         <input type={'checkbox'} name={'padding'} />
         <label htmlFor={'padding'}>Check for added padding</label>
       </div>
-
       <FormEntry
         type={'input'}
-        label={'Image Mobile'}
-        name={'image-mobil'}
+        label={'Image'}
+        name={'image'}
         error={null}
         updateFormData={updateFormData}
+        value={data['image'] ? data['image'].value : ''}
         required
       />
       <FormEntry
