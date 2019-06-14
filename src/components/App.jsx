@@ -25,8 +25,12 @@ const App = () => {
     if (action === 'add') {
       const newTemplate = {
         component: templatesData[component].component,
-        data: {},
-        modal: templatesData[component].modal
+        data: {
+          addPadding: false,
+          backgroundDark: false
+        },
+        modal: templatesData[component].modal,
+        tempName: component
       }
       updatedTemplates = addSelectedTemplates(newTemplate, clone)
     }

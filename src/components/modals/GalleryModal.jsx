@@ -1,22 +1,32 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
 const GalleryModal = props => {
-  const { updateFormData } = props
+  const { updateFormData, data } = props
   return (
     <>
-      <div>
-        <input type={'checkbox'} name={'background'} />
-        <label htmlFor={'background'}>Check for grey background</label>
-      </div>
-      <div>
-        <input type={'checkbox'} name={'padding'} />
-        <label htmlFor={'padding'}>Check for added padding</label>
-      </div>
+      <FormEntry
+        type={'checkbox'}
+        label={'gray background'}
+        name={'backgroundDark'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['backgroundDark'] ? data['backgroundDark'].value : false}
+        required
+      />
+      <FormEntry
+        type={'checkbox'}
+        label={'Additional Padding Top & Bottom'}
+        name={'addPadding'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['addPadding'] ? data['addPadding'].value : false}
+        required
+      />
       {/* MORE CAN BE CREATED */}
       <FormEntry
         type={'input'}
         label={'Gallery Name Button'}
-        name={'gallery-name'}
+        name={'galleryName'}
         error={null}
         updateFormData={updateFormData}
         required
@@ -24,7 +34,7 @@ const GalleryModal = props => {
       <FormEntry
         type={'input'}
         label={'Button Aria Label'}
-        name={'aria-label'}
+        name={'ariaLabel'}
         error={null}
         updateFormData={updateFormData}
         required
@@ -32,7 +42,7 @@ const GalleryModal = props => {
       <FormEntry
         type={'input'}
         label={'Info Title'}
-        name={'info-title'}
+        name={'infoTitle'}
         error={null}
         updateFormData={updateFormData}
         required
@@ -40,7 +50,7 @@ const GalleryModal = props => {
       <FormEntry
         type={'input'}
         label={'Info Body Text'}
-        name={'info-body-text'}
+        name={'infoBodyText'}
         error={null}
         updateFormData={updateFormData}
         required
@@ -57,7 +67,7 @@ const GalleryModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'img-alt-text'}
+        name={'imgAltText'}
         error={null}
         updateFormData={updateFormData}
         required

@@ -1,21 +1,32 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
 const ButtonTextModal = props => {
-  const { updateFormData } = props
+  const { updateFormData, data } = props
   return (
     <>
-      <div>
-        <input type={'checkbox'} name={'background'} />
-        <label htmlFor={'background'}>Check for grey background</label>
-      </div>
-      <div>
-        <input type={'checkbox'} name={'padding'} />
-        <label htmlFor={'padding'}>Check for added padding</label>
-      </div>
+      <FormEntry
+        type={'checkbox'}
+        label={'gray background'}
+        name={'backgroundDark'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['backgroundDark'] ? data['backgroundDark'].value : false}
+        required
+      />
+      <FormEntry
+        type={'checkbox'}
+        label={'Additional Padding Top & Bottom'}
+        name={'addPadding'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['addPadding'] ? data['addPadding'].value : false}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Call To Action Text'}
-        name={'call-to-action'}
+        name={'callToAction'}
+        value={data['callToAction'] ? data['callToAction'].value : ''}
         error={null}
         updateFormData={updateFormData}
         required
@@ -24,6 +35,16 @@ const ButtonTextModal = props => {
         type={'input'}
         label={'Button Text'}
         name={'button'}
+        value={data['button'] ? data['button'].value : ''}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'URL for Button'}
+        name={'href'}
+        value={data['href'] ? data['href'].value : ''}
         error={null}
         updateFormData={updateFormData}
         required
