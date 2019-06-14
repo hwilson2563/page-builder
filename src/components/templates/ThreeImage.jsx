@@ -1,40 +1,66 @@
 import React from 'react'
 
-const ThreeImage = () => {
+const ThreeImage = props => {
+  const { templateData } = props
+  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
+  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+
+  let title = templateData.title ? templateData.title : 'Place section title here'
+  let image1 = templateData.image1
+    ? templateData.image1
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt1 = templateData.alt1 ? templateData.alt1 : ''
+  let subheader1 = templateData.subheader1 ? templateData.subheader1 : 'place info item title here'
+  let body1 = templateData.body1 ? templateData.body1 : 'put paragraph text here'
+
+  let image2 = templateData.image2
+    ? templateData.image2
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt2 = templateData.alt2 ? templateData.alt2 : ''
+  let subheader2 = templateData.subheader2 ? templateData.subheader2 : 'place info item title here'
+  let body2 = templateData.body2 ? templateData.body2 : 'put paragraph text here'
+
+  let image3 = templateData.image3
+    ? templateData.image3
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt3 = templateData.alt3 ? templateData.alt3 : ''
+  let subheader3 = templateData.subheader3 ? templateData.subheader3 : 'place info item title here'
+  let body3 = templateData.body3 ? templateData.body3 : 'put paragraph text here'
+
   return (
     // <!-- START OF THREE IMG TEMPLATE  -->
-    <div id='three-img-temp'>
-      <h3>Place section title here</h3>
+    <div id='three-img-temp' className={backgroundDark + ' ' + addPadding}>
+      <h3>{title}</h3>
       <div className='three-img-text'>
         <div className='img-text-container'>
-          <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
-          <h4> place info item here</h4>
+          <img src={image1} alt={alt1} />
+          <h4>{subheader1}</h4>
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>place paragraph here.</p>
+            <p>{body1}</p>
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
         </div>
         <div className='img-text-container'>
-          <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
-          <h4> place info item here</h4>
+          <img src={image2}alt={alt2} />
+          <h4>{subheader2}</h4>
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>place paragraph here.</p>
+            <p>{body2}</p>
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
         </div>
         <div className='img-text-container'>
-          <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
-          <h4> place info item here</h4>
+          <img src={image3} alt={alt3} />
+          <h4>{subheader3}</h4>
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>place paragraph here.</p>
+            <p>{body3}</p>
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
