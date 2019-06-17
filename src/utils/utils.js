@@ -83,7 +83,9 @@ export const addReadMoreClicks = () => {
   var readMoreButtons = document.getElementsByClassName('read-more-button')
   if (readMoreButtons && readMoreButtons.length > 0) {
     for (var x = 0; x < readMoreButtons.length; x++) {
-      readMoreButtons[x].addEventListener('click', showMore(this))
+      readMoreButtons[x].addEventListener('click', function () {
+        showMore(this)
+      })
     }
   }
 }

@@ -3,15 +3,15 @@ import React from 'react'
 const Product = props => {
   const { templateData } = props
 
-  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
-  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
   let image = templateData.image
     ? templateData.image.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
   let productName = templateData.productName ? templateData.productName.value : 'Place Title Here'
-  let price = templateData.price ? templateData.price : '$ price here'
+  let price = templateData.price ? templateData.price.value : '$ price here'
 
   return (
     // <!-- START PRODUCT LIST TEMPLATE -->

@@ -2,8 +2,8 @@ import React from 'react'
 
 const Banner = props => {
   const { templateData } = props
-  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
-  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   const url = templateData.image ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   const alt = templateData.altText ? templateData.altText.value : 'Place Title Here'
   const title = templateData.title ? templateData.title.value : 'Place Title Here'

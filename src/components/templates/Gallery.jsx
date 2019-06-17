@@ -3,8 +3,8 @@ import React from 'react'
 const Gallery = props => {
   const { templateData } = props
 
-  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
-  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
   let sectionName = templateData.galleryName ? templateData.sectionHeader.value : 'Place Section Title Here'
   let galleryName = templateData.galleryName ? templateData.galleryName.value : 'Place Gallery Name Here'

@@ -2,8 +2,8 @@ import React from 'react'
 
 const TextOnly = props => {
   const { templateData } = props
-  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
-  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
   let title = templateData.title ? templateData.title.value : 'place an amazing section title here'
   let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place paragraph text here'
