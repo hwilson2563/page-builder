@@ -10,13 +10,13 @@ export const Label = styled.label`
   font-family: ${props => props.theme.fontBody};
   font-size: ${props => (props.selected ? '14px' : '14px')};
   font-weight: normal !Important; /* this is to override core */
-  top: 20px;
-  left: 10px;
+  top: ${props => (props.type !== 'checkbox' ? '20px' : '3px')};
+  left: ${props => (props.type !== 'checkbox' ? '10px' : '20px')};
   cursor: text;
   pointer-events: none;
-  color: ${props => (props.selected ? props.theme.accentSecondary : '#999')};
+  color: ${props => (props.type !== 'checkbox' && props.selected ? props.theme.accentSecondary : '#999')};
   ${props =>
-    props.selected
+    props.type !== 'checkbox' && props.selected
       ? `
     pointer-events: none;
     transform: translateZ(0) scale(1);
@@ -28,7 +28,7 @@ export const Label = styled.label`
     transition: all .25s ease-in-out;
     transform: translate3d(0,0,0) scale(1);`}
   ${props =>
-    props.value && props.value.length >= 1
+    props.type !== 'checkbox' && props.value && props.value.length >= 1
       ? `
     pointer-events: none;
     transform: translateZ(0) scale(1);

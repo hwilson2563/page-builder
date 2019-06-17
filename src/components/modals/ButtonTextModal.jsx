@@ -1,8 +1,7 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-
-const BannerModal = props => {
-  const { data, updateFormData } = props
+const ButtonTextModal = props => {
+  const { updateFormData, data } = props
   return (
     <>
       <FormEntry
@@ -25,41 +24,32 @@ const BannerModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Image'}
-        name={'image'}
+        label={'Call To Action Text'}
+        name={'callToAction'}
+        value={data['callToAction'] ? data['callToAction'].value : ''}
         error={null}
         updateFormData={updateFormData}
-        value={data['image'] ? data['image'].value : ''}
         required
       />
       <FormEntry
         type={'input'}
-        label={'Image Alt Text'}
-        name={'altText'}
+        label={'Button Text'}
+        name={'button'}
+        value={data['button'] ? data['button'].value : ''}
         error={null}
         updateFormData={updateFormData}
-        value={data['altText'] ? data['altText'].value : ''}
         required
       />
       <FormEntry
         type={'input'}
-        label={'Title'}
-        name={'title'}
+        label={'URL for Button'}
+        name={'href'}
+        value={data['href'] ? data['href'].value : ''}
         error={null}
         updateFormData={updateFormData}
-        value={data['title'] ? data['title'].value : ''}
-        required
-      />
-      <FormEntry
-        type={'input'}
-        label={'Subtitle'}
-        name={'subtitle'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['subtitle'] ? data['subtitle'].value : ''}
         required
       />
     </>
   )
 }
-export default BannerModal
+export default ButtonTextModal

@@ -29,7 +29,8 @@ const App = () => {
           addPadding: false,
           backgroundDark: false
         },
-        modal: templatesData[component].modal
+        modal: templatesData[component].modal,
+        tempName: component
       }
       updatedTemplates = addSelectedTemplates(newTemplate, clone)
     }

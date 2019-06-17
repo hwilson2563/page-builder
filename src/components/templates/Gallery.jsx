@@ -14,7 +14,7 @@ const Gallery = props => {
   let imgAltTag = templateData.imgAltTag ? templateData.imgAltTag.value : 'alt tag text here'
 
   var object = {
-    'Assign Gallery Name': [
+    'Assign Gallery Name 1': [
       {
         galleryButtonAriaLabel: ariaLabel,
         infoTitle: infoTitle,
@@ -25,29 +25,39 @@ const Gallery = props => {
         altTag: imgAltTag,
         selected: true
       }
+      // {
+      //   imageSource: 'https://via.placeholder.com/200',
+      //   altTag: 'alt tag text here',
+      //   selected: false
+      // },
+      // {
+      //   imageSource: 'https://via.placeholder.com/300',
+      //   altTag: 'alt tag text here',
+      //   selected: false
+      // }
     ]
   }
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id='gallery-template' className={'background ' + backgroundDark + ' ' + addPadding}>
-        <div className='container'>
-          <div className='button-section'>
+      <div id={'gallery-template'} className={'gallery-templates background' + backgroundDark + ' ' + addPadding}>
+        <div className={'container'}>
+          <div className={'button-section'}>
             <h2>{galleryName}</h2>
-            <div id='selection-container-btn'>
-              <button id='selected-gallery' className='dropdown-button active' />
+            <div id={'selection-container-btn'} className={'selection-container-btn'}>
+              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'} />
               {/* <!-- Buttons will generate here --> */}
             </div>
           </div>
-          <div className='gallery-section'>
-            <h3 className='info-header title-center-mobile'>{/* <!-- Info header will generate here --> */}</h3>
+          <div className={'gallery-section'}>
+            <h3 className={'info-header title-center-mobile'}>{/* <!-- Info header will generate here --> */}</h3>
 
-            <div id='image-container'>{/* <!-- Images will generate here --> */}</div>
-            <div id='bullet-container'>{/* <!-- Bullets will generate here --> */}</div>
+            <div id={'image-container'} className={'image-container'}>{/* <!-- Images will generate here --> */}</div>
+            <div id={'bullet-container'} className={'bullet-container'}>{/* <!-- Bullets will generate here --> */}</div>
           </div>
-          <div className='info-section'>
-            <h3 className='info-header title-desktop'>{/* <!-- Info header will generate here --> */}</h3>
-            <p id='info-body'>{/* <!-- Info body will generate here --> */}</p>
+          <div className={'info-section'}>
+            <h3 className={'info-header title-desktop'}>{/* <!-- Info header will generate here --> */}</h3>
+            <p id={'info-body'} className={'info-body'}>{/* <!-- Info body will generate here --> */}</p>
           </div>
         </div>
       </div>
@@ -101,7 +111,7 @@ const Gallery = props => {
   //     a. Remove everything from the comma seperating the curly brackets {} to the last curly bracket } (The same amount that you would copy and paste from above)
 
   //  --> */}
-      <script id='galleries' type='application/json' dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }} />
+      <script className={'galleries'} type='application/json' dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }} />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
   )
