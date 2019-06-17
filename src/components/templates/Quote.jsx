@@ -5,6 +5,9 @@ const Quote = props => {
   let defaultDisplay = !templateData['feedBackLayout'] && !templateData['faqLayout'] && !templateData['proTipLayout']
   let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
   let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let faqTemplate = templateData['faqLayout'] && templateData['faqLayout'].value === true
+  let proTipTemplate = templateData['proTipLayout'] && templateData['proTipLayout'].value === true
+  let feedbackTemplate = templateData['feedBackLayout'] && templateData['feedBackLayout'].value === true
   let faq = templateData.faq ? templateData.faq.value : 'Frequent Question Here?'
   let answer = templateData.answer ? templateData.answer.value : 'answer here'
   let proTip = templateData.proTip ? templateData.proTip.value : 'Pro Tip Here'
@@ -14,7 +17,7 @@ const Quote = props => {
     <div id='quotes-template' className={backgroundDark + ' ' + addPadding}>
       {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
   <!-- QUESTION TEMPLATE STARTS --> */}
-      {templateData['faqLayout'] && (
+      {faqTemplate && (
         <div className='single-quote-cont'>
           <div className='title-container'>
             <img
@@ -32,7 +35,7 @@ const Quote = props => {
       )}
       {/* <!-- QUESTION TEMPLATE ENDS -->
   <!-- PRO TIP TEMPLATE STARTS --> */}
-      {templateData['proTipLayout'] && (
+      {proTipTemplate && (
         <div className='single-quote-cont'>
           <div className='title-container'>
             <img
@@ -50,23 +53,7 @@ const Quote = props => {
       )}
       {/* <!-- PRO TIP TEMPLATE ENDS -->
   <!-- CUSTOMER FEEDBACK TEMPLATE STARTS --> */}
-      {templateData['feedBackLayout'] && (
-        <div className='single-quote-cont'>
-          <div className='title-container'>
-            <img
-              src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'
-              alt='star icon'
-            />
-            {/* <!-- start quote title --> */}
-            <h3>customer feedback</h3>
-            {/* <!-- end quote title --> */}
-          </div>
-          {/* <!-- START add/remove p tags as needed --> */}
-          <p>text here</p>
-          {/* <!-- end of paragraphs --> */}
-        </div>
-      )}
-      {defaultDisplay && (
+      {feedbackTemplate && (
         <div className='single-quote-cont'>
           <div className='title-container'>
             <img
@@ -79,6 +66,22 @@ const Quote = props => {
           </div>
           {/* <!-- START add/remove p tags as needed --> */}
           <p>{customerFeedback}</p>
+          {/* <!-- end of paragraphs --> */}
+        </div>
+      )}
+      {defaultDisplay && (
+        <div className='single-quote-cont'>
+          <div className='title-container'>
+            <img
+              src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'
+              alt='star icon'
+            />
+            {/* <!-- start quote title --> */}
+            <h3>default</h3>
+            {/* <!-- end quote title --> */}
+          </div>
+          {/* <!-- START add/remove p tags as needed --> */}
+          <p>default</p>
           {/* <!-- end of paragraphs --> */}
         </div>
       )}

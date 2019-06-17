@@ -25,20 +25,20 @@ const QuotesModal = props => {
       <div>Pick Multiple Quote Templates </div>
       <FormEntry
         type={'checkbox'}
-        label={'Pro Tips Layout'}
-        name={'proTipLayout'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['proTipLayout'] ? data['proTipLayout'].value : false}
-        required
-      />{' '}
-      <FormEntry
-        type={'checkbox'}
         label={'FAQ Layout'}
         name={'faqLayout'}
         error={null}
         updateFormData={updateFormData}
         value={data['faqLayout'] ? data['faqLayout'].value : false}
+        required
+      />
+      <FormEntry
+        type={'checkbox'}
+        label={'Pro Tips Layout'}
+        name={'proTipLayout'}
+        error={null}
+        updateFormData={updateFormData}
+        value={data['proTipLayout'] ? data['proTipLayout'].value : false}
         required
       />
       <FormEntry
