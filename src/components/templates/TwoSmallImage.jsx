@@ -14,7 +14,7 @@ const TwoSmallImage = props => {
   let bodyText1 = templateData.bodyText1 ? templateData.bodyText1.value : 'put paragraph text here'
 
   let image2 = templateData.image2
-    ? templateData.image2
+    ? templateData.image2.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt2 = templateData.alt2 ? templateData.alt2.value : ''
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
