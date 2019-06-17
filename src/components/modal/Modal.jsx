@@ -36,10 +36,10 @@ const Exit = styled.div`
     right: 0;
     top: -25px;`
       : `
-    width: 40px;
-    height: 40px;
-    right: -40px;
-    top: -35px;`}
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    top: 17px;`}
   .x-mark:hover {
     stroke: ${props => props.theme.accentPrimaryDark};
   }
@@ -48,14 +48,14 @@ const Exit = styled.div`
 const Modal = props => {
   let { closeModal, displayModal, screen } = props
   const PropsModal = props.modal
-  let xMarkSize = screen === 'mobile' ? '16px' : '29px'
+  let xMarkSize = '16px'
   return (
     <Fragment>
       {displayModal && (
         <ModalGrayBG className={'gray-bg'} onClick={e => closeModal(e, 'close')}>
           <ModalWrapper className={'modal-wrapper'} onClick={e => closeModal(e, 'open')}>
             <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')} screen={screen}>
-              <XMark fill={theme.accentPrimary} height={xMarkSize} width={xMarkSize} />
+              <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
             <PropsModal closeModal={closeModal} screen={screen} />
           </ModalWrapper>
