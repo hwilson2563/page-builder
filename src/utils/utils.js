@@ -83,8 +83,9 @@ export const addReadMoreClicks = () => {
   var readMoreButtons = document.getElementsByClassName('read-more-button')
   if (readMoreButtons && readMoreButtons.length > 0) {
     for (var x = 0; x < readMoreButtons.length; x++) {
-      readMoreButtons[x].addEventListener('click', showMore(this)
-      )
+      readMoreButtons[x].addEventListener('click', function () {
+        showMore(this)
+      })
     }
   }
 }
@@ -161,7 +162,6 @@ function buildSingleGallery (galleryData) {
 
   // this updates the info section with the new gallery info
   function changeInfoSection (galleryName) {
-    debugger
     var infoIndex = galleryIndex * 2 // time two because each section has two infoIndex
     var infoHeader = document.getElementsByClassName('info-header')
     var infoBody = document.getElementsByClassName('info-body')[galleryIndex]
@@ -171,7 +171,6 @@ function buildSingleGallery (galleryData) {
     headersArray.forEach(function (header) {
       header.innerHTML = galleriesJSON[galleryName][0].infoTitle
     })
-    debugger
     infoBody.innerHTML = galleriesJSON[galleryName][0].infoText
   }
 
@@ -302,7 +301,6 @@ function buildSingleGallery (galleryData) {
 }
 
 export function buildGallery () {
-  debugger
   var galleriesJSON = document.getElementsByClassName('galleries')
   var imageContainer // container for gallery images HTML element
   var bulletContainer // container for image bullet buttons HTML element

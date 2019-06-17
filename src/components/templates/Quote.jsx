@@ -3,8 +3,8 @@ import React from 'react'
 const Quote = props => {
   const { templateData } = props
   let defaultDisplay = !templateData['feedBackLayout'] && !templateData['faqLayout'] && !templateData['proTipLayout']
-  let backgroundDark = templateData.backgroundDark ? 'background-dark' : ''
-  let addPadding = templateData.addPadding ? 'add-padding' : 'padding'
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   let faqTemplate = templateData['faqLayout'] && templateData['faqLayout'].value === true
   let proTipTemplate = templateData['proTipLayout'] && templateData['proTipLayout'].value === true
   let feedbackTemplate = templateData['feedBackLayout'] && templateData['feedBackLayout'].value === true
