@@ -4,9 +4,10 @@ import styled from 'styled-components'
 const XMarkSvg = styled.svg`
   width: ${props => props.width || '39px'};
   height: ${props => props.height || '50px'};
-  stroke-width: 80;
+  stroke-width: 95;
   stroke-miterlimit: 10;
   stroke: ${props => props.fill || 'white'};
+  transition: .3s ease-in-out
 `
 const XMark = props => {
   const { fill, height, width } = props
