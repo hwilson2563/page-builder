@@ -1,8 +1,7 @@
 import React from 'react'
 import FormEntry from '../modal/FormEntry'
-
-const BannerModal = props => {
-  const { data, updateFormData } = props
+const LinkingModal = props => {
+  const { updateFormData, data } = props
   return (
     <>
       <FormEntry
@@ -23,22 +22,14 @@ const BannerModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
-      <FormEntry
-        type={'input'}
-        label={'Image'}
-        name={'image'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['image'] ? data['image'].value : ''}
-        required
-      />
+      <FormEntry type={'input'} label={'Image'} name={'image'} error={null} updateFormData={updateFormData} required />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'altText'}
+        name={'imageAltText'}
         error={null}
+        value={data['imageAltText'] ? data['imageAltText'].value : ''}
         updateFormData={updateFormData}
-        value={data['altText'] ? data['altText'].value : ''}
         required
       />
       <FormEntry
@@ -52,14 +43,33 @@ const BannerModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Subtitle'}
-        name={'subtitle'}
+        label={'Body Text'}
+        name={'bodyText'}
         error={null}
+        value={data['bodyText'] ? data['bodyText'].value : ''}
         updateFormData={updateFormData}
-        value={data['subtitle'] ? data['subtitle'].value : ''}
+        required
+      />
+      {/* MORE LINKS CAN BE ADDED */}
+      <FormEntry
+        type={'input'}
+        label={'Id of template you wish to link to'}
+        name={'link'}
+        error={null}
+        value={data['link'] ? data['link'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'Link Aria Label'}
+        name={'linkAriaLabel'}
+        error={null}
+        value={data['linkAriaLabel'] ? data['linkAriaLabel'].value : ''}
+        updateFormData={updateFormData}
         required
       />
     </>
   )
 }
-export default BannerModal
+export default LinkingModal

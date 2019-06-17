@@ -22,20 +22,32 @@ const FormEntry = props => {
     // update higher state
     updateFormData({ name, value, error: isValid })
   }
+  const handleChange = target => {
+    let value
+    if (type === 'checkbox') {
+      value = target.checked
+    } else {
+      value = target.value
+    }
+    setValue(value)
+  }
   return (
     <EntryContainer className={'entry-container ' + name}>
-      <Label className={'entry-label'} label={label} selected={selected} value={value}>
+      <Label className={'entry-label'} type={type} label={label} selected={selected} value={value}>
         {label}
       </Label>
       <Input
         className={'input'}
         value={value}
         onBlur={handleBlur}
-        onChange={e => setValue(e.target.value)}
+        onChange={e => {
+          handleChange(e.target)
+        }}
         onFocus={() => {
           setNoError(true)
           setSelected(true)
         }}
+        checked={type === 'checkbox' ? value : ''}
         type={type}
         name={name}
         required={required}

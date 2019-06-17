@@ -12,8 +12,22 @@ import TextOnly from '../components/templates/TextOnly'
 import ThreeImage from '../components/templates/ThreeImage'
 import TwoLargeImage from '../components/templates/TwoLargeImage'
 import TwoSmallImage from '../components/templates/TwoSmallImage'
-import BannerModal from '../components/modals/BannerModal'
 import Video from '../components/templates/Video'
+import BannerModal from '../components/modals/BannerModal'
+import ButtonTextModal from '../components/modals/ButtonTextModal'
+import FourImageModal from '../components/modals/FourImageModal'
+import GalleryModal from '../components/modals/GalleryModal'
+import LargeImgModal from '../components/modals/LargeImgModal'
+import LinkingModal from '../components/modals/LinkingModal'
+import OneImageTextModal from '../components/modals/OneImageTextModal'
+import ProductListModal from '../components/modals/ProductListModal'
+import QuotesModal from '../components/modals/QuotesModal'
+import SingleButtonModal from '../components/modals/SingleButtonModal'
+import TextOnlyModal from '../components/modals/TextOnlyModal'
+import ThreeImageModal from '../components/modals/ThreeImageModal'
+import TwoLargeImgModal from '../components/modals/TwoLargeImgModal'
+import TwoSmallImgModal from '../components/modals/TwoSmallImgModal'
+import VideoModal from '../components/modals/VideoModal'
 
 export const templatesIdx = [
   {
@@ -84,45 +98,59 @@ export const templatesData = {
     modal: BannerModal
   },
   'Button Text Template': {
-    component: ButtonText
+    component: ButtonText,
+    modal: ButtonTextModal
   },
   'Four Image Template': {
-    component: FourImage
+    component: FourImage,
+    modal: FourImageModal
   },
   'Gallery Template': {
-    component: Gallery
+    component: Gallery,
+    modal: GalleryModal
   },
   'Large Image Template': {
-    component: LargeImage
+    component: LargeImage,
+    modal: LargeImgModal
   },
   'Linking Template': {
-    component: Linking
+    component: Linking,
+    modal: LinkingModal
   },
   'One Image Text Template': {
-    component: OneImageText
+    component: OneImageText,
+    modal: OneImageTextModal
   },
   'Product Template': {
-    component: Product
+    component: Product,
+    modal: ProductListModal
   },
   'Quote Template': {
-    component: Quote
+    component: Quote,
+    modal: QuotesModal
   },
   'Single Button Template': {
-    component: SingleButton
+    component: SingleButton,
+    modal: SingleButtonModal
   },
   'Text Only Template': {
-    component: TextOnly
+    component: TextOnly,
+    modal: TextOnlyModal
   },
   'Three Image Template': {
-    component: ThreeImage
+    component: ThreeImage,
+    modal: ThreeImageModal
   },
   'Two Large Image Template': {
-    component: TwoLargeImage
+    component: TwoLargeImage,
+    modal: TwoLargeImgModal
   },
   'Two Small Image Template': {
-    component: TwoSmallImage
+    component: TwoSmallImage,
+    modal: TwoSmallImgModal
   },
   'Video Template': {
-    component: Video
+    component: Video,
+    modal: VideoModal
   }
 }
