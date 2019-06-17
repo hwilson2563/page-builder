@@ -22,7 +22,15 @@ const LinkingModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
-      <FormEntry type={'input'} label={'Image'} name={'image'} error={null} updateFormData={updateFormData} required />
+      <FormEntry
+        type={'input'}
+        label={'Image'}
+        name={'image'}
+        error={null}
+        value={data['image'] ? data['image'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
@@ -66,6 +74,15 @@ const LinkingModal = props => {
         name={'linkAriaLabel'}
         error={null}
         value={data['linkAriaLabel'] ? data['linkAriaLabel'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'Anchor Link Title'}
+        name={'anchorTitle'}
+        error={null}
+        value={data['anchorTitle'] ? data['anchorTitle'].value : ''}
         updateFormData={updateFormData}
         required
       />
