@@ -7,7 +7,7 @@ const FourImage = props => {
 
   let title = templateData.title ? templateData.title.value : 'Place section title here'
   let image1 = templateData.image1
-    ? templateData.image1
+    ? templateData.image1.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt1 = templateData.alt1 ? templateData.alt1.value : ''
   let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
@@ -19,14 +19,13 @@ const FourImage = props => {
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
   let bodyText2 = templateData.bodyText2 ? templateData.bodyText2.value : 'put paragraph text here'
 
-  let image3 = templateData.image3
-    ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let image3 = templateData.image3 ? templateData.image3.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt3 = templateData.alt3 ? templateData.alt3.value : ''
   let subheader3 = templateData.subheader3 ? templateData.subheader3.value : 'place info item title here'
   let bodyText3 = templateData.bodyText3 ? templateData.bodyText3.value : 'put paragraph text here'
 
   let image4 = templateData.image4
-    ? templateData.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+    ? templateData.image4.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt4 = templateData.alt4 ? templateData.alt4.value : ''
   let subheader4 = templateData.subheader4 ? templateData.subheader4.value : 'place info item title here'
   let bodyText4 = templateData.bodyText4 ? templateData.bodyText4.value : 'put paragraph text here'

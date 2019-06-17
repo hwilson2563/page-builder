@@ -11,14 +11,14 @@ const TwoLargeImage = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt1 = templateData.alt1 ? templateData.alt1.value : ''
   let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
-  let body1 = templateData.body1 ? templateData.body1.value : 'put paragraph text here'
+  let bodyText1 = templateData.bodyText1 ? templateData.bodyText1.value : 'put paragraph text here'
 
   let image2 = templateData.image2
     ? templateData.image2.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let alt2 = templateData.alt2 ? templateData.alt2.value : ''
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
-  let body2 = templateData.body2 ? templateData.body2.value : 'put paragraph text here'
+  let bodyText2 = templateData.bodyText2 ? templateData.bodyText2.value : 'put paragraph text here'
 
   return (
     // <!-- START TWO LARGE IMAGE TEMPLATE -->
@@ -30,13 +30,13 @@ const TwoLargeImage = props => {
           <img src={image1} alt={alt1} />
           <h4>{subheader1}</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
-          <p>{body1}</p>
+          <p>{bodyText1}</p>
         </div>
         <div className='section-two'>
           <img src={image2} alt={alt2} />
           <h4>{subheader2}</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
-          <p>{body2}</p>
+          <p>{bodyText2}</p>
         </div>
       </div>
     </div>
