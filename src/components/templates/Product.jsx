@@ -11,7 +11,7 @@ const Product = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
   let productName = templateData.productName ? templateData.productName.value : 'Place Title Here'
-  let price = templateData.price ? templateData.price : '$ price here'
+  let price = templateData.price ? templateData.price.value : '$ price here'
 
   return (
     // <!-- START PRODUCT LIST TEMPLATE -->
