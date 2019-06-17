@@ -101,6 +101,12 @@ div {
   -webkit-font-smoothing: antialiased;
 }
 
+/* add padding to the templates*/
+.add-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
 /* END Global Responsive Styles */
 
 /* START BUTTON */
@@ -778,6 +784,10 @@ button:focus {
 
 #four-img-template div.text-img-container {
   margin-bottom: 50px;
+}
+
+#four-img-template img {
+  width: 100%;
 }
 
 /* END FOUR IMAGE TEMPLATE */
