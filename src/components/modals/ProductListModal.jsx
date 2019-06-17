@@ -42,15 +42,6 @@ const ProductListModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Title'}
-        name={'title'}
-        error={null}
-        value={data['title'] ? data['title'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
-      <FormEntry
-        type={'input'}
         label={'Product Name'}
         name={'productName'}
         error={null}
