@@ -50,7 +50,8 @@ const LinkingModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText'}
         error={null}

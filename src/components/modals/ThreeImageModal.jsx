@@ -52,7 +52,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText1'}
         error={null}
@@ -90,7 +91,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText2'}
         error={null}
@@ -128,7 +130,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText3'}
         error={null}

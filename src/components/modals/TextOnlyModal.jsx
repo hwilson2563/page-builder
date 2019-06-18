@@ -32,7 +32,8 @@ const TextOnly = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Paragraph'}
         name={'paragraph'}
         error={null}

@@ -61,7 +61,8 @@ const TwoLargeImgModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText1'}
         error={null}
@@ -99,7 +100,8 @@ const TwoLargeImgModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText2'}
         error={null}

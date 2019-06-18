@@ -51,7 +51,8 @@ const OneImageTextModal = props => {
       />
       {/* MORE PARAGRAPHS TO BE ADDED */}
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Paragraph'}
         name={'paragraph'}
         error={null}

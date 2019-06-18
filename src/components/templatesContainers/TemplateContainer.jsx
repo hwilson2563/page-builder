@@ -6,6 +6,7 @@ import Modal from '../modal/Modal'
 
 const TemplateContain = styled.div`
   position: relative;
+  min-height: 127px;
   :hover {
     .control-panel {
       opacity: 1;

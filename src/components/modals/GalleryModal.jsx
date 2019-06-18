@@ -45,7 +45,8 @@ const GalleryModal = props => {
         type={'input'}
         label={'Button Aria Label'}
         name={'ariaLabel'}
-        error={null}value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
+        error={null}
+        value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -59,7 +60,8 @@ const GalleryModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Info Body Text'}
         name={'infoBodyText'}
         error={null}
