@@ -61,9 +61,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader1'}
+        name={'subheader1'}
         error={null}
-        value={data['subHeader1'] ? data['subHeader1'].value : ''}
+        value={data['subheader1'] ? data['subheader1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -100,9 +100,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader2'}
+        name={'subheader2'}
         error={null}
-        value={data['subHeader2'] ? data['subHeader2'].value : ''}
+        value={data['subheader2'] ? data['subheader2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -139,9 +139,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader3'}
+        name={'subheader3'}
         error={null}
-        value={data['subHeader3'] ? data['subHeader3'].value : ''}
+        value={data['subheader3'] ? data['subheader3'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -178,9 +178,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader4'}
+        name={'subheader4'}
         error={null}
-        value={data['subHeader4'] ? data['subHeader4'].value : ''}
+        value={data['subheader4'] ? data['subheader4'].value : ''}
         updateFormData={updateFormData}
         required
       />

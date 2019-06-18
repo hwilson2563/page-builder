@@ -30,6 +30,15 @@ const ThreeImageModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
+      <FormEntry
+        type={'input'}
+        label={'Section Title'}
+        name={'title'}
+        error={null}
+        value={data['title'] ? data['title'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
       <Section>First Image Form</Section>
       {/* First Img Temp */}
       <FormEntry
