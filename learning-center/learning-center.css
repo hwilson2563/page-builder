@@ -101,6 +101,10 @@ div {
   -webkit-font-smoothing: antialiased;
 }
 
+p {
+  word-break: break-all;
+}
+
 /* add padding to the templates*/
 .add-padding {
   padding-top: 40px !important;
