@@ -51,7 +51,7 @@ const ButtonTextModal = props => {
       />
       <FormEntry
         type={'input'}
-        label={'Aria Label'}
+        label={'Button Aria Label'}
         name={'ariaLabel'}
         value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
         error={null}
