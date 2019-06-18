@@ -226,11 +226,12 @@ div {
 /* END linking-template styles */
 
 /* START one-image-text template */
-
 #one-image-text {
+  padding: 20px;
+}
+.one-image-text-cont {
   display: flex;
   flex-direction: column;
-  margin: 40px 20px;
 }
 
 #one-image-text h3 {
@@ -984,10 +985,9 @@ button:focus {
   }
   /* END Button Text Template */
   /* START one-image-text template */
-  #one-image-text {
+  .one-image-text-cont {
     flex-direction: row;
     align-items: flex-start;
-    margin: 40px 0;
   }
   #one-image-text img {
     width: 40%;
@@ -1107,9 +1107,9 @@ button:focus {
   }
   /* END linking-template styles */
   /* START one-image-text template */
-  #one-image-text {
+  .one-image-text-cont {
     max-width: 1090px;
-    margin: 40px auto;
+    margin: 0 auto;
   }
   #one-image-text h3 {
     margin-top: 20px;
