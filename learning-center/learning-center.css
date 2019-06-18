@@ -713,6 +713,9 @@ button:focus {
 }
 
 .product-container {
+  /*  flex and wrap are for ie */
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   max-width: 650px;
   display: grid;
