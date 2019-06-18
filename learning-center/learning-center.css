@@ -830,8 +830,11 @@ button:focus {
 
 /* START QUOTES TEMPLATE */
 
+#quotes-template {
+  padding: 20px;
+}
+
 .single-quote-cont {
-  margin: 40px;
   padding-left: 20px;
   border-left: 3px solid #E66D1C;
 }
@@ -950,13 +953,7 @@ button:focus {
     margin-right: 40px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
-  /* START PRODUCT TEMPLATE */
-  .product-container {
-    /* grid-template-columns: repeat(2, 200px);
-    -webkit-box-pack: center;
-    justify-content: center; */
-  }
-  /* END PRODUCT TEMPLATE */
+
   /* START two small image template */
   .images-container {
     display: flex;
@@ -1030,14 +1027,7 @@ button:focus {
     max-height: none;
   }
   /* END three-img template */
-  /* START PRODUCT TEMPLATE */
-  .product-container {
-    /* margin: 0 auto;
-    max-width: 650px;
-    -ms-grid-columns: (200px)[3];
-    grid-template-columns: repeat(3, 200px); */
-  }
-  /* END PRODUCT TEMPLATE */
+
   /* START FOUR IMAGE TEMPLATE */
   #four-img-template div.center-container {
     flex-direction: row;
@@ -1067,7 +1057,7 @@ button:focus {
   /* END FOUR IMAGE TEMPLATE */
   /* START QUOTE TEMPLATE */
   .single-quote-cont {
-    margin: 40px auto;
+    margin: 20px auto;
     max-width: 560px;
   }
   /* END QUOTE TEMPLATE */
