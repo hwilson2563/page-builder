@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const EntryContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: ${props => (props.name.includes('image') || props.name.includes('alt') ? '49%' : '100%')};
+  padding-left: 5px;
 `
 
 export const Label = styled.label`
@@ -11,7 +12,7 @@ export const Label = styled.label`
   font-size: ${props => (props.selected ? '14px' : '14px')};
   font-weight: normal !Important; /* this is to override core */
   top: ${props => (props.type !== 'checkbox' ? '20px' : '3px')};
-  left: ${props => (props.type !== 'checkbox' ? '10px' : '20px')};
+  left: ${props => (props.type !== 'checkbox' ? '15px' : '25px')};
   cursor: text;
   pointer-events: none;
   color: ${props => (props.type !== 'checkbox' && props.selected ? props.theme.accentSecondary : '#999')};
@@ -49,7 +50,7 @@ let entryStyles = props => {
     outline: none;
     border: ${props.error !== false ? `1px solid ${props.theme.background}` : '1px solid red'};
     width:fill-available;
-    min-width: 400px;
+
   `
   return entryStyle
 }
@@ -59,4 +60,5 @@ export const Input = styled.input`
 `
 export const TextArea = styled.textarea`
   ${props => entryStyles(props)}
+  min-width: 400px;
 `

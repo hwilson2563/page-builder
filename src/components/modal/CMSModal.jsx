@@ -9,9 +9,9 @@ const CMSDiv = styled.div`
   padding: 20px 50px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `
 const Title = styled.h2`
   font-family: ${props => props.theme.fontBody};

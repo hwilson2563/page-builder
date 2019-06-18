@@ -37,7 +37,7 @@ const FormEntry = props => {
     setValue(value)
   }
   return (
-    <EntryContainer className={'entry-container ' + name}>
+    <EntryContainer className={'entry-container ' + name} name={name}>
       <Label className={'entry-label'} type={type} label={label} selected={selected} value={value}>
         {label}
       </Label>
