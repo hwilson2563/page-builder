@@ -10,11 +10,13 @@ const TextOnly = props => {
   return (
     // <!-- START OF TEXT ONLY TEMPLATE -->
     <div id='text-only-temp' className={backgroundDark + ' ' + addPadding}>
-      <h3>{title}</h3>
-      {/* <!-- start paragraphs here -->
+      <div className='text-only-temp-cont'>
+        <h3>{title}</h3>
+        {/* <!-- start paragraphs here -->
   <!-- add/remove p tags as needed--> */}
-      <p>{paragraph}</p>
-      {/* <!-- end paragraphs here --> */}
+        <p>{paragraph}</p>
+        {/* <!-- end paragraphs here --> */}
+      </div>
     </div>
     // <!-- END OF TEXT ONLY TEMPLATE -->
   )

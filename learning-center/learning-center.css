@@ -275,14 +275,18 @@ div {
 /* START text-only template */
 
 #text-only-temp {
-  margin: 0 auto;
   padding: 20px;
+}
+
+.text-only-temp-cont {
+  margin: 0 auto;
 }
 
 #text-only-temp h3 {
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
+  margin-top: 10px;
 }
 
 #text-only-temp p {
@@ -520,7 +524,7 @@ div {
 /* START three-img template */
 
 #three-img-temp {
-  margin: 40px 20px;
+  padding: 20px;
 }
 
 #three-img-temp h3, #three-img-temp h4 {
@@ -806,9 +810,12 @@ button:focus {
 /* START VIDEO TEMPLATE */
 
 #video-template {
+  padding: 20px;
+}
+
+.video-template-cont {
   margin: 0 auto;
   max-width: 650px;
-  padding: 20px;
 }
 
 .iframe-container {
@@ -1114,7 +1121,7 @@ button:focus {
   }
   /* END one-image-text template */
   /* START text only template */
-  #text-only-temp {
+  .text-only-temp-cont {
     max-width: 650px;
   }
   /* END text-only template */
