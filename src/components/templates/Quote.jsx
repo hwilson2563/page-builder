@@ -1,0 +1,61 @@
+import React from 'react'
+
+const Quote = () => {
+  return (
+    // <!-- START QUOTES TEMPLATE -->
+    <div id='quotes-template'>
+      {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
+  <!-- QUESTION TEMPLATE STARTS --> */}
+      <div className='single-quote-cont'>
+        <div className='title-container'>
+          <img
+            src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg'
+            alt='question mark icon'
+          />
+          {/* <!-- start quote title --> */}
+          <h3>Frequent question here?</h3>
+          {/* <!-- end quote title --> */}
+        </div>
+        {/* <!-- START add/remove p tags as needed --> */}
+        <p>text here</p>
+        {/* <!-- end of paragraphs --> */}
+      </div>
+      {/* <!-- QUESTION TEMPLATE ENDS -->
+  <!-- PRO TIP TEMPLATE STARTS --> */}
+      <div className='single-quote-cont'>
+        <div className='title-container'>
+          <img
+            src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'
+            alt='pro-tip wrench icon'
+          />
+          {/* <!-- start quote title --> */}
+          <h3>Pro tip:</h3>
+          {/* <!-- end quote title --> */}
+        </div>
+        {/* <!-- START add/remove p tags as needed --> */}
+        <p>text here</p>
+        {/* <!-- end of paragraphs --> */}
+      </div>
+      {/* <!-- PRO TIP TEMPLATE ENDS -->
+  <!-- CUSTOMER FEEDBACK TEMPLATE STARTS --> */}
+      <div className='single-quote-cont'>
+        <div className='title-container'>
+          <img
+            src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'
+            alt='star icon'
+          />
+          {/* <!-- start quote title --> */}
+          <h3>customer feedback</h3>
+          {/* <!-- end quote title --> */}
+        </div>
+        {/* <!-- START add/remove p tags as needed --> */}
+        <p>text here</p>
+        {/* <!-- end of paragraphs --> */}
+      </div>
+      {/* <!-- CUSTOMER FEEDBACK TEMPLATE ENDS --> */}
+    </div>
+    /* <!-- END QUOTES TEMPLATE --> */
+  )
+}
+
+export default Quote

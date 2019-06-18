@@ -1,5 +1,63 @@
+import { theme } from './globalStyles'
+
+export const determineScreen = (width, headerFooter) => {
+  let screen
+  // sets the main breakpoints for header and footer
+  if (headerFooter) {
+    if (width < theme.tabletHeader) {
+      screen = 'mobile'
+    } else if (width < theme.desktop) {
+      screen = 'tablet'
+    } else {
+      screen = 'desktop'
+    }
+    // sets the breakpoints for everything else
+  } else {
+    if (width < theme.tablet) {
+      screen = 'mobile'
+    } else if (width < theme.desktop) {
+      screen = 'tablet'
+    } else {
+      screen = 'desktop'
+    }
+  }
+  return screen
+}
+
+export const removeSelectedTemplates = (templates, idx) => {
+  templates.splice(idx, 1)
+  return templates
+}
+
+export const addSelectedTemplates = (component, templates) => {
+  component.data = {}
+  templates.push(component)
+  return templates
+}
+export const moveUpSelectedTemplates = (templates, idx) => {
+  let newLocation = idx - 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
+export const moveDownSelectedTemplates = (templates, idx) => {
+  let newLocation = idx + 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
+// template functionality //
+export const showMore = button => {
+  var parentElement = button.parentElement
+  parentElement.classList.toggle('more')
+  if (button.textContent === 'read more') {
+    button.textContent = 'read less'
+  } else {
+    button.textContent = 'read more'
+  }
+}
 // display read more button only in tablet and only if height is larger than 300px
-function readMore () {
+export const readMore = () => {
   var inTabletView = window.innerWidth < 1020 && window.innerWidth > 740
   if (inTabletView) {
     var readMoreContainer = document.getElementsByClassName('read-more-container')
@@ -19,19 +77,8 @@ function readMore () {
     }
   }
 }
-// when window resizes make sure to hide read more button if not in tablet
-window.addEventListener('resize', readMore)
-//  start of onclick function attached to show more button
-function showMore (button) {
-  var parentElement = button.parentElement
-  parentElement.classList.toggle('more')
-  if (button.textContent === 'read more') {
-    button.textContent = 'read less'
-  } else {
-    button.textContent = 'read more'
-  }
-}
-function addReadMoreClicks () {
+
+export const addReadMoreClicks = () => {
   readMore()
   var readMoreButtons = document.getElementsByClassName('read-more-button')
   if (readMoreButtons && readMoreButtons.length > 0) {
@@ -42,8 +89,6 @@ function addReadMoreClicks () {
     }
   }
 }
-// add read more funtions to the read more read less buttons
-window.addEventListener('load', addReadMoreClicks())
 
 //
 // GALLERY TEMPLATE BEGINS
@@ -255,7 +300,7 @@ function buildSingleGallery (galleryData) {
   }
 }
 
-function buildGallery () {
+export function buildGallery () {
   var galleriesJSON = document.getElementsByClassName('galleries')
   var imageContainer // container for gallery images HTML element
   var bulletContainer // container for image bullet buttons HTML element
@@ -286,7 +331,3 @@ function buildGallery () {
     galleriesJSON = false
   }
 }
-buildGallery()
-//
-// GALLERY TEMPLATE ENDS
-//

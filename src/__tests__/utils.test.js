@@ -1,0 +1,67 @@
+import {
+  determineScreen,
+  removeSelectedTemplates,
+  addSelectedTemplates,
+  moveUpSelectedTemplates,
+  moveDownSelectedTemplates
+} from '../utils/utils'
+
+describe('determineScreen return screen type based on window width', () => {
+  test('Mobile screen is less than 600 window width', () => {
+    expect(determineScreen(450)).toBe('mobile')
+  })
+  test('Tablet screen is 600 or greater window width', () => {
+    expect(determineScreen(750)).toBe('tablet')
+  })
+  test('Tablet screen is less than 1011 window width', () => {
+    expect(determineScreen(1010)).toBe('tablet')
+  })
+  test('Desktop screen is 1011 or greater window width', () => {
+    expect(determineScreen(1300)).toBe('desktop')
+  })
+  test('Mobile screen is less than 740 window width', () => {
+    expect(determineScreen(700, 'headerFooter')).toBe('mobile')
+  })
+  test('Tablet screen is less than 1010 window width', () => {
+    expect(determineScreen(740, 'headerFooter')).toBe('tablet')
+  })
+  test('Desktop screen is more than 1010 window width', () => {
+    expect(determineScreen(1011, 'headerFooter')).toBe('desktop')
+  })
+})
+
+describe('removeSelectedTemplates removes a template from the component array', () => {
+  test('remove template from array', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['Banner', 'TwoImage']
+    expect(removeSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
+  })
+})
+
+describe('addSelectedTemplates', () => {
+  test('should return an array of selected templates including the added one', () => {
+    let templates = [{ title: 'template1', data: {} }, { title: 'template2', data: {} }]
+    let component = { title: 'component', data: {} }
+    let updatedTemplates = [{ title: 'template1', data: {} }, { title: 'template2', data: {} }, component]
+    expect(addSelectedTemplates(component, templates)).toEqual(updatedTemplates)
+  })
+})
+
+describe('moveUpSelectedTemplates', () => {
+  test('should return an array with the template moved up in array position', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['OneImage', 'Banner', 'TwoImage']
+    expect(moveUpSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
+  })
+})
+
+describe('moveDownSelectedTemplates', () => {
+  test('should return an array with the template moved down in array position', () => {
+    let idx = 1
+    let templates = ['Banner', 'OneImage', 'TwoImage']
+    let updatedTemplates = ['Banner', 'TwoImage', 'OneImage']
+    expect(moveDownSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
+  })
+})
