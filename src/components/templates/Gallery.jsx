@@ -2,34 +2,50 @@ import React from 'react'
 
 const Gallery = props => {
   const { templateData } = props
-  console.log(templateData)
+  templateData.sectionHeader && console.log(templateData.sectionHeader.value)
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
+  let sectionName = templateData.sectionHeader ? templateData.sectionHeader.value : 'Place Section Title Here'
+  
+  let eachGallery = {}
 
-  let sectionName = templateData.galleryName ? templateData.sectionHeader.value : 'Place Section Title Here'
-  let galleryName = templateData.galleryName ? templateData.galleryName.value : 'Place Gallery Name Here'
-  let infoTitle = templateData.infoTitle ? templateData.infoTitle.value : 'place info section title here'
-  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : 'add aria-label text for button here'
-  let infoBodyText = templateData.infoBodyText ? templateData.infoBodyText.value : 'place info body text here'
-  let image = templateData.image ? templateData.image.value : 'https://via.placeholder.com/700'
-  let imgAltTag = templateData.imgAltTag ? templateData.imgAltTag.value : 'alt tag text here'
+  const buildJSON = () => {
+    let galleryKeys = Object.keys(templateData)
+    let numberOfGalleries = 0
 
-  var object = {}
+    // counts amount of galleries
+    galleryKeys.forEach(object => {
+      let galleryIdx = object.replace(/\D/g, '')
+      numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
+    })
+    // builds object in array
+    for (let i = 0; i <= numberOfGalleries; i++) {
 
-  object[galleryName] = [
-    {
-      galleryButtonAriaLabel: ariaLabel,
-      infoTitle: infoTitle,
-      infoText: infoBodyText
-    },
-    {
-      imageSource: image,
-      altTag: imgAltTag,
-      selected: true
+      // value of
+      let galleryNameIdx = templateData.galleryName ? templateData['galleryName' + i].value : 'Default'
+      let infoTitleIdx = templateData.infoTitle ? templateData['infoTitle' + i].value : 'Default'
+      let ariaLabelIdx = templateData.ariaLabel ? templateData['ariaLabel' + i].value : 'Default'
+      let infoBodyTextIdx = templateData.infoBodyText ? templateData['infoBodyText' + i].value : 'Default'
+      let imageIdx = templateData.image ? templateData['image' + i].value : 'Default'
+      let imgAltTagIdx = templateData.imgAltTag ? templateData['imgAltTag' + i].value : 'Default'
+
+      eachGallery[galleryNameIdx] = [
+        {
+          galleryButtonAriaLabel: ariaLabelIdx,
+          infoTitle: infoTitleIdx,
+          infoText: infoBodyTextIdx
+        },
+        {
+          imageSource: imageIdx,
+          altTag: imgAltTagIdx,
+          selected: i === 0
+        }
+      ]
     }
-  ]
-
+    // console.log(eachGallery)
+  }
+  buildJSON()
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
@@ -38,41 +54,41 @@ const Gallery = props => {
           <div className={'button-section'}>
             <h2>{sectionName}</h2>
             <div id={'selection-container-btn'} className={'selection-container-btn'}>
-              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'}>
+              {/* <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'}>
                 {galleryName}
-              </button>
+              </button> */}
               {/* <!-- Buttons will generate here --> */}
-              <button className={'info-button active'} aria-label={ariaLabel}>
+              {/* <button className={'info-button active'} aria-label={ariaLabel}>
                 {galleryName}
-              </button>
-              <button className={'dropdown-button active'} aria-label={ariaLabel}>
+              </button> */}
+              {/* <button className={'dropdown-button active'} aria-label={ariaLabel}>
                 {galleryName}
-              </button>
+              </button> */}
             </div>
           </div>
           <div className={'gallery-section'}>
             <h3 className={'info-header title-center-mobile'}>
               {/* <!-- Info header will generate here --> */}
-              {infoTitle}
+              {/* {infoTitle} */}
             </h3>
 
             <div id={'image-container'} className={'image-container'}>
               {/* <!-- Images will generate here --> */}
-              <img src={image} alt={imgAltTag} className={'gallery-img display-img'} />
+              {/* <img src={image} alt={imgAltTag} className={'gallery-img display-img'} /> */}
             </div>
             <div id={'bullet-container'} className={'bullet-container'}>
               {/* <!-- Bullets will generate here --> */}
-              <button className={'bullet active'} aria-label={ariaLabel} />
+              {/* <button className={'bullet active'} aria-label={ariaLabel} /> */}
             </div>
           </div>
           <div className={'info-section'}>
             <h3 className={'info-header title-desktop'}>
               {/* <!-- Info header will generate here --> */}
-              {infoTitle}
+              {/* {infoTitle} */}
             </h3>
             <p id={'info-body'} className={'info-body'}>
               {/* <!-- Info body will generate here --> */}
-              {infoBodyText}
+              {/* {infoBodyText} */}
             </p>
           </div>
         </div>
@@ -130,7 +146,7 @@ const Gallery = props => {
       <script
         className={'galleries'}
         type='application/json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eachGallery) }}
       />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>

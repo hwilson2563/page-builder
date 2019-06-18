@@ -57,7 +57,6 @@ const GhostButton = styled(StyledButton)`
 const CMSModal = props => {
   const { closeModal, formData, updateFormData, tempName, updateTemplateData, buildAllGalleryFields, galleryFormRender } = props
   const FormProps = props.formProps
-  console.log(FormProps)
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>

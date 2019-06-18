@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import FormEntry from '../modal/FormEntry'
 const GalleryModal = props => {
   const { updateFormData, data, buildAllGalleryFields, galleryFormRender } = props
-  console.log(galleryFormRender)
   const createFields = idx => {
     return (
       <Fragment key={idx}>
