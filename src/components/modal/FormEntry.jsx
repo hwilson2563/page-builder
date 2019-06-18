@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { EntryContainer, Input, Label } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
@@ -9,6 +9,12 @@ const FormEntry = props => {
   const [value, setValue] = useState(props.value)
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(null)
+  useEffect(
+    () => {
+      setValue(props.value)
+    },
+    [props.value]
+  )
   const handleBlur = () => {
     let isValid = null
     if (required) {

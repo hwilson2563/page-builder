@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
@@ -23,7 +23,12 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
-
+  useEffect(
+    () => {
+      setData(template.data)
+    },
+    [template.data]
+  )
   const updateFormData = updatedData => {
     let newFormData = { ...data }
     newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
