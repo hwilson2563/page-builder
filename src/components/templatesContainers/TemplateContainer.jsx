@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import CMSModal from '../modal/CMSModal'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -45,22 +44,14 @@ const TemplateContainer = props => {
     }
   }
   // end modal functions
+  // const clearData = () => {
+  //   giveSelectedTemplateData(idx, {})
+  // }
+  const updateTemplateData = newData => {
+    setData(newData)
+    giveSelectedTemplateData(idx, newData)
+  }
 
-  const updateTemplateData = data => {
-    giveSelectedTemplateData(idx, data)
-  }
-  const CmsModal = () => {
-    return (
-      <CMSModal
-        closeModal={closeModal}
-        tempName={template.tempName}
-        formData={data}
-        formProps={template.modal}
-        updateFormData={updateFormData}
-        updateTemplateData={updateTemplateData}
-      />
-    )
-  }
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
       <Component templateData={template.data} />
@@ -70,7 +61,18 @@ const TemplateContainer = props => {
         idx={idx}
         modal={template.modal}
       />
-      {displayForm && <Modal displayModal={displayForm} modal={CmsModal} closeModal={closeModal} screen={screen} />}
+      {displayForm && (
+        <Modal
+          displayModal={displayForm}
+          closeModal={closeModal}
+          screen={screen}
+          tempName={template.tempName}
+          formData={data}
+          formProps={template.modal}
+          updateFormData={updateFormData}
+          updateTemplateData={updateTemplateData}
+        />
+      )}
     </TemplateContain>
   )
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 // import PropTypes from 'prop-types'
-
+import CMSModal from './CMSModal'
 import { theme } from '../../utils/globalStyles'
 import XMark from './XMark'
 
@@ -46,9 +46,10 @@ const Exit = styled.div`
 `
 
 const Modal = props => {
-  let { closeModal, displayModal, screen } = props
-  const PropsModal = props.modal
+  let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData } = props
   let xMarkSize = '16px'
+  console.log('modal')
+
   return (
     <Fragment>
       {displayModal && (
@@ -57,7 +58,14 @@ const Modal = props => {
             <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')} screen={screen}>
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
-            <PropsModal closeModal={closeModal} screen={screen} />
+            <CMSModal
+              closeModal={closeModal}
+              tempName={tempName}
+              formData={formData}
+              formProps={formProps}
+              updateFormData={updateFormData}
+              updateTemplateData={updateTemplateData}
+            />
           </ModalWrapper>
         </ModalGrayBG>
       )}
