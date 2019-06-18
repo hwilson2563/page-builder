@@ -24,6 +24,15 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
+  const [galleryFormRender, setGalleryFormRender] = useState({ firstRender: true, galleries: [] })
+
+  const buildAllGalleryFields = numberOfGalleries => {
+    let createdGalleries = []
+    for (let i = 0; i < numberOfGalleries; i++) {
+      createdGalleries.push({})
+    }
+    setGalleryFormRender({ firstRender: false, galleries: createdGalleries })
+  }
 
   const updateFormData = updatedData => {
     let newFormData = { ...data }
@@ -58,12 +67,17 @@ const TemplateContainer = props => {
         formProps={template.modal}
         updateFormData={updateFormData}
         updateTemplateData={updateTemplateData}
+        buildAllGalleryFields={buildAllGalleryFields}
+        galleryFormRender={galleryFormRender}
+
       />
     )
   }
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component templateData={template.data} />
+      <Component
+        templateData={template.data}
+      />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}
