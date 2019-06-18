@@ -30,7 +30,7 @@ const GalleryModal = props => {
               label={'Section Header'}
               name={'sectionHeader'}
               error={null}
-              value={data['galleryName'] ? data['sectionHeader'].value : ''}
+              value={data['sectionHeader'] ? data['sectionHeader'].value : ''}
               updateFormData={updateFormData}
               required
             />

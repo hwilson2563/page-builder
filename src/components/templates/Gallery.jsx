@@ -1,51 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Gallery = props => {
   const { templateData } = props
-  templateData.sectionHeader && console.log(templateData.sectionHeader.value)
+  const [galleryJSON, setGalleryJSON] = useState({})
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   let sectionName = templateData.sectionHeader ? templateData.sectionHeader.value : 'Place Section Title Here'
-  
-  let eachGallery = {}
 
-  const buildJSON = () => {
-    let galleryKeys = Object.keys(templateData)
-    let numberOfGalleries = 0
+  useEffect(
+    () => {
+      let eachGallery = {}
+      let galleryKeys = Object.keys(templateData)
+      let numberOfGalleries = 0
 
-    // counts amount of galleries
-    galleryKeys.forEach(object => {
-      let galleryIdx = object.replace(/\D/g, '')
-      numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
-    })
-    // builds object in array
-    for (let i = 0; i <= numberOfGalleries; i++) {
+      // counts amount of galleries
+      galleryKeys.forEach(object => {
+        let galleryIdx = object.replace(/\D/g, '')
+        numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
+      })
+      // builds object in array
+      for (let i = 0; i <= numberOfGalleries; i++) {
+        console.log(templateData)
+        // value of
+        let galleryNameIdx = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Default'
+        let infoTitleIdx = templateData['infoTitle' + i] ? templateData['infoTitle' + i].value : 'Default'
+        let ariaLabelIdx = templateData['ariaLabel' + i] ? templateData['ariaLabel' + i].value : 'Default'
+        let infoBodyTextIdx = templateData['infoBodyText' + i] ? templateData['infoBodyText' + i].value : 'Default'
+        let imageIdx = templateData['image' + i] ? templateData['image' + i].value : 'https://via.placeholder.com/300'
+        let imgAltTagIdx = templateData['imgAltTag' + i] ? templateData['imgAltTag' + i].value : 'Default'
+        eachGallery[galleryNameIdx] = [
+          {
+            galleryButtonAriaLabel: ariaLabelIdx,
+            infoTitle: infoTitleIdx,
+            infoText: infoBodyTextIdx
+          },
+          {
+            imageSource: imageIdx,
+            altTag: imgAltTagIdx,
+            selected: i === 0
+          }
+        ]
+      }
+      setGalleryJSON(eachGallery)
+      console.log(eachGallery)
+    },
+    [templateData]
+  )
 
-      // value of
-      let galleryNameIdx = templateData.galleryName ? templateData['galleryName' + i].value : 'Default'
-      let infoTitleIdx = templateData.infoTitle ? templateData['infoTitle' + i].value : 'Default'
-      let ariaLabelIdx = templateData.ariaLabel ? templateData['ariaLabel' + i].value : 'Default'
-      let infoBodyTextIdx = templateData.infoBodyText ? templateData['infoBodyText' + i].value : 'Default'
-      let imageIdx = templateData.image ? templateData['image' + i].value : 'Default'
-      let imgAltTagIdx = templateData.imgAltTag ? templateData['imgAltTag' + i].value : 'Default'
-
-      eachGallery[galleryNameIdx] = [
-        {
-          galleryButtonAriaLabel: ariaLabelIdx,
-          infoTitle: infoTitleIdx,
-          infoText: infoBodyTextIdx
-        },
-        {
-          imageSource: imageIdx,
-          altTag: imgAltTagIdx,
-          selected: i === 0
-        }
-      ]
-    }
-    // console.log(eachGallery)
-  }
-  buildJSON()
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
@@ -54,41 +56,24 @@ const Gallery = props => {
           <div className={'button-section'}>
             <h2>{sectionName}</h2>
             <div id={'selection-container-btn'} className={'selection-container-btn'}>
-              {/* <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'}>
-                {galleryName}
-              </button> */}
+              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'} />
               {/* <!-- Buttons will generate here --> */}
-              {/* <button className={'info-button active'} aria-label={ariaLabel}>
-                {galleryName}
-              </button> */}
-              {/* <button className={'dropdown-button active'} aria-label={ariaLabel}>
-                {galleryName}
-              </button> */}
             </div>
           </div>
           <div className={'gallery-section'}>
-            <h3 className={'info-header title-center-mobile'}>
-              {/* <!-- Info header will generate here --> */}
-              {/* {infoTitle} */}
-            </h3>
+            <h3 className={'info-header title-center-mobile'}>{/* <!-- Info header will generate here --> */}</h3>
 
             <div id={'image-container'} className={'image-container'}>
               {/* <!-- Images will generate here --> */}
-              {/* <img src={image} alt={imgAltTag} className={'gallery-img display-img'} /> */}
             </div>
             <div id={'bullet-container'} className={'bullet-container'}>
               {/* <!-- Bullets will generate here --> */}
-              {/* <button className={'bullet active'} aria-label={ariaLabel} /> */}
             </div>
           </div>
           <div className={'info-section'}>
-            <h3 className={'info-header title-desktop'}>
-              {/* <!-- Info header will generate here --> */}
-              {/* {infoTitle} */}
-            </h3>
+            <h3 className={'info-header title-desktop'}>{/* <!-- Info header will generate here --> */}</h3>
             <p id={'info-body'} className={'info-body'}>
               {/* <!-- Info body will generate here --> */}
-              {/* {infoBodyText} */}
             </p>
           </div>
         </div>
@@ -146,7 +131,7 @@ const Gallery = props => {
       <script
         className={'galleries'}
         type='application/json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(eachGallery) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJSON) }}
       />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
