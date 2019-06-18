@@ -70,7 +70,6 @@ const CMSModal = props => {
         </GhostButton>
         <StyledButton
           onClick={e => {
-            updateTemplateData(formData)
             closeModal(e, 'close')
           }}>
           Save

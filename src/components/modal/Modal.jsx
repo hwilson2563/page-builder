@@ -48,7 +48,6 @@ const Exit = styled.div`
 const Modal = props => {
   let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData } = props
   let xMarkSize = '16px'
-  console.log('modal')
 
   return (
     <Fragment>
