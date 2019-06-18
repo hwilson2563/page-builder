@@ -111,7 +111,6 @@ const GalleryModal = props => {
         </>
       )}
       {!galleryFormRender.firstRender && <>{galleryFormRender.galleries.map((gallery, idx) => createFields(idx))}</>}
-      {/* <button onClick={addGallery}>Add Gallery</button> */}
     </>
   )
 }
