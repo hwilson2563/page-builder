@@ -1,5 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import FormEntry from '../modal/FormEntry'
+
+const Section = styled.div`
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+`
 const FourImageModal = props => {
   const { updateFormData, data } = props
   return (
@@ -22,7 +29,7 @@ const FourImageModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
-      <div>First Image Form</div>
+      <Section>First Image Form</Section>
       {/* First Img Temp */}
       <FormEntry
         type={'input'}
@@ -62,7 +69,7 @@ const FourImageModal = props => {
         required
       />
       {/* Second Img Temp */}
-      <div>Second Image Form</div>
+      <Section>Second Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 2'}
@@ -101,7 +108,7 @@ const FourImageModal = props => {
         required
       />
       {/* Third Img Temp */}
-      <div>Third Image Form</div>
+      <Section>Third Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 3'}
@@ -119,7 +126,7 @@ const FourImageModal = props => {
         value={data['alt3'] ? data['alt3'].value : ''}
         updateFormData={updateFormData}
         required
-      />{' '}
+      />
       <FormEntry
         type={'input'}
         label={'Sub Header'}
@@ -140,7 +147,7 @@ const FourImageModal = props => {
         required
       />
       {/* Fourth Img Temp */}
-      <div>Fourth Image Form</div>
+      <Section>Fourth Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 4'}

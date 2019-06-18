@@ -1,5 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import FormEntry from '../modal/FormEntry'
+
+
+const Section = styled.div`
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+`
 const TwoSmallImgModal = props => {
   const { updateFormData, data } = props
   return (
@@ -31,7 +40,7 @@ const TwoSmallImgModal = props => {
         updateFormData={updateFormData}
         srequired
       />
-      <div>First Image Form</div>
+      <Section>First Image Form</Section>
       {/* First Img Temp */}
       <FormEntry
         type={'input'}
@@ -70,7 +79,7 @@ const TwoSmallImgModal = props => {
         updateFormData={updateFormData}
         required
       />
-      <div>Second Image Form</div>
+      <Section>Second Image Form</Section>
       {/* Second Img Temp */}
       <FormEntry
         type={'input'}

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const EntryContainer = styled.div`
   position: relative;
-  width: ${props => (props.name.includes('image') || props.name.includes('alt') ? '49%' : '100%')};
+  width: ${props => (props.label.includes('Image') || props.label.includes('Alt') ? '49%' : '100%')};
   padding-left: 5px;
 `
 
