@@ -48,12 +48,15 @@ let entryStyles = props => {
     padding:25px 5px 10px 15px;
     outline: none;
     border: ${props.error !== false ? `1px solid ${props.theme.background}` : '1px solid red'};
-    width: 100%; /* width: 100% for ie */
     width:fill-available;
+    min-width: 400px;
   `
   return entryStyle
 }
 
 export const Input = styled.input`
+  ${props => entryStyles(props)}
+`
+export const TextArea = styled.textarea`
   ${props => entryStyles(props)}
 `

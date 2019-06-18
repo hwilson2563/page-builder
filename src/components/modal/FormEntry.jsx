@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import { EntryContainer, Input, Label } from './formEntryStyles'
+import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
-  const { name, required, type, updateFormData } = props
+  const { name, required, type, updateFormData, textArea } = props
   let label = props.required ? props.label : props.label + ' (Optional)'
   const [value, setValue] = useState(props.value)
   const [selected, setSelected] = useState(false)
@@ -41,23 +41,40 @@ const FormEntry = props => {
       <Label className={'entry-label'} type={type} label={label} selected={selected} value={value}>
         {label}
       </Label>
-      <Input
-        className={'input'}
-        value={value}
-        onBlur={handleBlur}
-        onChange={e => {
-          handleChange(e.target)
-        }}
-        onFocus={() => {
-          setNoError(true)
-          setSelected(true)
-        }}
-        checked={type === 'checkbox' ? value : ''}
-        type={type}
-        name={name}
-        required={required}
-        error={noError}
-      />
+      {textArea ? (
+        <TextArea
+          className={'input'}
+          value={value}
+          onBlur={handleBlur}
+          onChange={e => setValue(e.target.value)}
+          onFocus={() => {
+            setNoError(true)
+            setSelected(true)
+          }}
+          type={type}
+          name={name}
+          required={required}
+          error={noError}
+        />
+      ) : (
+        <Input
+          className={'input'}
+          value={value}
+          onBlur={handleBlur}
+          onChange={e => {
+            handleChange(e.target)
+          }}
+          onFocus={() => {
+            setNoError(true)
+            setSelected(true)
+          }}
+          checked={type === 'checkbox' ? value : ''}
+          type={type}
+          name={name}
+          required={required}
+          error={noError}
+        />
+      )}
     </EntryContainer>
   )
 }
