@@ -1,19 +1,48 @@
 import React from 'react'
 
-const FourImage = () => {
+const FourImage = props => {
+  const { templateData } = props
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
+
+  let title = templateData.title ? templateData.title.value : 'Place section title here'
+  let image1 = templateData.image1
+    ? templateData.image1.value
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt1 = templateData.alt1 ? templateData.alt1.value : ''
+  let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
+  let bodyText1 = templateData.bodyText1 ? templateData.bodyText1.value : 'put paragraph text here'
+
+  let image2 = templateData.image2
+    ? templateData.image2.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt2 = templateData.alt2 ? templateData.alt2.value : ''
+  let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
+  let bodyText2 = templateData.bodyText2 ? templateData.bodyText2.value : 'put paragraph text here'
+
+  let image3 = templateData.image3 ? templateData.image3.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt3 = templateData.alt3 ? templateData.alt3.value : ''
+  let subheader3 = templateData.subheader3 ? templateData.subheader3.value : 'place info item title here'
+  let bodyText3 = templateData.bodyText3 ? templateData.bodyText3.value : 'put paragraph text here'
+
+  let image4 = templateData.image4
+    ? templateData.image4.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt4 = templateData.alt4 ? templateData.alt4.value : ''
+  let subheader4 = templateData.subheader4 ? templateData.subheader4.value : 'place info item title here'
+  let bodyText4 = templateData.bodyText4 ? templateData.bodyText4.value : 'put paragraph text here'
+
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
-    <div id='four-img-template'>
-      <h2 className='header'>Place Section Title Heere</h2>
+    <div id='four-img-template' className={backgroundDark + ' ' + addPadding}>
+      <h2 className='header'>{title}</h2>
       <div className='center-container'>
         {/* <!-- First Gallery Set --> */}
         <div className='text-img-container'>
-          <img src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'} alt={''} />
-          <h3 className='subheader'>Place info item title here</h3>
+          <img src={image1} alt={alt1} />
+          <h3 className='subheader'>{subheader1}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p>place paragraph text here</p>
+            <p>{bodyText1}</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
@@ -21,11 +50,11 @@ const FourImage = () => {
 
         {/* <!-- Second Gallery Set --> */}
         <div className='text-img-container'>
-          <img src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'} alt={''} />
-          <h3 className='subheader'>Place info item title here</h3>
+          <img src={image2} alt={alt2} />
+          <h3 className='subheader'>{subheader2}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p>place paragraph text here</p>
+            <p>{bodyText2}</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
@@ -33,13 +62,11 @@ const FourImage = () => {
 
         {/* <!-- Third Gallery Set --> */}
         <div className='text-img-container'>
-          <img src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'} alt={''} />
-          <h3 className='subheader'>Place info item title here</h3>
+          <img src={image3} alt={alt3} />
+          <h3 className='subheader'>{subheader3}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p>
-              place paragraph text here
-            </p>
+            <p>{bodyText3}</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
@@ -47,11 +74,11 @@ const FourImage = () => {
 
         {/* <!-- Fourth Gallery Set --> */}
         <div className='text-img-container'>
-          <img src={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'} alt={''} />
-          <h3 className='subheader'>Place info item title here</h3>
+          <img src={image4} alt={alt4} />
+          <h3 className='subheader'>{subheader4}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            <p>place paragraph text here</p>
+            <p>{bodyText4}</p>
             {/* <!-- End of paragraph tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>

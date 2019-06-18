@@ -36,18 +36,18 @@ const ThreeImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText1'}
+        name={'alt1'}
         error={null}
-        value={data['imageAltText1'] ? data['imageAltText1'].value : ''}
+        value={data['alt1'] ? data['alt1'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader1'}
+        name={'subheader1'}
         error={null}
-        value={data['subHeader1'] ? data['subHeader1'].value : ''}
+        value={data['subheader1'] ? data['subheader1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -74,18 +74,18 @@ const ThreeImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText2'}
+        name={'alt2'}
         error={null}
-        value={data['imageAltText2'] ? data['imageAltText2'].value : ''}
+        value={data['alt2'] ? data['alt2'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader2'}
+        name={'subheader2'}
         error={null}
-        value={data['subHeader2'] ? data['subHeader2'].value : ''}
+        value={data['subheader2'] ? data['subheader2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -112,18 +112,18 @@ const ThreeImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText3'}
+        name={'alt3'}
         error={null}
-        value={data['imageAltText3'] ? data['imageAltText3'].value : ''}
+        value={data['alt3'] ? data['alt3'].value : ''}
         updateFormData={updateFormData}
         required
       />{' '}
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader3'}
+        name={'subheader3'}
         error={null}
-        value={data['subHeader3'] ? data['subHeader3'].value : ''}
+        value={data['subheader3'] ? data['subheader3'].value : ''}
         updateFormData={updateFormData}
         required
       />

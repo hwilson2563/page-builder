@@ -36,9 +36,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText1'}
+        name={'alt1'}
         error={null}
-        value={data['imageAltText1'] ? data['imageAltText1'].value : ''}
+        value={data['alt1'] ? data['alt1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -74,9 +74,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText2'}
+        name={'alt2'}
         error={null}
-        value={data['imageAltText2'] ? data['imageAltText2'].value : ''}
+        value={data['alt2'] ? data['alt2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -112,9 +112,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText3'}
+        name={'alt3'}
         error={null}
-        value={data['imageAltText3'] ? data['imageAltText3'].value : ''}
+        value={data['alt3'] ? data['alt3'].value : ''}
         updateFormData={updateFormData}
         required
       />{' '}
@@ -150,9 +150,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText4'}
+        name={'alt4'}
         error={null}
-        value={data['imageAltText4'] ? data['imageAltText4'].value : ''}
+        value={data['alt4'] ? data['alt4'].value : ''}
         updateFormData={updateFormData}
         required
       />

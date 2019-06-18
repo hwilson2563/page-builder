@@ -49,6 +49,15 @@ const ButtonTextModal = props => {
         updateFormData={updateFormData}
         required
       />
+      <FormEntry
+        type={'input'}
+        label={'Aria Label'}
+        name={'ariaLabel'}
+        value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
+        error={null}
+        updateFormData={updateFormData}
+        required
+      />
     </>
   )
 }

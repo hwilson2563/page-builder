@@ -101,6 +101,17 @@ div {
   -webkit-font-smoothing: antialiased;
 }
 
+/* add padding to the templates*/
+.add-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+/* add background color */
+.background-dark {
+  background-color: #ebebeb;
+  background-color: var(--background-accent);
+}
+
 /* END Global Responsive Styles */
 
 /* START BUTTON */
@@ -146,7 +157,7 @@ div {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  padding: 45px 25px 40px;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -243,7 +254,7 @@ div {
 /* START large image template */
 
 #large-image-temp {
-  padding: 40px 20px;
+  padding: 20px;
   display: flex;
 }
 
@@ -778,6 +789,10 @@ button:focus {
 
 #four-img-template div.text-img-container {
   margin-bottom: 50px;
+}
+
+#four-img-template img {
+  width: 100%;
 }
 
 /* END FOUR IMAGE TEMPLATE */

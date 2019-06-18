@@ -25,18 +25,27 @@ const SingleButtonModal = props => {
       <FormEntry
         type={'input'}
         label={'Button Text'}
-        name={'button'}
+        name={'buttonText'}
         error={null}
-        value={data['button'] ? data['button'].value : ''}
+        value={data['buttonText'] ? data['buttonText'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
         type={'input'}
         label={'Button Link URL'}
-        name={'buttonLinkUrl'}
+        name={'href'}
         error={null}
-        value={data['buttonLinkUrl'] ? data['buttonLinkUrl'].value : ''}
+        value={data['href'] ? data['href'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
+        label={'Aria Label'}
+        name={'ariaLabel'}
+        value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
+        error={null}
         updateFormData={updateFormData}
         required
       />

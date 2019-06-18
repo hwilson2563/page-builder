@@ -25,6 +25,15 @@ const GalleryModal = props => {
       {/* MORE CAN BE CREATED */}
       <FormEntry
         type={'input'}
+        label={'Section Header'}
+        name={'sectionHeader'}
+        error={null}
+        value={data['galleryName'] ? data['sectionHeader'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <FormEntry
+        type={'input'}
         label={'Gallery Name Button'}
         name={'galleryName'}
         error={null}

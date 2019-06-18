@@ -1,95 +1,78 @@
 import React from 'react'
 
-const Gallery = () => {
-  var object = {
-    'Assign Gallery Name 1': [
-      {
-        galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'Assign Gallery Name 1 Info Title',
-        infoText: 'Assign Gallery Name 1 Info Text'
-      },
-      {
-        imageSource: 'https://via.placeholder.com/100',
-        altTag: 'alt tag text here',
-        selected: true
-      },
-      {
-        imageSource: 'https://via.placeholder.com/200',
-        altTag: 'alt tag text here',
-        selected: false
-      },
-      {
-        imageSource: 'https://via.placeholder.com/300',
-        altTag: 'alt tag text here',
-        selected: false
-      }
-    ],
-    'Assign Gallery Name 2': [
-      {
-        galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'Assign Gallery Name 2 Info Title',
-        infoText: 'Assign Gallery Name 2 Info Text'
-      },
-      {
-        imageSource: 'https://via.placeholder.com/400',
-        altTag: 'alt tag text here',
-        selected: true
-      },
-      {
-        imageSource: 'https://via.placeholder.com/500',
-        altTag: 'alt tag text here',
-        selected: false
-      },
-      {
-        imageSource: 'https://via.placeholder.com/600',
-        altTag: 'alt tag text here',
-        selected: false
-      }
-    ],
-    'Assign Gallery Name 3': [
-      {
-        galleryButtonAriaLabel: 'add aria-label text for button here',
-        infoTitle: 'Assign Gallery Name 3 Info Title',
-        infoText: 'Assign Gallery Name 3 Info Text'
-      },
-      {
-        imageSource: 'https://via.placeholder.com/700',
-        altTag: 'alt tag text here',
-        selected: true
-      },
-      {
-        imageSource: 'https://via.placeholder.com/800',
-        altTag: 'alt tag text here',
-        selected: false
-      },
-      {
-        imageSource: 'https://via.placeholder.com/900',
-        altTag: 'alt tag text here',
-        selected: false
-      }
-    ]
-  }
+const Gallery = props => {
+  const { templateData } = props
+
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
+
+  let sectionName = templateData.galleryName ? templateData.sectionHeader.value : 'Place Section Title Here'
+  let galleryName = templateData.galleryName ? templateData.galleryName.value : 'Place Gallery Name Here'
+  let infoTitle = templateData.infoTitle ? templateData.infoTitle.value : 'place info section title here'
+  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : 'add aria-label text for button here'
+  let infoBodyText = templateData.infoBodyText ? templateData.infoBodyText.value : 'place info body text here'
+  let image = templateData.image ? templateData.image.value : 'https://via.placeholder.com/700'
+  let imgAltTag = templateData.imgAltTag ? templateData.imgAltTag.value : 'alt tag text here'
+
+  var object = {}
+
+  object[galleryName] = [
+    {
+      galleryButtonAriaLabel: ariaLabel,
+      infoTitle: infoTitle,
+      infoText: infoBodyText
+    },
+    {
+      imageSource: image,
+      altTag: imgAltTag,
+      selected: true
+    }
+  ]
+
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id={'gallery-template'} className={'gallery-templates background'}>
+      <div id={'gallery-template'} className={'gallery-templates background' + backgroundDark + ' ' + addPadding}>
         <div className={'container'}>
           <div className={'button-section'}>
-            <h2>Place Section Title Here</h2>
+            <h2>{sectionName}</h2>
             <div id={'selection-container-btn'} className={'selection-container-btn'}>
-              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'} />
+              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'}>
+                {galleryName}
+              </button>
               {/* <!-- Buttons will generate here --> */}
+              <button className={'info-button active'} ariaLabel={ariaLabel}>
+                {galleryName}
+              </button>
+              <button className={'dropdown-button active'} ariaLabel={ariaLabel}>
+                {galleryName}
+              </button>
             </div>
           </div>
           <div className={'gallery-section'}>
-            <h3 className={'info-header title-center-mobile'}>{/* <!-- Info header will generate here --> */}</h3>
+            <h3 className={'info-header title-center-mobile'}>
+              {/* <!-- Info header will generate here --> */}
+              {infoTitle}
+            </h3>
 
-            <div id={'image-container'} className={'image-container'}>{/* <!-- Images will generate here --> */}</div>
-            <div id={'bullet-container'} className={'bullet-container'}>{/* <!-- Bullets will generate here --> */}</div>
+            <div id={'image-container'} className={'image-container'}>
+              {/* <!-- Images will generate here --> */}
+              <img src={image} alt={imgAltTag} className={'gallery-img display-img'} />
+            </div>
+            <div id={'bullet-container'} className={'bullet-container'}>
+              {/* <!-- Bullets will generate here --> */}
+              <button className={'bullet active'} ariaLabel={ariaLabel} />
+            </div>
           </div>
           <div className={'info-section'}>
-            <h3 className={'info-header title-desktop'}>{/* <!-- Info header will generate here --> */}</h3>
-            <p id={'info-body'} className={'info-body'}>{/* <!-- Info body will generate here --> */}</p>
+            <h3 className={'info-header title-desktop'}>
+              {/* <!-- Info header will generate here --> */}
+              {infoTitle}
+            </h3>
+            <p id={'info-body'} className={'info-body'}>
+              {/* <!-- Info body will generate here --> */}
+              {infoBodyText}
+            </p>
           </div>
         </div>
       </div>
@@ -143,7 +126,11 @@ const Gallery = () => {
   //     a. Remove everything from the comma seperating the curly brackets {} to the last curly bracket } (The same amount that you would copy and paste from above)
 
   //  --> */}
-      <script className={'galleries'} type='application/json' dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }} />
+      <script
+        className={'galleries'}
+        type='application/json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }}
+      />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
   )

@@ -1,25 +1,44 @@
 import React from 'react'
 
-const TwoSmallImage = () => {
+const TwoSmallImage = props => {
+  const { templateData } = props
+  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
+
+  let title = templateData.title ? templateData.title.value : 'Place section title here'
+  let image1 = templateData.image1
+    ? templateData.image1.value
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt1 = templateData.alt1 ? templateData.alt1.value : ''
+  let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
+  let bodyText1 = templateData.bodyText1 ? templateData.bodyText1.value : 'put paragraph text here'
+
+  let image2 = templateData.image2
+    ? templateData.image2.value
+    : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
+  let alt2 = templateData.alt2 ? templateData.alt2.value : ''
+  let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
+  let bodyText2 = templateData.bodyText2 ? templateData.bodyText2.value : 'put paragraph text here'
+
   return (
     // <!-- START TWO SMALL IMAGE TEMPLATE -->
-    <div id='two-small-image-temp'>
-      <h3>Place section title here</h3>
+    <div id='two-small-image-temp' className={backgroundDark + ' ' + addPadding}>
+      <h3>{title}</h3>
       <div className='images-container'>
         <div className='single-img-cont'>
-          <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
+          <img src={image1} alt={alt1} />
           <div className='caption-cont'>
-            <h4>place info item title here</h4>
+            <h4>{subheader1}</h4>
             {/* <!-- add/remove p tags as needed --> */}
-            <p>put paragraph text here</p>
+            <p>{bodyText1}</p>
           </div>
         </div>
         <div className='single-img-cont'>
-          <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg' alt='' />
+          <img src={image2} alt={alt2} />
           <div className='caption-cont'>
-            <h4>place info item title here</h4>
+            <h4>{subheader2}</h4>
             {/* <!-- add/remove p tags as needed --> */}
-            <p>put paragraph text here</p>
+            <p>{bodyText2}</p>
           </div>
         </div>
       </div>
