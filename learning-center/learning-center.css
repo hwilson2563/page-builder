@@ -45,7 +45,7 @@
   --desktop: 1011px;
 }
 
-/* END Global Styles */
+/* END Global Styles */#
 
 /* START global responsive styles */
 
@@ -171,11 +171,13 @@ div {
 /* END Button Text Template */
 
 /* START linking-template styles */
-
 #linking-temp {
+  padding: 20px;
+}
+.linking-temp-cont {
   display: flex;
   flex-direction: column;
-  margin: 40px 20px 40px;
+  /* margin: 40px 20px 40px; */
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   font-family: var(--font-body);
 }
@@ -853,7 +855,7 @@ button:focus {
 
 @media screen and (min-width: 600px) {
   /* START linking-template styles */
-  #linking-temp {
+  .linking-temp-cont {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -1075,7 +1077,7 @@ button:focus {
   }
   /* END Button Text Template */
   /* START linking-template styles */
-  #linking-temp {
+  .linking-temp-cont {
     flex-wrap: nowrap;
     max-width: 1090px;
     margin: 25px auto;
