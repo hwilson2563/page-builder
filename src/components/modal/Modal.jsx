@@ -21,6 +21,7 @@ const ModalWrapper = styled.div`
   top: 50px;
   transform: translate(-50%, 0);
   margin-bottom: 100px;
+  min-width: 650px;
   @media screen and (min-width: ${props => props.theme.tablet}px) {
     top: 100px;
   }
