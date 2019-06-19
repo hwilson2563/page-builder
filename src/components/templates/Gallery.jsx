@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
   const { templateData } = props
@@ -11,43 +12,46 @@ const Gallery = props => {
   useEffect(
     () => {
       let eachGallery = {}
-      let galleryKeys = Object.keys(templateData)
+      let templateDataKeys = Object.keys(templateData)
       let numberOfGalleries = 0
 
-      // counts amount of galleries
-      galleryKeys.forEach(object => {
+      // finds the number in the key to count galleries
+      templateDataKeys.forEach(object => {
         let galleryIdx = object.replace(/\D/g, '')
         numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
       })
       // builds object in array
       for (let i = 0; i <= numberOfGalleries; i++) {
-        console.log(templateData)
         // value of
-        let galleryNameIdx = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Default'
-        let infoTitleIdx = templateData['infoTitle' + i] ? templateData['infoTitle' + i].value : 'Default'
-        let ariaLabelIdx = templateData['ariaLabel' + i] ? templateData['ariaLabel' + i].value : 'Default'
-        let infoBodyTextIdx = templateData['infoBodyText' + i] ? templateData['infoBodyText' + i].value : 'Default'
-        let imageIdx = templateData['image' + i] ? templateData['image' + i].value : 'https://via.placeholder.com/300'
-        let imgAltTagIdx = templateData['imgAltTag' + i] ? templateData['imgAltTag' + i].value : 'Default'
-        eachGallery[galleryNameIdx] = [
+        let galleryName = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
+        let infoTitle = templateData['infoTitle' + i] ? templateData['infoTitle' + i].value : 'Info Title'
+        let ariaLabel = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
+        let infoBodyText = templateData['infoBodyText' + i] ? templateData['infoBodyText' + i].value : 'Info Body Text Here'
+        let image = templateData['image' + i] ? templateData['image' + i].value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
+        let imgAltTag = templateData['imgAltTag' + i] ? templateData['imgAltTag' + i].value : 'image'
+        eachGallery[galleryName] = [
           {
-            galleryButtonAriaLabel: ariaLabelIdx,
-            infoTitle: infoTitleIdx,
-            infoText: infoBodyTextIdx
+            galleryButtonAriaLabel: ariaLabel,
+            infoTitle: infoTitle,
+            infoText: infoBodyText
           },
           {
-            imageSource: imageIdx,
-            altTag: imgAltTagIdx,
+            imageSource: image,
+            altTag: imgAltTag,
             selected: true
           }
         ]
       }
       setGalleryJSON(eachGallery)
-      console.log(eachGallery)
     },
     [templateData]
   )
-
+  useEffect(
+    () => {
+      buildGallery()
+    },
+    [galleryJSON]
+  )
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}

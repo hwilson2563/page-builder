@@ -10,7 +10,6 @@ import {
   removeSelectedTemplates,
   moveUpSelectedTemplates,
   moveDownSelectedTemplates,
-  buildGallery,
   addReadMoreClicks,
   readMore
 } from '../utils/utils'
@@ -80,7 +79,6 @@ const App = () => {
   // useeffect to add funtionality to html
   useEffect(
     () => {
-      buildGallery()
       addReadMoreClicks()
     },
     [selectedTemplates]
