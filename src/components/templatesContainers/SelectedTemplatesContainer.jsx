@@ -101,6 +101,7 @@ const SelectedTemplatesContainer = props => {
           <TemplateContainer
             key={idx}
             idx={idx}
+            selectedTemplates={selectedTemplates}
             selectedTemplateLength={selectedTemplateLength}
             template={template}
             updateSelectedTemplates={updateSelectedTemplates}

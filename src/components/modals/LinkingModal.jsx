@@ -1,7 +1,24 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import FormEntry from '../modal/FormEntry'
+
+const Options = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+const Directions = styled.p`
+  width: 100%;
+  padding: 5px;
+`
+const IdContainer = styled.div`
+  width: 200px;
+  margin: 20px;
+`
 const LinkingModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, selectedTemplates } = props
+  console.log(selectedTemplates)
   return (
     <>
       <FormEntry
@@ -69,6 +86,17 @@ const LinkingModal = props => {
         updateFormData={updateFormData}
         required
       />
+      <Options>
+        <Directions>Ids numbers are put in order of first to last on the template </Directions>
+        {selectedTemplates.map(template => {
+          return (
+            <IdContainer>
+              <h4>{template.tempName}</h4>
+              <p>{'ID: #' + template.order}</p>
+            </IdContainer>
+          )
+        })}
+      </Options>
       <FormEntry
         type={'input'}
         label={'Link Aria Label'}

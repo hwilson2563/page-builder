@@ -43,6 +43,7 @@ const App = () => {
 
         if (confirmation) {
           updatedTemplates = removeSelectedTemplates(clone, idx)
+
         } else {
           updatedTemplates = selectedTemplates
         }

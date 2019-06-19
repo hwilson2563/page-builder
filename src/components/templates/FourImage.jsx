@@ -33,7 +33,7 @@ const FourImage = props => {
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
-    <div id='four-img-template' className={backgroundDark + ' ' + addPadding}>
+    <div id='four-img-template' className={'four-img-template ' + backgroundDark + ' ' + addPadding}>
       <h2 className='header'>{title}</h2>
       <div className='center-container'>
         {/* <!-- First Gallery Set --> */}

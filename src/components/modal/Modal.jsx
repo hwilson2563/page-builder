@@ -47,7 +47,7 @@ const Exit = styled.div`
 `
 
 const Modal = props => {
-  let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData } = props
+  let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData, selectedTemplates } = props
   let xMarkSize = '16px'
 
   return (
@@ -59,6 +59,7 @@ const Modal = props => {
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
             <CMSModal
+              selectedTemplates={selectedTemplates}
               closeModal={closeModal}
               tempName={tempName}
               formData={formData}

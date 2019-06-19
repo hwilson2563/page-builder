@@ -15,7 +15,7 @@ const Banner = props => {
         background:
           `url(${url}) no-repeat center/cover #ebebeb`
       }}
-      id='banner-temp' alt={alt} className={backgroundDark + ' ' + addPadding}>
+      id='banner-temp' alt={alt} className={'banner-temp ' + backgroundDark + ' ' + addPadding}>
       <div className='banner-text'>
         <h1>{title}</h1>
         <p>{subTitle}</p>
