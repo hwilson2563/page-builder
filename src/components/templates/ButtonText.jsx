@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ButtonText = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -12,7 +12,7 @@ const ButtonText = props => {
 
   return (
   // <!-- START BUTTON TEXT TEMPLATE -->
-    <div id='button-text-template' className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
       <p className='button-text-template-text'>{callToAction}</p>
       <a className='button-link' href={href} aria-label={ariaLabel}>
         <button className='template-button'>{button}</button>

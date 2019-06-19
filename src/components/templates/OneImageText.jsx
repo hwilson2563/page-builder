@@ -1,7 +1,7 @@
 import React from 'react'
 
 const OneImageText = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -15,7 +15,7 @@ const OneImageText = props => {
 
   return (
     // <!-- START ONE IMAGE-TEXT-TEMPLATE HERE-->
-    <div id='one-image-text' className={'one-image-text ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'one-image-text ' + backgroundDark + ' ' + addPadding}>
       <div className='one-image-text-cont'>
         <img src={image} alt={imageAltText} />
         <div className='text-container'>

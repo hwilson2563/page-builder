@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Quote = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
   let defaultDisplay = !templateData['feedBackLayout'] && !templateData['faqLayout'] && !templateData['proTipLayout']
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -14,7 +14,7 @@ const Quote = props => {
   let customerFeedback = templateData.customerFeedback ? templateData.customerFeedback.value : 'feedback'
   return (
     // <!-- START QUOTES TEMPLATE -->
-    <div id='quotes-template' className={'quotes-template ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'quotes-template ' + backgroundDark + ' ' + addPadding}>
       {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
   <!-- QUESTION TEMPLATE STARTS --> */}
       {faqTemplate && (

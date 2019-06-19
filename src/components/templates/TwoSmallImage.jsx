@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TwoSmallImage = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -22,7 +22,7 @@ const TwoSmallImage = props => {
 
   return (
     // <!-- START TWO SMALL IMAGE TEMPLATE -->
-    <div id='two-small-image-temp' className={'two-small-image-temp ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'two-small-image-temp ' + backgroundDark + ' ' + addPadding}>
       <h3>{title}</h3>
       <div className='images-container'>
         <div className='single-img-cont'>

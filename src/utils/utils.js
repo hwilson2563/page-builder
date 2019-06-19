@@ -27,7 +27,7 @@ export const determineScreen = (width, headerFooter) => {
 export const removeSelectedTemplates = (templates, idx) => {
   templates.splice(idx, 1)
   templates.forEach(template => {
-    template.order = templates.indexOf(template)
+    template.order = templates.indexOf(template) + 1
   })
   return templates
 }
@@ -36,15 +36,15 @@ export const addSelectedTemplates = (component, templates) => {
   component.data = {}
   templates.push(component)
   templates.forEach(template => {
-    template.order = templates.indexOf(template)
+    template.order = templates.indexOf(template) + 1
   })
   return templates
 }
 export const moveUpSelectedTemplates = (templates, idx) => {
-  let newLocation = idx - 189
+  let newLocation = idx - 1
   templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
   templates.forEach(template => {
-    template.order = templates.indexOf(template)
+    template.order = templates.indexOf(template) + 1
   })
   return templates
 }
@@ -53,7 +53,7 @@ export const moveDownSelectedTemplates = (templates, idx) => {
   let newLocation = idx + 1
   templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
   templates.forEach(template => {
-    template.order = templates.indexOf(template)
+    template.order = templates.indexOf(template) + 1
   })
   return templates
 }

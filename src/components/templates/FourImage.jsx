@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FourImage = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -33,7 +33,7 @@ const FourImage = props => {
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
-    <div id='four-img-template' className={'four-img-template ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'four-img-template ' + backgroundDark + ' ' + addPadding}>
       <h2 className='header'>{title}</h2>
       <div className='center-container'>
         {/* <!-- First Gallery Set --> */}

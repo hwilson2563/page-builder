@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ThreeImage = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -29,7 +29,7 @@ const ThreeImage = props => {
 
   return (
     // <!-- START OF THREE IMG TEMPLATE  -->
-    <div id='three-img-temp' className={'three-img-temp ' + backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'three-img-temp ' + backgroundDark + ' ' + addPadding}>
       <h3>{title}</h3>
       <div className='three-img-text'>
         <div className='img-text-container'>

@@ -30,7 +30,8 @@ const App = () => {
           backgroundDark: false
         },
         modal: templatesData[component].modal,
-        tempName: component
+        tempName: component,
+        id: templatesData[component].id
       }
       updatedTemplates = addSelectedTemplates(newTemplate, clone)
     }
