@@ -85,7 +85,7 @@ const ProductListModal = props => {
                 <FormEntry
                   type={'input'}
                   label={'Image'}
-                  name={'image'}
+                  name={'image' + productNum}
                   error={null}
                   value={data['image' + productNum] ? data['image' + productNum].value : ''}
                   updateFormData={updateFormData}
@@ -94,7 +94,7 @@ const ProductListModal = props => {
                 <FormEntry
                   type={'input'}
                   label={'Image Alt Text'}
-                  name={'imageAltText'}
+                  name={'imageAltText' + productNum}
                   error={null}
                   value={data['imageAltText' + productNum] ? data['imageAltText' + productNum].value : ''}
                   updateFormData={updateFormData}
@@ -103,7 +103,7 @@ const ProductListModal = props => {
                 <FormEntry
                   type={'input'}
                   label={'Product Name'}
-                  name={'productName'}
+                  name={'productName' + productNum}
                   error={null}
                   value={data['productName' + productNum] ? data['productName' + productNum].value : ''}
                   updateFormData={updateFormData}
@@ -112,7 +112,7 @@ const ProductListModal = props => {
                 <FormEntry
                   type={'input'}
                   label={'Product Page URL'}
-                  name={'productPage'}
+                  name={'productPage' + productNum}
                   error={null}
                   value={data['productPage' + productNum] ? data['productPage' + productNum].value : ''}
                   updateFormData={updateFormData}
@@ -121,7 +121,7 @@ const ProductListModal = props => {
                 <FormEntry
                   type={'input'}
                   label={'Price'}
-                  name={'price'}
+                  name={'price' + productNum}
                   error={null}
                   value={data['price' + productNum] ? data['price' + productNum].value : ''}
                   updateFormData={updateFormData}
