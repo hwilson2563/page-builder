@@ -12,9 +12,11 @@ const Video = props => {
   return (
     // <!-- START VIDEO TEMPLATE -->
     <div id='video-template' className={backgroundDark + ' ' + addPadding}>
-      <div className='iframe-container'>
-        {/* <!-- FOR LINK: if using a youtube link, just replace the 'watch?v=' with 'embed/' from whichever youtube video you want: so https://www.youtube.com/watch?v=ZY3J3Y_OU0w becomes what you see below --> */}
-        <iframe src={video} frameBorder='0' width='560' height='315' title='video' />
+      <div className='video-template-cont'>
+        <div className='iframe-container'>
+          {/* <!-- FOR LINK: if using a youtube link, just replace the 'watch?v=' with 'embed/' from whichever youtube video you want: so https://www.youtube.com/watch?v=ZY3J3Y_OU0w becomes what you see below --> */}
+          <iframe src={video} frameBorder='0' width='560' height='315' title='video' />
+        </div>
       </div>
     </div>
     // <!-- END VIDEO TEMPLATE -->

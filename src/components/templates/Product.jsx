@@ -4,6 +4,7 @@ const Product = props => {
   const { templateData } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
+  let productWhite = templateData.backgroundDark && templateData.backgroundDark.value ? 'product-white' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
   let image = templateData.image
@@ -11,7 +12,7 @@ const Product = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
   let productName = templateData.productName ? templateData.productName.value : 'Place Title Here'
-  let price = templateData.price ? templateData.price.value : '$ price here'
+  let price = templateData.price ? templateData.price.value : ' price here'
 
   return (
     // <!-- START PRODUCT LIST TEMPLATE -->
@@ -19,7 +20,7 @@ const Product = props => {
       <div className={'product-container'}>
         {/* <!-- add/remove products as needed -->
     <!-- single product starts here (for copying and pasting) --> */}
-        <a className={'single-product'} href={'https://www.woodlanddirect.com'} target={'__blank'}>
+        <a className={'single-product ' + productWhite} href={'https://www.woodlanddirect.com'} target={'__blank'}>
           <img src={image} alt={imageAltText} />
           <h4>{productName}</h4>
           <p>Starting at</p>
