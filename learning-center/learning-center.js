@@ -45,6 +45,7 @@ function addReadMoreClicks () {
 // add read more funtions to the read more read less buttons
 window.addEventListener('load', addReadMoreClicks())
 
+
 //
 // GALLERY TEMPLATE BEGINS
 //
@@ -143,7 +144,9 @@ function buildSingleGallery (galleryData) {
         // this builds the images
         var imageTag = document.createElement('img')
         imageTag.setAttribute('id', 'img' + idx)
+        // image.selected
         imageTag.setAttribute('class', imgNamingConvention)
+        // : imageTag.setAttribute('class', 'gallery-img')
         imageTag.setAttribute('src', image.imageSource)
         imageTag.setAttribute('alt', image.altTag)
         imageContainer.appendChild(imageTag)
@@ -265,6 +268,7 @@ function buildGallery () {
     var arrayFromGalleriesJson = Object.keys(galleriesJSON).map(function (gallery) {
       return galleriesJSON[gallery]
     })
+    console.log(arrayFromGalleriesJson)
     arrayFromGalleriesJson.forEach(function (gallery, idx) {
       gallery.id = 'galleries' + idx
       imageContainer = document.getElementsByClassName('image-container')[idx]
