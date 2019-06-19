@@ -4,33 +4,33 @@ import styled from 'styled-components'
 import FormEntry from '../modal/FormEntry'
 
 const ButtonContainer = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-button {
-  margin: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  height: 20px;
-  outline: none;
-  height: 45px;
-  width: 120px;
-  border: 2px solid ${props => props.theme.backgroundAccent};
-  background-color: white;
-  font-family: ${props => props.theme.fontBody};
-  text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.mainPrimary};
-  border-radius: 3px;
-  margin-left: 10px;
-  transition: 0.3s ease-in-out;
-  :hover {
-    cursor: pointer;
-    background-color: ${props => props.theme.backgroundAccent};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  button {
+    margin: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    height: 20px;
+    outline: none;
+    height: 45px;
+    width: 120px;
+    border: 2px solid ${props => props.theme.backgroundAccent};
+    background-color: white;
+    font-family: ${props => props.theme.fontBody};
+    text-align: center;
+    text-transform: uppercase;
+    color: ${props => props.theme.mainPrimary};
+    border-radius: 3px;
+    margin-left: 10px;
+    transition: 0.3s ease-in-out;
+    :hover {
+      cursor: pointer;
+      background-color: ${props => props.theme.backgroundAccent};
+    }
   }
-}
 `
 const GalleryModal = props => {
   const { updateFormData, data, buildAllGalleryFields, galleryFormRender } = props
@@ -120,16 +120,15 @@ const GalleryModal = props => {
     )
   }
 
+  const galleryMax = [1, 2, 3, 4, 5]
   return (
     <>
       {galleryFormRender.firstRender && (
         <ButtonContainer>
           <p>How many galleries do you want for this section?</p>
-          <button onClick={() => buildAllGalleryFields(1)}>1</button>
-          <button onClick={() => buildAllGalleryFields(2)}>2</button>
-          <button onClick={() => buildAllGalleryFields(3)}>3</button>
-          <button onClick={() => buildAllGalleryFields(4)}>4</button>
-          <button onClick={() => buildAllGalleryFields(5)}>5</button>
+          {galleryMax.map(num => (
+            <button onClick={() => buildAllGalleryFields(num)}>{num}</button>
+          ))}
         </ButtonContainer>
       )}
       {!galleryFormRender.firstRender && <>{galleryFormRender.galleries.map((gallery, idx) => createFields(idx))}</>}
