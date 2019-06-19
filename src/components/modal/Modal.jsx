@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 // import PropTypes from 'prop-types'
 import CMSModal from './CMSModal'
+import IframeModal from './IframeModal'
 import { theme } from '../../utils/globalStyles'
 import XMark from './XMark'
 
@@ -47,7 +48,20 @@ const Exit = styled.div`
 `
 
 const Modal = props => {
-  let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData } = props
+  let {
+    closeModal,
+    displayModal,
+    screen,
+    tempName,
+    formData,
+    formProps,
+    updateFormData,
+    updateTemplateData,
+    copyData,
+    currentView,
+    goBack,
+    moveForward
+  } = props
   let xMarkSize = '16px'
 
   return (
@@ -58,14 +72,18 @@ const Modal = props => {
             <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')} screen={screen}>
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
-            <CMSModal
-              closeModal={closeModal}
-              tempName={tempName}
-              formData={formData}
-              formProps={formProps}
-              updateFormData={updateFormData}
-              updateTemplateData={updateTemplateData}
-            />
+            {tempName ? (
+              <CMSModal
+                closeModal={closeModal}
+                tempName={tempName}
+                formData={formData}
+                formProps={formProps}
+                updateFormData={updateFormData}
+                updateTemplateData={updateTemplateData}
+              />
+            ) : (
+              <IframeModal copyData={copyData} currentView={currentView} goBack={goBack} moveForward={moveForward} />
+            )}
           </ModalWrapper>
         </ModalGrayBG>
       )}

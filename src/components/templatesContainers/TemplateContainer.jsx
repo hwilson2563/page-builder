@@ -32,6 +32,13 @@ const TemplateContainer = props => {
     },
     [template.data]
   )
+  useEffect(
+    () => {
+      // this is so when someone closes modal without saving the data is stored
+      updateTemplateData(data)
+    },
+    [displayForm]
+  )
   const updateFormData = updatedData => {
     let newFormData = { ...data }
     newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
@@ -41,20 +48,18 @@ const TemplateContainer = props => {
   const toggleDisplayForm = () => {
     setDisplayForm(!displayForm)
   }
+
   const handleClick = () => {
     toggleDisplayForm()
   }
+
   const closeModal = (e, value) => {
     e.stopPropagation()
     if (value === 'close') {
       toggleDisplayForm()
-      updateTemplateData(data)
     }
   }
-  // end modal functions
-  // const clearData = () => {
-  //   giveSelectedTemplateData(idx, {})
-  // }
+
   const updateTemplateData = newData => {
     setData(newData)
     giveSelectedTemplateData(idx, newData)
@@ -69,18 +74,17 @@ const TemplateContainer = props => {
         idx={idx}
         modal={template.modal}
       />
-      {displayForm && (
-        <Modal
-          displayModal={displayForm}
-          closeModal={closeModal}
-          screen={screen}
-          tempName={template.tempName}
-          formData={data}
-          formProps={template.modal}
-          updateFormData={updateFormData}
-          updateTemplateData={updateTemplateData}
-        />
-      )}
+      <Modal
+        displayModal={displayForm}
+        closeModal={closeModal}
+        screen={screen}
+        tempName={template.tempName}
+        formData={data}
+        formProps={template.modal}
+        updateFormData={updateFormData}
+        updateTemplateData={updateTemplateData}
+        displayForm={displayForm}
+      />
     </TemplateContain>
   )
 }
