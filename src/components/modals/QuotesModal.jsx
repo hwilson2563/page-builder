@@ -61,7 +61,8 @@ const QuotesModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'FAQ - Answer'}
         name={'answer'}
         error={null}
@@ -71,7 +72,8 @@ const QuotesModal = props => {
       />
       <div>Pro Form</div>
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Pro Tip'}
         name={'proTip'}
         error={null}
@@ -81,7 +83,8 @@ const QuotesModal = props => {
       />
       <div>Customer Feedback Form</div>
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Customer Feedback'}
         name={'customerFeedback'}
         error={null}

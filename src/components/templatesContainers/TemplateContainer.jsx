@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import CMSModal from '../modal/CMSModal'
 import { buildJSON } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
+  height: auto;
+  transition: height 5s ease-in;
   :hover {
+    min-height: 127px;
     .control-panel {
       opacity: 1;
     }
@@ -35,6 +37,12 @@ const TemplateContainer = props => {
     setGalleryFormRender({ firstRender: false, galleries: createdGalleries })
   }
 
+  useEffect(
+    () => {
+      setData(template.data)
+    },
+    [template.data]
+  )
   const updateFormData = updatedData => {
     let newFormData = { ...data }
     newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
@@ -56,37 +64,54 @@ const TemplateContainer = props => {
   }
   // end modal functions
 
-  const updateTemplateData = data => {
-    giveSelectedTemplateData(idx, data)
+  // const updateTemplateData = data => {
+  //   giveSelectedTemplateData(idx, data)
+  // }
+  // const CmsModal = () => {
+  //   return (
+  //     <CMSModal
+  //       closeModal={closeModal}
+  //       tempName={template.tempName}
+  //       formData={data}
+  //       formProps={template.modal}
+  //       updateFormData={updateFormData}
+  //       updateTemplateData={updateTemplateData}
+  //       buildAllGalleryFields={buildAllGalleryFields}
+  //       galleryFormRender={galleryFormRender}
+
+  //     />
+  //   )
+  // const clearData = () => {
+  //   giveSelectedTemplateData(idx, {})
+  // }
+  const updateTemplateData = newData => {
+    setData(newData)
+    giveSelectedTemplateData(idx, newData)
   }
   let templateData = template.tempName === 'Gallery Template' ? buildJSON(template.data) : template.data
-  const CmsModal = () => {
-    return (
-      <CMSModal
-        closeModal={closeModal}
-        tempName={template.tempName}
-        formData={data}
-        formProps={template.modal}
-        updateFormData={updateFormData}
-        updateTemplateData={updateTemplateData}
-        buildAllGalleryFields={buildAllGalleryFields}
-        galleryFormRender={galleryFormRender}
-
-      />
-    )
-  }
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component
-        templateData={templateData}
-      />
+      <Component templateData={templateData} />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}
         idx={idx}
         modal={template.modal}
       />
-      {displayForm && <Modal displayModal={displayForm} modal={CmsModal} closeModal={closeModal} screen={screen} />}
+      {displayForm && (
+        <Modal
+          displayModal={displayForm}
+          closeModal={closeModal}
+          screen={screen}
+          tempName={template.tempName}
+          formData={data}
+          formProps={template.modal}
+          updateFormData={updateFormData}
+          updateTemplateData={updateTemplateData}
+          buildAllGalleryFields={buildAllGalleryFields}
+          galleryFormRender={galleryFormRender}
+        />
+      )}
     </TemplateContain>
   )
 }

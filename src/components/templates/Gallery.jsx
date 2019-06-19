@@ -18,7 +18,7 @@ const Gallery = props => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id={'gallery-template'} className={'gallery-templates background' + backgroundDark + ' ' + addPadding}>
+      <div id={'gallery-template'} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
         <div className={'container'}>
           <div className={'button-section'}>
             <h2>{sectionName}</h2>

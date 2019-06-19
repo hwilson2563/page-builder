@@ -1,5 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import FormEntry from '../modal/FormEntry'
+
+const Section = styled.div`
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+`
 const FourImageModal = props => {
   const { updateFormData, data } = props
   return (
@@ -22,7 +29,16 @@ const FourImageModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
-      <div>First Image Form</div>
+      <FormEntry
+        type={'input'}
+        label={'Section Title'}
+        name={'title'}
+        error={null}
+        value={data['title'] ? data['title'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <Section>First Image Form</Section>
       {/* First Img Temp */}
       <FormEntry
         type={'input'}
@@ -45,14 +61,15 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader1'}
+        name={'subheader1'}
         error={null}
-        value={data['subHeader1'] ? data['subHeader1'].value : ''}
+        value={data['subheader1'] ? data['subheader1'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText1'}
         error={null}
@@ -61,7 +78,7 @@ const FourImageModal = props => {
         required
       />
       {/* Second Img Temp */}
-      <div>Second Image Form</div>
+      <Section>Second Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 2'}
@@ -83,14 +100,15 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader2'}
+        name={'subheader2'}
         error={null}
-        value={data['subHeader2'] ? data['subHeader2'].value : ''}
+        value={data['subheader2'] ? data['subheader2'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText2'}
         error={null}
@@ -99,7 +117,7 @@ const FourImageModal = props => {
         required
       />
       {/* Third Img Temp */}
-      <div>Third Image Form</div>
+      <Section>Third Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 3'}
@@ -117,18 +135,19 @@ const FourImageModal = props => {
         value={data['alt3'] ? data['alt3'].value : ''}
         updateFormData={updateFormData}
         required
-      />{' '}
+      />
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader3'}
+        name={'subheader3'}
         error={null}
-        value={data['subHeader3'] ? data['subHeader3'].value : ''}
+        value={data['subheader3'] ? data['subheader3'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText3'}
         error={null}
@@ -137,7 +156,7 @@ const FourImageModal = props => {
         required
       />
       {/* Fourth Img Temp */}
-      <div>Fourth Image Form</div>
+      <Section>Fourth Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 4'}
@@ -159,14 +178,15 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Sub Header'}
-        name={'subHeader4'}
+        name={'subheader4'}
         error={null}
-        value={data['subHeader4'] ? data['subHeader4'].value : ''}
+        value={data['subheader4'] ? data['subheader4'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText4'}
         error={null}

@@ -1,5 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import FormEntry from '../modal/FormEntry'
+
+const Section = styled.div`
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+`
 const ThreeImageModal = props => {
   const { updateFormData, data } = props
   return (
@@ -22,7 +30,16 @@ const ThreeImageModal = props => {
         value={data['addPadding'] ? data['addPadding'].value : false}
         required
       />
-      <div>First Image Form</div>
+      <FormEntry
+        type={'input'}
+        label={'Section Title'}
+        name={'title'}
+        error={null}
+        value={data['title'] ? data['title'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
+      <Section>First Image Form</Section>
       {/* First Img Temp */}
       <FormEntry
         type={'input'}
@@ -52,7 +69,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText1'}
         error={null}
@@ -60,7 +78,7 @@ const ThreeImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      <div>Second Image Form</div>
+      <Section>Second Image Form</Section>
       {/* Second Img Temp */}
       <FormEntry
         type={'input'}
@@ -90,7 +108,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText2'}
         error={null}
@@ -99,7 +118,7 @@ const ThreeImageModal = props => {
         required
       />
       {/* Third Img Temp */}
-      <div>Third Image Form</div>
+      <Section>Third Image Form</Section>
       <FormEntry
         type={'input'}
         label={'Image 3'}
@@ -117,7 +136,7 @@ const ThreeImageModal = props => {
         value={data['alt3'] ? data['alt3'].value : ''}
         updateFormData={updateFormData}
         required
-      />{' '}
+      />
       <FormEntry
         type={'input'}
         label={'Sub Header'}
@@ -128,7 +147,8 @@ const ThreeImageModal = props => {
         required
       />
       <FormEntry
-        type={'input'}
+        textArea
+        type={'text'}
         label={'Body Text'}
         name={'bodyText3'}
         error={null}
