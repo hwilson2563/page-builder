@@ -3,10 +3,13 @@ import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
   const { templateData } = props
-
-  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
-  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
-  let sectionName = templateData.sectionHeader ? templateData.sectionHeader.value : 'Place Section Title Here'
+  console.log(templateData)
+  let backgroundDark =
+    templateData.styling.backgroundDark && templateData.styling.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.styling.addPadding && templateData.styling.addPadding.value ? 'add-padding' : 'padding'
+  let sectionName = templateData.styling.sectionHeader
+    ? templateData.styling.sectionHeader.value
+    : 'Place Section Title Here'
 
   useEffect(
     () => {
@@ -98,7 +101,7 @@ const Gallery = props => {
       <script
         className={'galleries'}
         type='application/json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(templateData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(templateData.JSON) }}
       />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>

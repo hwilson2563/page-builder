@@ -73,14 +73,13 @@ const SelectedTemplatesContainer = props => {
         let Template = template.component
 
         if (template.modal.name === 'GalleryModal') {
-          let formattedData = buildJSON(template.data)
-          return (templates += ReactDOMServer.renderToStaticMarkup(
-            <Template templateData={formattedData} />
-          ))
+          let templateData =
+            template.tempName === 'Gallery Template'
+              ? { JSON: buildJSON(template.data), styling: template.data }
+              : template.data
+          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={templateData} />))
         } else {
-          return (templates += ReactDOMServer.renderToStaticMarkup(
-            <Template templateData={template.data} />
-          ))
+          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
         }
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)

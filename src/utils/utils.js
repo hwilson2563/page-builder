@@ -361,7 +361,7 @@ export function buildJSON (templateData) {
     let image = templateData['image' + i]
       ? templateData['image' + i].value
       : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
-    let imgAltTag = templateData['imgAltTag' + i] ? templateData['imgAltTag' + i].value : 'image'
+    let imgAltText = templateData['imgAltText' + i] ? templateData['imgAltText' + i].value : 'image'
     eachGallery[galleryName] = [
       {
         galleryButtonAriaLabel: ariaLabel,
@@ -370,7 +370,7 @@ export function buildJSON (templateData) {
       },
       {
         imageSource: image,
-        altTag: imgAltTag,
+        altTag: imgAltText,
         selected: true
       }
     ]

@@ -28,7 +28,7 @@ const TemplateContainer = props => {
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
   const [galleryFormRender, setGalleryFormRender] = useState({ firstRender: true, galleries: [] })
-
+  // this allows you to choose how many galleries in a section
   const buildAllGalleryFields = numberOfGalleries => {
     let createdGalleries = []
     for (let i = 0; i < numberOfGalleries; i++) {
@@ -64,31 +64,14 @@ const TemplateContainer = props => {
   }
   // end modal functions
 
-  // const updateTemplateData = data => {
-  //   giveSelectedTemplateData(idx, data)
-  // }
-  // const CmsModal = () => {
-  //   return (
-  //     <CMSModal
-  //       closeModal={closeModal}
-  //       tempName={template.tempName}
-  //       formData={data}
-  //       formProps={template.modal}
-  //       updateFormData={updateFormData}
-  //       updateTemplateData={updateTemplateData}
-  //       buildAllGalleryFields={buildAllGalleryFields}
-  //       galleryFormRender={galleryFormRender}
-
-  //     />
-  //   )
-  // const clearData = () => {
-  //   giveSelectedTemplateData(idx, {})
-  // }
   const updateTemplateData = newData => {
     setData(newData)
     giveSelectedTemplateData(idx, newData)
   }
-  let templateData = template.tempName === 'Gallery Template' ? buildJSON(template.data) : template.data
+  let templateData =
+    template.tempName === 'Gallery Template'
+      ? { JSON: buildJSON(template.data), styling: template.data }
+      : template.data
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
       <Component templateData={templateData} />
