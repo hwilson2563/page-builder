@@ -22,7 +22,7 @@ const TwoSmallImage = props => {
 
   return (
     // <!-- START TWO SMALL IMAGE TEMPLATE -->
-    <div id='two-small-image-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id='two-small-image-temp' className={'two-small-image-temp ' + backgroundDark + ' ' + addPadding}>
       <h3>{title}</h3>
       <div className='images-container'>
         <div className='single-img-cont'>

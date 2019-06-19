@@ -14,7 +14,7 @@ const Quote = props => {
   let customerFeedback = templateData.customerFeedback ? templateData.customerFeedback.value : 'feedback'
   return (
     // <!-- START QUOTES TEMPLATE -->
-    <div id='quotes-template' className={backgroundDark + ' ' + addPadding}>
+    <div id='quotes-template' className={'quotes-template ' + backgroundDark + ' ' + addPadding}>
       {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
   <!-- QUESTION TEMPLATE STARTS --> */}
       {faqTemplate && (

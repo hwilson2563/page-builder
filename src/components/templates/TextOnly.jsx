@@ -9,7 +9,7 @@ const TextOnly = props => {
   let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place paragraph text here'
   return (
     // <!-- START OF TEXT ONLY TEMPLATE -->
-    <div id='text-only-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id='text-only-temp' className={'text-only-temp ' + backgroundDark + ' ' + addPadding}>
       <div className='text-only-temp-cont'>
         <h3>{title}</h3>
         {/* <!-- start paragraphs here -->

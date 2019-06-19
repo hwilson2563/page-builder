@@ -15,7 +15,7 @@ const OneImageText = props => {
 
   return (
     // <!-- START ONE IMAGE-TEXT-TEMPLATE HERE-->
-    <div id='one-image-text' className={backgroundDark + ' ' + addPadding}>
+    <div id='one-image-text' className={'one-image-text ' + backgroundDark + ' ' + addPadding}>
       <div className='one-image-text-cont'>
         <img src={image} alt={imageAltText} />
         <div className='text-container'>

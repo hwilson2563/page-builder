@@ -29,7 +29,7 @@ const ThreeImage = props => {
 
   return (
     // <!-- START OF THREE IMG TEMPLATE  -->
-    <div id='three-img-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id='three-img-temp' className={'three-img-temp ' + backgroundDark + ' ' + addPadding}>
       <h3>{title}</h3>
       <div className='three-img-text'>
         <div className='img-text-container'>
