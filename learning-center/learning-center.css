@@ -103,6 +103,7 @@ div {
 
 p {
   word-break: break-all;
+  hyphens: auto;
 }
 
 /* add padding to the templates*/
