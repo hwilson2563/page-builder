@@ -2,6 +2,7 @@ import React from 'react'
 
 const Product = props => {
   const { templateData } = props
+  console.log(templateData)
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let productWhite = templateData.backgroundDark && templateData.backgroundDark.value ? 'product-white' : ''
