@@ -4,6 +4,7 @@ import ReactDOMServer from 'react-dom/server'
 
 import TemplateContainer from './TemplateContainer'
 import ExportIcon from '../parts/ExportIcon'
+import { buildJSON } from '../../utils/utils'
 
 const TemplatesContainer = styled.div`
   position: relative;
@@ -70,7 +71,17 @@ const SelectedTemplatesContainer = props => {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map(template => {
         let Template = template.component
-        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
+
+        if (template.modal.name === 'GalleryModal') {
+          let formattedData = buildJSON(template.data)
+          return (templates += ReactDOMServer.renderToStaticMarkup(
+            <Template templateData={formattedData} />
+          ))
+        } else {
+          return (templates += ReactDOMServer.renderToStaticMarkup(
+            <Template templateData={template.data} />
+          ))
+        }
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }

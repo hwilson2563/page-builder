@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
   const { templateData } = props
-  const [galleryJSON, setGalleryJSON] = useState({})
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -11,47 +10,11 @@ const Gallery = props => {
 
   useEffect(
     () => {
-      let eachGallery = {}
-      let templateDataKeys = Object.keys(templateData)
-      let numberOfGalleries = 0
-
-      // finds the number in the key to count galleries
-      templateDataKeys.forEach(object => {
-        let galleryIdx = object.replace(/\D/g, '')
-        numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
-      })
-      // builds object in array
-      for (let i = 0; i <= numberOfGalleries; i++) {
-        // value of
-        let galleryName = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
-        let infoTitle = templateData['infoTitle' + i] ? templateData['infoTitle' + i].value : 'Info Title'
-        let ariaLabel = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
-        let infoBodyText = templateData['infoBodyText' + i] ? templateData['infoBodyText' + i].value : 'Info Body Text Here'
-        let image = templateData['image' + i] ? templateData['image' + i].value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
-        let imgAltTag = templateData['imgAltTag' + i] ? templateData['imgAltTag' + i].value : 'image'
-        eachGallery[galleryName] = [
-          {
-            galleryButtonAriaLabel: ariaLabel,
-            infoTitle: infoTitle,
-            infoText: infoBodyText
-          },
-          {
-            imageSource: image,
-            altTag: imgAltTag,
-            selected: true
-          }
-        ]
-      }
-      setGalleryJSON(eachGallery)
+      buildGallery()
     },
     [templateData]
   )
-  useEffect(
-    () => {
-      buildGallery()
-    },
-    [galleryJSON]
-  )
+
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
@@ -135,7 +98,7 @@ const Gallery = props => {
       <script
         className={'galleries'}
         type='application/json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJSON) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(templateData) }}
       />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
 import CMSModal from '../modal/CMSModal'
+import { buildJSON } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -58,6 +59,7 @@ const TemplateContainer = props => {
   const updateTemplateData = data => {
     giveSelectedTemplateData(idx, data)
   }
+  let templateData = template.tempName === 'Gallery Template' ? buildJSON(template.data) : template.data
   const CmsModal = () => {
     return (
       <CMSModal
@@ -76,7 +78,7 @@ const TemplateContainer = props => {
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
       <Component
-        templateData={template.data}
+        templateData={templateData}
       />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
