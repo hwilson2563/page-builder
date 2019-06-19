@@ -60,7 +60,7 @@ const IframeModal = props => {
   return (
     <Container className={'cms-div'}>
       <Title className={'template-title'}>{currentView.name}</Title>
-      <iframe srcDoc={copyData} width={currentView.width} height={currentView.height} />
+      <iframe title={'screenView'} srcDoc={copyData} width={currentView.width} height={currentView.height} />
       <ButtonContainer>
         {currentView.idx > 0 && (
           <GhostButton
