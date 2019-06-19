@@ -38,7 +38,7 @@ const Gallery = props => {
           {
             imageSource: imageIdx,
             altTag: imgAltTagIdx,
-            selected: i === 0
+            selected: true
           }
         ]
       }
