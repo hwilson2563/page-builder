@@ -45,7 +45,7 @@
   --desktop: 1011px;
 }
 
-/* END Global Styles */
+/* END Global Styles */#
 
 /* START global responsive styles */
 
@@ -171,11 +171,13 @@ div {
 /* END Button Text Template */
 
 /* START linking-template styles */
-
 #linking-temp {
+  padding: 20px;
+}
+.linking-temp-cont {
   display: flex;
   flex-direction: column;
-  margin: 40px 20px 40px;
+  /* margin: 40px 20px 40px; */
   font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
   font-family: var(--font-body);
 }
@@ -224,11 +226,12 @@ div {
 /* END linking-template styles */
 
 /* START one-image-text template */
-
 #one-image-text {
+  padding: 20px;
+}
+.one-image-text-cont {
   display: flex;
   flex-direction: column;
-  margin: 40px 20px;
 }
 
 #one-image-text h3 {
@@ -272,14 +275,18 @@ div {
 /* START text-only template */
 
 #text-only-temp {
-  margin: 0 auto;
   padding: 20px;
+}
+
+.text-only-temp-cont {
+  margin: 0 auto;
 }
 
 #text-only-temp h3 {
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
+  margin-top: 10px;
 }
 
 #text-only-temp p {
@@ -517,7 +524,7 @@ div {
 /* START three-img template */
 
 #three-img-temp {
-  margin: 40px 20px;
+  padding: 20px;
 }
 
 #three-img-temp h3, #three-img-temp h4 {
@@ -691,8 +698,7 @@ button:focus {
 /* START PRODUCT TEMPLATE */
 
 #product-list-temp {
-  width: 100%;
-  margin: 20px 0;
+  padding: 20px;
 }
 
 #product-list-temp a {
@@ -707,13 +713,16 @@ button:focus {
 }
 
 .product-container {
+  /*  flex and wrap are for ie */
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 650px;
   display: grid;
-  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   grid-gap: 20px;
-  justify-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 200px);
 }
 
 .single-product {
@@ -725,6 +734,10 @@ button:focus {
   padding-bottom: 15px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.product-white {
+  background-color: white;
 }
 
 .single-product:hover {
@@ -800,9 +813,12 @@ button:focus {
 /* START VIDEO TEMPLATE */
 
 #video-template {
+  padding: 20px;
+}
+
+.video-template-cont {
   margin: 0 auto;
   max-width: 650px;
-  padding: 20px;
 }
 
 .iframe-container {
@@ -824,8 +840,11 @@ button:focus {
 
 /* START QUOTES TEMPLATE */
 
+#quotes-template {
+  padding: 20px;
+}
+
 .single-quote-cont {
-  margin: 40px;
   padding-left: 20px;
   border-left: 3px solid #E66D1C;
 }
@@ -853,7 +872,7 @@ button:focus {
 
 @media screen and (min-width: 600px) {
   /* START linking-template styles */
-  #linking-temp {
+  .linking-temp-cont {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -944,13 +963,7 @@ button:focus {
     margin-right: 40px;
   }
   /* END TWO LARGE IMAGE TEMPLATE */
-  /* START PRODUCT TEMPLATE */
-  .product-container {
-    grid-template-columns: repeat(2, 200px);
-    -webkit-box-pack: center;
-    justify-content: center;
-  }
-  /* END PRODUCT TEMPLATE */
+
   /* START two small image template */
   .images-container {
     display: flex;
@@ -982,10 +995,9 @@ button:focus {
   }
   /* END Button Text Template */
   /* START one-image-text template */
-  #one-image-text {
+  .one-image-text-cont {
     flex-direction: row;
     align-items: flex-start;
-    margin: 40px 0;
   }
   #one-image-text img {
     width: 40%;
@@ -1025,14 +1037,7 @@ button:focus {
     max-height: none;
   }
   /* END three-img template */
-  /* START PRODUCT TEMPLATE */
-  .product-container {
-    margin: 0 auto;
-    max-width: 650px;
-    -ms-grid-columns: (200px)[3];
-    grid-template-columns: repeat(3, 200px);
-  }
-  /* END PRODUCT TEMPLATE */
+
   /* START FOUR IMAGE TEMPLATE */
   #four-img-template div.center-container {
     flex-direction: row;
@@ -1062,7 +1067,7 @@ button:focus {
   /* END FOUR IMAGE TEMPLATE */
   /* START QUOTE TEMPLATE */
   .single-quote-cont {
-    margin: 40px auto;
+    margin: 20px auto;
     max-width: 560px;
   }
   /* END QUOTE TEMPLATE */
@@ -1075,7 +1080,7 @@ button:focus {
   }
   /* END Button Text Template */
   /* START linking-template styles */
-  #linking-temp {
+  .linking-temp-cont {
     flex-wrap: nowrap;
     max-width: 1090px;
     margin: 25px auto;
@@ -1105,9 +1110,9 @@ button:focus {
   }
   /* END linking-template styles */
   /* START one-image-text template */
-  #one-image-text {
+  .one-image-text-cont {
     max-width: 1090px;
-    margin: 40px auto;
+    margin: 0 auto;
   }
   #one-image-text h3 {
     margin-top: 20px;
@@ -1119,7 +1124,7 @@ button:focus {
   }
   /* END one-image-text template */
   /* START text only template */
-  #text-only-temp {
+  .text-only-temp-cont {
     max-width: 650px;
   }
   /* END text-only template */
