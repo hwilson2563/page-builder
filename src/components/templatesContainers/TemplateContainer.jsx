@@ -68,10 +68,10 @@ const TemplateContainer = props => {
     setData(newData)
     giveSelectedTemplateData(idx, newData)
   }
-
+  let indexId = template.id + '-' + (idx + 1)
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component templateData={template.data} order={idx + 1} id={template.id} />
+      <Component templateData={template.data} id={indexId} />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}

@@ -97,9 +97,10 @@ const ConfirmExportPanel = props => {
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map((template, idx) => {
+        let indexId = template.id + '-' + (idx + 1)
         let Template = template.component
         return (templates += ReactDOMServer.renderToStaticMarkup(
-          <Template templateData={template.data} id={template.id} order={idx + 1} />
+          <Template templateData={template.data} id={indexId} />
         ))
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)

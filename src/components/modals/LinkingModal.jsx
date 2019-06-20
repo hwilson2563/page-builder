@@ -95,11 +95,11 @@ const LinkingModal = props => {
       <Options>
         <Directions>Copy and paste the id of the template you want to link to. The number at the end represents the order of the templates (first to last)</Directions>
         {selectedTemplates.map((template, idx) => {
-          let order = idx + 1
+          let id = template.id + '-' + (idx + 1)
           return (
             <IdContainer key={idx}>
               <h4>{template.tempName}</h4>
-              <p>{'ID: #' + template.id + '-' + order}</p>
+              <p>{'ID: #' + id}</p>
             </IdContainer>
           )
         })}

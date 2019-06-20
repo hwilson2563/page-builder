@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Gallery = props => {
-  const { templateData, order, id } = props
+  const { templateData, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -32,7 +32,7 @@ const Gallery = props => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id={id + '-' + order} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
+      <div id={id} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
         <div className={'container'}>
           <div className={'button-section'}>
             <h2>{sectionName}</h2>
