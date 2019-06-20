@@ -13,7 +13,7 @@ const SingleButton = props => {
   // <!-- START SINGLE BUTTON -->
 
     <div id='button-text-template' className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
-      <a className='button-link' href={href} aria-label={ariaLabel}>
+      <a className='button-link' href={href} ariaLabel={ariaLabel}>
         <button className='template-button'>{buttonText}</button>
       </a>
     </div>

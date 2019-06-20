@@ -14,7 +14,7 @@ const ButtonText = props => {
   // <!-- START BUTTON TEXT TEMPLATE -->
     <div id='button-text-template' className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
       <p className='button-text-template-text'>{callToAction}</p>
-      <a className='button-link' href={href} aria-label={ariaLabel}>
+      <a className='button-link' href={href} ariaLabel={ariaLabel}>
         <button className='template-button'>{button}</button>
       </a>
     </div>

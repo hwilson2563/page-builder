@@ -37,7 +37,7 @@ const Linking = props => {
         <!-- replace each #section-id with the section's id you wish to link to  -->
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
-          <a href={link} aria-label={linkAriaLabel}>
+          <a href={link} ariaLabel={linkAriaLabel}>
             {anchorTitle}
           </a>
           {/* <!-- END OF ANCHOR SECTION --> */}
