@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 
 import FormEntry from '../modal/FormEntry'
@@ -33,7 +33,17 @@ const ButtonContainer = styled.div`
   }
 `
 const GalleryModal = props => {
-  const { updateFormData, data, buildAllGalleryFields, galleryFormRender } = props
+  const { updateFormData, data } = props
+  const [galleryFormRender, setGalleryFormRender] = useState({ firstRender: true, galleries: [] })
+
+  // this allows you to choose how many galleries in a section
+  const buildAllGalleryFields = numberOfGalleries => {
+    let createdGalleries = []
+    for (let i = 0; i < numberOfGalleries; i++) {
+      createdGalleries.push({})
+    }
+    setGalleryFormRender({ firstRender: false, galleries: createdGalleries })
+  }
   const createFields = idx => {
     return (
       <Fragment key={idx}>

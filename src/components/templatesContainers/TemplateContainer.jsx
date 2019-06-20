@@ -27,15 +27,6 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
-  const [galleryFormRender, setGalleryFormRender] = useState({ firstRender: true, galleries: [] })
-  // this allows you to choose how many galleries in a section
-  const buildAllGalleryFields = numberOfGalleries => {
-    let createdGalleries = []
-    for (let i = 0; i < numberOfGalleries; i++) {
-      createdGalleries.push({})
-    }
-    setGalleryFormRender({ firstRender: false, galleries: createdGalleries })
-  }
 
   useEffect(
     () => {
@@ -44,6 +35,7 @@ const TemplateContainer = props => {
     [template.data]
   )
   const updateFormData = updatedData => {
+    console.log(updatedData)
     let newFormData = { ...data }
     newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
     setData(newFormData)
@@ -91,8 +83,6 @@ const TemplateContainer = props => {
           formProps={template.modal}
           updateFormData={updateFormData}
           updateTemplateData={updateTemplateData}
-          buildAllGalleryFields={buildAllGalleryFields}
-          galleryFormRender={galleryFormRender}
         />
       )}
     </TemplateContain>

@@ -56,7 +56,6 @@ const Modal = props => {
     formProps,
     updateFormData,
     updateTemplateData,
-    buildAllGalleryFields,
     galleryFormRender
   } = props
   let xMarkSize = '16px'
@@ -76,7 +75,6 @@ const Modal = props => {
               formProps={formProps}
               updateFormData={updateFormData}
               updateTemplateData={updateTemplateData}
-              buildAllGalleryFields={buildAllGalleryFields}
               galleryFormRender={galleryFormRender}
             />
           </ModalWrapper>
