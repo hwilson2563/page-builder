@@ -3,7 +3,6 @@ import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
   const { templateData } = props
-  console.log(templateData)
   let backgroundDark =
     templateData.styling.backgroundDark && templateData.styling.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.styling.addPadding && templateData.styling.addPadding.value ? 'add-padding' : 'padding'
