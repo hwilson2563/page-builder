@@ -23,6 +23,7 @@ const FormEntry = props => {
       // isValid = !validation[0]
       // setNoError(!isValid)
     }
+    setSelected(false)
     // update higher state
     if (group) {
       updateFormData({ name, value, group, error: isValid })

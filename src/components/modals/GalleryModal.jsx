@@ -50,32 +50,28 @@ const GalleryModal = props => {
     }
     setGalleryFormRender(createdGalleries)
   }
-  const galleryObj = {
-    error: null,
-    updateFormData: updateFormData,
-    groups: [
-      { label: 'Gallery Name Button', name: 'galleryName', type: 'input' },
-      { label: 'Info Title', name: 'infoTitle', type: 'input' },
-      { label: 'Info Body Text', name: 'infoBodyText', type: 'textarea' },
-      { label: 'Image Url', name: 'image', type: 'input' },
-      { label: 'Image Alt Text', name: 'imgAltText', type: 'input' }
-    ]
-  }
+  const groups = [
+    { label: 'Gallery Name Button', name: 'galleryName', type: 'input' },
+    { label: 'Info Title', name: 'infoTitle', type: 'input' },
+    { label: 'Info Body Text', name: 'infoBodyText', type: 'textarea' },
+    { label: 'Image Url', name: 'image', type: 'input' },
+    { label: 'Image Alt Text', name: 'imgAltText', type: 'input' }
+  ]
   const createFields = idx => {
     return (
       <Fragment key={idx}>
         <p>Gallery {idx + 1}</p>
-        {galleryObj.groups.map(galleryFormat => {
-          let valueExists = data.groups && data.groups[idx] && data.groups[idx][galleryFormat.name]
+        {groups.map(input => {
+          let valueExists = data.groups && data.groups[idx] && data.groups[idx][input.name]
           return (
-            <Fragment key={galleryFormat.name + idx}>
+            <Fragment key={input.name + idx}>
               <FormEntry
-                type={galleryFormat.type}
-                label={galleryFormat.label}
-                name={galleryFormat.name}
+                type={input.type}
+                label={input.label}
+                name={input.name}
                 group={idx + 1}
                 error={null}
-                value={valueExists ? data.groups[idx][galleryFormat.name].value : ''}
+                value={valueExists ? data.groups[idx][input.name].value : ''}
                 updateFormData={updateFormData}
                 required
               />

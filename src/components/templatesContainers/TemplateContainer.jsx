@@ -42,6 +42,13 @@ const TemplateContainer = props => {
       let index = updatedData.group - 1
       let object = { value: updatedData.value, error: updatedData.error }
       newFormData.groups = newFormData.groups ? [...newFormData.groups] : (newFormData.groups = [])
+
+      // this was added incase they edit the galleries out of order, they stay in place
+      let arrayLength = newFormData.groups.length ? newFormData.groups.length - 1 : newFormData.groups.length
+      while (arrayLength < index) {
+        newFormData.groups.push({})
+        arrayLength++
+      }
       newFormData.groups.splice(index, 1, { ...newFormData.groups[index], [updatedData.name]: object })
     } else {
       newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
