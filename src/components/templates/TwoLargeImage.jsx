@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TwoLargeImage = props => {
-  const { templateData } = props
+  const { templateData, order, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -23,7 +23,7 @@ const TwoLargeImage = props => {
   return (
     // <!-- START TWO LARGE IMAGE TEMPLATE -->
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
-    <div id='two-large-image-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id={id + '-' + order} className={'two-large-image-temp ' + backgroundDark + ' ' + addPadding}>
       <h3>{title}</h3>
       <div className='section-cont'>
         <div className='section-one'>

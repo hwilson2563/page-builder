@@ -95,62 +95,77 @@ export const templatesIdx = [
 export const templatesData = {
   'Banner Template': {
     component: Banner,
-    modal: BannerModal
+    modal: BannerModal,
+    id: 'banner-temp'
   },
   'Button Text Template': {
     component: ButtonText,
-    modal: ButtonTextModal
+    modal: ButtonTextModal,
+    id: 'button-text-template'
   },
   'Four Image Template': {
     component: FourImage,
-    modal: FourImageModal
+    modal: FourImageModal,
+    id: 'four-img-template'
   },
   'Gallery Template': {
     component: Gallery,
-    modal: GalleryModal
+    modal: GalleryModal,
+    id: 'gallery-template'
   },
   'Large Image Template': {
     component: LargeImage,
-    modal: LargeImgModal
+    modal: LargeImgModal,
+    id: 'large-image-temp'
   },
   'Linking Template': {
     component: Linking,
-    modal: LinkingModal
+    modal: LinkingModal,
+    id: 'linking-temp'
   },
   'One Image Text Template': {
     component: OneImageText,
-    modal: OneImageTextModal
+    modal: OneImageTextModal,
+    id: 'one-image-text'
   },
   'Product Template': {
     component: Product,
-    modal: ProductListModal
+    modal: ProductListModal,
+    id: 'product-list-temp'
   },
   'Quote Template': {
     component: Quote,
-    modal: QuotesModal
+    modal: QuotesModal,
+    id: 'quotes-template'
   },
   'Single Button Template': {
     component: SingleButton,
-    modal: SingleButtonModal
+    modal: SingleButtonModal,
+    id: 'button-text-template'
   },
   'Text Only Template': {
     component: TextOnly,
-    modal: TextOnlyModal
+    modal: TextOnlyModal,
+    id: 'text-only-temp'
   },
   'Three Image Template': {
     component: ThreeImage,
-    modal: ThreeImageModal
+    modal: ThreeImageModal,
+    id: 'three-img-temp'
   },
   'Two Large Image Template': {
     component: TwoLargeImage,
-    modal: TwoLargeImgModal
+    modal: TwoLargeImgModal,
+    id: 'two-large-image-temp'
   },
   'Two Small Image Template': {
     component: TwoSmallImage,
-    modal: TwoSmallImgModal
+    modal: TwoSmallImgModal,
+    id: 'two-small-image-temp'
   },
   'Video Template': {
     component: Video,
-    modal: VideoModal
+    modal: VideoModal,
+    id: 'video-template'
   }
 }
