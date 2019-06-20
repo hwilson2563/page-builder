@@ -12,7 +12,6 @@ const BannerModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -21,7 +20,6 @@ const BannerModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}

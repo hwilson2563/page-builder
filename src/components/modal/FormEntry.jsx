@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import { doValidation } from '../../utils/validation'
 import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
 
@@ -19,9 +20,9 @@ const FormEntry = props => {
     let isValid = null
     if (required) {
       // validate function and setError
-      // let validation //= doValidation({ name, value })
-      // isValid = !validation[0]
-      // setNoError(!isValid)
+      let validation = doValidation({ name, value })
+      isValid = !validation[0]
+      setNoError(!isValid)
     }
     setSelected(false)
     // update higher state
