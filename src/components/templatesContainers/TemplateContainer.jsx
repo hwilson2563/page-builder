@@ -83,9 +83,8 @@ const TemplateContainer = props => {
         displayModal={displayForm}
         closeModal={closeModal}
         screen={screen}
-        tempName={template.tempName}
+        template={template}
         formData={data}
-        formProps={template.modal}
         updateFormData={updateFormData}
         updateTemplateData={updateTemplateData}
       />

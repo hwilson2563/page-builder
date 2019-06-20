@@ -52,12 +52,11 @@ const Modal = props => {
   let {
     closeModal,
     displayModal,
-    tempName,
     formData,
-    formProps,
     updateFormData,
     updateTemplateData,
     selectedTemplates,
+    template,
     copyData,
     currentView,
     goBack,
@@ -73,14 +72,13 @@ const Modal = props => {
             <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')}>
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
-            {tempName ? (
+            {template ? (
               <CMSModal
                 selectedTemplates={selectedTemplates}
                 closeModal={closeModal}
-                tempName={tempName}
                 formData={formData}
-                formProps={formProps}
                 updateFormData={updateFormData}
+                template={template}
                 updateTemplateData={updateTemplateData}
               />
             ) : (
