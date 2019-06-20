@@ -68,8 +68,9 @@ const GalleryModal = props => {
               type={galleryFormat.type}
               label={galleryFormat.label}
               name={galleryFormat.name}
+              group={idx + 1}
               error={null}
-              value={data[galleryFormat.name + idx] ? data[galleryFormat.name + idx].value : ''}
+              value={data[galleryFormat.name] ? data[galleryFormat.name].value : ''}
               updateFormData={updateFormData}
               required
             />

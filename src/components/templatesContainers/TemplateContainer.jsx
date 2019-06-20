@@ -35,9 +35,17 @@ const TemplateContainer = props => {
     [template.data]
   )
   const updateFormData = updatedData => {
-    console.log(updatedData)
     let newFormData = { ...data }
-    newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+
+    // builds groups if react needs to map over data
+    if (updatedData.group) {
+      let index = updatedData.group - 1
+      let object = { value: updatedData.value, error: updatedData.error }
+      newFormData.groups = newFormData.groups ? [...newFormData.groups] : (newFormData.groups = [])
+      newFormData.groups.splice(index, 1, { ...newFormData.groups[index], [updatedData.name]: object })
+    } else {
+      newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+    }
     setData(newFormData)
   }
   // modal functions
