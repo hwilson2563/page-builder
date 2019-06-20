@@ -341,36 +341,39 @@ export function buildGallery () {
 }
 export function buildJSON (templateData) {
   let eachGallery = {}
-  let templateDataKeys = Object.keys(templateData)
-  let numberOfGalleries = 0
 
-  // finds the number in the key to count galleries
-  templateDataKeys.forEach(object => {
-    let galleryIdx = object.replace(/\D/g, '')
-    numberOfGalleries = galleryIdx < numberOfGalleries ? numberOfGalleries : galleryIdx
-  })
   // builds object in array
-  for (let i = 0; i <= numberOfGalleries; i++) {
-    // value of
-    let galleryName = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
-    let infoTitle = templateData['infoTitle' + i] ? templateData['infoTitle' + i].value : 'Info Title'
-    let ariaLabel = templateData['galleryName' + i] ? templateData['galleryName' + i].value : 'Gallery Name'
-    let infoBodyText = templateData['infoBodyText' + i]
-      ? templateData['infoBodyText' + i].value
-      : 'Info Body Text Here'
-    let image = templateData['image' + i]
-      ? templateData['image' + i].value
-      : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
-    let imgAltText = templateData['imgAltText' + i] ? templateData['imgAltText' + i].value : 'image'
-    eachGallery[galleryName] = [
+  if (templateData.groups) {
+    templateData.groups.forEach(gallery => {
+      let galleryName = gallery.galleryName.value
+      let infoTitle = gallery.infoTitle.value
+      let ariaLabel = gallery.galleryName.value
+      let infoBodyText = gallery.infoBodyText.value
+      let image = gallery.image.value
+      let imgAltText = gallery.imgAltText.value
+      eachGallery[galleryName] = [
+        {
+          galleryButtonAriaLabel: ariaLabel,
+          infoTitle: infoTitle,
+          infoText: infoBodyText
+        },
+        {
+          imageSource: image,
+          altTag: imgAltText,
+          selected: true
+        }
+      ]
+    })
+  } else {
+    eachGallery['GalleryName'] = [
       {
-        galleryButtonAriaLabel: ariaLabel,
-        infoTitle: infoTitle,
-        infoText: infoBodyText
+        galleryButtonAriaLabel: 'Gallery Name',
+        infoTitle: 'Info Title',
+        infoText: 'Info Body Text Here'
       },
       {
-        imageSource: image,
-        altTag: imgAltText,
+        imageSource: 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+        altTag: 'imgAltText',
         selected: true
       }
     ]
