@@ -55,16 +55,12 @@ const GhostButton = styled(StyledButton)`
 `
 
 const CMSModal = props => {
-  const { closeModal, formData, updateFormData, tempName, updateTemplateData } = props
+  const { closeModal, formData, updateFormData, tempName, updateTemplateData, selectedTemplates } = props
   const FormProps = props.formProps
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>
-      <FormProps
-        data={formData}
-        updateFormData={updateFormData}
-        updateTemplateData={updateTemplateData}
-      />
+      <FormProps data={formData} updateFormData={updateFormData} selectedTemplates={selectedTemplates} updateTemplateData={updateTemplateData} />
       <ButtonContainer>
         <GhostButton
           onClick={() => {

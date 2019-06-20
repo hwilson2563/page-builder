@@ -23,7 +23,7 @@ const TemplateContain = styled.div`
   }
 `
 const TemplateContainer = props => {
-  const { idx, screen, selectedTemplateLength, template, updateSelectedTemplates, giveSelectedTemplateData } = props
+  const { idx, screen, selectedTemplates, selectedTemplateLength, template, updateSelectedTemplates, giveSelectedTemplateData } = props
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
@@ -81,7 +81,7 @@ const TemplateContainer = props => {
       : template.data
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component templateData={templateData} />
+      <Component templateData={templateData} order={idx + 1} id={template.id} />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}
@@ -90,6 +90,7 @@ const TemplateContainer = props => {
       />
       {displayForm && (
         <Modal
+          selectedTemplates={selectedTemplates}
           displayModal={displayForm}
           closeModal={closeModal}
           screen={screen}

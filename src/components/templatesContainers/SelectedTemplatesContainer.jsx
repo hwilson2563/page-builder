@@ -69,7 +69,7 @@ const SelectedTemplatesContainer = props => {
     let templates
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
-      selectedTemplates.map(template => {
+      selectedTemplates.map((template, idx) => {
         let Template = template.component
 
         if (template.modal.name === 'GalleryModal') {
@@ -77,9 +77,9 @@ const SelectedTemplatesContainer = props => {
             template.tempName === 'Gallery Template'
               ? { JSON: buildJSON(template.data), styling: template.data }
               : template.data
-          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={templateData} />))
+          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={templateData} id={template.id} order={idx + 1} />))
         } else {
-          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
+          return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} id={template.id} order={idx + 1} />))
         }
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
@@ -111,6 +111,7 @@ const SelectedTemplatesContainer = props => {
           <TemplateContainer
             key={idx}
             idx={idx}
+            selectedTemplates={selectedTemplates}
             selectedTemplateLength={selectedTemplateLength}
             template={template}
             updateSelectedTemplates={updateSelectedTemplates}
