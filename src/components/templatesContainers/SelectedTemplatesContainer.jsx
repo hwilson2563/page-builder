@@ -68,9 +68,9 @@ const SelectedTemplatesContainer = props => {
     let templates
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
-      selectedTemplates.map(template => {
+      selectedTemplates.map((template, idx) => {
         let Template = template.component
-        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} />))
+        return (templates += ReactDOMServer.renderToStaticMarkup(<Template templateData={template.data} id={template.id} order={idx + 1} />))
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
     }
