@@ -345,12 +345,12 @@ export function buildJSON (templateData) {
   // builds object in array
   if (templateData.groups) {
     templateData.groups.forEach(gallery => {
-      let galleryName = gallery.galleryName.value
-      let infoTitle = gallery.infoTitle.value
-      let ariaLabel = gallery.galleryName.value
-      let infoBodyText = gallery.infoBodyText.value
-      let image = gallery.image.value
-      let imgAltText = gallery.imgAltText.value
+      let galleryName = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
+      let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
+      let image = gallery.image ? gallery.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
+      let imgAltText = gallery.imgAltText ? gallery.imgAltText.value : 'Alt Text'
       eachGallery[galleryName] = [
         {
           galleryButtonAriaLabel: ariaLabel,
