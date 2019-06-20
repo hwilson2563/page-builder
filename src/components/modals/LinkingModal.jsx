@@ -97,7 +97,7 @@ const LinkingModal = props => {
         {selectedTemplates.map((template, idx) => {
           let order = idx + 1
           return (
-            <IdContainer>
+            <IdContainer key={idx}>
               <h4>{template.tempName}</h4>
               <p>{'ID: #' + template.id + '-' + order}</p>
             </IdContainer>
