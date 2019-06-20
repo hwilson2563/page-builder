@@ -26,7 +26,6 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
-  console.log(giveSelectedTemplateData)
   useEffect(
     () => {
       setData(template.data)
