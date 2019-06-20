@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const CMSDiv = styled.div`
   background-color: white;
@@ -77,6 +78,14 @@ const CMSModal = props => {
       </ButtonContainer>
     </CMSDiv>
   )
+}
+
+CMSModal.propTypes = {
+  closeModal: PropTypes.func,
+  formData: PropTypes.object,
+  updateFormData: PropTypes.func,
+  tempName: PropTypes.string,
+  updateTemplateData: PropTypes.func
 }
 
 export default CMSModal
