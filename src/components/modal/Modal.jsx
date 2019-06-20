@@ -57,13 +57,14 @@ const Modal = props => {
     formProps,
     updateFormData,
     updateTemplateData,
+    selectedTemplates,
     copyData,
     currentView,
     goBack,
     moveForward
   } = props
   let xMarkSize = '16px'
-  
+
   return (
     <>
       {displayModal && (
@@ -74,6 +75,7 @@ const Modal = props => {
             </Exit>
             {tempName ? (
               <CMSModal
+                selectedTemplates={selectedTemplates}
                 closeModal={closeModal}
                 tempName={tempName}
                 formData={formData}
