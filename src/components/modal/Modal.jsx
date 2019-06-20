@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+
 import CMSModal from './CMSModal'
 import IframeModal from './IframeModal'
 import { theme } from '../../utils/globalStyles'
@@ -51,7 +52,6 @@ const Modal = props => {
   let {
     closeModal,
     displayModal,
-    screen,
     tempName,
     formData,
     formProps,
@@ -63,13 +63,13 @@ const Modal = props => {
     moveForward
   } = props
   let xMarkSize = '16px'
-
+  
   return (
-    <Fragment>
+    <>
       {displayModal && (
         <ModalGrayBG className={'gray-bg'} onClick={e => closeModal(e, 'close')}>
           <ModalWrapper className={'modal-wrapper'} onClick={e => closeModal(e, 'open')}>
-            <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')} screen={screen}>
+            <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')}>
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
             {tempName ? (
@@ -87,15 +87,22 @@ const Modal = props => {
           </ModalWrapper>
         </ModalGrayBG>
       )}
-    </Fragment>
+    </>
   )
 }
 
-// Modal.propTypes = {
-//   closeModal: PropTypes.func,
-//   displayModal: PropTypes.bool,
-//   modal: PropTypes.PropTypes.func,
-//   screen: PropTypes.string
-// }
+Modal.propTypes = {
+  closeModal: PropTypes.func,
+  displayModal: PropTypes.bool,
+  tempName: PropTypes.string,
+  formData: PropTypes.object,
+  formProps: PropTypes.func,
+  updateFormData: PropTypes.func,
+  updateTemplateData: PropTypes.func,
+  copyData: PropTypes.string,
+  currentView: PropTypes.object,
+  goBack: PropTypes.func,
+  moveForward: PropTypes.func
+}
 
 export default Modal
