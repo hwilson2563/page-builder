@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Container = styled.div`
   background-color: white;
@@ -79,6 +80,13 @@ const IframeModal = props => {
       </ButtonContainer>
     </Container>
   )
+}
+
+IframeModal.propTypes = {
+  goBack: PropTypes.func,
+  moveForward: PropTypes.func,
+  copyData: PropTypes.string,
+  currentView: PropTypes.object
 }
 
 export default IframeModal
