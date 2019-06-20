@@ -41,10 +41,10 @@ const Gallery = props => {
                 {galleryName}
               </button>
               {/* <!-- Buttons will generate here --> */}
-              <button className={'info-button active'} ariaLabel={ariaLabel}>
+              <button className={'info-button active'} aria-label={ariaLabel}>
                 {galleryName}
               </button>
-              <button className={'dropdown-button active'} ariaLabel={ariaLabel}>
+              <button className={'dropdown-button active'} aria-label={ariaLabel}>
                 {galleryName}
               </button>
             </div>
@@ -61,7 +61,7 @@ const Gallery = props => {
             </div>
             <div id={'bullet-container'} className={'bullet-container'}>
               {/* <!-- Bullets will generate here --> */}
-              <button className={'bullet active'} ariaLabel={ariaLabel} />
+              <button className={'bullet active'} aria-label={ariaLabel} />
             </div>
           </div>
           <div className={'info-section'}>
