@@ -4,26 +4,36 @@ const Validation = {
   image: data => {
     return isUrl(data)
   },
-  altText: data => {
-    return isNotEmpty(data)
+  price: data => {
+    return isNumber(data)
   },
-  title: data => {
-    return isNotEmpty(data)
+  productPage: data => {
+    return isUrl(data)
   },
-  subtitle: data => {
-    return isNotEmpty(data)
+  video: data => {
+    return isUrl(data)
   }
 }
 
 function isUrl (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
-    let isUrl = Validator.isURL(data)
+    let isUrl = Validator.isURL(data, { protocols: ['http', 'https'], require_protocol: true })
     return [isUrl, data]
   } else {
     return [false, '']
   }
 }
+function isNumber (data) {
+  let isEmpty = Validator.isEmpty(data)
+  if (!isEmpty) {
+    let isUrl = Validator.isDecimal(data)
+    return [isUrl, data]
+  } else {
+    return [false, '']
+  }
+}
+
 function isNotEmpty (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
@@ -37,6 +47,8 @@ export const doValidation = data => {
   // get answer data
   // call the proper validation method based on data.name... then feed it data.value
   let isValid = true
-  isValid = Validation[data.name](data.value)
+  let name = data.name
+  name = Validator.contains(data.name, 'image') ? 'image' : name
+  isValid = Validation[name] ? Validation[name](data.value) : isNotEmpty(data.value)
   return isValid
 }
