@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
@@ -78,4 +79,13 @@ const FormEntry = props => {
     </EntryContainer>
   )
 }
+
+FormEntry.propTypes = {
+  name: PropTypes.string,
+  required: PropTypes.bool,
+  type: PropTypes.string,
+  updateFormData: PropTypes.func,
+  textArea: PropTypes.bool
+}
+
 export default FormEntry
