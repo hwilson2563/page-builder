@@ -11,32 +11,32 @@ const ButtonContainer = styled.div`
   flex-direction: row;
 `
 const StyledButton = styled.button`
-    margin: 5px;
-    font-size: 18px;
-    font-weight: 700;
-    height: 20px;
-    outline: none;
-    height: 45px;
-    width: 100%;
-    border: 2px solid ${props => props.theme.backgroundAccent};
-    background-color: white;
-    font-family: ${props => props.theme.fontBody};
-    text-align: center;
-    text-transform: uppercase;
-    color: ${props => props.theme.mainPrimary};
-    border-radius: 3px;
-    margin-bottom: 40px;
-    transition: 0.3s ease-in-out;
-    :hover {
-      cursor: pointer;
-      background-color: ${props => props.theme.backgroundAccent};
-    }
+  margin: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 20px;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  border: 2px solid ${props => props.theme.backgroundAccent};
+  background-color: white;
+  font-family: ${props => props.theme.fontBody};
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.theme.mainPrimary};
+  border-radius: 3px;
+  margin-bottom: 40px;
+  transition: 0.3s ease-in-out;
+  :hover {
+    cursor: pointer;
+    background-color: ${props => props.theme.backgroundAccent};
+  }
 `
 const GalleryModal = props => {
   const { updateFormData, data } = props
   const [galleryFormRender, setGalleryFormRender] = useState([0])
   let isMaxGalleries = galleryFormRender.length === 5
-
+  console.log(data)
   // this allows you to choose how many galleries in a section
   const buildAllGalleryFields = addGallery => {
     let createdGalleries = [...galleryFormRender]
@@ -62,21 +62,28 @@ const GalleryModal = props => {
     return (
       <Fragment key={idx}>
         <p>Gallery {idx + 1}</p>
-        {galleryObj.groups.map(galleryFormat => (
-          <Fragment key={galleryFormat.name + idx}>
-            <FormEntry
-              type={galleryFormat.type}
-              label={galleryFormat.label}
-              name={galleryFormat.name}
-              group={idx + 1}
-              error={null}
-              value={data[galleryFormat.name] ? data[galleryFormat.name].value : ''}
-              updateFormData={updateFormData}
-              required
-            />
-          </Fragment>
-        ))}
-        {galleryFormRender.length > 1 && <StyledButton onClick={() => buildAllGalleryFields(false, idx)}>Remove</StyledButton>}
+        {galleryObj.groups.map(galleryFormat => {
+          // debugger
+          let valueExists = data.groups && data.groups[idx] && data.groups[idx][galleryFormat.name]
+          return (
+            <Fragment key={galleryFormat.name + idx}>
+              <FormEntry
+                type={galleryFormat.type}
+                label={galleryFormat.label}
+                name={galleryFormat.name}
+                group={idx + 1}
+                error={null}
+                // value={data[galleryFormat.name] ? data[galleryFormat.name].value : ''}
+                value={valueExists ? data.groups[idx][galleryFormat.name].value : ''}
+                updateFormData={updateFormData}
+                required
+              />
+            </Fragment>
+          )
+        })}
+        {galleryFormRender.length > 1 && (
+          <StyledButton onClick={() => buildAllGalleryFields(false, idx)}>Remove</StyledButton>
+        )}
       </Fragment>
     )
   }
