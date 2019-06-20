@@ -19,7 +19,6 @@ const TwoLargeImgModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -28,7 +27,6 @@ const TwoLargeImgModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
@@ -37,7 +35,7 @@ const TwoLargeImgModal = props => {
         error={null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
-        srequired
+        required
       />
       <Section>First Image Form</Section>
       {/* First Img Temp */}
