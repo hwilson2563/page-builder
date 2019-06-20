@@ -34,7 +34,7 @@ const StyledButton = styled.button`
 `
 const GalleryModal = props => {
   const { updateFormData, data } = props
-  const [galleryFormRender, setGalleryFormRender] = useState([0])
+  const [galleryFormRender, setGalleryFormRender] = useState(data.groups || [0])
   let isMaxGalleries = galleryFormRender.length === 5
   console.log(data)
   // this allows you to choose how many galleries in a section
@@ -63,7 +63,6 @@ const GalleryModal = props => {
       <Fragment key={idx}>
         <p>Gallery {idx + 1}</p>
         {galleryObj.groups.map(galleryFormat => {
-          // debugger
           let valueExists = data.groups && data.groups[idx] && data.groups[idx][galleryFormat.name]
           return (
             <Fragment key={galleryFormat.name + idx}>
@@ -73,7 +72,6 @@ const GalleryModal = props => {
                 name={galleryFormat.name}
                 group={idx + 1}
                 error={null}
-                // value={data[galleryFormat.name] ? data[galleryFormat.name].value : ''}
                 value={valueExists ? data.groups[idx][galleryFormat.name].value : ''}
                 updateFormData={updateFormData}
                 required
@@ -87,6 +85,7 @@ const GalleryModal = props => {
       </Fragment>
     )
   }
+
   return (
     <>
       <FormEntry
