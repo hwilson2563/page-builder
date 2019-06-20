@@ -33,17 +33,20 @@ const StyledButton = styled.button`
   }
 `
 const GalleryModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [galleryFormRender, setGalleryFormRender] = useState(data.groups || [0])
   let isMaxGalleries = galleryFormRender.length === 5
-  console.log(data)
+
   // this allows you to choose how many galleries in a section
-  const buildAllGalleryFields = addGallery => {
+  const buildAllGalleryFields = (addGallery, idx) => {
     let createdGalleries = [...galleryFormRender]
     if (addGallery) {
       createdGalleries.push(createdGalleries.length)
     } else {
       createdGalleries.pop()
+      let incomingDataClone = { ...data }
+      incomingDataClone.groups.splice(idx, 1)
+      updateTemplateData(incomingDataClone)
     }
     setGalleryFormRender(createdGalleries)
   }

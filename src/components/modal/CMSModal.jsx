@@ -63,6 +63,7 @@ const CMSModal = props => {
       <FormProps
         data={formData}
         updateFormData={updateFormData}
+        updateTemplateData={updateTemplateData}
       />
       <ButtonContainer>
         <GhostButton
