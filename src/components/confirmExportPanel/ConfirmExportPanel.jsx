@@ -14,6 +14,9 @@ const ConfirmExport = styled.div`
   display: flex;
   .confirm-view:hover + .tip {
     opacity: 1;
+    height: 35px;
+    width: 150px;
+    padding: 5px 8px;
   }
 `
 
@@ -25,7 +28,7 @@ const Button = styled.button`
   border: none;
   outline: none;
   transition: 0.3s ease-in-out;
-  :hover {
+  &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
@@ -50,19 +53,18 @@ const TextArea = styled.textarea`
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 `
 const Tip = styled.div`
-  height: 50px;
-  width: 150px;
+  height: 0px;
+  width: 0px;
   z-index: 2;
   opacity: 0;
   position: absolute;
-  right: 80px;
-  top: 10px;
+  right: 10px;
+  top: 80px;
   border: none;
   border-radius: 6px 6px 6px 6px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   font-size: 10px;
   line-height: 1.4em;
-  padding: 5px 8px;
   resize: none;
   background-color: ${props => props.theme.backgroundAccent + 'CC'};
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -149,15 +151,13 @@ const ConfirmExportPanel = props => {
   return (
     <ConfirmExport>
       <TextArea showCopy={showCopy} type={'text'} value={copyData} id={'copy-textarea'} readOnly={'readonly'} />
-      {confirmedViews && (
-        <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
-          <ExportIcon showCopy={showCopy} />
-        </Button>
-      )}
+      <Button showCopy={showCopy} onClick={exportHTML} className={'export-btn'}>
+        <ExportIcon showCopy={showCopy} />
+      </Button>
       <Button showCopy={showCopy} onClick={openModal} className={'confirm-view'}>
         <ResponsiveIcon />
       </Button>
-      {!confirmedViews && <Tip className={'tip'}> Please review each screen type to export your code!</Tip>}
+      {!confirmedViews && <Tip className={'tip'}> Please review each screen type before exporting your code!</Tip>}
       <Modal
         displayModal={displayModal}
         closeModal={closeModal}
