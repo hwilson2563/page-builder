@@ -25,7 +25,6 @@ const IdContainer = styled.div`
 `
 const LinkingModal = props => {
   const { updateFormData, data, selectedTemplates } = props
-  console.log(selectedTemplates)
   return (
     <>
       <FormEntry
