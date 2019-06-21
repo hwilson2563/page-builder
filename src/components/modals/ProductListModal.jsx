@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const ProductListModal = props => {
   const { updateFormData, data } = props
@@ -34,9 +35,9 @@ const ProductListModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText'}
+        name={'altText'}
         error={null}
-        value={data['imageAltText'] ? data['imageAltText'].value : ''}
+        value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -70,4 +71,10 @@ const ProductListModal = props => {
     </>
   )
 }
+
+ProductListModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default ProductListModal

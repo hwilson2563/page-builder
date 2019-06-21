@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const SingleButton = props => {
   const { templateData, id } = props
@@ -20,6 +21,11 @@ const SingleButton = props => {
 
   // <!-- END SINGLE BUTTON -->
   )
+}
+
+SingleButton.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default SingleButton

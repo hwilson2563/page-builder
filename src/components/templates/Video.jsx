@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Video = props => {
   const { templateData, id } = props
@@ -21,6 +22,11 @@ const Video = props => {
     </div>
     // <!-- END VIDEO TEMPLATE -->
   )
+}
+
+Video.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Video

@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const ButtonTextModal = props => {
   const { updateFormData, data } = props
@@ -34,8 +35,8 @@ const ButtonTextModal = props => {
       <FormEntry
         type={'input'}
         label={'Button Text'}
-        name={'button'}
-        value={data['button'] ? data['button'].value : ''}
+        name={'buttonText'}
+        value={data['buttonText'] ? data['buttonText'].value : ''}
         error={null}
         updateFormData={updateFormData}
         required
@@ -61,4 +62,10 @@ const ButtonTextModal = props => {
     </>
   )
 }
+
+ButtonTextModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default ButtonTextModal

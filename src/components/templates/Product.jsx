@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Product = props => {
   const { templateData, id } = props
@@ -10,7 +11,7 @@ const Product = props => {
   let image = templateData.image
     ? templateData.image.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
+  let altText = templateData.altText ? templateData.altText.value : ''
   let productName = templateData.productName ? templateData.productName.value : 'Place Title Here'
   let price = templateData.price ? templateData.price.value : ' price here'
   let productPage = templateData.productPage ? templateData.productPage.value : 'https://www.woodlanddirect.com'
@@ -21,7 +22,7 @@ const Product = props => {
         {/* <!-- add/remove products as needed -->
     <!-- single product starts here (for copying and pasting) --> */}
         <a className={'single-product ' + productWhite} href={productPage} target={'__blank'}>
-          <img src={image} alt={imageAltText} />
+          <img src={image} alt={altText} />
           <h4>{productName}</h4>
           <p>Starting at</p>
           <p>{'$' + price}</p>
@@ -34,6 +35,11 @@ const Product = props => {
     </div>
     /* <!-- END PRODUCT LIST TEMPLATE --> */
   )
+}
+
+Product.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Product

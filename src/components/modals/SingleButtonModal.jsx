@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const SingleButtonModal = props => {
   const { updateFormData, data } = props
@@ -52,4 +53,10 @@ const SingleButtonModal = props => {
     </>
   )
 }
+
+SingleButtonModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default SingleButtonModal

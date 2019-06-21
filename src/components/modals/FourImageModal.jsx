@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 
 const Section = styled.div`
@@ -52,9 +53,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt1'}
+        name={'altText1'}
         error={null}
-        value={data['alt1'] ? data['alt1'].value : ''}
+        value={data['altText1'] ? data['altText1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -70,10 +71,10 @@ const FourImageModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText1'}
+        label={'Paragraph Text'}
+        name={'paragraph1'}
         error={null}
-        value={data['bodyText1'] ? data['bodyText1'].value : ''}
+        value={data['paragraph1'] ? data['paragraph1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -91,9 +92,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt2'}
+        name={'altText2'}
         error={null}
-        value={data['alt2'] ? data['alt2'].value : ''}
+        value={data['altText2'] ? data['altText2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -109,10 +110,10 @@ const FourImageModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText2'}
+        label={'Paragraph Text'}
+        name={'paragraph2'}
         error={null}
-        value={data['bodyText2'] ? data['bodyText2'].value : ''}
+        value={data['paragraph2'] ? data['paragraph2'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -130,9 +131,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt3'}
+        name={'altText3'}
         error={null}
-        value={data['alt3'] ? data['alt3'].value : ''}
+        value={data['altText3'] ? data['altText3'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -148,10 +149,10 @@ const FourImageModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText3'}
+        label={'Paragraph Text'}
+        name={'paragraph3'}
         error={null}
-        value={data['bodyText3'] ? data['bodyText3'].value : ''}
+        value={data['paragraph3'] ? data['paragraph3'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -169,9 +170,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt4'}
+        name={'altText4'}
         error={null}
-        value={data['alt4'] ? data['alt4'].value : ''}
+        value={data['altText4'] ? data['altText4'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -187,14 +188,20 @@ const FourImageModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText4'}
+        label={'Paragraph Text'}
+        name={'paragraph4'}
         error={null}
-        value={data['bodyText4'] ? data['bodyText4'].value : ''}
+        value={data['paragraph4'] ? data['paragraph4'].value : ''}
         updateFormData={updateFormData}
         required
       />
     </>
   )
 }
+
+FourImageModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default FourImageModal
