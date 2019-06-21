@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+import Attention from './parts/Attention'
 import { doValidation } from '../../utils/validation'
-import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
+import { EntryContainer, Input, Label, TextArea, ErrorMessage } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
@@ -12,6 +13,7 @@ const FormEntry = props => {
   const [inputValue, setValue] = useState(storedValue)
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
   useEffect(
     () => {
       setValue(storedValue)
@@ -22,16 +24,20 @@ const FormEntry = props => {
     let isValid = null
     if (required) {
       // validate function and setError
-      let validation = doValidation({ name, value })
+
+      let validation = doValidation({ name, value: inputValue })
       isValid = !validation[0]
+      setErrorMessage(validation[1])
       setNoError(!isValid)
     }
     setSelected(false)
     // update higher state
-    if (group) {
-      updateFormData({ name, value: inputValue, group, error: isValid })
-    } else {
-      updateFormData({ name, value: inputValue, error: isValid })
+    if (inputValue !== '') {
+      if (group) {
+        updateFormData({ name, value: inputValue, group, error: isValid })
+      } else {
+        updateFormData({ name, value: inputValue, error: isValid })
+      }
     }
   }
   const handleChange = target => {
@@ -82,6 +88,8 @@ const FormEntry = props => {
           error={noError}
         />
       )}
+      {noError === false && <Attention />}
+      {noError === false && errorMessage.length > 1 && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </EntryContainer>
   )
 }

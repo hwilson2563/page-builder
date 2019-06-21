@@ -19,7 +19,7 @@ function isUrl (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
     let isUrl = Validator.isURL(data, { protocols: ['http', 'https'], require_protocol: true })
-    return [isUrl, data]
+    return [isUrl, '*Invalid url. Must contain https:// before www']
   } else {
     return [false, '']
   }
@@ -27,8 +27,8 @@ function isUrl (data) {
 function isNumber (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
-    let isUrl = Validator.isDecimal(data)
-    return [isUrl, data]
+    let isNumber = Validator.isDecimal(data)
+    return [isNumber, '*Numbers only']
   } else {
     return [false, '']
   }
@@ -37,7 +37,7 @@ function isNumber (data) {
 function isNotEmpty (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
-    return [!isEmpty, data]
+    return [!isEmpty, '']
   } else {
     return [false, '']
   }
