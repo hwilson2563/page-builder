@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Linking = props => {
   const { templateData, id } = props
@@ -46,6 +47,11 @@ const Linking = props => {
     </div>
     // <!-- END OF LINKING TEMPLATE -->
   )
+}
+
+Linking.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Linking

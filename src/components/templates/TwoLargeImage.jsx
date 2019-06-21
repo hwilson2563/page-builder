@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const TwoLargeImage = props => {
   const { templateData, id } = props
@@ -42,6 +43,11 @@ const TwoLargeImage = props => {
     </div>
     // <!-- END TWO LARGE IMAGE TEMPLATE -->
   )
+}
+
+TwoLargeImage.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default TwoLargeImage

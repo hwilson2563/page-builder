@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const ButtonTextModal = props => {
   const { updateFormData, data } = props
@@ -61,4 +62,10 @@ const ButtonTextModal = props => {
     </>
   )
 }
+
+ButtonTextModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default ButtonTextModal

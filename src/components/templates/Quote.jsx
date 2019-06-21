@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Quote = props => {
   const { templateData, id } = props
@@ -89,6 +90,11 @@ const Quote = props => {
     </div>
     /* <!-- END QUOTES TEMPLATE --> */
   )
+}
+
+Quote.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Quote

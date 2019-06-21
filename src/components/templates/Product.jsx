@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Product = props => {
   const { templateData, id } = props
@@ -34,6 +35,11 @@ const Product = props => {
     </div>
     /* <!-- END PRODUCT LIST TEMPLATE --> */
   )
+}
+
+Product.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Product

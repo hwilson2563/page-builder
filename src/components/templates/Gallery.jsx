@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { PropTypes } from 'prop-types'
+
 import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
@@ -105,6 +107,11 @@ const Gallery = props => {
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
   )
+}
+
+Gallery.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Gallery

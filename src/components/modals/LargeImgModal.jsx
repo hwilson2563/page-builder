@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const LargeImgModal = props => {
   const { updateFormData, data } = props
@@ -43,4 +44,10 @@ const LargeImgModal = props => {
     </>
   )
 }
+
+LargeImgModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default LargeImgModal

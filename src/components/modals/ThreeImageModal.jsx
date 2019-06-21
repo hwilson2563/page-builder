@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
 import FormEntry from '../modal/FormEntry'
@@ -159,4 +160,10 @@ const ThreeImageModal = props => {
     </>
   )
 }
+
+ThreeImageModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default ThreeImageModal

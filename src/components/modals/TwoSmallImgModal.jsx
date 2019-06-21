@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
 import FormEntry from '../modal/FormEntry'
@@ -120,4 +121,10 @@ const TwoSmallImgModal = props => {
     </>
   )
 }
+
+TwoSmallImgModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default TwoSmallImgModal

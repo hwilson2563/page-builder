@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const ThreeImage = props => {
   const { templateData, id } = props
@@ -69,6 +70,11 @@ const ThreeImage = props => {
     </div>
     // <!-- END OF THREE IMG TEMPLATE  -->
   )
+}
+
+ThreeImage.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default ThreeImage

@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const OneImageText = props => {
   const { templateData, id } = props
@@ -29,6 +30,11 @@ const OneImageText = props => {
     </div>
     // <!-- END ONE IMAGE-TEXT-TEMPLATE HERE--></div>
   )
+}
+
+OneImageText.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default OneImageText

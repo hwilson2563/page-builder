@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const ButtonText = props => {
   const { templateData, id } = props
@@ -20,6 +21,11 @@ const ButtonText = props => {
     </div>
   // <!-- END BUTTON TEXT TEMPLATE -->
   )
+}
+
+ButtonText.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default ButtonText

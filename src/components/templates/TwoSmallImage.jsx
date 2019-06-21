@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const TwoSmallImage = props => {
   const { templateData, id } = props
@@ -45,6 +46,11 @@ const TwoSmallImage = props => {
     </div>
     // <!-- END TWO SMALL IMAGE TEMPLATE -->
   )
+}
+
+TwoSmallImage.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default TwoSmallImage

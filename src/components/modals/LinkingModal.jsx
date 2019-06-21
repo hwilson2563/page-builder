@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { PropTypes } from 'prop-types'
 
 import FormEntry from '../modal/FormEntry'
 
@@ -125,4 +126,11 @@ const LinkingModal = props => {
     </>
   )
 }
+
+LinkingModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func,
+  selectedTemplates: PropTypes.object
+}
+
 export default LinkingModal

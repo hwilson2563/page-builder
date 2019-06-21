@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const LargeImage = props => {
   const { templateData, id } = props
@@ -15,6 +16,11 @@ const LargeImage = props => {
     </div>
     //* <!-- END LARGE IMAGE TEMPLATE --> */
   )
+}
+
+LargeImage.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default LargeImage

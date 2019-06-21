@@ -1,5 +1,7 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
+
 const QuotesModal = props => {
   const { updateFormData, data } = props
   return (
@@ -95,4 +97,10 @@ const QuotesModal = props => {
     </>
   )
 }
+
+QuotesModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default QuotesModal

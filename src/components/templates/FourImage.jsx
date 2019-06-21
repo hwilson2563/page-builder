@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const FourImage = props => {
   const { templateData, id } = props
@@ -87,6 +88,11 @@ const FourImage = props => {
     </div>
     // <!-- END FOUR IMAGE TEMPLATE -->
   )
+}
+
+FourImage.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default FourImage
