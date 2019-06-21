@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Video = props => {
-  const { templateData } = props
+  const { templateData, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   const convertVideo = video => {
@@ -11,7 +11,7 @@ const Video = props => {
 
   return (
     // <!-- START VIDEO TEMPLATE -->
-    <div id='video-template' className={backgroundDark + ' ' + addPadding}>
+    <div id={id} className={'video-template ' + backgroundDark + ' ' + addPadding}>
       <div className='video-template-cont'>
         <div className='iframe-container'>
           {/* <!-- FOR LINK: if using a youtube link, just replace the 'watch?v=' with 'embed/' from whichever youtube video you want: so https://www.youtube.com/watch?v=ZY3J3Y_OU0w becomes what you see below --> */}

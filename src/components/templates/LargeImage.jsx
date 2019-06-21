@@ -1,7 +1,7 @@
 import React from 'react'
 
 const LargeImage = props => {
-  const { templateData } = props
+  const { templateData, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -10,7 +10,7 @@ const LargeImage = props => {
   let altText = templateData.altText ? templateData.altText.value : ''
   return (
     // <!-- START LARGE IMAGE TEMPLATE -->
-    <div id='large-image-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id={id} className={'large-image-temp ' + backgroundDark + ' ' + addPadding}>
       <img src={image} alt={altText} />
     </div>
     //* <!-- END LARGE IMAGE TEMPLATE --> */

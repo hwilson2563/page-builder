@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Linking = props => {
-  const { templateData } = props
+  const { templateData, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -18,7 +18,7 @@ const Linking = props => {
 
   return (
     // <!-- START OF LINKING TEMPLATE -->
-    <div id='linking-temp' className={backgroundDark + ' ' + addPadding}>
+    <div id={id} className={'linking-temp ' + backgroundDark + ' ' + addPadding}>
       <div className='linking-temp-cont'>
         <div className='image-text-container'>
           <img src={image} alt={altText} />

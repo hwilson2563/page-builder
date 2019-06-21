@@ -45,6 +45,7 @@ function addReadMoreClicks () {
 // add read more funtions to the read more read less buttons
 window.addEventListener('load', addReadMoreClicks())
 
+
 //
 // GALLERY TEMPLATE BEGINS
 //

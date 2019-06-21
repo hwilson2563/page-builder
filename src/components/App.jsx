@@ -10,7 +10,6 @@ import {
   removeSelectedTemplates,
   moveUpSelectedTemplates,
   moveDownSelectedTemplates,
-  buildGallery,
   addReadMoreClicks,
   readMore
 } from '../utils/utils'
@@ -30,7 +29,8 @@ const App = () => {
           backgroundDark: false
         },
         modal: templatesData[component].modal,
-        tempName: component
+        tempName: component,
+        id: templatesData[component].id
       }
       updatedTemplates = addSelectedTemplates(newTemplate, clone)
     }
@@ -43,6 +43,7 @@ const App = () => {
 
         if (confirmation) {
           updatedTemplates = removeSelectedTemplates(clone, idx)
+
         } else {
           updatedTemplates = selectedTemplates
         }
@@ -80,7 +81,6 @@ const App = () => {
   // useeffect to add funtionality to html
   useEffect(
     () => {
-      buildGallery()
       addReadMoreClicks()
     },
     [selectedTemplates]
