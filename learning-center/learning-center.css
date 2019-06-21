@@ -102,7 +102,7 @@ div {
 }
 
 p {
-  word-break: break-all;
+  word-break: break-word;
   hyphens: auto;
 }
 
@@ -139,7 +139,7 @@ p {
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  width: 275px;
+  width: 100%;
 }
 
 .button-link {
@@ -986,6 +986,7 @@ button:focus {
   /* START BUTTON */
   .template-button {
     display: inline-block;
+    min-width: 260px;
   }
   /* END BUTTON */
   /* START Button Text Template */

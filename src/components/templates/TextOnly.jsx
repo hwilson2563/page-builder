@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TextOnly = props => {
-  const { templateData, order, id } = props
+  const { templateData, id } = props
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -9,7 +9,7 @@ const TextOnly = props => {
   let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place paragraph text here'
   return (
     // <!-- START OF TEXT ONLY TEMPLATE -->
-    <div id={id + '-' + order} className={'text-only-temp ' + backgroundDark + ' ' + addPadding}>
+    <div id={id} className={'text-only-temp ' + backgroundDark + ' ' + addPadding}>
       <div className='text-only-temp-cont'>
         <h3>{title}</h3>
         {/* <!-- start paragraphs here -->

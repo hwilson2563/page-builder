@@ -9,7 +9,7 @@ const TemplateContain = styled.div`
   position: relative;
   height: auto;
   transition: height 5s ease-in;
-  :hover {
+  &:hover {
     min-height: 127px;
     .control-panel {
       opacity: 1;
@@ -23,7 +23,15 @@ const TemplateContain = styled.div`
   }
 `
 const TemplateContainer = props => {
-  const { idx, screen, selectedTemplates, selectedTemplateLength, template, updateSelectedTemplates, giveSelectedTemplateData } = props
+  const {
+    idx,
+    screen,
+    selectedTemplates,
+    selectedTemplateLength,
+    template,
+    updateSelectedTemplates,
+    giveSelectedTemplateData
+  } = props
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
@@ -34,6 +42,7 @@ const TemplateContainer = props => {
     },
     [template.data]
   )
+
   const updateFormData = updatedData => {
     let newFormData = { ...data }
 
@@ -59,13 +68,16 @@ const TemplateContainer = props => {
   const toggleDisplayForm = () => {
     setDisplayForm(!displayForm)
   }
+
   const handleClick = () => {
     toggleDisplayForm()
   }
+
   const closeModal = (e, value) => {
     e.stopPropagation()
     if (value === 'close') {
       toggleDisplayForm()
+      // save data if they did not hit save
       updateTemplateData(data)
     }
   }
@@ -75,32 +87,30 @@ const TemplateContainer = props => {
     setData(newData)
     giveSelectedTemplateData(idx, newData)
   }
+  let indexId = template.id + '-' + (idx + 1)
   let templateData =
-    template.tempName === 'Gallery Template'
-      ? { JSON: buildJSON(template.data), styling: template.data }
-      : template.data
+  template.tempName === 'Gallery Template'
+    ? { JSON: buildJSON(template.data), styling: template.data }
+    : template.data
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component templateData={templateData} order={idx + 1} id={template.id} />
+      <Component templateData={templateData} id={indexId} />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}
         idx={idx}
         modal={template.modal}
       />
-      {displayForm && (
-        <Modal
-          selectedTemplates={selectedTemplates}
-          displayModal={displayForm}
-          closeModal={closeModal}
-          screen={screen}
-          tempName={template.tempName}
-          formData={data}
-          formProps={template.modal}
-          updateFormData={updateFormData}
-          updateTemplateData={updateTemplateData}
-        />
-      )}
+      <Modal
+        selectedTemplates={selectedTemplates}
+        displayModal={displayForm}
+        closeModal={closeModal}
+        screen={screen}
+        template={template}
+        formData={data}
+        updateFormData={updateFormData}
+        updateTemplateData={updateTemplateData}
+      />
     </TemplateContain>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const XMarkSvg = styled.svg`
   width: ${props => props.width || '39px'};
@@ -7,7 +8,7 @@ const XMarkSvg = styled.svg`
   stroke-width: 95;
   stroke-miterlimit: 10;
   stroke: ${props => props.fill || 'white'};
-  transition: .3s ease-in-out
+  transition: 0.3s ease-in-out;
 `
 const XMark = props => {
   const { fill, height, width } = props
@@ -19,6 +20,12 @@ const XMark = props => {
       </g>
     </XMarkSvg>
   )
+}
+
+XMark.propTypes = {
+  fill: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string
 }
 
 export default XMark

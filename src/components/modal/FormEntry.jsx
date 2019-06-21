@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
   const { name, required, type, group, updateFormData, textArea } = props
+  let storedValue = props.value
   let label = props.required ? props.label : props.label + ' (Optional)'
-  const [value, setValue] = useState(props.value)
+  const [inputValue, setValue] = useState(storedValue)
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(null)
   useEffect(
     () => {
-      setValue(props.value)
+      setValue(storedValue)
     },
-    [props.value]
+    [storedValue]
   )
   const handleBlur = () => {
     let isValid = null
@@ -26,29 +28,29 @@ const FormEntry = props => {
     setSelected(false)
     // update higher state
     if (group) {
-      updateFormData({ name, value, group, error: isValid })
+      updateFormData({ name, value: inputValue, group, error: isValid })
     } else {
-      updateFormData({ name, value, error: isValid })
+      updateFormData({ name, value: inputValue, error: isValid })
     }
   }
   const handleChange = target => {
-    let value
+    let newValue
     if (type === 'checkbox') {
-      value = target.checked
+      newValue = target.checked
     } else {
-      value = target.value
+      newValue = target.value
     }
-    setValue(value)
+    setValue(newValue)
   }
   return (
     <EntryContainer className={'entry-container ' + name} label={label}>
-      <Label className={'entry-label'} type={type} label={label} selected={selected} value={value}>
+      <Label className={'entry-label'} type={type} label={label} selected={selected} value={inputValue}>
         {label}
       </Label>
       {textArea ? (
         <TextArea
           className={'input'}
-          value={value}
+          value={inputValue}
           onBlur={handleBlur}
           onChange={e => setValue(e.target.value)}
           onFocus={() => {
@@ -63,7 +65,7 @@ const FormEntry = props => {
       ) : (
         <Input
           className={'input'}
-          value={value}
+          value={inputValue}
           onBlur={handleBlur}
           onChange={e => {
             handleChange(e.target)
@@ -72,7 +74,7 @@ const FormEntry = props => {
             setNoError(true)
             setSelected(true)
           }}
-          checked={type === 'checkbox' ? value : ''}
+          checked={type === 'checkbox' ? inputValue : ''}
           type={type}
           name={name}
           required={required}
@@ -82,4 +84,13 @@ const FormEntry = props => {
     </EntryContainer>
   )
 }
+
+FormEntry.propTypes = {
+  name: PropTypes.string,
+  required: PropTypes.bool,
+  type: PropTypes.string,
+  updateFormData: PropTypes.func,
+  textArea: PropTypes.bool
+}
+
 export default FormEntry

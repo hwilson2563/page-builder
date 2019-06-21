@@ -5,7 +5,6 @@ const Container = styled.section`
   position: relative;
 `
 const Export = styled.svg`
-  position: absolute;
   top: 0;
   left: 0;
   fill: ${props => props.theme.accentPrimary};
@@ -15,7 +14,6 @@ const ExportText = styled.section`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +21,7 @@ const ExportText = styled.section`
   height: 53px;
   border-radius: 100%;
   color: ${props => props.showCopy ? 'white' : 'transparent'};
-  background-color: ${props => props.showCopy ? props.theme.accentPrimary : 'transparent'};;
+  background-color: ${props => props.showCopy ? props.theme.accentPrimary : 'transparent'};
   font-family: ${props => props.theme.fontBody};
   font-size: 10px;
   font-weight: 700;

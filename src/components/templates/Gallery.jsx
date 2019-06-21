@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
-  const { templateData, order, id } = props
+  const { templateData, id } = props
   let backgroundDark =
     templateData.styling.backgroundDark && templateData.styling.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.styling.addPadding && templateData.styling.addPadding.value ? 'add-padding' : 'padding'
@@ -20,7 +20,7 @@ const Gallery = props => {
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id={id + '-' + order} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
+      <div id={id} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
         <div className={'container'}>
           <div className={'button-section'}>
             <h2>{sectionName}</h2>
