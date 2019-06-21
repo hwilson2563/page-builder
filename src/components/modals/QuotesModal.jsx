@@ -54,9 +54,9 @@ const QuotesModal = props => {
       <FormEntry
         type={'input'}
         label={'FAQ - Question'}
-        name={'faq'}
+        name={'title'}
         error={null}
-        value={data['faq'] ? data['faq'].value : ''}
+        value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required
       />

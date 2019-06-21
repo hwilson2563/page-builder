@@ -34,9 +34,9 @@ const OneImageTextModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText'}
+        name={'altText'}
         error={null}
-        value={data['imageAltText'] ? data['imageAltText'].value : ''}
+        value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
       />

@@ -34,8 +34,8 @@ const ButtonTextModal = props => {
       <FormEntry
         type={'input'}
         label={'Button Text'}
-        name={'button'}
-        value={data['button'] ? data['button'].value : ''}
+        name={'buttonText'}
+        value={data['buttonText'] ? data['buttonText'].value : ''}
         error={null}
         updateFormData={updateFormData}
         required

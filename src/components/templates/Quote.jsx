@@ -8,7 +8,7 @@ const Quote = props => {
   let faqTemplate = templateData['faqLayout'] && templateData['faqLayout'].value === true
   let proTipTemplate = templateData['proTipLayout'] && templateData['proTipLayout'].value === true
   let feedbackTemplate = templateData['feedBackLayout'] && templateData['feedBackLayout'].value === true
-  let faq = templateData.faq ? templateData.faq.value : 'Frequent Question Here?'
+  let title = templateData.title ? templateData.title.value : 'Frequent Question Here?'
   let answer = templateData.answer ? templateData.answer.value : 'answer here'
   let proTip = templateData.proTip ? templateData.proTip.value : 'Pro Tip Here'
   let customerFeedback = templateData.customerFeedback ? templateData.customerFeedback.value : 'feedback'
@@ -25,7 +25,7 @@ const Quote = props => {
               alt='question mark icon'
             />
             {/* <!-- start quote title --> */}
-            <h3>{faq}</h3>
+            <h3>{title}</h3>
             {/* <!-- end quote title --> */}
           </div>
           {/* <!-- START add/remove p tags as needed --> */}

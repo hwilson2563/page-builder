@@ -53,10 +53,10 @@ const BannerModal = props => {
       <FormEntry
         type={'input'}
         label={'Subtitle'}
-        name={'subtitle'}
+        name={'subheader'}
         error={null}
         updateFormData={updateFormData}
-        value={data['subtitle'] ? data['subtitle'].value : ''}
+        value={data['subheader'] ? data['subheader'].value : ''}
         required
       />
     </>
