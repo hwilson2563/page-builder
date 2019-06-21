@@ -8,7 +8,7 @@ const Banner = props => {
   const url = templateData.image
     ? templateData.image.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  const altText = templateData.altTextText ? templateData.altTextText.value : 'Place Title Here'
+  const altText = templateData.altText ? templateData.altText.value : 'Place Title Here'
   const title = templateData.title ? templateData.title.value : 'Place Title Here'
   const subheader = templateData.subheader ? templateData.subheader.value : 'Place Title Here'
 
