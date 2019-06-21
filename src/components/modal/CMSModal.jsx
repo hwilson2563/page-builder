@@ -60,7 +60,7 @@ const CMSModal = props => {
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>
-      <FormProps data={formData} updateFormData={updateFormData} selectedTemplates={selectedTemplates} />
+      <FormProps data={formData} updateFormData={updateFormData} selectedTemplates={selectedTemplates} updateTemplateData={updateTemplateData} />
       <ButtonContainer>
         <GhostButton
           onClick={() => {

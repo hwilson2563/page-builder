@@ -4,7 +4,7 @@ import { EntryContainer, Input, Label, TextArea } from './formEntryStyles'
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
-  const { name, required, type, updateFormData, textArea } = props
+  const { name, required, type, group, updateFormData, textArea } = props
   let label = props.required ? props.label : props.label + ' (Optional)'
   const [value, setValue] = useState(props.value)
   const [selected, setSelected] = useState(false)
@@ -25,7 +25,11 @@ const FormEntry = props => {
     }
     setSelected(false)
     // update higher state
-    updateFormData({ name, value, error: isValid })
+    if (group) {
+      updateFormData({ name, value, group, error: isValid })
+    } else {
+      updateFormData({ name, value, error: isValid })
+    }
   }
   const handleChange = target => {
     let value

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
+import { buildJSON } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -26,6 +27,7 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
+
   useEffect(
     () => {
       setData(template.data)
@@ -34,7 +36,23 @@ const TemplateContainer = props => {
   )
   const updateFormData = updatedData => {
     let newFormData = { ...data }
-    newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+
+    // builds groups if react needs to map over data
+    if (updatedData.group) {
+      let index = updatedData.group - 1
+      let object = { value: updatedData.value, error: updatedData.error }
+      newFormData.groups = newFormData.groups ? [...newFormData.groups] : (newFormData.groups = [])
+
+      // this was added incase they edit the galleries out of order, they stay in place
+      let arrayLength = newFormData.groups.length ? newFormData.groups.length - 1 : newFormData.groups.length
+      while (arrayLength < index) {
+        newFormData.groups.push({})
+        arrayLength++
+      }
+      newFormData.groups.splice(index, 1, { ...newFormData.groups[index], [updatedData.name]: object })
+    } else {
+      newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
+    }
     setData(newFormData)
   }
   // modal functions
@@ -52,17 +70,18 @@ const TemplateContainer = props => {
     }
   }
   // end modal functions
-  // const clearData = () => {
-  //   giveSelectedTemplateData(idx, {})
-  // }
+
   const updateTemplateData = newData => {
     setData(newData)
     giveSelectedTemplateData(idx, newData)
   }
-
+  let templateData =
+    template.tempName === 'Gallery Template'
+      ? { JSON: buildJSON(template.data), styling: template.data }
+      : template.data
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
-      <Component templateData={template.data} order={idx + 1} id={template.id} />
+      <Component templateData={templateData} order={idx + 1} id={template.id} />
       <ControlPanel
         updateSelectedTemplates={updateSelectedTemplates}
         handleClick={handleClick}
