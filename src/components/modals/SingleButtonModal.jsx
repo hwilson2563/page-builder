@@ -25,7 +25,7 @@ const SingleButtonModal = props => {
         type={'input'}
         label={'Button Text'}
         name={'buttonText'}
-        error={null}
+        error={data['buttonText'] ? data['buttonText'].error : null}
         value={data['buttonText'] ? data['buttonText'].value : ''}
         updateFormData={updateFormData}
         required
@@ -34,7 +34,7 @@ const SingleButtonModal = props => {
         type={'input'}
         label={'Button Link URL'}
         name={'href'}
-        error={null}
+        error={data['href'] ? data['href'].error : null}
         value={data['href'] ? data['href'].value : ''}
         updateFormData={updateFormData}
         required
@@ -44,7 +44,7 @@ const SingleButtonModal = props => {
         label={'Button Aria Label'}
         name={'ariaLabel'}
         value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
-        error={null}
+        error={data['ariaLabel'] ? data['ariaLabel'].error : null}
         updateFormData={updateFormData}
         required
       />

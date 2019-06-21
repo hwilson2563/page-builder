@@ -52,7 +52,7 @@ const QuotesModal = props => {
         type={'input'}
         label={'FAQ - Question'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required
@@ -62,7 +62,7 @@ const QuotesModal = props => {
         type={'text'}
         label={'FAQ - Answer'}
         name={'answer'}
-        error={null}
+        error={data['answer'] ? data['answer'].error : null}
         value={data['answer'] ? data['answer'].value : ''}
         updateFormData={updateFormData}
         required
@@ -73,7 +73,7 @@ const QuotesModal = props => {
         type={'text'}
         label={'Pro Tip'}
         name={'proTip'}
-        error={null}
+        error={data['proTip'] ? data['proTip'].error : null}
         value={data['proTip'] ? data['proTip'].value : ''}
         updateFormData={updateFormData}
         required
@@ -84,7 +84,7 @@ const QuotesModal = props => {
         type={'text'}
         label={'Customer Feedback'}
         name={'customerFeedback'}
-        error={null}
+        error={data['customerFeedback'] ? data['customerFeedback'].error : null}
         value={data['customerFeedback'] ? data['customerFeedback'].value : ''}
         updateFormData={updateFormData}
         required

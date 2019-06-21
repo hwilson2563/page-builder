@@ -10,7 +10,7 @@ const BannerModal = props => {
         type={'checkbox'}
         label={'gray background'}
         name={'backgroundDark'}
-        error={null}
+        error={data['backgroundDark'] ? data['backgroundDark'].error : null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
       />
@@ -18,7 +18,7 @@ const BannerModal = props => {
         type={'checkbox'}
         label={'Additional Padding Top & Bottom'}
         name={'addPadding'}
-        error={null}
+        error={data['addPadding'] ? data['addPadding'].error : null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
       />
@@ -26,7 +26,7 @@ const BannerModal = props => {
         type={'input'}
         label={'Image'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         updateFormData={updateFormData}
         value={data['image'] ? data['image'].value : ''}
         required
@@ -35,7 +35,7 @@ const BannerModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         updateFormData={updateFormData}
         value={data['altText'] ? data['altText'].value : ''}
         required
@@ -44,7 +44,7 @@ const BannerModal = props => {
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         updateFormData={updateFormData}
         value={data['title'] ? data['title'].value : ''}
         required
@@ -53,7 +53,7 @@ const BannerModal = props => {
         type={'input'}
         label={'Subtitle'}
         name={'subheader'}
-        error={null}
+        error={data['subheader'] ? data['subheader'].error : null}
         updateFormData={updateFormData}
         value={data['subheader'] ? data['subheader'].value : ''}
         required

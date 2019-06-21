@@ -9,11 +9,25 @@ import { EntryContainer, Input, Label, TextArea, ErrorMessage } from './formEntr
 const FormEntry = props => {
   const { name, required, type, group, updateFormData, textArea } = props
   let storedValue = props.value
+  let storedError = props.error
   let label = props.required ? props.label : props.label + ' (Optional)'
   const [inputValue, setValue] = useState(storedValue)
   const [selected, setSelected] = useState(false)
-  const [noError, setNoError] = useState(null)
+  const [noError, setNoError] = useState(storedError)
   const [errorMessage, setErrorMessage] = useState('')
+  useEffect(
+    () => {
+      let isValid = null
+      if (required && storedError) {
+        // validate function and setError
+        let validation = doValidation({ name, value: inputValue })
+        isValid = !validation[0]
+        setErrorMessage(validation[1])
+        setNoError(!isValid)
+      }
+    },
+    [storedError]
+  )
   useEffect(
     () => {
       setValue(storedValue)

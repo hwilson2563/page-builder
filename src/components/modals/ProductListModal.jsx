@@ -25,7 +25,7 @@ const ProductListModal = props => {
         type={'input'}
         label={'Image'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
@@ -34,7 +34,7 @@ const ProductListModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
@@ -43,7 +43,7 @@ const ProductListModal = props => {
         type={'input'}
         label={'Product Name'}
         name={'productName'}
-        error={null}
+        error={data['productName'] ? data['productName'].error : null}
         value={data['productName'] ? data['productName'].value : ''}
         updateFormData={updateFormData}
         required
@@ -52,7 +52,7 @@ const ProductListModal = props => {
         type={'input'}
         label={'Product Page URL'}
         name={'productPage'}
-        error={null}
+        error={data['productPage'] ? data['productPage'].error : null}
         value={data['productPage'] ? data['productPage'].value : ''}
         updateFormData={updateFormData}
         required
@@ -61,7 +61,7 @@ const ProductListModal = props => {
         type={'input'}
         label={'Price'}
         name={'price'}
-        error={null}
+        error={data['price'] ? data['price'].error : null}
         value={data['price'] ? data['price'].value : ''}
         updateFormData={updateFormData}
         required

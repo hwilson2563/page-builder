@@ -25,7 +25,7 @@ const VideoModal = props => {
         type={'input'}
         label={'Video URL'}
         name={'video'}
-        error={null}
+        error={data['video'] ? data['video'].error : null}
         value={data['video'] ? data['video'].value : ''}
         updateFormData={updateFormData}
         required

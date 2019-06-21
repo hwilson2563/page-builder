@@ -70,7 +70,7 @@ const GalleryModal = props => {
                 label={input.label}
                 name={input.name}
                 group={idx + 1}
-                error={null}
+                error={valueExists ? data.groups[idx][input.name].error : null}
                 value={valueExists ? data.groups[idx][input.name].value : ''}
                 updateFormData={updateFormData}
                 required

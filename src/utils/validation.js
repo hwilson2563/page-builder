@@ -12,6 +12,9 @@ const Validation = {
   },
   video: data => {
     return isUrl(data)
+  },
+  href: data => {
+    return isUrl(data)
   }
 }
 

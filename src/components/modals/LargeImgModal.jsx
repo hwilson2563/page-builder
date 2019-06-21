@@ -25,7 +25,7 @@ const LargeImgModal = props => {
         type={'input'}
         label={'Image Url'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
@@ -34,7 +34,7 @@ const LargeImgModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
