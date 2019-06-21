@@ -59,7 +59,6 @@ const CMSModal = props => {
   const { closeModal, formData, template, updateFormData, updateTemplateData, selectedTemplates } = props
   let tempName = template.tempName
   let FormModal = template.modal
-  console.log(template)
   return (
     <CMSDiv className={'cms-div'}>
       <Title className={'template-title'}>{tempName}</Title>

@@ -139,7 +139,8 @@ p {
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  width: 275px;
+  width: 100%;
+  min-width: 260px;
 }
 
 .button-link {
