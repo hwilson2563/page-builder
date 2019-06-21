@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server'
 import ExportIcon from './parts/ExportIcon'
 import ResponsiveIcon from './parts/ResponsiveIcon'
 import Modal from '../modal/Modal'
+import { buildJSON } from '../../utils/utils'
 
 const ConfirmExport = styled.div`
   position: absolute;
@@ -97,15 +98,25 @@ const ConfirmExportPanel = props => {
     if (selectedTemplates.length) {
       templates = ReactDOMServer.renderToStaticMarkup(<CssLink />)
       selectedTemplates.map((template, idx) => {
-        let indexId = template.id + '-' + (idx + 1)
         let Template = template.component
-        return (templates += ReactDOMServer.renderToStaticMarkup(
-          <Template templateData={template.data} id={indexId} />
-        ))
+        let indexId = template.id + '-' + (idx + 1)
+        if (template.modal.name === 'GalleryModal') {
+          let templateData =
+            template.tempName === 'Gallery Template'
+              ? { JSON: buildJSON(template.data), styling: template.data }
+              : template.data
+          return (templates += ReactDOMServer.renderToStaticMarkup(
+            <Template templateData={templateData} id={indexId} />
+          ))
+        } else {
+          return (templates += ReactDOMServer.renderToStaticMarkup(
+            <Template templateData={template.data} id={indexId} />
+          ))
+        }
       })
       templates += ReactDOMServer.renderToStaticMarkup(<JsLink />)
+      setCopyData(templates)
     }
-    setCopyData(templates)
   }
   const exportHTML = () => {
     createHTML()

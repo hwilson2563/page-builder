@@ -103,6 +103,7 @@ div {
 
 p {
   word-break: break-all;
+  hyphens: auto;
 }
 
 /* add padding to the templates*/
@@ -260,12 +261,12 @@ p {
 
 /* START large image template */
 
-#large-image-temp {
+.large-image-temp {
   padding: 20px;
   display: flex;
 }
 
-#large-image-temp img {
+.large-image-temp img {
   height: 100%;
   width: 100%;
   max-width: 650px;
