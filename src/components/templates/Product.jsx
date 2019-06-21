@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Product = props => {
-  const { templateData } = props
+  const { templateData, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let productWhite = templateData.backgroundDark && templateData.backgroundDark.value ? 'product-white' : ''
@@ -16,7 +16,7 @@ const Product = props => {
   let productPage = templateData.productPage ? templateData.productPage.value : 'https://www.woodlanddirect.com'
   return (
     // <!-- START PRODUCT LIST TEMPLATE -->
-    <div id={'product-list-temp'} className={backgroundDark + ' ' + addPadding}>
+    <div id={id } className={'product-list-temp ' + backgroundDark + ' ' + addPadding}>
       <div className={'product-container'}>
         {/* <!-- add/remove products as needed -->
     <!-- single product starts here (for copying and pasting) --> */}

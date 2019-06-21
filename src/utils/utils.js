@@ -224,6 +224,12 @@ function buildSingleGallery (galleryData) {
 
   // this builds each gallery option for the user to select
   function buildGalleryButtons () {
+    // tablet display active selected button
+    var selectedButton = document.createElement('button')
+    selectedButton.setAttribute('class', 'selected-gallery dropdown-button active')
+    selectedButton.setAttribute('aria-label', 'click for dropdown menu options')
+    buttonContainer.appendChild(selectedButton)
+
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
       var galleryNamingConvention = galleryName + galleryIndex + idx
@@ -238,7 +244,6 @@ function buildSingleGallery (galleryData) {
         changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
-
       // this creates styled dropdown for mobile
       var dropDownElement = document.createElement('button')
       dropDownElement.setAttribute('class', galleryNamingConvention)
@@ -248,7 +253,6 @@ function buildSingleGallery (galleryData) {
         changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
-
       buttonContainer.appendChild(buttonElement)
       buttonContainer.appendChild(dropDownElement)
 
@@ -280,7 +284,7 @@ function buildSingleGallery (galleryData) {
       return galleriesJSON[gallery]
     })
     var lastGalleryEmpty =
-      galleriesHTMLCollection[galleryIndex].children[0].children[0].children[1].children.length === 1
+      galleriesHTMLCollection[galleryIndex].children[0].children[0].children[1].children.length === 0
 
     if (lastGalleryEmpty) {
       // this loops through array of galleries
@@ -317,6 +321,10 @@ export function buildGallery () {
       buttonContainer = document.getElementsByClassName('selection-container-btn')[idx]
       var scriptInnerText = JSON.parse(document.getElementById(galleriesJSON[idx].id).innerText)
 
+      imageContainer.innerHTML = ''
+      bulletContainer.innerHTML = ''
+      buttonContainer.innerHTML = ''
+
       var galleryData = {
         galleryIndex: idx,
         imageContainer: imageContainer,
@@ -330,4 +338,45 @@ export function buildGallery () {
   } else {
     galleriesJSON = false
   }
+}
+export function buildJSON (templateData) {
+  let eachGallery = {}
+
+  // builds object in array
+  if (templateData.groups) {
+    templateData.groups.forEach(gallery => {
+      let galleryName = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
+      let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
+      let image = gallery.image ? gallery.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
+      let imgAltText = gallery.imgAltText ? gallery.imgAltText.value : 'Alt Text'
+      eachGallery[galleryName] = [
+        {
+          galleryButtonAriaLabel: ariaLabel,
+          infoTitle: infoTitle,
+          infoText: infoBodyText
+        },
+        {
+          imageSource: image,
+          altTag: imgAltText,
+          selected: true
+        }
+      ]
+    })
+  } else {
+    eachGallery['GalleryName'] = [
+      {
+        galleryButtonAriaLabel: 'Gallery Name',
+        infoTitle: 'Info Title',
+        infoText: 'Info Body Text Here'
+      },
+      {
+        imageSource: 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+        altTag: 'imgAltText',
+        selected: true
+      }
+    ]
+  }
+  return eachGallery
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const CMSDiv = styled.div`
+const Container = styled.div`
   background-color: white;
   border-radius: 15px;
   min-height: 400px;
@@ -10,14 +10,15 @@ const CMSDiv = styled.div`
   padding: 20px 50px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 const Title = styled.h2`
   font-family: ${props => props.theme.fontBody};
   font-size: 20px;
   font-weight: normal;
+  text-transform: uppercase;
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -55,43 +56,37 @@ const GhostButton = styled(StyledButton)`
   }
 `
 
-const CMSModal = props => {
-  const { closeModal, formData, template, updateFormData, updateTemplateData, selectedTemplates } = props
-  let tempName = template.tempName
-  let FormModal = template.modal
+const IframeModal = props => {
+  const { goBack, moveForward, copyData, currentView } = props
   return (
-    <CMSDiv className={'cms-div'}>
-      <Title className={'template-title'}>{tempName}</Title>
-      <FormModal
-        data={formData}
-        updateFormData={updateFormData}
-        selectedTemplates={selectedTemplates}
-        updateTemplateData={updateTemplateData}
-      />
+    <Container className={'cms-div'}>
+      <Title className={'template-title'}>{currentView.name}</Title>
+      <iframe title={'screenView'} srcDoc={copyData} width={currentView.width} height={currentView.height} />
       <ButtonContainer>
-        <GhostButton
-          onClick={() => {
-            updateTemplateData({})
-          }}>
-          Clear All
-        </GhostButton>
+        {currentView.idx > 0 && (
+          <GhostButton
+            onClick={() => {
+              goBack()
+            }}>
+            Back
+          </GhostButton>
+        )}
         <StyledButton
           onClick={e => {
-            closeModal(e, 'close')
+            moveForward()
           }}>
-          Save
+          {currentView.name === 'desktop' ? 'Confirm' : 'Next'}
         </StyledButton>
       </ButtonContainer>
-    </CMSDiv>
+    </Container>
   )
 }
 
-CMSModal.propTypes = {
-  closeModal: PropTypes.func,
-  formData: PropTypes.object,
-  updateFormData: PropTypes.func,
-  tempName: PropTypes.string,
-  updateTemplateData: PropTypes.func
+IframeModal.propTypes = {
+  goBack: PropTypes.func,
+  moveForward: PropTypes.func,
+  copyData: PropTypes.string,
+  currentView: PropTypes.object
 }
 
-export default CMSModal
+export default IframeModal

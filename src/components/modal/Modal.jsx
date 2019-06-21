@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+
 import CMSModal from './CMSModal'
+import IframeModal from './IframeModal'
 import { theme } from '../../utils/globalStyles'
 import XMark from './XMark'
 
@@ -47,37 +49,60 @@ const Exit = styled.div`
 `
 
 const Modal = props => {
-  let { closeModal, displayModal, screen, tempName, formData, formProps, updateFormData, updateTemplateData } = props
+  let {
+    closeModal,
+    displayModal,
+    formData,
+    updateFormData,
+    updateTemplateData,
+    selectedTemplates,
+    template,
+    copyData,
+    currentView,
+    goBack,
+    moveForward
+  } = props
   let xMarkSize = '16px'
 
   return (
-    <Fragment>
+    <>
       {displayModal && (
         <ModalGrayBG className={'gray-bg'} onClick={e => closeModal(e, 'close')}>
           <ModalWrapper className={'modal-wrapper'} onClick={e => closeModal(e, 'open')}>
-            <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')} screen={screen}>
+            <Exit className={'exit-modal'} onClick={e => closeModal(e, 'close')}>
               <XMark fill={theme.preHeaderDark} height={xMarkSize} width={xMarkSize} />
             </Exit>
-            <CMSModal
-              closeModal={closeModal}
-              tempName={tempName}
-              formData={formData}
-              formProps={formProps}
-              updateFormData={updateFormData}
-              updateTemplateData={updateTemplateData}
-            />
+            {template ? (
+              <CMSModal
+                selectedTemplates={selectedTemplates}
+                closeModal={closeModal}
+                formData={formData}
+                updateFormData={updateFormData}
+                template={template}
+                updateTemplateData={updateTemplateData}
+              />
+            ) : (
+              <IframeModal copyData={copyData} currentView={currentView} goBack={goBack} moveForward={moveForward} />
+            )}
           </ModalWrapper>
         </ModalGrayBG>
       )}
-    </Fragment>
+    </>
   )
 }
 
-// Modal.propTypes = {
-//   closeModal: PropTypes.func,
-//   displayModal: PropTypes.bool,
-//   modal: PropTypes.PropTypes.func,
-//   screen: PropTypes.string
-// }
+Modal.propTypes = {
+  closeModal: PropTypes.func,
+  displayModal: PropTypes.bool,
+  tempName: PropTypes.string,
+  formData: PropTypes.object,
+  formProps: PropTypes.func,
+  updateFormData: PropTypes.func,
+  updateTemplateData: PropTypes.func,
+  copyData: PropTypes.string,
+  currentView: PropTypes.object,
+  goBack: PropTypes.func,
+  moveForward: PropTypes.func
+}
 
 export default Modal

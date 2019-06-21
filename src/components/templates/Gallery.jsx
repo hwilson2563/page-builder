@@ -1,77 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { buildGallery } from '../../utils/utils'
 
 const Gallery = props => {
-  const { templateData } = props
+  const { templateData, id } = props
+  let backgroundDark =
+    templateData.styling.backgroundDark && templateData.styling.backgroundDark.value ? 'background-dark' : ''
+  let addPadding = templateData.styling.addPadding && templateData.styling.addPadding.value ? 'add-padding' : 'padding'
+  let sectionName = templateData.styling.sectionHeader
+    ? templateData.styling.sectionHeader.value
+    : 'Place Section Title Here'
 
-  let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
-  let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
-
-  let sectionName = templateData.galleryName ? templateData.sectionHeader.value : 'Place Section Title Here'
-  let galleryName = templateData.galleryName ? templateData.galleryName.value : 'Place Gallery Name Here'
-  let infoTitle = templateData.infoTitle ? templateData.infoTitle.value : 'place info section title here'
-  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : 'add aria-label text for button here'
-  let infoBodyText = templateData.infoBodyText ? templateData.infoBodyText.value : 'place info body text here'
-  let image = templateData.image ? templateData.image.value : 'https://via.placeholder.com/700'
-  let imgAltTag = templateData.imgAltTag ? templateData.imgAltTag.value : 'alt tag text here'
-
-  var object = {}
-
-  object[galleryName] = [
-    {
-      galleryButtonAriaLabel: ariaLabel,
-      infoTitle: infoTitle,
-      infoText: infoBodyText
+  useEffect(
+    () => {
+      buildGallery()
     },
-    {
-      imageSource: image,
-      altTag: imgAltTag,
-      selected: true
-    }
-  ]
+    [templateData]
+  )
 
   return (
     <>
       {/* // <!-- GALLERY TEMPLATE BEGIN --> */}
-      <div id={'gallery-template'} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
+      <div id={id} className={'gallery-templates background ' + backgroundDark + ' ' + addPadding}>
         <div className={'container'}>
           <div className={'button-section'}>
             <h2>{sectionName}</h2>
             <div id={'selection-container-btn'} className={'selection-container-btn'}>
-              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'}>
-                {galleryName}
-              </button>
+              <button id={'selected-gallery'} className={'selected-gallery dropdown-button active'} />
               {/* <!-- Buttons will generate here --> */}
-              <button className={'info-button active'} ariaLabel={ariaLabel}>
-                {galleryName}
-              </button>
-              <button className={'dropdown-button active'} ariaLabel={ariaLabel}>
-                {galleryName}
-              </button>
             </div>
           </div>
           <div className={'gallery-section'}>
-            <h3 className={'info-header title-center-mobile'}>
-              {/* <!-- Info header will generate here --> */}
-              {infoTitle}
-            </h3>
+            <h3 className={'info-header title-center-mobile'}>{/* <!-- Info header will generate here --> */}</h3>
 
             <div id={'image-container'} className={'image-container'}>
               {/* <!-- Images will generate here --> */}
-              <img src={image} alt={imgAltTag} className={'gallery-img display-img'} />
             </div>
             <div id={'bullet-container'} className={'bullet-container'}>
               {/* <!-- Bullets will generate here --> */}
-              <button className={'bullet active'} ariaLabel={ariaLabel} />
             </div>
           </div>
           <div className={'info-section'}>
-            <h3 className={'info-header title-desktop'}>
-              {/* <!-- Info header will generate here --> */}
-              {infoTitle}
-            </h3>
+            <h3 className={'info-header title-desktop'}>{/* <!-- Info header will generate here --> */}</h3>
             <p id={'info-body'} className={'info-body'}>
               {/* <!-- Info body will generate here --> */}
-              {infoBodyText}
             </p>
           </div>
         </div>
@@ -129,7 +100,7 @@ const Gallery = props => {
       <script
         className={'galleries'}
         type='application/json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(object) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(templateData.JSON) }}
       />
       {/* // <!-- GALLERY TEMPLATE END --> */}
     </>
