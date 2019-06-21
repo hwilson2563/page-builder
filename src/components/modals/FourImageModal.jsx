@@ -170,9 +170,9 @@ const FourImageModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt4'}
+        name={'altText4'}
         error={null}
-        value={data['alt4'] ? data['alt4'].value : ''}
+        value={data['altText4'] ? data['altText4'].value : ''}
         updateFormData={updateFormData}
         required
       />

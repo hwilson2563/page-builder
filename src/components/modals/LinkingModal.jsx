@@ -130,7 +130,7 @@ const LinkingModal = props => {
 LinkingModal.propTypes = {
   data: PropTypes.object,
   updateFormData: PropTypes.func,
-  selectedTemplates: PropTypes.object
+  selectedTemplates: PropTypes.array
 }
 
 export default LinkingModal
