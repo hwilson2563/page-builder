@@ -1,6 +1,7 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
-const TwoSmallImgModal = props => {
+const VideoModal = props => {
   const { updateFormData, data } = props
   return (
     <>
@@ -32,4 +33,10 @@ const TwoSmallImgModal = props => {
     </>
   )
 }
-export default TwoSmallImgModal
+
+VideoModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
+export default VideoModal

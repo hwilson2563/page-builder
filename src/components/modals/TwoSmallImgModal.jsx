@@ -1,8 +1,8 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
 import FormEntry from '../modal/FormEntry'
-
 
 const Section = styled.div`
   width: 100%;
@@ -52,9 +52,9 @@ const TwoSmallImgModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'alt1'}
+        name={'altText1'}
         error={null}
-        value={data['alt1'] ? data['alt1'].value : ''}
+        value={data['altText1'] ? data['altText1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -70,10 +70,10 @@ const TwoSmallImgModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText1'}
+        label={'Paragraph'}
+        name={'paragraph1'}
         error={null}
-        value={data['bodyText1'] ? data['bodyText1'].value : ''}
+        value={data['paragraph1'] ? data['paragraph1'].value : ''}
         updateFormData={updateFormData}
         required
       />
@@ -109,14 +109,20 @@ const TwoSmallImgModal = props => {
       <FormEntry
         textArea
         type={'text'}
-        label={'Body Text'}
-        name={'bodyText2'}
+        label={'Paragraph'}
+        name={'paragraph2'}
         error={null}
-        value={data['bodyText2'] ? data['bodyText2'].value : ''}
+        value={data['paragraph2'] ? data['paragraph2'].value : ''}
         updateFormData={updateFormData}
         required
       />
     </>
   )
 }
+
+TwoSmallImgModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default TwoSmallImgModal

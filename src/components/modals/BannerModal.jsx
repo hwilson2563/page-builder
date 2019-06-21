@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 
 const BannerModal = props => {
@@ -51,13 +52,19 @@ const BannerModal = props => {
       <FormEntry
         type={'input'}
         label={'Subtitle'}
-        name={'subtitle'}
+        name={'subheader'}
         error={null}
         updateFormData={updateFormData}
-        value={data['subtitle'] ? data['subtitle'].value : ''}
+        value={data['subheader'] ? data['subheader'].value : ''}
         required
       />
     </>
   )
 }
+
+BannerModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default BannerModal

@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const TextOnly = props => {
   const { templateData, id } = props
@@ -20,6 +21,11 @@ const TextOnly = props => {
     </div>
     // <!-- END OF TEXT ONLY TEMPLATE -->
   )
+}
+
+TextOnly.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default TextOnly

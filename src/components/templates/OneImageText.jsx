@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const OneImageText = props => {
   const { templateData, id } = props
@@ -9,7 +10,7 @@ const OneImageText = props => {
   let image = templateData.image
     ? templateData.image.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
-  let imageAltText = templateData.imageAltText ? templateData.imageAltText.value : ''
+  let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
   let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place title here'
 
@@ -17,7 +18,7 @@ const OneImageText = props => {
     // <!-- START ONE IMAGE-TEXT-TEMPLATE HERE-->
     <div id={id} className={'one-image-text ' + backgroundDark + ' ' + addPadding}>
       <div className='one-image-text-cont'>
-        <img src={image} alt={imageAltText} />
+        <img src={image} alt={altText} />
         <div className='text-container'>
           <h3>{title}</h3>
           {/* <!-- you can add/remove the p tags (each one represents a paragraph break) -->
@@ -29,6 +30,11 @@ const OneImageText = props => {
     </div>
     // <!-- END ONE IMAGE-TEXT-TEMPLATE HERE--></div>
   )
+}
+
+OneImageText.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default OneImageText

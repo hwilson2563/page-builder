@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 const LargeImgModal = props => {
   const { updateFormData, data } = props
@@ -32,13 +33,19 @@ const LargeImgModal = props => {
       <FormEntry
         type={'input'}
         label={'Image Alt Text'}
-        name={'imageAltText'}
+        name={'altText'}
         error={null}
-        value={data['imageAltText'] ? data['imageAltText'].value : ''}
+        value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
       />
     </>
   )
 }
+
+LargeImgModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default LargeImgModal

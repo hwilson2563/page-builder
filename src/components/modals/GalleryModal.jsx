@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
-
+import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 
 const ButtonContainer = styled.div`
@@ -119,4 +119,10 @@ const GalleryModal = props => {
     </>
   )
 }
+
+GalleryModal.propTypes = {
+  data: PropTypes.object,
+  updateFormData: PropTypes.func
+}
+
 export default GalleryModal
