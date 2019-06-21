@@ -30,7 +30,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['faqLayout'] ? data['faqLayout'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -39,7 +38,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['proTipLayout'] ? data['proTipLayout'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -48,7 +46,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['feedBackLayout'] ? data['feedBackLayout'].value : false}
-        required
       />
       <div>FAQ Form</div>
       <FormEntry
