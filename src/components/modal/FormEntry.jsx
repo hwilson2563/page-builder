@@ -25,8 +25,7 @@ const FormEntry = props => {
         isValid = !validation[0]
         setErrorMessage(validation[1])
         setNoError(!isValid)
-      }
-      if (required && storedError === null) {
+      } else {
         setNoError(storedError)
       }
     },
