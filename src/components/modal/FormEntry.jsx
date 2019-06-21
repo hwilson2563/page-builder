@@ -18,12 +18,16 @@ const FormEntry = props => {
   useEffect(
     () => {
       let isValid = null
+      console.log(storedError)
       if (required && storedError) {
         // validate function and setError
         let validation = doValidation({ name, value: inputValue })
         isValid = !validation[0]
         setErrorMessage(validation[1])
         setNoError(!isValid)
+      }
+      if (required && storedError === null) {
+        setNoError(null)
       }
     },
     [storedError]
