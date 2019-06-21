@@ -1,7 +1,8 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const SingleButton = props => {
-  const { templateData } = props
+  const { templateData, id } = props
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
@@ -12,7 +13,7 @@ const SingleButton = props => {
   return (
   // <!-- START SINGLE BUTTON -->
 
-    <div id='button-text-template' className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
+    <div id={id} className={'button-text-template ' + backgroundDark + ' ' + addPadding}>
       <a className='button-link' href={href} aria-label={ariaLabel}>
         <button className='template-button'>{buttonText}</button>
       </a>
@@ -20,6 +21,11 @@ const SingleButton = props => {
 
   // <!-- END SINGLE BUTTON -->
   )
+}
+
+SingleButton.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default SingleButton

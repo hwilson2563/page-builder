@@ -1,20 +1,21 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 
 const Quote = props => {
-  const { templateData } = props
+  const { templateData, id } = props
   let defaultDisplay = !templateData['feedBackLayout'] && !templateData['faqLayout'] && !templateData['proTipLayout']
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   let faqTemplate = templateData['faqLayout'] && templateData['faqLayout'].value === true
   let proTipTemplate = templateData['proTipLayout'] && templateData['proTipLayout'].value === true
   let feedbackTemplate = templateData['feedBackLayout'] && templateData['feedBackLayout'].value === true
-  let faq = templateData.faq ? templateData.faq.value : 'Frequent Question Here?'
+  let title = templateData.title ? templateData.title.value : 'Frequent Question Here?'
   let answer = templateData.answer ? templateData.answer.value : 'answer here'
   let proTip = templateData.proTip ? templateData.proTip.value : 'Pro Tip Here'
   let customerFeedback = templateData.customerFeedback ? templateData.customerFeedback.value : 'feedback'
   return (
     // <!-- START QUOTES TEMPLATE -->
-    <div id='quotes-template' className={backgroundDark + ' ' + addPadding}>
+    <div id={id } className={'quotes-template ' + backgroundDark + ' ' + addPadding}>
       {/* <!-- ADD/REMOVE TEMPLATES AS NEEDED -- DO NOT CHANGE OUT IMAGES-->
   <!-- QUESTION TEMPLATE STARTS --> */}
       {faqTemplate && (
@@ -25,7 +26,7 @@ const Quote = props => {
               alt='question mark icon'
             />
             {/* <!-- start quote title --> */}
-            <h3>{faq}</h3>
+            <h3>{title}</h3>
             {/* <!-- end quote title --> */}
           </div>
           {/* <!-- START add/remove p tags as needed --> */}
@@ -89,6 +90,11 @@ const Quote = props => {
     </div>
     /* <!-- END QUOTES TEMPLATE --> */
   )
+}
+
+Quote.propTypes = {
+  templateData: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default Quote
