@@ -18,7 +18,6 @@ const FormEntry = props => {
   useEffect(
     () => {
       let isValid = null
-      console.log(storedError)
       if (required && storedError) {
         // validate function and setError
         let validation = doValidation({ name, value: inputValue })
@@ -33,6 +32,7 @@ const FormEntry = props => {
   )
   useEffect(
     () => {
+      // update useState as prop type updates
       setValue(storedValue)
     },
     [storedValue]

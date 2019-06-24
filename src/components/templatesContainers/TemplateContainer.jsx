@@ -38,6 +38,7 @@ const TemplateContainer = props => {
 
   useEffect(
     () => {
+      // update useState as prop type updates
       setData(template.data)
     },
     [template.data]
