@@ -3,11 +3,11 @@ import { PropTypes } from 'prop-types'
 
 const TextOnly = props => {
   const { templateData, id } = props
+  console.log(templateData)
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
   let title = templateData.title ? templateData.title.value : 'place an amazing section title here'
-  let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place paragraph text here'
   return (
     // <!-- START OF TEXT ONLY TEMPLATE -->
     <div id={id} className={'text-only-temp ' + backgroundDark + ' ' + addPadding}>
@@ -15,7 +15,15 @@ const TextOnly = props => {
         <h3>{title}</h3>
         {/* <!-- start paragraphs here -->
   <!-- add/remove p tags as needed--> */}
-        <p>{paragraph}</p>
+        {templateData.groups ? (
+          templateData.groups.map(item => {
+            let paragraph = item.paragraph ? item.paragraph.value : 'place paragraph text here'
+            return <p>{paragraph}</p>
+          })
+        ) : (
+          <p>{'place paragraph here'}</p>
+        )}
+
         {/* <!-- end paragraphs here --> */}
       </div>
     </div>
