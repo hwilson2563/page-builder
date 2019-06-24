@@ -50,11 +50,13 @@ const Exit = styled.div`
 
 const Modal = props => {
   let {
+    error,
     closeModal,
     displayModal,
     formData,
     updateFormData,
     updateTemplateData,
+    saveModalData,
     selectedTemplates,
     template,
     copyData,
@@ -79,6 +81,8 @@ const Modal = props => {
                 formData={formData}
                 updateFormData={updateFormData}
                 template={template}
+                error={error}
+                saveModalData={saveModalData}
                 updateTemplateData={updateTemplateData}
               />
             ) : (
@@ -92,6 +96,7 @@ const Modal = props => {
 }
 
 Modal.propTypes = {
+  error: PropTypes.bool,
   closeModal: PropTypes.func,
   displayModal: PropTypes.bool,
   tempName: PropTypes.string,
