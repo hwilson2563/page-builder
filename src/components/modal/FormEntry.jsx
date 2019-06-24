@@ -18,17 +18,17 @@ const FormEntry = props => {
   useEffect(
     () => {
       let isValid = null
-      if (required && storedError) {
+      if (required && storedError && storedValue !== '') {
         // validate function and setError
         let validation = doValidation({ name, value: inputValue })
-        isValid = !validation[0]
+        isValid = validation[0]
         setErrorMessage(validation[1])
-        setNoError(!isValid)
+        setNoError(isValid)
       } else {
         setNoError(storedError)
       }
     },
-    [storedError, storedValue]
+    [storedError]
   )
   useEffect(
     () => {
@@ -43,19 +43,17 @@ const FormEntry = props => {
       // validate function and setError
 
       let validation = doValidation({ name, value: inputValue })
-      isValid = !validation[0]
+      isValid = validation[0]
       setErrorMessage(validation[1])
-      setNoError(!isValid)
+      setNoError(isValid)
     }
     setSelected(false)
     // update higher state
     // don't submit empty fields
-    if (inputValue !== '') {
-      if (group) {
-        updateFormData({ name, value: inputValue, group, error: isValid })
-      } else {
-        updateFormData({ name, value: inputValue, error: isValid })
-      }
+    if (group) {
+      updateFormData({ name, value: inputValue, group, error: isValid })
+    } else {
+      updateFormData({ name, value: inputValue, error: isValid })
     }
   }
   const handleChange = target => {
