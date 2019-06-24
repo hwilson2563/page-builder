@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 
 import FormEntry from '../modal/FormEntry'
 
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`
+const StyledButton = styled.button`
+  margin: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 20px;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  border: 2px solid ${props => props.theme.backgroundAccent};
+  background-color: white;
+  font-family: ${props => props.theme.fontBody};
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.theme.mainPrimary};
+  border-radius: 3px;
+  margin-bottom: 40px;
+  transition: 0.3s ease-in-out;
+  :hover {
+    cursor: pointer;
+    background-color: ${props => props.theme.backgroundAccent};
+  }
+`
 const Options = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +54,16 @@ const IdContainer = styled.div`
 `
 const LinkingModal = props => {
   const { updateFormData, data, selectedTemplates } = props
+  const [pTags, setPTags] = useState([0])
+  const addRemovePTags = (addParagraph, idx) => {
+    let createdParagraphs = [...pTags]
+    if (addParagraph) {
+      createdParagraphs.push(createdParagraphs.length)
+    } else {
+      createdParagraphs.splice(idx, 1)
+    }
+    setPTags(createdParagraphs)
+  }
   return (
     <>
       <FormEntry
@@ -72,28 +111,33 @@ const LinkingModal = props => {
         value={data['title'] ? data['title'].value : ''}
         required
       />
-      <FormEntry
-        textArea
-        type={'text'}
-        label={'Paragraph Text'}
-        name={'paragraph'}
-        error={null}
-        value={data['paragraph'] ? data['paragraph'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
+      {pTags.map((paragraph, idx) => {
+        return (
+          <Fragment key={idx}>
+            <FormEntry
+              textArea
+              type={'text'}
+              label={'Paragraph ' + (idx + 1)}
+              name={'paragraph'}
+              group={idx + 1}
+              error={null}
+              value={data['paragraph'] ? data['paragraph'].value : ''}
+              updateFormData={updateFormData}
+              required
+            />
+            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false)}>Remove</StyledButton>}
+          </Fragment>
+        )
+      })}
+      <ButtonContainer>
+        <StyledButton onClick={() => addRemovePTags(true)}>Add Paragraph</StyledButton>
+      </ButtonContainer>
       {/* MORE LINKS CAN BE ADDED */}
-      <FormEntry
-        type={'input'}
-        label={'Id of template you wish to link to'}
-        name={'href'}
-        error={null}
-        value={data['href'] ? data['href'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
       <Options>
-        <Directions>Copy and paste the id of the template you want to link to. The number at the end represents the order of the templates (first to last)</Directions>
+        <Directions>
+          Copy and paste the id of the template you want to link to. The number at the end represents the order of the
+          templates (first to last)
+        </Directions>
         {selectedTemplates.map((template, idx) => {
           let id = template.id + '-' + (idx + 1)
           return (
@@ -104,6 +148,15 @@ const LinkingModal = props => {
           )
         })}
       </Options>
+      <FormEntry
+        type={'input'}
+        label={'Id of template you wish to link to'}
+        name={'href'}
+        error={null}
+        value={data['href'] ? data['href'].value : ''}
+        updateFormData={updateFormData}
+        required
+      />
       <FormEntry
         type={'input'}
         label={'Link Aria Label'}

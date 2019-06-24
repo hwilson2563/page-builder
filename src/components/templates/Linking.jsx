@@ -12,7 +12,6 @@ const Linking = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
-  let paragraph = templateData.paragraph ? templateData.paragraph.value : 'Place a paragraph here'
   let href = templateData.href ? templateData.href.value : '#section-id'
   let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : ''
   let anchorTitle = templateData.anchorTitle ? templateData.anchorTitle.value : 'Anchor Link Title 1'
@@ -28,7 +27,14 @@ const Linking = props => {
             {/* <!-- below add/remove p tags for more/less paragraph breaks --> */}
             <div className='linking-text'>
               {/* <!-- BEGINNING OF PARAGRAPH SECTION --> */}
-              <p>{paragraph}</p>
+              {templateData.groups ? (
+                templateData.groups.map(item => {
+                  let paragraph = item.paragraph ? item.paragraph.value : 'place paragraph text here'
+                  return <p>{paragraph}</p>
+                })
+              ) : (
+                <p>{'place paragraph here'}</p>
+              )}
               {/* <!-- END OF PARAGRAPH SECTION --> */}
             </div>
           </div>
