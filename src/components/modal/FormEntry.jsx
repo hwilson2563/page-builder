@@ -18,7 +18,6 @@ const FormEntry = props => {
   useEffect(
     () => {
       let isValid = null
-      debugger
       if (required && storedError) {
         // validate function and setError
         let validation = doValidation({ name, value: inputValue })
@@ -29,7 +28,7 @@ const FormEntry = props => {
         setNoError(storedError)
       }
     },
-    [storedError]
+    [storedError, storedValue]
   )
   useEffect(
     () => {
@@ -50,10 +49,13 @@ const FormEntry = props => {
     }
     setSelected(false)
     // update higher state
-    if (group) {
-      updateFormData({ name, value: inputValue, group, error: isValid })
-    } else {
-      updateFormData({ name, value: inputValue, error: isValid })
+    // don't submit empty fields
+    if (inputValue !== '') {
+      if (group) {
+        updateFormData({ name, value: inputValue, group, error: isValid })
+      } else {
+        updateFormData({ name, value: inputValue, error: isValid })
+      }
     }
   }
   const handleChange = target => {
