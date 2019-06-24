@@ -49,7 +49,6 @@ const FormEntry = props => {
     }
     setSelected(false)
     // update higher state
-    // don't submit empty fields
     if (group) {
       updateFormData({ name, value: inputValue, group, error: isValid })
     } else {

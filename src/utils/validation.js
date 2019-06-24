@@ -39,7 +39,6 @@ function isNumber (data) {
 
 function isNotEmpty (data) {
   let isEmpty = Validator.isEmpty(data)
-  console.log('isEmpty', isEmpty)
   if (!isEmpty) {
     return [!isEmpty, '']
   } else {
@@ -54,6 +53,5 @@ export const doValidation = data => {
   let name = data.name
   name = Validator.contains(data.name, 'image') ? 'image' : name
   isValid = Validation[name] ? Validation[name](data.value) : isNotEmpty(data.value)
-  console.log(data, isValid)
   return isValid
 }
