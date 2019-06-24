@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types'
 
 const Product = props => {
   const { templateData, id } = props
-  console.log(templateData)
 
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let productWhite = templateData.backgroundDark && templateData.backgroundDark.value ? 'product-white' : ''

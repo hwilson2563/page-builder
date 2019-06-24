@@ -45,8 +45,10 @@ const GalleryModal = props => {
     } else {
       createdGalleries.pop()
       let incomingDataClone = { ...data }
-      incomingDataClone.groups.splice(idx, 1)
-      updateTemplateData(incomingDataClone)
+      if (incomingDataClone.groups) {
+        incomingDataClone.groups.splice(idx, 1)
+        updateTemplateData(incomingDataClone)
+      }
     }
     setGalleryFormRender(createdGalleries)
   }
