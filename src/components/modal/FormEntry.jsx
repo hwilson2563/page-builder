@@ -18,6 +18,7 @@ const FormEntry = props => {
   useEffect(
     () => {
       let isValid = null
+      debugger
       if (required && storedError) {
         // validate function and setError
         let validation = doValidation({ name, value: inputValue })
@@ -49,12 +50,10 @@ const FormEntry = props => {
     }
     setSelected(false)
     // update higher state
-    if (inputValue !== '') {
-      if (group) {
-        updateFormData({ name, value: inputValue, group, error: isValid })
-      } else {
-        updateFormData({ name, value: inputValue, error: isValid })
-      }
+    if (group) {
+      updateFormData({ name, value: inputValue, group, error: isValid })
+    } else {
+      updateFormData({ name, value: inputValue, error: isValid })
     }
   }
   const handleChange = target => {
