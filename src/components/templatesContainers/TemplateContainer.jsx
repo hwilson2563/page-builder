@@ -84,7 +84,7 @@ const TemplateContainer = props => {
     let errorPresent = false
     // if groups are present see if error is in stored data
     if (clonedGroups.length > 0) {
-      clonedGroups.map((groups, idx) => {
+      clonedGroups.forEach((groups, idx) => {
         let groupArray = Object.getOwnPropertyNames(groups)
         groupArray.forEach(input => {
           if (clonedGroups[idx].error === false) {

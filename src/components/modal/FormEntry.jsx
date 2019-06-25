@@ -17,16 +17,8 @@ const FormEntry = props => {
   const [errorMessage, setErrorMessage] = useState('')
   useEffect(
     () => {
-      let isValid = null
-      if (required && storedError !== null) {
-        // validate function and setError
-        let validation = doValidation({ name, value: inputValue })
-        isValid = validation[0]
-        setErrorMessage(validation[1])
-        setNoError(isValid)
-      } else {
-        setNoError(storedError)
-      }
+      // update useState as prop type updates
+      setNoError(storedError)
     },
     [storedError]
   )
@@ -49,10 +41,12 @@ const FormEntry = props => {
     }
     setSelected(false)
     // update higher state
-    if (group) {
-      updateFormData({ name, value: inputValue, group, error: isValid })
-    } else {
-      updateFormData({ name, value: inputValue, error: isValid })
+    if (inputValue !== '') {
+      if (group) {
+        updateFormData({ name, value: inputValue, group, error: isValid })
+      } else {
+        updateFormData({ name, value: inputValue, error: isValid })
+      }
     }
   }
   const handleChange = target => {

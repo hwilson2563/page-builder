@@ -397,6 +397,7 @@ export const getEmptyInputs = data => {
     return incompleteFields
   }
 }
+
 export const getGroupInputs = data => {
   let groups = document.getElementsByClassName('groups')
   let numberOfInputs = groups.length
