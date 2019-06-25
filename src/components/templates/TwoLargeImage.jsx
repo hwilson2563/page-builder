@@ -12,14 +12,22 @@ const TwoLargeImage = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText1 = templateData.altText1 ? templateData.altText1.value : ''
   let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
-  let paragraph1 = templateData.paragraph1 ? templateData.paragraph1.value : 'put paragraph text here'
 
   let image2 = templateData.image2
     ? templateData.image2.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText2 = templateData.altText2 ? templateData.altText2.value : ''
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
-  let paragraph2 = templateData.paragraph2 ? templateData.paragraph2.value : 'put paragraph text here'
+
+  // setting values for first, second, third, and fourth set of paragraphs for mapping through later
+  let first =
+    templateData.groups && templateData.groups[0]
+      ? Object.values(templateData.groups[0])
+      : [{ value: 'put paragraph text here' }]
+  let second =
+    templateData.groups && templateData.groups[1]
+      ? Object.values(templateData.groups[1])
+      : [{ value: 'put paragraph text here' }]
 
   return (
     // <!-- START TWO LARGE IMAGE TEMPLATE -->
@@ -31,13 +39,17 @@ const TwoLargeImage = props => {
           <img src={image1} alt={altText1} />
           <h4>{subheader1}</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
-          <p>{paragraph1}</p>
+          {first.map((p, idx) => {
+            return <p key={idx} dangerouslySetInnerHTML={{ __html: p.value }} />
+          })}
         </div>
         <div className='section-two'>
           <img src={image2} alt={altText2} />
           <h4>{subheader2}</h4>
           {/* <!-- add/remove p tags to add/remove paragraphs as needed --> */}
-          <p>{paragraph2}</p>
+          {second.map((p, idx) => {
+            return <p key={idx} dangerouslySetInnerHTML={{ __html: p.value }} />
+          })}
         </div>
       </div>
     </div>
