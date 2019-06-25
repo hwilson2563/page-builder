@@ -55,7 +55,6 @@ const QuotesModal = props => {
         error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <FormEntry
         textArea
@@ -65,7 +64,6 @@ const QuotesModal = props => {
         error={data['answer'] ? data['answer'].error : null}
         value={data['answer'] ? data['answer'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <div>Pro Form</div>
       <FormEntry
@@ -76,7 +74,6 @@ const QuotesModal = props => {
         error={data['proTip'] ? data['proTip'].error : null}
         value={data['proTip'] ? data['proTip'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <div>Customer Feedback Form</div>
       <FormEntry
@@ -87,7 +84,6 @@ const QuotesModal = props => {
         error={data['customerFeedback'] ? data['customerFeedback'].error : null}
         value={data['customerFeedback'] ? data['customerFeedback'].value : ''}
         updateFormData={updateFormData}
-        required
       />
     </>
   )
