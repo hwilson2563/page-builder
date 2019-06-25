@@ -93,13 +93,11 @@ const LinkingModal = props => {
   ]
 
   const createLinks = idx => {
-    console.log(data.groups)
     return (
       <Fragment key={idx}>
         <SubHeader>Link {idx + 1}</SubHeader>
         {groups.map(link => {
           let valueExists = data.groups && data.groups[idx + 1] && data.groups[idx + 1][link.name]
-          console.log(valueExists)
           return (
             <Fragment key={link.name + idx}>
               <FormEntry

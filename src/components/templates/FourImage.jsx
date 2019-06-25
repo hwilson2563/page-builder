@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types'
 
 const FourImage = props => {
   const { templateData, id } = props
-  console.log(templateData)
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -32,6 +31,7 @@ const FourImage = props => {
   let altText4 = templateData.altText4 ? templateData.altText4.value : ''
   let subheader4 = templateData.subheader4 ? templateData.subheader4.value : 'place info item title here'
 
+  //setting values for first, second, third, and fourth set of paragraphs for mapping through later
   let first =
     templateData.groups && templateData.groups[0]
       ? Object.values(templateData.groups[0])
@@ -48,7 +48,6 @@ const FourImage = props => {
     templateData.groups && templateData.groups[3]
       ? Object.values(templateData.groups[3])
       : [{ value: 'put paragraph text here' }]
-  console.log(third)
   return (
     // <!-- START FOUR IMAGE TEMPLATE -->
     // <!-- make sure the images you choose are the same width/height, otherwise it will look weird -->
@@ -62,7 +61,7 @@ const FourImage = props => {
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
             {first.map((p, idx) => {
-              return <p key={idx}>{p.value}</p>
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -76,7 +75,7 @@ const FourImage = props => {
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
             {second.map((p, idx) => {
-              return <p key={idx}>{p.value}</p>
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -90,7 +89,7 @@ const FourImage = props => {
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
             {third.map((p, idx) => {
-              return <p key={idx}>{p.value}</p>
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -104,7 +103,7 @@ const FourImage = props => {
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
             {fourth.map((p, idx) => {
-              return <p key={idx}>{p.value}</p>
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>

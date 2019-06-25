@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types'
 
 const TextOnly = props => {
   const { templateData, id } = props
-  console.log(templateData)
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
 
@@ -16,9 +15,9 @@ const TextOnly = props => {
         {/* <!-- start paragraphs here -->
   <!-- add/remove p tags as needed--> */}
         {templateData.groups ? (
-          templateData.groups.map(item => {
+          templateData.groups.map((item, idx) => {
             let paragraph = item.paragraph ? item.paragraph.value : 'place paragraph text here'
-            return <p>{paragraph}</p>
+            return <p key={idx} dangerouslySetInnerHTML={{__html: paragraph}}/>
           })
         ) : (
           <p>{'place paragraph here'}</p>
