@@ -23,9 +23,9 @@ const OneImageText = props => {
           {/* <!-- you can add/remove the p tags (each one represents a paragraph break) -->
     <!-- start p tags --> */}
           {templateData.groups ? (
-            templateData.groups.map(item => {
+            templateData.groups.map((item, idx) => {
               let paragraph = item.paragraph ? item.paragraph.value : 'place paragraph text here'
-              return <p>{paragraph}</p>
+              return <p key={idx} dangerouslySetInnerHTML={{__html: paragraph}}/>
             })
           ) : (
             <p>{'place paragraph here'}</p>
