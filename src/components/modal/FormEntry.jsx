@@ -64,6 +64,7 @@ const FormEntry = props => {
     }
     setValue(newValue)
   }
+  const classGroup = group ? 'groups ' + group : 'input'
   return (
     <EntryContainer className={'entry-container ' + name} label={label}>
       <Label className={'entry-label'} type={type} label={label} selected={selected} value={inputValue}>
@@ -71,7 +72,7 @@ const FormEntry = props => {
       </Label>
       {textArea ? (
         <TextArea
-          className={'input'}
+          className={classGroup}
           value={inputValue}
           onBlur={handleBlur}
           onChange={e => setValue(e.target.value)}
@@ -86,7 +87,7 @@ const FormEntry = props => {
         />
       ) : (
         <Input
-          className={'input'}
+          className={classGroup}
           value={inputValue}
           onBlur={handleBlur}
           onChange={e => {

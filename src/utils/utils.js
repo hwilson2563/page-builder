@@ -380,3 +380,43 @@ export function buildJSON (templateData) {
   }
   return eachGallery
 }
+
+export const getEmptyInputs = data => {
+  // get inputs with class of input
+  // these are none grouped inputs
+  let incompleteFields = {}
+  let inputs = document.getElementsByClassName('input')
+  if (inputs.length > 0) {
+    for (let x = 0; x < inputs.length; x++) {
+      // see if current input is already saved to the data array, required and as no value
+      if (inputs[x].required && inputs[x].value === '' && !data[inputs[x].name]) {
+        incompleteFields[inputs[x].name] = { value: '', error: false }
+      }
+    }
+    // fields that need filled out
+    return incompleteFields
+  }
+}
+export const getGroupInputs = data => {
+  let groups = document.getElementsByClassName('groups')
+  let numberOfInputs = groups.length
+  let newGroups = []
+  if (groups && numberOfInputs > 0) {
+    let numberOfGroups = Number(groups[numberOfInputs - 1].classList[1])
+    let numberInGroups = numberOfInputs / numberOfGroups
+    for (let x = 0; x < numberOfGroups; x++) {
+      let group = {}
+      for (let y = 0; y < numberInGroups; y++) {
+        if (data.groups && data.groups[x] && data.groups[x][groups[y].name]) {
+          group[groups[y].name] = data.groups[x][groups[y].name]
+        } else {
+          group[groups[y].name] = { value: '', error: false }
+        }
+      }
+      console.log(group)
+      newGroups.push(group)
+      group = {}
+    }
+  }
+  return newGroups
+}

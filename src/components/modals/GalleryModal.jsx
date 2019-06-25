@@ -107,7 +107,7 @@ const GalleryModal = props => {
         type={'input'}
         label={'Section Header'}
         name={'sectionHeader'}
-        error={null}
+        error={data['sectionHeader'] ? data['sectionHeader'].error : null}
         value={data['sectionHeader'] ? data['sectionHeader'].value : ''}
         updateFormData={updateFormData}
         required
