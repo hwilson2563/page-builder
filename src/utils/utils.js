@@ -414,9 +414,7 @@ export const getGroupInputs = data => {
           group[groups[y].name] = { value: '', error: false }
         }
       }
-      console.log(group)
       newGroups.push(group)
-      group = {}
     }
   }
   return newGroups
