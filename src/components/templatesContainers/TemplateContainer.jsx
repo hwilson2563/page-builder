@@ -87,7 +87,7 @@ const TemplateContainer = props => {
       clonedGroups.forEach((groups, idx) => {
         let groupArray = Object.getOwnPropertyNames(groups)
         groupArray.forEach(input => {
-          if (clonedGroups[idx].error === false) {
+          if (clonedGroups[idx][input].error === false) {
             errorPresent = true
           }
         })
