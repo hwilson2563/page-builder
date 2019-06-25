@@ -39,7 +39,7 @@ const Section = styled.div`
   text-align: center;
 `
 const TwoSmallImgModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0]])
 
   const addRemovePTags = (addParagraph, index, idx) => {
@@ -48,6 +48,13 @@ const TwoSmallImgModal = props => {
       createdParagraphs[index].push(createdParagraphs[index].length)
     } else {
       createdParagraphs[index].splice(idx, 1)
+      let incomingDataClone = { ...data }
+      if (incomingDataClone.groups) {
+        let remove = incomingDataClone.groups[index]
+        let paragraph = 'paragraph' + idx
+        delete remove[paragraph]
+        updateTemplateData(incomingDataClone)
+      }
     }
     setPTags(createdParagraphs)
   }
@@ -110,7 +117,8 @@ const TwoSmallImgModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[0].map((paragraph, idx) => {
+      {pTags[0].map((idx) => {
+        let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -120,11 +128,11 @@ const TwoSmallImgModal = props => {
               name={'paragraph' + idx}
               group={1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0)}>Remove</StyledButton>}
+            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -160,7 +168,8 @@ const TwoSmallImgModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[1].map((paragraph, idx) => {
+      {pTags[1].map((idx) => {
+        let valueExists = data.groups && data.groups[1] && data.groups[1]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -170,11 +179,11 @@ const TwoSmallImgModal = props => {
               name={'paragraph' + idx}
               group={2}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[1]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1)}>Remove</StyledButton>}
+            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}

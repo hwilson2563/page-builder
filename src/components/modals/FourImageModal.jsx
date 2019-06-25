@@ -38,7 +38,7 @@ const Section = styled.div`
   text-align: center;
 `
 const FourImageModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0], [0], [0]])
 
   const addRemovePTags = (addParagraph, index, idx) => {
@@ -47,6 +47,15 @@ const FourImageModal = props => {
       createdParagraphs[index].push(createdParagraphs[index].length)
     } else {
       createdParagraphs[index].splice(idx, 1)
+      let incomingDataClone = { ...data }
+      if (incomingDataClone.groups) {
+        let remove = incomingDataClone.groups[index]
+        console.log(remove)
+        let paragraph = 'paragraph' + idx
+        console.log(paragraph)
+        delete remove[paragraph]
+        updateTemplateData(incomingDataClone)
+      }
     }
     setPTags(createdParagraphs)
   }
@@ -109,21 +118,22 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[0].map((paragraph, idx) => {
+      {pTags[0].map((idx) => {
+        let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
               textArea
               type={'text'}
               label={'Paragraph ' + (idx + 1)}
-              name={'paragraph' + (idx)}
+              name={'paragraph' + idx}
               group={1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0)}>Remove</StyledButton>}
+            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -159,7 +169,8 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[1].map((paragraph, idx) => {
+      {pTags[1].map((idx) => {
+        let valueExists = data.groups && data.groups[1] && data.groups[1]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -169,11 +180,11 @@ const FourImageModal = props => {
               name={'paragraph' + idx}
               group={2}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[1]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1)}>Remove</StyledButton>}
+            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -209,7 +220,8 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[2].map((paragraph, idx) => {
+      {pTags[2].map((idx) => {
+        let valueExists = data.groups && data.groups[2] && data.groups[2]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -219,11 +231,11 @@ const FourImageModal = props => {
               name={'paragraph' + idx}
               group={3}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[2]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[2].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 2)}>Remove</StyledButton>}
+            {pTags[2].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 2, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -259,7 +271,8 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[3].map((paragraph, idx) => {
+      {pTags[3].map((idx) => {
+        let valueExists = data.groups && data.groups[3] && data.groups[3]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -269,11 +282,11 @@ const FourImageModal = props => {
               name={'paragraph' + idx}
               group={4}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[3]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[3].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 3)}>Remove</StyledButton>}
+            {pTags[3].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 3, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}

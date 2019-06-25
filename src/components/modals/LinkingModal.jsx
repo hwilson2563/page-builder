@@ -66,13 +66,16 @@ const LinkingModal = props => {
     if (addParagraph) {
       createdParagraphs.push(createdParagraphs.length)
     } else {
-      createdParagraphs.splice(idx, 1)
+      createdParagraphs.pop()
       let incomingDataClone = { ...data }
       if (incomingDataClone.groups) {
-        incomingDataClone.groups.splice(idx, 1)
+        let remove = incomingDataClone.groups[0]
+        let paragraph = 'paragraph' + idx
+        delete remove[paragraph]
         updateTemplateData(incomingDataClone)
       }
     }
+    console.log(createdParagraphs)
     setPTags(createdParagraphs)
   }
 
@@ -81,7 +84,9 @@ const LinkingModal = props => {
     if (addLink) {
       createdLinks.push(createdLinks.length)
     } else {
+      let incomingDataClone = { ...data }
       createdLinks.splice(idx, 1)
+      console.log(incomingDataClone.groups)
     }
     setLinks(createdLinks)
   }
@@ -178,7 +183,7 @@ const LinkingModal = props => {
               updateFormData={updateFormData}
               required
             />
-            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false)}>Remove</StyledButton>}
+            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}

@@ -39,15 +39,23 @@ const Section = styled.div`
   text-align: center;
 `
 const ThreeImageModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0], [0]])
 
   const addRemovePTags = (addParagraph, index, idx) => {
     let createdParagraphs = [...pTags]
     if (addParagraph) {
       createdParagraphs[index].push(createdParagraphs[index].length)
+      console.log(createdParagraphs)
     } else {
       createdParagraphs[index].splice(idx, 1)
+      let incomingDataClone = { ...data }
+      if (incomingDataClone.groups) {
+        let remove = incomingDataClone.groups[index]
+        let paragraph = 'paragraph' + idx
+        delete remove[paragraph]
+        updateTemplateData(incomingDataClone)
+      }
     }
     setPTags(createdParagraphs)
   }
@@ -110,7 +118,8 @@ const ThreeImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[0].map((paragraph, idx) => {
+      {pTags[0].map((idx) => {
+        let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -120,11 +129,11 @@ const ThreeImageModal = props => {
               name={'paragraph' + idx}
               group={1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0)}>Remove</StyledButton>}
+            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -160,7 +169,8 @@ const ThreeImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[1].map((paragraph, idx) => {
+      {pTags[1].map((idx) => {
+        let valueExists = data.groups && data.groups[1] && data.groups[1]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -170,11 +180,11 @@ const ThreeImageModal = props => {
               name={'paragraph' + idx}
               group={2}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[1]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1)}>Remove</StyledButton>}
+            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
@@ -210,7 +220,8 @@ const ThreeImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[2].map((paragraph, idx) => {
+      {pTags[2].map((idx) => {
+        let valueExists = data.groups && data.groups[2] && data.groups[2]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -220,11 +231,11 @@ const ThreeImageModal = props => {
               name={'paragraph' + idx}
               group={3}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[2]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags[2].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 2)}>Remove</StyledButton>}
+            {pTags[2].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 2, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}

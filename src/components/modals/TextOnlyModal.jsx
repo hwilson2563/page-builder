@@ -33,7 +33,7 @@ const StyledButton = styled.button`
   }
 `
 const TextOnlyModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([0])
 
   const addRemovePTags = (addParagraph, idx) => {
@@ -42,6 +42,11 @@ const TextOnlyModal = props => {
       createdParagraphs.push(createdParagraphs.length)
     } else {
       createdParagraphs.splice(idx, 1)
+      let incomingDataClone = {...data}
+      if (incomingDataClone.groups) {
+        incomingDataClone.groups.splice(idx, 1)
+        updateTemplateData(incomingDataClone)
+      } 
     }
     setPTags(createdParagraphs)
   }
@@ -89,7 +94,7 @@ const TextOnlyModal = props => {
               updateFormData={updateFormData}
               required
             />
-            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false)}>Remove</StyledButton>}
+            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}

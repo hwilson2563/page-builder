@@ -33,7 +33,7 @@ const StyledButton = styled.button`
   }
 `
 const OneImageTextModal = props => {
-  const { updateFormData, data } = props
+  const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([0])
 
   const addRemovePTags = (addParagraph, idx) => {
@@ -42,6 +42,11 @@ const OneImageTextModal = props => {
       createdParagraphs.push(createdParagraphs.length)
     } else {
       createdParagraphs.splice(idx, 1)
+      let incomingDataClone = {...data}
+      if (incomingDataClone.groups) {
+        incomingDataClone.groups.splice(idx, 1)
+        updateTemplateData(incomingDataClone)
+      } 
     }
     setPTags(createdParagraphs)
   }
@@ -94,7 +99,8 @@ const OneImageTextModal = props => {
         required
       />
       {/* MORE PARAGRAPHS TO BE ADDED */}
-      {pTags.map((paragraph, idx) => {
+      {pTags.map((idx) => {
+        let valueExists = data.groups && data.groups[idx] && data.groups[idx]['paragraph']
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -104,11 +110,11 @@ const OneImageTextModal = props => {
               name={'paragraph'}
               group={idx + 1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[idx]['paragraph'].value : ''}
               updateFormData={updateFormData}
               required
             />
-            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false)}>Remove</StyledButton>}
+            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false, idx)}>Remove</StyledButton>}
           </Fragment>
         )
       })}
