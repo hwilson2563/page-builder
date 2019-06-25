@@ -61,8 +61,8 @@ const FourImage = props => {
           <h3 className='subheader'>{subheader1}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            {first.map(p => {
-              return <p>{p.value}</p>
+            {first.map((p, idx) => {
+              return <p key={idx}>{p.value}</p>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -75,8 +75,8 @@ const FourImage = props => {
           <h3 className='subheader'>{subheader2}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            {second.map(p => {
-              return <p>{p.value}</p>
+            {second.map((p, idx) => {
+              return <p key={idx}>{p.value}</p>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -89,8 +89,8 @@ const FourImage = props => {
           <h3 className='subheader'>{subheader3}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            {third.map(p => {
-              return <p>{p.value}</p>
+            {third.map((p, idx) => {
+              return <p key={idx}>{p.value}</p>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
@@ -103,8 +103,8 @@ const FourImage = props => {
           <h3 className='subheader'>{subheader4}</h3>
           <div className='read-more-container'>
             {/* <!-- Add or remove paragraph tags below --> */}
-            {fourth.map(p => {
-              return <p>{p.value}</p>
+            {fourth.map((p, idx) => {
+              return <p key={idx}>{p.value}</p>
             })}
             {/* <!-- End of paragraph tags --> */}
           </div>
