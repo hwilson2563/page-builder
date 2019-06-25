@@ -75,7 +75,6 @@ const LinkingModal = props => {
         updateTemplateData(incomingDataClone)
       }
     }
-    console.log(createdParagraphs)
     setPTags(createdParagraphs)
   }
 
@@ -86,7 +85,6 @@ const LinkingModal = props => {
     } else {
       let incomingDataClone = { ...data }
       createdLinks.splice(idx, 1)
-      console.log(incomingDataClone.groups)
     }
     setLinks(createdLinks)
   }
@@ -169,7 +167,8 @@ const LinkingModal = props => {
         value={data['title'] ? data['title'].value : ''}
         required
       />
-      {pTags.map((paragraph, idx) => {
+      {pTags.map((idx) => {
+        let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -179,7 +178,7 @@ const LinkingModal = props => {
               name={'paragraph' + idx}
               group={1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
             />

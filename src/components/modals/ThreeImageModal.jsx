@@ -46,7 +46,6 @@ const ThreeImageModal = props => {
     let createdParagraphs = [...pTags]
     if (addParagraph) {
       createdParagraphs[index].push(createdParagraphs[index].length)
-      console.log(createdParagraphs)
     } else {
       createdParagraphs[index].splice(idx, 1)
       let incomingDataClone = { ...data }

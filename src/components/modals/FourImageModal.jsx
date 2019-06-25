@@ -50,9 +50,7 @@ const FourImageModal = props => {
       let incomingDataClone = { ...data }
       if (incomingDataClone.groups) {
         let remove = incomingDataClone.groups[index]
-        console.log(remove)
         let paragraph = 'paragraph' + idx
-        console.log(paragraph)
         delete remove[paragraph]
         updateTemplateData(incomingDataClone)
       }

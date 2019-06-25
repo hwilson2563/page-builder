@@ -18,7 +18,6 @@ const TwoSmallImage = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText2 = templateData.altText2 ? templateData.altText2.value : ''
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
-  console.log(subheader2)
 
   // setting values for first, second, third, and fourth set of paragraphs for mapping through later
   let first =
