@@ -41,6 +41,7 @@ const ProductListModal = props => {
   const { updateFormData, data, updateTemplateData } = props
   const [productsRender, setProductsRender] = useState(data.groups || [0])
 
+  //function adds and removes items from array (length represents how many inputs/products there are) and updates state based on if addProduct is true or false (Add/Remove buttons trigger this)
   const buildAllProductFields = (addProduct, idx) => {
     let createdProducts = [...productsRender]
     if (addProduct) {
