@@ -4,6 +4,10 @@ import { PropTypes } from 'prop-types'
 
 import FormEntry from '../modal/FormEntry'
 
+const SubHeader = styled.p`
+  width: 100%;
+  text-align: center;
+`
 const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
@@ -53,16 +57,67 @@ const IdContainer = styled.div`
   }
 `
 const LinkingModal = props => {
-  const { updateFormData, data, selectedTemplates } = props
+  const { updateFormData, data, selectedTemplates, updateTemplateData } = props
   const [pTags, setPTags] = useState([0])
+  const [links, setLinks] = useState([0])
+
   const addRemovePTags = (addParagraph, idx) => {
     let createdParagraphs = [...pTags]
     if (addParagraph) {
       createdParagraphs.push(createdParagraphs.length)
     } else {
       createdParagraphs.splice(idx, 1)
+      let incomingDataClone = { ...data }
+      if (incomingDataClone.groups) {
+        incomingDataClone.groups.splice(idx, 1)
+        updateTemplateData(incomingDataClone)
+      }
     }
     setPTags(createdParagraphs)
+  }
+
+  const buildLinks = (addLink, idx) => {
+    let createdLinks = [...links]
+    if (addLink) {
+      createdLinks.push(createdLinks.length)
+    } else {
+      createdLinks.splice(idx, 1)
+    }
+    setLinks(createdLinks)
+  }
+
+  let groups = [
+    { label: 'Id of template you wish the link to', name: 'href', type: 'input' },
+    { label: 'Link Aria Label', name: 'ariaLabel', type: 'input' },
+    { label: 'Anchor Link Title', name: 'anchorTitle', type: 'input' }
+  ]
+
+  const createLinks = idx => {
+    console.log(data.groups)
+    return (
+      <Fragment key={idx}>
+        <SubHeader>Link {idx + 1}</SubHeader>
+        {groups.map(link => {
+          let valueExists = data.groups && data.groups[idx + 1] && data.groups[idx + 1][link.name]
+          console.log(valueExists)
+          return (
+            <Fragment key={link.name + idx}>
+              <FormEntry
+                type={link.name}
+                label={link.label}
+                name={link.name}
+                group={idx + 2}
+                error={null}
+                value={valueExists ? data.groups[idx + 1][link.name].value : ''}
+                updateFormData={updateFormData}
+                required
+              />
+            </Fragment>
+          )
+        })}
+        {links.length > 1 && <StyledButton onClick={() => buildLinks(false, idx)}>Remove</StyledButton>}
+      </Fragment>
+    )
   }
   return (
     <>
@@ -118,8 +173,8 @@ const LinkingModal = props => {
               textArea
               type={'text'}
               label={'Paragraph ' + (idx + 1)}
-              name={'paragraph'}
-              group={idx + 1}
+              name={'paragraph' + idx}
+              group={1}
               error={null}
               value={data['paragraph'] ? data['paragraph'].value : ''}
               updateFormData={updateFormData}
@@ -148,33 +203,10 @@ const LinkingModal = props => {
           )
         })}
       </Options>
-      <FormEntry
-        type={'input'}
-        label={'Id of template you wish to link to'}
-        name={'href'}
-        error={null}
-        value={data['href'] ? data['href'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
-      <FormEntry
-        type={'input'}
-        label={'Link Aria Label'}
-        name={'ariaLabel'}
-        error={null}
-        value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
-      <FormEntry
-        type={'input'}
-        label={'Anchor Link Title'}
-        name={'anchorTitle'}
-        error={null}
-        value={data['anchorTitle'] ? data['anchorTitle'].value : ''}
-        updateFormData={updateFormData}
-        required
-      />
+      {links.map((product, idx) => createLinks(idx))}
+      {links.length < 6 && <ButtonContainer>
+        <StyledButton onClick={() => buildLinks(true)}>Add Link</StyledButton>
+      </ButtonContainer>}
     </>
   )
 }
