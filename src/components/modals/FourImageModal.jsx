@@ -32,7 +32,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Section Title'}
         name={'title'}
-        error={data['title'] ? data['title'].errror : null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required

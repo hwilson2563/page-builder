@@ -36,7 +36,7 @@ const TwoSmallImgModal = props => {
         error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
-        srequired
+        required
       />
       <Section>First Image Form</Section>
       {/* First Img Temp */}
