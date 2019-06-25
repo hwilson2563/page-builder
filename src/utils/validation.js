@@ -22,7 +22,7 @@ function isUrl (data) {
   let isEmpty = Validator.isEmpty(data)
   if (!isEmpty) {
     let isUrl = Validator.isURL(data, { protocols: ['http', 'https'], require_protocol: true })
-    return [isUrl, '*Invalid url. Must contain https:// before www']
+    return [isUrl, '*Invalid url. Must contain https:// or http:// before www']
   } else {
     return [false, '']
   }
