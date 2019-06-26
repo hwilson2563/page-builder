@@ -83,7 +83,6 @@ const TemplateContainer = props => {
     let inputs = document.getElementsByClassName('input')
     let clonedGroups = getGroupInputs(clonedData, groups)
     let incompleteFields = getEmptyInputs(clonedData, inputs)
-
     // if groups are present see if error is in stored data
     let errorInfo = getErrorData(clonedData, clonedGroups, incompleteFields)
     // update form data
