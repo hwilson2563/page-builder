@@ -115,8 +115,7 @@ describe('getErrorData', () => {
       },
       errorPresent: true
     }
-    let errorPresent = false
-    expect(getErrorData(clonedData, clonedGroups, incompleteFields, errorPresent)).toEqual(errorData)
+    expect(getErrorData(clonedData, clonedGroups, incompleteFields)).toEqual(errorData)
   })
   test('should return an array of objects with no errorPresent', () => {
     let clonedGroups = [{ password: { value: '123', error: true } }]
@@ -129,7 +128,6 @@ describe('getErrorData', () => {
       },
       errorPresent: false
     }
-    let errorPresent = false
-    expect(getErrorData(clonedData, clonedGroups, incompleteFields, errorPresent)).toEqual(errorData)
+    expect(getErrorData(clonedData, clonedGroups, incompleteFields)).toEqual(errorData)
   })
 })
