@@ -12,7 +12,6 @@ const TextOnlyModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -21,13 +20,12 @@ const TextOnlyModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required
@@ -37,7 +35,7 @@ const TextOnlyModal = props => {
         type={'text'}
         label={'Paragraph'}
         name={'paragraph'}
-        error={null}
+        error={data['paragraph'] ? data['paragraph'].error : null}
         value={data['paragraph'] ? data['paragraph'].value : ''}
         updateFormData={updateFormData}
         required

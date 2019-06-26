@@ -349,7 +349,9 @@ export function buildJSON (templateData) {
       let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
       let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
       let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
-      let image = gallery.image ? gallery.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
+      let image = gallery.image
+        ? gallery.image.value
+        : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
       let imgAltText = gallery.imgAltText ? gallery.imgAltText.value : 'Alt Text'
       eachGallery[galleryName] = [
         {
@@ -379,4 +381,72 @@ export function buildJSON (templateData) {
     ]
   }
   return eachGallery
+}
+
+export const getEmptyInputs = (data, inputs) => {
+  // get inputs with class of input
+  // these are none grouped inputs
+  let incompleteFields = {}
+  if (inputs.length > 0) {
+    for (let x = 0; x < inputs.length; x++) {
+      // see if current input is already saved to the data array, required and as no value
+      if (inputs[x].required && inputs[x].value === '' && !data[inputs[x].name]) {
+        incompleteFields[inputs[x].name] = { value: '', error: false }
+      }
+    }
+    // fields that need filled out
+    return incompleteFields
+  }
+}
+
+export const getGroupInputs = (data, groups) => {
+  let numberOfInputs = groups.length
+  let newGroups = []
+  if (groups && numberOfInputs > 0) {
+    let numberOfGroups = Number(groups[numberOfInputs - 1].classList[1])
+    let numberInGroups = numberOfInputs / numberOfGroups
+    for (let x = 0; x < numberOfGroups; x++) {
+      let group = {}
+      for (let y = 0; y < numberInGroups; y++) {
+        if (data.groups && data.groups[x] && data.groups[x][groups[y].name]) {
+          group[groups[y].name] = data.groups[x][groups[y].name]
+        } else {
+          group[groups[y].name] = { value: '', error: false }
+        }
+      }
+      newGroups.push(group)
+    }
+  }
+  return newGroups
+}
+
+export const getErrorData = (clonedData, clonedGroups, incompleteFields) => {
+  let errorPresent = false
+  // if groups are present see if error is in stored data
+  if (clonedGroups.length > 0) {
+    clonedGroups.forEach((groups, idx) => {
+      let groupArray = Object.getOwnPropertyNames(groups)
+      groupArray.forEach(input => {
+        if (clonedGroups[idx][input].error === false) {
+          errorPresent = true
+        }
+      })
+    })
+    clonedData.groups = clonedGroups
+  }
+  // see if error is present in stored data
+  if (Object.getOwnPropertyNames(clonedData).length > 0) {
+    let arrayData = Object.getOwnPropertyNames(clonedData)
+    arrayData.forEach(input => {
+      if (input !== 'groups' && clonedData[input].error === false) {
+        errorPresent = true
+      }
+    })
+  }
+  // if incomplete fields are found add them to state
+  if (Object.getOwnPropertyNames(incompleteFields).length > 0) {
+    errorPresent = true
+    clonedData = { ...clonedData, ...incompleteFields }
+  }
+  return { clonedData, errorPresent }
 }

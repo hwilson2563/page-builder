@@ -3,7 +3,10 @@ import {
   removeSelectedTemplates,
   addSelectedTemplates,
   moveUpSelectedTemplates,
-  moveDownSelectedTemplates
+  moveDownSelectedTemplates,
+  getEmptyInputs,
+  getGroupInputs,
+  getErrorData
 } from '../utils/utils'
 
 describe('determineScreen return screen type based on window width', () => {
@@ -63,5 +66,68 @@ describe('moveDownSelectedTemplates', () => {
     let templates = ['Banner', 'OneImage', 'TwoImage']
     let updatedTemplates = ['Banner', 'TwoImage', 'OneImage']
     expect(moveDownSelectedTemplates(templates, idx)).toEqual(updatedTemplates)
+  })
+})
+
+describe('getEmptyInputs', () => {
+  test('should return an object of 1 required field with empty value and error', () => {
+    let inputs = [{ required: true, value: 'bob', name: 'name' }, { required: true, value: '', name: 'password' }]
+    let data = { name: { value: 'bob', error: true } }
+    let errorInputs = { password: { value: '', error: false } }
+    expect(getEmptyInputs(data, inputs)).toEqual(errorInputs)
+  })
+  test('should return an empty object becasue no input is required that is blank', () => {
+    let inputs = [{ required: false, value: 'bob', name: 'name' }]
+    let data = {}
+    let errorInputs = {}
+    expect(getEmptyInputs(data, inputs)).toEqual(errorInputs)
+  })
+})
+
+describe('getGroupInputs', () => {
+  test('should return an array of object of  2 required fields', () => {
+    let groups = [
+      { required: true, value: 'bob', name: 'name', classList: ['', '1'] },
+      { required: true, value: '', name: 'password', classList: ['', '1'] }
+    ]
+    let data = { groups: [{ name: { value: 'bob', error: true } }] }
+    let allGroups = [{ name: { value: 'bob', error: true }, password: { value: '', error: false } }]
+    expect(getGroupInputs(data, groups)).toEqual(allGroups)
+  })
+  test('should return an empty array', () => {
+    let inputs = []
+    let data = {}
+    let allGroups = []
+    expect(getGroupInputs(data, inputs)).toEqual(allGroups)
+  })
+})
+
+describe('getErrorData', () => {
+  test('should return an array of objects with errorPresent', () => {
+    let clonedGroups = [{ name: { value: 'bob', error: true }, password: { value: '', error: false } }]
+    let incompleteFields = { password: { value: '', error: false } }
+    let clonedData = { name: { value: 'bob', error: true } }
+    let errorData = {
+      clonedData: {
+        name: { value: 'bob', error: true },
+        password: { value: '', error: false },
+        groups: [{ name: { value: 'bob', error: true }, password: { value: '', error: false } }]
+      },
+      errorPresent: true
+    }
+    expect(getErrorData(clonedData, clonedGroups, incompleteFields)).toEqual(errorData)
+  })
+  test('should return an array of objects with no errorPresent', () => {
+    let clonedGroups = [{ password: { value: '123', error: true } }]
+    let incompleteFields = {}
+    let clonedData = { name: { value: 'bob', error: true } }
+    let errorData = {
+      clonedData: {
+        name: { value: 'bob', error: true },
+        groups: [{ password: { value: '123', error: true } }]
+      },
+      errorPresent: false
+    }
+    expect(getErrorData(clonedData, clonedGroups, incompleteFields)).toEqual(errorData)
   })
 })

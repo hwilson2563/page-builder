@@ -20,7 +20,6 @@ const TwoLargeImgModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -29,16 +28,15 @@ const TwoLargeImgModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
-        srequired
+        required
       />
       <Section>First Image Form</Section>
       {/* First Img Temp */}
@@ -46,7 +44,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Image 1'}
         name={'image1'}
-        error={null}
+        error={data['image1'] ? data['image1'].error : null}
         value={data['image1'] ? data['image1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -55,7 +53,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText1'}
-        error={null}
+        error={data['altText1'] ? data['altText1'].error : null}
         value={data['altText1'] ? data['altText1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -64,7 +62,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader1'}
-        error={null}
+        error={data['subheader1'] ? data['subheader1'].error : null}
         value={data['subheader1'] ? data['subheader1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -74,7 +72,7 @@ const TwoLargeImgModal = props => {
         type={'text'}
         label={'Paragraph'}
         name={'paragraph1'}
-        error={null}
+        error={data['paragraph1'] ? data['paragraph1'].error : null}
         value={data['paragraph1'] ? data['paragraph1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -85,7 +83,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Image 2'}
         name={'image2'}
-        error={null}
+        error={data['image2'] ? data['image2'].error : null}
         value={data['image2'] ? data['image2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -94,7 +92,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText2'}
-        error={null}
+        error={data['altText2'] ? data['altText2'].error : null}
         value={data['altText2'] ? data['altText2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -103,7 +101,7 @@ const TwoLargeImgModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader2'}
-        error={null}
+        error={data['subheader2'] ? data['subheader2'].error : null}
         value={data['subheader2'] ? data['subheader2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -113,7 +111,7 @@ const TwoLargeImgModal = props => {
         type={'text'}
         label={'Paragraph'}
         name={'paragraph2'}
-        error={null}
+        error={data['paragraph2'] ? data['paragraph2'].error : null}
         value={data['paragraph2'] ? data['paragraph2'].value : ''}
         updateFormData={updateFormData}
         required

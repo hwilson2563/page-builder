@@ -34,7 +34,6 @@ const LinkingModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -43,13 +42,12 @@ const LinkingModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Image'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
@@ -58,7 +56,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
@@ -67,7 +65,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         updateFormData={updateFormData}
         value={data['title'] ? data['title'].value : ''}
         required
@@ -77,7 +75,7 @@ const LinkingModal = props => {
         type={'text'}
         label={'Paragraph Text'}
         name={'paragraph'}
-        error={null}
+        error={data['paragraph'] ? data['paragraph'].error : null}
         value={data['paragraph'] ? data['paragraph'].value : ''}
         updateFormData={updateFormData}
         required
@@ -86,14 +84,17 @@ const LinkingModal = props => {
       <FormEntry
         type={'input'}
         label={'Id of template you wish to link to'}
-        name={'href'}
-        error={null}
-        value={data['href'] ? data['href'].value : ''}
+        name={'link'}
+        error={data['link'] ? data['link'].error : null}
+        value={data['link'] ? data['link'].value : ''}
         updateFormData={updateFormData}
         required
       />
       <Options>
-        <Directions>Copy and paste the id of the template you want to link to. The number at the end represents the order of the templates (first to last)</Directions>
+        <Directions>
+          Copy and paste the id of the template you want to link to. The number at the end represents the order of the
+          templates (first to last)
+        </Directions>
         {selectedTemplates.map((template, idx) => {
           let id = template.id + '-' + (idx + 1)
           return (
@@ -108,7 +109,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Link Aria Label'}
         name={'ariaLabel'}
-        error={null}
+        error={data['ariaLabel'] ? data['ariaLabel'].error : null}
         value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
         updateFormData={updateFormData}
         required
@@ -117,7 +118,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Anchor Link Title'}
         name={'anchorTitle'}
-        error={null}
+        error={data['anchorTitle'] ? data['anchorTitle'].error : null}
         value={data['anchorTitle'] ? data['anchorTitle'].value : ''}
         updateFormData={updateFormData}
         required

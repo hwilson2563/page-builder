@@ -72,7 +72,7 @@ const GalleryModal = props => {
                 label={input.label}
                 name={input.name}
                 group={idx + 1}
-                error={null}
+                error={valueExists ? data.groups[idx][input.name].error : null}
                 value={valueExists ? data.groups[idx][input.name].value : ''}
                 updateFormData={updateFormData}
                 required
@@ -96,7 +96,6 @@ const GalleryModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -105,13 +104,12 @@ const GalleryModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Section Header'}
         name={'sectionHeader'}
-        error={null}
+        error={data['sectionHeader'] ? data['sectionHeader'].error : null}
         value={data['sectionHeader'] ? data['sectionHeader'].value : ''}
         updateFormData={updateFormData}
         required

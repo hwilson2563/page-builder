@@ -12,7 +12,6 @@ const OneImageTextModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -21,13 +20,12 @@ const OneImageTextModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Image'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
@@ -36,7 +34,7 @@ const OneImageTextModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
@@ -45,7 +43,7 @@ const OneImageTextModal = props => {
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required
@@ -56,7 +54,7 @@ const OneImageTextModal = props => {
         type={'text'}
         label={'Paragraph'}
         name={'paragraph'}
-        error={null}
+        error={data['paragraph'] ? data['paragraph'].error : null}
         value={data['paragraph'] ? data['paragraph'].value : ''}
         updateFormData={updateFormData}
         required

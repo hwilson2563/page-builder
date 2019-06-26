@@ -13,7 +13,7 @@ const Linking = props => {
   let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
   let paragraph = templateData.paragraph ? templateData.paragraph.value : 'Place a paragraph here'
-  let href = templateData.href ? templateData.href.value : '#section-id'
+  let link = templateData.link ? templateData.link.value : '#section-id'
   let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : ''
   let anchorTitle = templateData.anchorTitle ? templateData.anchorTitle.value : 'Anchor Link Title 1'
 
@@ -38,7 +38,7 @@ const Linking = props => {
         <!-- replace each #section-id with the section's id you wish to link to  -->
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
-          <a href={href} aria-label={ariaLabel}>
+          <a href={link} aria-label={ariaLabel}>
             {anchorTitle}
           </a>
           {/* <!-- END OF ANCHOR SECTION --> */}

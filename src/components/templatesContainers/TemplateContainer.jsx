@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import { buildJSON } from '../../utils/utils'
+import { buildJSON, getGroupInputs, getEmptyInputs , getErrorData } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -35,9 +35,11 @@ const TemplateContainer = props => {
   const Component = template.component
   const [displayForm, setDisplayForm] = useState(false)
   const [data, setData] = useState(template.data)
+  const [error, setError] = useState(false)
 
   useEffect(
     () => {
+      // update useState as prop type updates
       setData(template.data)
     },
     [template.data]
@@ -64,8 +66,10 @@ const TemplateContainer = props => {
     }
     setData(newFormData)
   }
+
   // modal functions
   const toggleDisplayForm = () => {
+    setError(false)
     setDisplayForm(!displayForm)
   }
 
@@ -73,12 +77,29 @@ const TemplateContainer = props => {
     toggleDisplayForm()
   }
 
+  const saveModalData = () => {
+    let clonedData = { ...data }
+    let groups = document.getElementsByClassName('groups')
+    let inputs = document.getElementsByClassName('input')
+    let clonedGroups = getGroupInputs(clonedData, groups)
+    let incompleteFields = getEmptyInputs(clonedData, inputs)
+    // if groups are present see if error is in stored data
+    let errorInfo = getErrorData(clonedData, clonedGroups, incompleteFields)
+    // update form data
+    setData(errorInfo.clonedData)
+    // update error status
+    setError(errorInfo.errorPresent)
+    // if no error is present toggle modal and save data to highest level
+    if (!errorInfo.errorPresent) {
+      toggleDisplayForm()
+      updateTemplateData(data)
+    }
+  }
+
   const closeModal = (e, value) => {
     e.stopPropagation()
     if (value === 'close') {
       toggleDisplayForm()
-      // save data if they did not hit save
-      updateTemplateData(data)
     }
   }
   // end modal functions
@@ -89,9 +110,9 @@ const TemplateContainer = props => {
   }
   let indexId = template.id + '-' + (idx + 1)
   let templateData =
-  template.tempName === 'Gallery Template'
-    ? { JSON: buildJSON(template.data), styling: template.data }
-    : template.data
+    template.tempName === 'Gallery Template'
+      ? { JSON: buildJSON(template.data), styling: template.data }
+      : template.data
   return (
     <TemplateContain className={'template-container'} selectedTemplateLength={selectedTemplateLength} idx={idx}>
       <Component templateData={templateData} id={indexId} />
@@ -108,6 +129,8 @@ const TemplateContainer = props => {
         screen={screen}
         template={template}
         formData={data}
+        error={error}
+        saveModalData={saveModalData}
         updateFormData={updateFormData}
         updateTemplateData={updateTemplateData}
       />
