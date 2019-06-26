@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
 import FormEntry from '../modal/FormEntry'
+import Button from '../modal/parts/Button'
 
 const ButtonContainer = styled.div`
   width: 100%;
@@ -10,28 +11,6 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-`
-const StyledButton = styled.button`
-  margin: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  height: 20px;
-  outline: none;
-  height: 45px;
-  width: 100%;
-  border: 2px solid ${props => props.theme.backgroundAccent};
-  background-color: white;
-  font-family: ${props => props.theme.fontBody};
-  text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.mainPrimary};
-  border-radius: 3px;
-  margin-bottom: 40px;
-  transition: 0.3s ease-in-out;
-  :hover {
-    cursor: pointer;
-    background-color: ${props => props.theme.backgroundAccent};
-  }
 `
 const Section = styled.div`
   width: 100%;
@@ -135,7 +114,7 @@ const TwoLargeImgModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[0].map((idx) => {
+      {pTags[0].map(idx => {
         let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
@@ -150,12 +129,12 @@ const TwoLargeImgModal = props => {
               updateFormData={updateFormData}
               required
             />
-            {pTags[0].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 0, idx)}>Remove</StyledButton>}
+            {pTags[0].length > 1 && <Button handleClick={() => addRemovePTags(false, 0, idx)} buttonText={'Remove'} />}
           </Fragment>
         )
       })}
       <ButtonContainer>
-        <StyledButton onClick={() => addRemovePTags(true, 0)}>Add Paragraph</StyledButton>
+        <Button handleClick={() => addRemovePTags(true, 0)} buttonText={'Add Paragraph'} />
       </ButtonContainer>
       <Section>Second Image Form</Section>
       {/* Second Img Temp */}
@@ -186,7 +165,7 @@ const TwoLargeImgModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[1].map((idx) => {
+      {pTags[1].map(idx => {
         let valueExists = data.groups && data.groups[1] && data.groups[1]['paragraph' + idx]
         return (
           <Fragment key={idx}>
@@ -201,12 +180,12 @@ const TwoLargeImgModal = props => {
               updateFormData={updateFormData}
               required
             />
-            {pTags[1].length > 1 && <StyledButton onClick={() => addRemovePTags(false, 1, idx)}>Remove</StyledButton>}
+            {pTags[1].length > 1 && <Button handleClick={() => addRemovePTags(false, 1, idx)} buttonText={'Remove'} />}
           </Fragment>
         )
       })}
       <ButtonContainer>
-        <StyledButton onClick={() => addRemovePTags(true, 1)}>Add Paragraph</StyledButton>
+        <Button handleClick={() => addRemovePTags(true, 1)} buttonText={'Add Paragraph'} />
       </ButtonContainer>
     </>
   )

@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
+import Button from '../modal/parts/Button'
 
 const ButtonContainer = styled.div`
   width: 100%;
@@ -9,28 +10,6 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-`
-const StyledButton = styled.button`
-  margin: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  height: 20px;
-  outline: none;
-  height: 45px;
-  width: 100%;
-  border: 2px solid ${props => props.theme.backgroundAccent};
-  background-color: white;
-  font-family: ${props => props.theme.fontBody};
-  text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.mainPrimary};
-  border-radius: 3px;
-  margin-bottom: 40px;
-  transition: 0.3s ease-in-out;
-  :hover {
-    cursor: pointer;
-    background-color: ${props => props.theme.backgroundAccent};
-  }
 `
 const GalleryModal = props => {
   const { updateFormData, data, updateTemplateData } = props
@@ -81,7 +60,7 @@ const GalleryModal = props => {
           )
         })}
         {galleryFormRender.length > 1 && (
-          <StyledButton onClick={() => buildAllGalleryFields(false, idx)}>Remove</StyledButton>
+          <Button handleClick={() => buildAllGalleryFields(false, idx)} buttonText={'Remove'} />
         )}
       </Fragment>
     )
@@ -116,7 +95,7 @@ const GalleryModal = props => {
       />
       {galleryFormRender.map((gallery, idx) => createFields(idx))}
       <ButtonContainer>
-        {!isMaxGalleries && <StyledButton onClick={() => buildAllGalleryFields(true)}>Add Gallery</StyledButton>}
+        {!isMaxGalleries && <Button handleClick={() => buildAllGalleryFields(true)} buttonText={'Add Gallery'} />}
       </ButtonContainer>
     </>
   )

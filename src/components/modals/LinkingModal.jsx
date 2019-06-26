@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 
 import FormEntry from '../modal/FormEntry'
+import Button from '../modal/parts/Button'
 
 const SubHeader = styled.p`
   width: 100%;
@@ -14,28 +15,6 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-`
-const StyledButton = styled.button`
-  margin: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  height: 20px;
-  outline: none;
-  height: 45px;
-  width: 100%;
-  border: 2px solid ${props => props.theme.backgroundAccent};
-  background-color: white;
-  font-family: ${props => props.theme.fontBody};
-  text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.mainPrimary};
-  border-radius: 3px;
-  margin-bottom: 40px;
-  transition: 0.3s ease-in-out;
-  :hover {
-    cursor: pointer;
-    background-color: ${props => props.theme.backgroundAccent};
-  }
 `
 const Options = styled.div`
   display: flex;
@@ -133,7 +112,7 @@ useEffect(() => {
             </Fragment>
           )
         })}
-        {links.length > 1 && <StyledButton onClick={() => buildLinks(false, (idx + 1))}>Remove</StyledButton>}
+        {links.length > 1 && <Button handleClick={() => buildLinks(false, (idx + 1))} buttonText={'Remove'} />}
       </Fragment>
     )
   }
@@ -197,12 +176,12 @@ useEffect(() => {
               updateFormData={updateFormData}
               required
             />
-            {pTags.length > 1 && <StyledButton onClick={() => addRemovePTags(false, idx)}>Remove</StyledButton>}
+            {pTags.length > 1 && <Button handleClick={() => addRemovePTags(false, idx)} buttonText={'Remove'} />}
           </Fragment>
         )
       })}
       <ButtonContainer>
-        <StyledButton onClick={() => addRemovePTags(true)}>Add Paragraph</StyledButton>
+        <Button handleClick={() => addRemovePTags(true)} buttonText={'Add Paragraph'} />
       </ButtonContainer>
       {/* MORE LINKS CAN BE ADDED */}
       <Options>
@@ -222,7 +201,7 @@ useEffect(() => {
       </Options>
       {links.map((link, idx) => createLinks(idx))}
       {links.length < 6 && <ButtonContainer>
-        <StyledButton onClick={() => buildLinks(true)}>Add Link</StyledButton>
+        <Button handleClick={() => buildLinks(true)} buttonText={'Add Link'} />
       </ButtonContainer>}
     </>
   )
