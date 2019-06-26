@@ -47,7 +47,6 @@ const FourImageModal = props => {
         data.groups.forEach((group, idx) => {
           let groupPosition = idx
           let groupsArray = Object.keys(group)
-          console.log(groupsArray)
           if (Object.keys(group).length > 0) {
             groupsArray.forEach((input, idx) => {
               let groupArray = clonedPtags[groupPosition]

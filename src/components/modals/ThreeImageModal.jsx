@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
@@ -41,6 +41,26 @@ const Section = styled.div`
 const ThreeImageModal = props => {
   const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0], [0]])
+
+  useEffect(
+    () => {
+      let clonedPtags = [...pTags]
+      if (data.groups && data.groups.length > 0) {
+        data.groups.forEach((group, idx) => {
+          let groupPosition = idx
+          let groupsArray = Object.keys(group)
+          if (Object.keys(group).length > 0) {
+            groupsArray.forEach((input, idx) => {
+              let groupArray = clonedPtags[groupPosition]
+              groupArray[idx] = idx
+            })
+          }
+        })
+        setPTags(clonedPtags)
+      }
+    },
+    [data.groups, pTags]
+  )
 
   const addRemovePTags = (addParagraph, index, idx) => {
     let createdParagraphs = [...pTags]

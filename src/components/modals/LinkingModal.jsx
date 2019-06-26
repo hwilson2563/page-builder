@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 
@@ -58,8 +58,20 @@ const IdContainer = styled.div`
 `
 const LinkingModal = props => {
   const { updateFormData, data, selectedTemplates, updateTemplateData } = props
-  const [pTags, setPTags] = useState([0])
+  const [pTags, setPTags] = useState(data.groups ? Object.keys(data.groups[0]) : [0])
   const [links, setLinks] = useState([0])
+
+useEffect(() => {
+  let currentLinks = []
+  if (data.groups && data.groups.length > 1) {
+    data.groups.forEach((group, idx) => {
+      if (data.groups.indexOf(group) > 0) {
+        currentLinks.push(idx - 1)
+        setLinks(currentLinks)
+      }
+    })
+  }
+}, [data.groups])
 
   const addRemovePTags = (addParagraph, idx) => {
     let createdParagraphs = [...pTags]
@@ -79,18 +91,23 @@ const LinkingModal = props => {
   }
 
   const buildLinks = (addLink, idx) => {
+    console.log(data.groups)
     let createdLinks = [...links]
     if (addLink) {
       createdLinks.push(createdLinks.length)
     } else {
+      createdLinks.pop()
       let incomingDataClone = { ...data }
-      createdLinks.splice(idx, 1)
+      if (incomingDataClone.groups) {
+        incomingDataClone.groups.splice(idx, 1)
+        updateTemplateData(incomingDataClone)
+      }
     }
     setLinks(createdLinks)
   }
 
   let groups = [
-    { label: 'Id of template you wish the link to', name: 'href', type: 'input' },
+    { label: 'Id of template you wish the link to', name: 'link', type: 'input' },
     { label: 'Link Aria Label', name: 'ariaLabel', type: 'input' },
     { label: 'Anchor Link Title', name: 'anchorTitle', type: 'input' }
   ]
@@ -116,7 +133,7 @@ const LinkingModal = props => {
             </Fragment>
           )
         })}
-        {links.length > 1 && <StyledButton onClick={() => buildLinks(false, idx)}>Remove</StyledButton>}
+        {links.length > 1 && <StyledButton onClick={() => buildLinks(false, (idx + 1))}>Remove</StyledButton>}
       </Fragment>
     )
   }
@@ -165,7 +182,7 @@ const LinkingModal = props => {
         value={data['title'] ? data['title'].value : ''}
         required
       />
-      {pTags.map((idx) => {
+      {pTags.map((paragraph, idx) => {
         let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
