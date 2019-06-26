@@ -51,7 +51,7 @@ const TwoLargeImgModal = props => {
           clonedPtags[groupPosition] = []
           let groupArray = Object.keys(group)
           console.log(groupArray)
-          groupArray.map((input, idx) => {
+          groupArray.forEach((input, idx) => {
             clonedPtags[groupPosition].push(idx)
           })
         })
