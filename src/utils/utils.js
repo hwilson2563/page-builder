@@ -420,8 +420,7 @@ export const getGroupInputs = (data, groups) => {
   return newGroups
 }
 
-export const getErrorData = (clonedData, clonedGroups, incompleteFields) => {
-  let errorPresent = false
+export const getErrorData = (clonedData, clonedGroups, incompleteFields, errorPresent) => {
   // if groups are present see if error is in stored data
   if (clonedGroups.length > 0) {
     clonedGroups.forEach((groups, idx) => {
