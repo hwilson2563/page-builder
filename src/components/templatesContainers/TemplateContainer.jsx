@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import { buildJSON, getErrorData } from '../../utils/utils'
+import { buildJSON, getGroupInputs, getEmptyInputs , getErrorData } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -79,8 +79,13 @@ const TemplateContainer = props => {
 
   const saveModalData = () => {
     let clonedData = { ...data }
+    let groups = document.getElementsByClassName('groups')
+    let inputs = document.getElementsByClassName('input')
+    let clonedGroups = getGroupInputs(clonedData, groups)
+    let incompleteFields = getEmptyInputs(clonedData, inputs)
+    let errorPresent = false
     // if groups are present see if error is in stored data
-    let errorInfo = getErrorData(clonedData)
+    let errorInfo = getErrorData(clonedData, clonedGroups, incompleteFields, errorPresent)
     // update form data
     setData(errorInfo.clonedData)
     // update error status

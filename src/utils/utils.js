@@ -383,11 +383,10 @@ export function buildJSON (templateData) {
   return eachGallery
 }
 
-export const getEmptyInputs = data => {
+export const getEmptyInputs = (data, inputs) => {
   // get inputs with class of input
   // these are none grouped inputs
   let incompleteFields = {}
-  let inputs = document.getElementsByClassName('input')
   if (inputs.length > 0) {
     for (let x = 0; x < inputs.length; x++) {
       // see if current input is already saved to the data array, required and as no value
@@ -400,8 +399,7 @@ export const getEmptyInputs = data => {
   }
 }
 
-export const getGroupInputs = data => {
-  let groups = document.getElementsByClassName('groups')
+export const getGroupInputs = (data, groups) => {
   let numberOfInputs = groups.length
   let newGroups = []
   if (groups && numberOfInputs > 0) {
@@ -422,9 +420,7 @@ export const getGroupInputs = data => {
   return newGroups
 }
 
-export const getErrorData = (clonedData, data) => {
-  let clonedGroups = getGroupInputs(clonedData)
-  let incompleteFields = getEmptyInputs(clonedData)
+export const getErrorData = (clonedData, clonedGroups, incompleteFields) => {
   let errorPresent = false
   // if groups are present see if error is in stored data
   if (clonedGroups.length > 0) {
@@ -442,7 +438,7 @@ export const getErrorData = (clonedData, data) => {
   if (Object.getOwnPropertyNames(clonedData).length > 0) {
     let arrayData = Object.getOwnPropertyNames(clonedData)
     arrayData.forEach(input => {
-      if (input !== 'groups' && data[input].error === false) {
+      if (input !== 'groups' && clonedData[input].error === false) {
         errorPresent = true
       }
     })
