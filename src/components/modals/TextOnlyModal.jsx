@@ -81,6 +81,7 @@ const TextOnlyModal = props => {
         required
       />
       {pTags.map((paragraph, idx) => {
+        let valueExists = data.groups && data.groups[idx] && data.groups[idx]['paragraph']
         return (
           <Fragment key={idx}>
             <FormEntry
@@ -90,7 +91,7 @@ const TextOnlyModal = props => {
               name={'paragraph'}
               group={idx + 1}
               error={null}
-              value={data['paragraph'] ? data['paragraph'].value : ''}
+              value={valueExists ? data.groups[idx]['paragraph'].value : ''}
               updateFormData={updateFormData}
               required
             />

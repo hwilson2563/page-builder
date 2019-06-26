@@ -34,7 +34,7 @@ const StyledButton = styled.button`
 `
 const OneImageTextModal = props => {
   const { updateFormData, data, updateTemplateData } = props
-  const [pTags, setPTags] = useState([0])
+  const [pTags, setPTags] = useState(data.groups || [0])
 
   const addRemovePTags = (addParagraph, idx) => {
     let createdParagraphs = [...pTags]
@@ -99,7 +99,7 @@ const OneImageTextModal = props => {
         required
       />
       {/* MORE PARAGRAPHS TO BE ADDED */}
-      {pTags.map((idx) => {
+      {pTags.map((paragraph, idx) => {
         let valueExists = data.groups && data.groups[idx] && data.groups[idx]['paragraph']
         return (
           <Fragment key={idx}>

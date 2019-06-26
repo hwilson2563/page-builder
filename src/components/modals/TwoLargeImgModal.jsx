@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
@@ -41,6 +41,25 @@ const Section = styled.div`
 const TwoLargeImgModal = props => {
   const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0]])
+
+  useEffect(
+    () => {
+      let clonedPtags = [...pTags]
+      if (data.groups && data.groups.length > 0) {
+        data.groups.forEach((group, idx) => {
+          let groupPosition = idx
+          clonedPtags[groupPosition] = []
+          let groupArray = Object.keys(group)
+          console.log(groupArray)
+          groupArray.map((input, idx) => {
+            clonedPtags[groupPosition].push(idx)
+          })
+        })
+        setPTags(clonedPtags)
+      }
+    },
+    [data.groups]
+  )
 
   const addRemovePTags = (addParagraph, index, idx) => {
     let createdParagraphs = [...pTags]
