@@ -4,6 +4,12 @@ export const EntryContainer = styled.div`
   position: relative;
   width: ${props => (props.label.includes('Image') || props.label.includes('Alt') || (props.label.includes('Button')&& props.label.includes('URL')) || props.label.includes('Button Aria Label') ? '49%' : '100%')};
   padding-left: 5px;
+  .attention {
+    position: absolute;
+    width: 20px;
+    top: 20px;
+    right: 10px;
+  }
 `
 
 export const Label = styled.label`
@@ -61,4 +67,10 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   ${props => entryStyles(props)}
   min-width: 400px;
+`
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 12px;
+  padding: 0px 10px 10px;
 `

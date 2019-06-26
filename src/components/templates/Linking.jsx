@@ -12,11 +12,18 @@ const Linking = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
+<<<<<<< HEAD
 
   let paragraphs =
     templateData.groups && templateData.groups[0]
       ? Object.values(templateData.groups[0])
       : [{ value: 'place paragraph text here' }]
+=======
+  let paragraph = templateData.paragraph ? templateData.paragraph.value : 'Place a paragraph here'
+  let link = templateData.link ? templateData.link.value : '#section-id'
+  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : ''
+  let anchorTitle = templateData.anchorTitle ? templateData.anchorTitle.value : 'Anchor Link Title 1'
+>>>>>>> ee18149cac18bd80769c20f71f7354b68b7b3b1e
 
   return (
     // <!-- START OF LINKING TEMPLATE -->
@@ -41,6 +48,7 @@ const Linking = props => {
         <!-- replace each #section-id with the section's id you wish to link to  -->
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
+<<<<<<< HEAD
           {templateData.groups ? (
             templateData.groups.map((link, idx) => {
               if (templateData.groups.indexOf(link) > 0) {
@@ -60,6 +68,11 @@ const Linking = props => {
             </a>
           )}
 
+=======
+          <a href={link} aria-label={ariaLabel}>
+            {anchorTitle}
+          </a>
+>>>>>>> ee18149cac18bd80769c20f71f7354b68b7b3b1e
           {/* <!-- END OF ANCHOR SECTION --> */}
         </div>
       </div>

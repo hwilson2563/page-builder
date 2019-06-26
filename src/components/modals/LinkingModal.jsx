@@ -108,7 +108,7 @@ const LinkingModal = props => {
                 label={link.label}
                 name={link.name}
                 group={idx + 2}
-                error={null}
+                error={valueExists ? data.groups[idx + 1][link.name].error : null}
                 value={valueExists ? data.groups[idx + 1][link.name].value : ''}
                 updateFormData={updateFormData}
                 required
@@ -129,7 +129,6 @@ const LinkingModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -138,13 +137,12 @@ const LinkingModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Image'}
         name={'image'}
-        error={null}
+        error={data['image'] ? data['image'].error : null}
         value={data['image'] ? data['image'].value : ''}
         updateFormData={updateFormData}
         required
@@ -153,7 +151,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText'}
-        error={null}
+        error={data['altText'] ? data['altText'].error : null}
         value={data['altText'] ? data['altText'].value : ''}
         updateFormData={updateFormData}
         required
@@ -162,7 +160,7 @@ const LinkingModal = props => {
         type={'input'}
         label={'Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         updateFormData={updateFormData}
         value={data['title'] ? data['title'].value : ''}
         required
@@ -177,7 +175,7 @@ const LinkingModal = props => {
               label={'Paragraph ' + (idx + 1)}
               name={'paragraph' + idx}
               group={1}
-              error={null}
+              error={valueExists ? data.groups[0]['paragraph' + idx].error : null}
               value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
@@ -205,7 +203,7 @@ const LinkingModal = props => {
           )
         })}
       </Options>
-      {links.map((product, idx) => createLinks(idx))}
+      {links.map((link, idx) => createLinks(idx))}
       {links.length < 6 && <ButtonContainer>
         <StyledButton onClick={() => buildLinks(true)}>Add Link</StyledButton>
       </ButtonContainer>}

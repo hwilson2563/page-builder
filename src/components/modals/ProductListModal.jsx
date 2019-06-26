@@ -78,7 +78,7 @@ const ProductListModal = props => {
                 label={product.label}
                 name={product.name}
                 group={idx + 1}
-                error={null}
+                error={valueExists ? data.groups[idx][product.name].error : null}
                 value={valueExists ? data.groups[idx][product.name].value : ''}
                 updateFormData={updateFormData}
                 required
@@ -102,7 +102,6 @@ const ProductListModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -111,7 +110,6 @@ const ProductListModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       {productsRender.map((product, idx) => createProducts(idx))}
       <ButtonContainer>

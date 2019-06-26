@@ -12,7 +12,6 @@ const ButtonTextModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -21,14 +20,13 @@ const ButtonTextModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Call To Action Text'}
         name={'callToAction'}
         value={data['callToAction'] ? data['callToAction'].value : ''}
-        error={null}
+        error={data['callToAction'] ? data['callToAction'].error : null}
         updateFormData={updateFormData}
         required
       />
@@ -37,7 +35,7 @@ const ButtonTextModal = props => {
         label={'Button Text'}
         name={'buttonText'}
         value={data['buttonText'] ? data['buttonText'].value : ''}
-        error={null}
+        error={data['buttonText'] ? data['buttonText'].error : null}
         updateFormData={updateFormData}
         required
       />
@@ -46,7 +44,7 @@ const ButtonTextModal = props => {
         label={'URL for Button'}
         name={'href'}
         value={data['href'] ? data['href'].value : ''}
-        error={null}
+        error={data['href'] ? data['href'].error : null}
         updateFormData={updateFormData}
         required
       />
@@ -55,7 +53,7 @@ const ButtonTextModal = props => {
         label={'Button Aria Label'}
         name={'ariaLabel'}
         value={data['ariaLabel'] ? data['ariaLabel'].value : ''}
-        error={null}
+        error={data['ariaLabel'] ? data['ariaLabel'].error : null}
         updateFormData={updateFormData}
         required
       />

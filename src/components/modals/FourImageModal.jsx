@@ -67,7 +67,6 @@ const FourImageModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -76,13 +75,12 @@ const FourImageModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <FormEntry
         type={'input'}
         label={'Section Title'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
         required
@@ -93,7 +91,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image 1'}
         name={'image1'}
-        error={null}
+        error={data['image1'] ? data['image1'].error : null}
         value={data['image1'] ? data['image1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -102,7 +100,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText1'}
-        error={null}
+        error={data['altText1'] ? data['altText1'].error : null}
         value={data['altText1'] ? data['altText1'].value : ''}
         updateFormData={updateFormData}
         required
@@ -111,12 +109,12 @@ const FourImageModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader1'}
-        error={null}
+        error={data['subheader1'] ? data['subheader1'].error : null}
         value={data['subheader1'] ? data['subheader1'].value : ''}
         updateFormData={updateFormData}
         required
       />
-      {pTags[0].map((idx) => {
+      {pTags[0].map((paragraph, idx) => {
         let valueExists = data.groups && data.groups[0] && data.groups[0]['paragraph' + idx]
         return (
           <Fragment key={idx}>
@@ -126,7 +124,7 @@ const FourImageModal = props => {
               label={'Paragraph ' + (idx + 1)}
               name={'paragraph' + idx}
               group={1}
-              error={null}
+              error={valueExists ? data.groups[0]['paragraph' + idx].error : null}
               value={valueExists ? data.groups[0]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
@@ -144,7 +142,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image 2'}
         name={'image2'}
-        error={null}
+        error={data['image2'] ? data['image2'].error : null}
         value={data['image2'] ? data['image2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -153,7 +151,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText2'}
-        error={null}
+        error={data['altText2'] ? data['altText2'].error : null}
         value={data['altText2'] ? data['altText2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -162,7 +160,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader2'}
-        error={null}
+        error={data['subheader2'] ? data['subheader2'].error : null}
         value={data['subheader2'] ? data['subheader2'].value : ''}
         updateFormData={updateFormData}
         required
@@ -177,7 +175,7 @@ const FourImageModal = props => {
               label={'Paragraph ' + (idx + 1)}
               name={'paragraph' + idx}
               group={2}
-              error={null}
+              error={valueExists ? data.groups[1]['paragraph' + idx].error : null}
               value={valueExists ? data.groups[1]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
@@ -195,7 +193,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image 3'}
         name={'image3'}
-        error={null}
+        error={data['image3'] ? data['image3'].error : null}
         value={data['image3'] ? data['image3'].value : ''}
         updateFormData={updateFormData}
         required
@@ -204,7 +202,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText3'}
-        error={null}
+        error={data['altText3'] ? data['altText3'].error : null}
         value={data['altText3'] ? data['altText3'].value : ''}
         updateFormData={updateFormData}
         required
@@ -213,7 +211,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader3'}
-        error={null}
+        error={data['subheader3'] ? data['subheader3'].error : null}
         value={data['subheader3'] ? data['subheader3'].value : ''}
         updateFormData={updateFormData}
         required
@@ -228,7 +226,7 @@ const FourImageModal = props => {
               label={'Paragraph ' + (idx + 1)}
               name={'paragraph' + idx}
               group={3}
-              error={null}
+              error={valueExists ? data.groups[2]['paragraph' + idx].error : null}
               value={valueExists ? data.groups[2]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required
@@ -246,7 +244,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image 4'}
         name={'image4'}
-        error={null}
+        error={data['image4'] ? data['image4'].error : null}
         value={data['image4'] ? data['image4'].value : ''}
         updateFormData={updateFormData}
         required
@@ -255,7 +253,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Image Alt Text'}
         name={'altText4'}
-        error={null}
+        error={data['altText4'] ? data['altText4'].error : null}
         value={data['altText4'] ? data['altText4'].value : ''}
         updateFormData={updateFormData}
         required
@@ -264,7 +262,7 @@ const FourImageModal = props => {
         type={'input'}
         label={'Sub Header'}
         name={'subheader4'}
-        error={null}
+        error={data['subheader4'] ? data['subheader4'].error : null}
         value={data['subheader4'] ? data['subheader4'].value : ''}
         updateFormData={updateFormData}
         required
@@ -279,7 +277,7 @@ const FourImageModal = props => {
               label={'Paragraph ' + (idx + 1)}
               name={'paragraph' + idx}
               group={4}
-              error={null}
+              error={valueExists ? data.groups[3]['paragraph' + idx].error : null}
               value={valueExists ? data.groups[3]['paragraph' + idx].value : ''}
               updateFormData={updateFormData}
               required

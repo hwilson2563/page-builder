@@ -13,7 +13,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['backgroundDark'] ? data['backgroundDark'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -22,7 +21,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
-        required
       />
       <div>Pick Multiple Quote Templates </div>
       <FormEntry
@@ -32,7 +30,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['faqLayout'] ? data['faqLayout'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -41,7 +38,6 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['proTipLayout'] ? data['proTipLayout'].value : false}
-        required
       />
       <FormEntry
         type={'checkbox'}
@@ -50,27 +46,24 @@ const QuotesModal = props => {
         error={null}
         updateFormData={updateFormData}
         value={data['feedBackLayout'] ? data['feedBackLayout'].value : false}
-        required
       />
       <div>FAQ Form</div>
       <FormEntry
         type={'input'}
         label={'FAQ - Question'}
         name={'title'}
-        error={null}
+        error={data['title'] ? data['title'].error : null}
         value={data['title'] ? data['title'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <FormEntry
         textArea
         type={'text'}
         label={'FAQ - Answer'}
         name={'answer'}
-        error={null}
+        error={data['answer'] ? data['answer'].error : null}
         value={data['answer'] ? data['answer'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <div>Pro Form</div>
       <FormEntry
@@ -78,10 +71,9 @@ const QuotesModal = props => {
         type={'text'}
         label={'Pro Tip'}
         name={'proTip'}
-        error={null}
+        error={data['proTip'] ? data['proTip'].error : null}
         value={data['proTip'] ? data['proTip'].value : ''}
         updateFormData={updateFormData}
-        required
       />
       <div>Customer Feedback Form</div>
       <FormEntry
@@ -89,10 +81,9 @@ const QuotesModal = props => {
         type={'text'}
         label={'Customer Feedback'}
         name={'customerFeedback'}
-        error={null}
+        error={data['customerFeedback'] ? data['customerFeedback'].error : null}
         value={data['customerFeedback'] ? data['customerFeedback'].value : ''}
         updateFormData={updateFormData}
-        required
       />
     </>
   )
