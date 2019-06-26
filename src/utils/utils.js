@@ -404,13 +404,12 @@ export const getGroupInputs = (data, groups) => {
   let newGroups = []
   if (groups && numberOfInputs > 0) {
     let numberOfGroups = Number(groups[numberOfInputs - 1].classList[1])
-    let numberInGroups = numberOfInputs / numberOfGroups
     for (let x = 0; x < numberOfGroups; x++) {
       let group = {}
-      for (let y = 0; y < numberInGroups; y++) {
+      for (let y = 0; y < numberOfInputs; y++) {
         if (data.groups && data.groups[x] && data.groups[x][groups[y].name]) {
           group[groups[y].name] = data.groups[x][groups[y].name]
-        } else {
+        } else if (Number(groups[y].classList[1]) === x + 1) {
           group[groups[y].name] = { value: '', error: false }
         }
       }
