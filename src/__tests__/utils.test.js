@@ -70,7 +70,7 @@ describe('moveDownSelectedTemplates', () => {
 })
 
 describe('getEmptyInputs', () => {
-  test('should return an object of  1 required fields', () => {
+  test('should return an object of 1 required field with empty value and error', () => {
     let inputs = [{ required: true, value: 'bob', name: 'name' }, { required: true, value: '', name: 'password' }]
     let data = { name: { value: 'bob', error: true } }
     let errorInputs = { password: { value: '', error: false } }
