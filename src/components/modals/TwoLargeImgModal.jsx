@@ -48,17 +48,18 @@ const TwoLargeImgModal = props => {
       if (data.groups && data.groups.length > 0) {
         data.groups.forEach((group, idx) => {
           let groupPosition = idx
-          clonedPtags[groupPosition] = []
-          let groupArray = Object.keys(group)
-          console.log(groupArray)
-          groupArray.forEach((input, idx) => {
-            clonedPtags[groupPosition].push(idx)
-          })
+          let groupsArray = Object.keys(group)
+          if (Object.keys(group).length > 0) {
+            groupsArray.forEach((input, idx) => {
+              let groupArray = clonedPtags[groupPosition]
+              groupArray[idx] = idx
+            })
+          }
         })
         setPTags(clonedPtags)
       }
     },
-    [data.groups]
+    [data.groups, pTags]
   )
 
   const addRemovePTags = (addParagraph, index, idx) => {

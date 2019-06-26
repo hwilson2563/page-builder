@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
@@ -40,7 +40,26 @@ const Section = styled.div`
 const FourImageModal = props => {
   const { updateFormData, data, updateTemplateData } = props
   const [pTags, setPTags] = useState([[0], [0], [0], [0]])
-
+  useEffect(
+    () => {
+      let clonedPtags = [...pTags]
+      if (data.groups && data.groups.length > 0) {
+        data.groups.forEach((group, idx) => {
+          let groupPosition = idx
+          let groupsArray = Object.keys(group)
+          console.log(groupsArray)
+          if (Object.keys(group).length > 0) {
+            groupsArray.forEach((input, idx) => {
+              let groupArray = clonedPtags[groupPosition]
+              groupArray[idx] = idx
+            })
+          }
+        })
+        setPTags(clonedPtags)
+      }
+    },
+    [data.groups, pTags]
+  )
   const addRemovePTags = (addParagraph, index, idx) => {
     let createdParagraphs = [...pTags]
     if (addParagraph) {
@@ -165,7 +184,7 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[1].map((idx) => {
+      {pTags[1].map(idx => {
         let valueExists = data.groups && data.groups[1] && data.groups[1]['paragraph' + idx]
         return (
           <Fragment key={idx}>
@@ -216,7 +235,7 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[2].map((idx) => {
+      {pTags[2].map(idx => {
         let valueExists = data.groups && data.groups[2] && data.groups[2]['paragraph' + idx]
         return (
           <Fragment key={idx}>
@@ -267,7 +286,7 @@ const FourImageModal = props => {
         updateFormData={updateFormData}
         required
       />
-      {pTags[3].map((idx) => {
+      {pTags[3].map(idx => {
         let valueExists = data.groups && data.groups[3] && data.groups[3]['paragraph' + idx]
         return (
           <Fragment key={idx}>
