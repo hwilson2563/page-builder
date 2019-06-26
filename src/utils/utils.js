@@ -349,7 +349,9 @@ export function buildJSON (templateData) {
       let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
       let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
       let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
-      let image = gallery.image ? gallery.image.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
+      let image = gallery.image
+        ? gallery.image.value
+        : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
       let imgAltText = gallery.imgAltText ? gallery.imgAltText.value : 'Alt Text'
       eachGallery[galleryName] = [
         {
@@ -418,4 +420,37 @@ export const getGroupInputs = data => {
     }
   }
   return newGroups
+}
+
+export const getErrorData = (clonedData, data) => {
+  let clonedGroups = getGroupInputs(clonedData)
+  let incompleteFields = getEmptyInputs(clonedData)
+  let errorPresent = false
+  // if groups are present see if error is in stored data
+  if (clonedGroups.length > 0) {
+    clonedGroups.forEach((groups, idx) => {
+      let groupArray = Object.getOwnPropertyNames(groups)
+      groupArray.forEach(input => {
+        if (clonedGroups[idx][input].error === false) {
+          errorPresent = true
+        }
+      })
+    })
+    clonedData.groups = clonedGroups
+  }
+  // see if error is present in stored data
+  if (Object.getOwnPropertyNames(clonedData).length > 0) {
+    let arrayData = Object.getOwnPropertyNames(clonedData)
+    arrayData.forEach(input => {
+      if (input !== 'groups' && data[input].error === false) {
+        errorPresent = true
+      }
+    })
+  }
+  // if incomplete fields are found add them to state
+  if (Object.getOwnPropertyNames(incompleteFields).length > 0) {
+    errorPresent = true
+    clonedData = { ...clonedData, ...incompleteFields }
+  }
+  return { clonedData, errorPresent }
 }

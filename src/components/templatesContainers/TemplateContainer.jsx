@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import { buildJSON, getEmptyInputs, getGroupInputs } from '../../utils/utils'
+import { buildJSON, getErrorData } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -79,41 +79,14 @@ const TemplateContainer = props => {
 
   const saveModalData = () => {
     let clonedData = { ...data }
-    let clonedGroups = getGroupInputs(clonedData)
-    let incompleteFields = getEmptyInputs(clonedData)
-    let errorPresent = false
     // if groups are present see if error is in stored data
-    if (clonedGroups.length > 0) {
-      clonedGroups.forEach((groups, idx) => {
-        let groupArray = Object.getOwnPropertyNames(groups)
-        groupArray.forEach(input => {
-          if (clonedGroups[idx][input].error === false) {
-            errorPresent = true
-          }
-        })
-      })
-      clonedData.groups = clonedGroups
-    }
-    // see if error is present in stored data
-    if (Object.getOwnPropertyNames(clonedData).length > 0) {
-      let arrayData = Object.getOwnPropertyNames(clonedData)
-      arrayData.forEach(input => {
-        if (input !== 'groups' && data[input].error === false) {
-          errorPresent = true
-        }
-      })
-    }
-    // if incomplete fields are found add them to state
-    if (Object.getOwnPropertyNames(incompleteFields).length > 0) {
-      errorPresent = true
-      clonedData = { ...clonedData, ...incompleteFields }
-    }
+    let errorInfo = getErrorData(clonedData)
     // update form data
-    setData(clonedData)
+    setData(errorInfo.clonedData)
     // update error status
-    setError(errorPresent)
+    setError(errorInfo.errorPresent)
     // if no error is present toggle modal and save data to highest level
-    if (!errorPresent) {
+    if (!errorInfo.errorPresent) {
       toggleDisplayForm()
       updateTemplateData(data)
     }
