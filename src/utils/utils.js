@@ -349,22 +349,34 @@ export function buildJSON (templateData) {
       let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
       let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
       let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
-      let image = gallery.image
-        ? gallery.image.value
-        : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg'
-      let imgAltText = gallery.imgAltText ? gallery.imgAltText.value : 'Alt Text'
       eachGallery[galleryName] = [
         {
           galleryButtonAriaLabel: ariaLabel,
           infoTitle: infoTitle,
           infoText: infoBodyText
-        },
-        {
-          imageSource: image,
-          altTag: imgAltText,
-          selected: true
         }
       ]
+      let groupArray = Object.getOwnPropertyNames(gallery)
+      let images = []
+      let altText = []
+      groupArray.map((item, idx) => {
+        if (item.includes('image') || item.includes('imgAltText')) {
+          if (item.includes('image')) {
+            images.push(gallery[item].value)
+          }
+          if (item.includes('imgAltText')) {
+            altText.push(gallery[item].value)
+          }
+        }
+      })
+      images.forEach((image, idx) => {
+        let imageObject = {
+          imageSource: image || 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+          altTag: altText[idx] || '',
+          selected: idx === 0
+        }
+        eachGallery[galleryName].push(imageObject)
+      })
     })
   } else {
     eachGallery['GalleryName'] = [

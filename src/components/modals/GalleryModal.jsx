@@ -28,11 +28,11 @@ const GalleryModal = props => {
           let groupIdx = idx
           let names = Object.getOwnPropertyNames(value)
           let storedImg = clonedData[idx] && clonedData[idx].images ? clonedData[idx].images : []
-          names.forEach(image => {
+          names.map(image => {
             if (image.includes('image') || image.includes('imgAltText')) {
               let position = image.substr(image.length - 1)
               if (!storedImg[position]) {
-                return (storedImg[position] = position)
+                storedImg[position] = position
               }
             }
           })
