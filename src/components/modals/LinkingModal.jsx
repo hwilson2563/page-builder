@@ -70,7 +70,6 @@ useEffect(() => {
   }
 
   const buildLinks = (addLink, idx) => {
-    console.log(data.groups)
     let createdLinks = [...links]
     if (addLink) {
       createdLinks.push(createdLinks.length)
