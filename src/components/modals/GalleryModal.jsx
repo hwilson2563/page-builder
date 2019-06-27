@@ -77,7 +77,7 @@ const GalleryModal = props => {
     { label: 'Image Url', name: 'image', type: 'input' },
     { label: 'Image Alt Text', name: 'imgAltText', type: 'input' }
   ]
-  const createFields = idx => {
+  let createFields = idx => {
     const galleryIdx = idx
     return (
       <Fragment key={galleryIdx}>
