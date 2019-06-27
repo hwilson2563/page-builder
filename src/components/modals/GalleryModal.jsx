@@ -16,8 +16,9 @@ const GalleryButtons = styled.div`
   width: 100%;
 `
 const GalleryModal = props => {
+  const defaultGallery = [[{ images: [] }]]
   const { updateFormData, data, updateTemplateData } = props
-  const [galleryFormRender, setGalleryFormRender] = useState([[{ images: [] }]])
+  const [galleryFormRender, setGalleryFormRender] = useState(defaultGallery)
   useEffect(
     () => {
       if (data.groups) {
@@ -26,12 +27,12 @@ const GalleryModal = props => {
         data.groups.forEach((value, idx) => {
           let groupIdx = idx
           let names = Object.getOwnPropertyNames(value)
-          let storedImg = clonedData[idx].images
-          names.forEach((image, idx) => {
+          let storedImg = clonedData[idx] && clonedData[idx].images ? clonedData[idx].images : []
+          names.forEach(image => {
             if (image.includes('image') || image.includes('imgAltText')) {
               let position = image.substr(image.length - 1)
               if (!storedImg[position]) {
-                storedImg[position] = idx
+                return (storedImg[position] = position)
               }
             }
           })
