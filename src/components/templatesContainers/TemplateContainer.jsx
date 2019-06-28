@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ControlPanel from '../controlPanel/ControlPanel'
 import Modal from '../modal/Modal'
-import { buildJSON, getGroupInputs, getEmptyInputs , getErrorData } from '../../utils/utils'
+import { buildJSON, getGroupInputs, getEmptyInputs, getErrorData } from '../../utils/utils'
 
 const TemplateContain = styled.div`
   position: relative;
@@ -64,6 +64,21 @@ const TemplateContainer = props => {
     } else {
       newFormData[updatedData.name] = { value: updatedData.value, error: updatedData.error }
     }
+    setData(newFormData)
+  }
+  const cleanOutImages = (groupIdx, numberOfImages) => {
+    let maxImages = [0, 1, 2]
+    let newFormData = { ...data }
+    maxImages.forEach(idx => {
+      if (idx + 1 > numberOfImages) {
+        if (newFormData.groups[groupIdx]['image' + idx]) {
+          delete newFormData.groups[groupIdx]['image' + idx]
+        }
+        if (newFormData.groups[groupIdx]['imgAltText' + idx]) {
+          delete newFormData.groups[groupIdx]['imageAltText' + idx]
+        }
+      }
+    })
     setData(newFormData)
   }
 
@@ -133,6 +148,7 @@ const TemplateContainer = props => {
         saveModalData={saveModalData}
         updateFormData={updateFormData}
         updateTemplateData={updateTemplateData}
+        cleanOutImages={cleanOutImages}
       />
     </TemplateContain>
   )

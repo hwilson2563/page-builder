@@ -359,19 +359,22 @@ export function buildJSON (templateData) {
       let groupArray = Object.getOwnPropertyNames(gallery)
       let images = []
       let altText = []
-      groupArray.map((item, idx) => {
+      groupArray.forEach((item, idx) => {
         if (item.includes('image') || item.includes('imgAltText')) {
           if (item.includes('image')) {
-            images.push(gallery[item].value)
+            let position = item.substr(item.length - 1)
+            images[position] = gallery[item].value
           }
           if (item.includes('imgAltText')) {
-            altText.push(gallery[item].value)
+            let position = item.substr(item.length - 1)
+            altText[position] = gallery[item].value
           }
         }
       })
       images.forEach((image, idx) => {
         let imageObject = {
-          imageSource: image || 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+          imageSource:
+            image || 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
           altTag: altText[idx] || '',
           selected: idx === 0
         }

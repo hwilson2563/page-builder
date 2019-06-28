@@ -30,7 +30,7 @@ const Linking = props => {
             <div className='linking-text'>
               {/* <!-- BEGINNING OF PARAGRAPH SECTION --> */}
               {paragraphs.map((p, idx) => {
-                return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}} />
+                return <p key={idx} dangerouslySetInnerHTML={{ __html: p.value }} />
               })}
               {/* <!-- END OF PARAGRAPH SECTION --> */}
             </div>
@@ -42,13 +42,13 @@ const Linking = props => {
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
           {templateData.groups ? (
-            templateData.groups.map((item, idx) => {
+            templateData.groups.forEach((item, idx) => {
               if (templateData.groups.indexOf(item) > 0) {
                 let link = item.link ? item.link.value : '#section-id'
                 let ariaLabel = item.ariaLabel ? item.ariaLabel.value : ''
                 let anchorTitle = item.anchorTitle ? item.anchorTitle.value : 'Anchor Link Title 1'
                 return (
-                  <a key={idx} href={link} aria-label= {ariaLabel}>
+                  <a key={idx} href={link} aria-label={ariaLabel}>
                     {anchorTitle}
                   </a>
                 )

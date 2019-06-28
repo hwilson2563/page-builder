@@ -16,14 +16,13 @@ const GalleryButtons = styled.div`
   width: 100%;
 `
 const GalleryModal = props => {
-  const defaultGallery = [[{ images: [] }]]
-  const { updateFormData, data, updateTemplateData } = props
+  const defaultGallery = [[{ images: [0] }]]
+  const { updateFormData, data, updateTemplateData, cleanOutImages } = props
   const [galleryFormRender, setGalleryFormRender] = useState(defaultGallery)
   useEffect(
     () => {
       if (data.groups) {
         let clonedData = [...galleryFormRender]
-        console.log(data, data.groups)
         data.groups.forEach((value, idx) => {
           let groupIdx = idx
           let names = Object.getOwnPropertyNames(value)
@@ -49,7 +48,7 @@ const GalleryModal = props => {
   const buildAllGalleryFields = (addGallery, idx) => {
     let createdGalleries = [...galleryFormRender]
     if (addGallery) {
-      let newGallery = [{ images: [] }]
+      let newGallery = [{ images: [0] }]
       createdGalleries.push(newGallery)
     } else {
       createdGalleries.pop()
@@ -59,14 +58,16 @@ const GalleryModal = props => {
         updateTemplateData(incomingDataClone)
       }
     }
+    console.log('state', createdGalleries)
     setGalleryFormRender(createdGalleries)
   }
+
   const buildImgFields = (addImg, idx, count) => {
     let createdGalleries = [...galleryFormRender]
-    if (addImg) {
-      console.log(galleryFormRender[idx])
-      createdGalleries[idx].images = count
-      setGalleryFormRender(createdGalleries)
+    createdGalleries[idx][0].images = count
+    setGalleryFormRender(createdGalleries)
+    if (data.groups) {
+      cleanOutImages(idx, count.length)
     }
   }
   const groups = [
@@ -80,6 +81,7 @@ const GalleryModal = props => {
   ]
   let createFields = idx => {
     const galleryIdx = idx
+    console.log(galleryFormRender[galleryIdx])
     return (
       <Fragment key={galleryIdx}>
         <p>Gallery {galleryIdx + 1}</p>
@@ -105,8 +107,8 @@ const GalleryModal = props => {
           <Button handleClick={() => buildImgFields(true, galleryIdx, [0, 1])} buttonText={'2 Images'} />
           <Button handleClick={() => buildImgFields(true, galleryIdx, [0, 1, 2])} buttonText={'3 Images'} />
         </GalleryButtons>
-        {galleryFormRender[galleryIdx].images &&
-          galleryFormRender[galleryIdx].images.map(idx => {
+        {galleryFormRender[galleryIdx][0]['images'] &&
+          galleryFormRender[galleryIdx][0]['images'].map(idx => {
             return imageGroups.map(image => {
               let valueImage = data.groups && data.groups[galleryIdx] && data.groups[galleryIdx][image.name + idx]
               return (
@@ -169,7 +171,8 @@ const GalleryModal = props => {
 
 GalleryModal.propTypes = {
   data: PropTypes.object,
-  updateFormData: PropTypes.func
+  updateFormData: PropTypes.func,
+  cleanOutImages: PropTypes.func
 }
 
 export default GalleryModal

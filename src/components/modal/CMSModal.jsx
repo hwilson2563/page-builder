@@ -56,7 +56,7 @@ const GhostButton = styled(StyledButton)`
 `
 
 const CMSModal = props => {
-  const { error, formData, template, updateFormData, updateTemplateData, selectedTemplates, saveModalData } = props
+  const { error, formData, template, updateFormData, updateTemplateData, selectedTemplates, saveModalData, cleanOutImages } = props
   let tempName = template.tempName
   let FormModal = template.modal
   return (
@@ -67,6 +67,7 @@ const CMSModal = props => {
         updateFormData={updateFormData}
         selectedTemplates={selectedTemplates}
         updateTemplateData={updateTemplateData}
+        cleanOutImages={cleanOutImages}
       />
       {error && <div>*Please fill out the required fields to submit your template</div>}
       <ButtonContainer>
@@ -92,6 +93,7 @@ CMSModal.propTypes = {
   closeModal: PropTypes.func,
   formData: PropTypes.object,
   updateFormData: PropTypes.func,
+  cleanOutImages: PropTypes.func,
   tempName: PropTypes.string,
   updateTemplateData: PropTypes.func
 }
