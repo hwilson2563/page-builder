@@ -7,8 +7,18 @@ const Quote = props => {
   let backgroundDark = templateData.backgroundDark && templateData.backgroundDark.value ? 'background-dark' : ''
   let addPadding = templateData.addPadding && templateData.addPadding.value ? 'add-padding' : 'padding'
   // let faqTemplate = templateData['faqLayout'] && templateData['faqLayout'].value === true
-  let icon = templateData.icon ? templateData.icon.value : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'
+  let icon
   let altText
+  if (templateData.proTipIcon && templateData.proTipIcon.value) {
+    icon = 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'
+    altText = 'pro-tip wrench icon'
+  } else if (templateData.questionIcon && templateData.questionIcon.value) {
+    icon = 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg'
+    altText = 'question mark icon'
+  } else {
+    icon = 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'
+    altText = 'star icon'
+  }
   let header = templateData.header ? templateData.header.value : 'place title here'
   let bodyText = templateData.bodyText ? templateData.bodyText.value : 'add text here'
 
