@@ -15,6 +15,7 @@ const FormEntry = props => {
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(storedError)
   const [errorMessage, setErrorMessage] = useState('')
+
   useEffect(
     () => {
       // update useState as prop type updates
@@ -65,9 +66,10 @@ const FormEntry = props => {
     setValue(newValue)
   }
   const classGroup = group ? 'groups ' + group : 'input'
+  
   return (
     <EntryContainer className={'entry-container ' + name} label={label}>
-      <Label className={'entry-label'} type={type} label={label} selected={selected} value={inputValue}>
+      <Label className={'entry-label'} type={type === 'radio' ? 'checkbox' : type} label={label} selected={selected} value={inputValue}>
         {label}
       </Label>
       {textArea ? (
@@ -97,7 +99,7 @@ const FormEntry = props => {
             setNoError(true)
             setSelected(true)
           }}
-          checked={type === 'checkbox' ? inputValue : ''}
+          checked={checkedValue}
           type={type}
           name={name}
           required={required}
