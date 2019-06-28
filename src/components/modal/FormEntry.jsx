@@ -7,7 +7,7 @@ import { EntryContainer, Input, Label, TextArea, ErrorMessage } from './formEntr
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
-  const { name, required, type, group, updateFormData, textArea, checked } = props
+  const { name, required, type, group, updateFormData, textArea } = props
   let storedValue = props.value
   let storedError = props.error
   let label = props.required ? props.label : props.label + ' (Optional)'
@@ -15,9 +15,6 @@ const FormEntry = props => {
   const [selected, setSelected] = useState(false)
   const [noError, setNoError] = useState(storedError)
   const [errorMessage, setErrorMessage] = useState('')
-
-  console.log(inputValue)
-
   useEffect(
     () => {
       // update useState as prop type updates
@@ -52,13 +49,8 @@ const FormEntry = props => {
       }
     }
   }
-  let checkedValue = type === 'radio' ? checked : inputValue
   const handleChange = target => {
     let newValue
-    if (type === 'radio') {
-      checkedValue = true
-      newValue = target.value
-    }
     if (type === 'checkbox') {
       newValue = target.checked
     } else {
@@ -67,10 +59,9 @@ const FormEntry = props => {
     setValue(newValue)
   }
   const classGroup = group ? 'groups ' + group : 'input'
-  
   return (
     <EntryContainer className={'entry-container ' + name} label={label}>
-      <Label className={'entry-label'} type={type === 'radio' ? 'checkbox' : type} label={label} selected={selected} value={inputValue}>
+      <Label className={'entry-label'} type={type} label={label} selected={selected} value={inputValue}>
         {label}
       </Label>
       {textArea ? (
@@ -100,7 +91,7 @@ const FormEntry = props => {
             setNoError(true)
             setSelected(true)
           }}
-          checked={checkedValue}
+          checked={type === 'checkbox' ? inputValue : ''}
           type={type}
           name={name}
           required={required}
