@@ -22,12 +22,13 @@ const GalleryModal = props => {
   useEffect(
     () => {
       if (data.groups) {
-        let clonedData = [...galleryFormRender]
+        let clonedData = galleryFormRender !== [[{ images: [0] }]] ? [...galleryFormRender] : []
         data.groups.forEach((value, idx) => {
+          let newGroup = [{ images: [0] }]
           let groupIdx = idx
           let names = Object.getOwnPropertyNames(value)
-          let storedImg = clonedData[idx] && clonedData[idx].images ? clonedData[idx].images : []
-          names.map(image => {
+          let storedImg = clonedData[idx] && clonedData[idx][0].images ? clonedData[idx][0].images : []
+          names.forEach(image => {
             if (image.includes('image') || image.includes('imgAltText')) {
               let position = image.substr(image.length - 1)
               if (!storedImg[position]) {
@@ -35,12 +36,13 @@ const GalleryModal = props => {
               }
             }
           })
-          clonedData[groupIdx].images = storedImg
+          newGroup[0].images = storedImg
+          !clonedData[groupIdx] ? clonedData.push(newGroup) : clonedData[groupIdx][0].images = storedImg
         })
         setGalleryFormRender(clonedData)
       }
     },
-    [data.groups]
+    [data.groups, galleryFormRender]
   )
   let isMaxGalleries = galleryFormRender.length === 5
 
@@ -58,7 +60,6 @@ const GalleryModal = props => {
         updateTemplateData(incomingDataClone)
       }
     }
-    console.log('state', createdGalleries)
     setGalleryFormRender(createdGalleries)
   }
 
@@ -66,7 +67,7 @@ const GalleryModal = props => {
     let createdGalleries = [...galleryFormRender]
     createdGalleries[idx][0].images = count
     setGalleryFormRender(createdGalleries)
-    if (data.groups) {
+    if (data.groups && data.groups[idx]) {
       cleanOutImages(idx, count.length)
     }
   }
@@ -81,7 +82,6 @@ const GalleryModal = props => {
   ]
   let createFields = idx => {
     const galleryIdx = idx
-    console.log(galleryFormRender[galleryIdx])
     return (
       <Fragment key={galleryIdx}>
         <p>Gallery {galleryIdx + 1}</p>
