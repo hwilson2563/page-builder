@@ -17,7 +17,6 @@ const ImageOption = styled.div`
 
 const QuotesModal = props => {
   const { updateFormData, data } = props
-  console.log(data)
   return (
     <>
       <FormEntry
@@ -40,34 +39,37 @@ const QuotesModal = props => {
       <ImageOption>
         <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg' alt='' />
         <FormEntry
-          type={'checkbox'}
+          type={'radio'}
           label={'Wrench Icon'}
-          name={'proTipIcon'}
+          name={'icon'}
           error={null}
           updateFormData={updateFormData}
-          value={data['proTipIcon'] ? data['proTipIcon'].value : false}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg': false}
         />
       </ImageOption>
       <ImageOption>
         <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg' alt='' />
         <FormEntry
-          type={'checkbox'}
+          type={'radio'}
           label={'Question Mark Icon'}
-          name={'questionIcon'}
+          name={'icon'}
           error={null}
           updateFormData={updateFormData}
-          value={data['questionIcon'] ? data['questionIcon'].value : false}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg' : false}
         />
       </ImageOption>
       <ImageOption>
         <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg' alt='' />
         <FormEntry
-          type={'checkbox'}
+          type={'radio'}
           label={'Star Icon'}
-          name={'starIcon'}
+          name={'icon'}
           error={null}
           updateFormData={updateFormData}
-          value={data['starIcon'] ? data['starIcon'].value : false}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg' : false}
         />
       </ImageOption>
       <FormEntry

@@ -16,8 +16,6 @@ const FormEntry = props => {
   const [noError, setNoError] = useState(storedError)
   const [errorMessage, setErrorMessage] = useState('')
 
-  console.log(inputValue)
-
   useEffect(
     () => {
       // update useState as prop type updates
@@ -58,6 +56,7 @@ const FormEntry = props => {
     if (type === 'radio') {
       checkedValue = true
       newValue = target.value
+      updateFormData({ name, value: newValue})
     }
     if (type === 'checkbox') {
       newValue = target.checked
