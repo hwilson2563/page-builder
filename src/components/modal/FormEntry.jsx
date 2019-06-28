@@ -51,6 +51,11 @@ const FormEntry = props => {
   }
   const handleChange = target => {
     let newValue
+    if (type === 'radio') {
+      checkedValue = true
+      newValue = target.value
+      updateFormData({ name, value: newValue})
+    }
     if (type === 'checkbox') {
       newValue = target.checked
     } else {

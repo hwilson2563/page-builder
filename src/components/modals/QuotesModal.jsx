@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
 
@@ -22,68 +23,60 @@ const QuotesModal = props => {
         updateFormData={updateFormData}
         value={data['addPadding'] ? data['addPadding'].value : false}
       />
-      <div>Pick Multiple Quote Templates </div>
-      <FormEntry
-        type={'checkbox'}
-        label={'FAQ Layout'}
-        name={'faqLayout'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['faqLayout'] ? data['faqLayout'].value : false}
-      />
-      <FormEntry
-        type={'checkbox'}
-        label={'Pro Tips Layout'}
-        name={'proTipLayout'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['proTipLayout'] ? data['proTipLayout'].value : false}
-      />
-      <FormEntry
-        type={'checkbox'}
-        label={'Customer Feedback Layout'}
-        name={'feedBackLayout'}
-        error={null}
-        updateFormData={updateFormData}
-        value={data['feedBackLayout'] ? data['feedBackLayout'].value : false}
-      />
-      <div>FAQ Form</div>
+      <OptionTitle>Pick Image </OptionTitle>
+      <ImageOption>
+        <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg' alt='' />
+        <FormEntry
+          type={'radio'}
+          label={'Wrench Icon'}
+          name={'icon'}
+          error={null}
+          updateFormData={updateFormData}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/pro-tip-icon.svg': false}
+        />
+      </ImageOption>
+      <ImageOption>
+        <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg' alt='' />
+        <FormEntry
+          type={'radio'}
+          label={'Question Mark Icon'}
+          name={'icon'}
+          error={null}
+          updateFormData={updateFormData}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/question-icon.svg' : false}
+        />
+      </ImageOption>
+      <ImageOption>
+        <img src='https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg' alt='' />
+        <FormEntry
+          type={'radio'}
+          label={'Star Icon'}
+          name={'icon'}
+          error={null}
+          updateFormData={updateFormData}
+          value={'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg'}
+          checked={data.icon ? data.icon.value === 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/feedback-icon.svg' : false}
+        />
+      </ImageOption>
       <FormEntry
         type={'input'}
-        label={'FAQ - Question'}
-        name={'title'}
-        error={data['title'] ? data['title'].error : null}
-        value={data['title'] ? data['title'].value : ''}
+        label={'Header'}
+        name={'header'}
+        error={data['header'] ? data['header'].value : null}
         updateFormData={updateFormData}
+        value={data['header'] ? data['header'].value : ''}
+        required
       />
       <FormEntry
-        textArea
-        type={'text'}
-        label={'FAQ - Answer'}
-        name={'answer'}
-        error={data['answer'] ? data['answer'].error : null}
-        value={data['answer'] ? data['answer'].value : ''}
+        type={'input'}
+        label={'Body Text'}
+        name={'bodyText'}
+        error={data['bodyText'] ? data['bodyText'].value : null}
         updateFormData={updateFormData}
-      />
-      <div>Pro Form</div>
-      <FormEntry
-        textArea
-        type={'text'}
-        label={'Pro Tip'}
-        name={'proTip'}
-        error={data['proTip'] ? data['proTip'].error : null}
-        value={data['proTip'] ? data['proTip'].value : ''}
-        updateFormData={updateFormData}
-      />
-      <div>Customer Feedback Form</div>
-      <FormEntry
-        textArea
-        type={'text'}
-        label={'Customer Feedback'}
-        name={'customerFeedback'}
-        error={data['customerFeedback'] ? data['customerFeedback'].error : null}
-        value={data['customerFeedback'] ? data['customerFeedback'].value : ''}
-        updateFormData={updateFormData}
+        value={data['bodyText'] ? data['bodyText'].value : ''}
+        required
       />
     </>
   )

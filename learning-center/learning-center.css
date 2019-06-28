@@ -292,7 +292,6 @@ p {
 }
 
 .text-only-temp h3 {
-  text-align: center;
   font-size: 24px;
   text-transform: uppercase;
   margin-top: 10px;
@@ -534,6 +533,9 @@ p {
 
 .three-img-temp {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .three-img-temp h3, .three-img-temp h4 {
@@ -541,7 +543,6 @@ p {
 }
 
 .three-img-temp h3 {
-  text-align: center;
   font-size: 24px;
   margin-bottom: 30px;
 }
@@ -593,24 +594,26 @@ button:focus {
 /* END read more button */
 
 /* START two small images template */
+.two-small-image-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
 .two-small-image-temp h3 {
-  text-align: center;
+  width: 100%;
+  text-align: left;
   text-transform: uppercase;
   font-size: 24px;
   margin-top: 20px;
+  max-width: 1090px;
 }
 
 .single-img-cont img {
   width: 100%;
   background-color: #ebebeb;
   background-color: var( --background-accent);
-  margin-bottom: 20px;
-}
-
-.single-img-cont {
-  margin: 20px;
-  padding: 20px;
 }
 
 .single-img-cont h4 {
@@ -667,6 +670,9 @@ button:focus {
 }
 
 .two-large-image-temp h3 {
+  text-align: left;
+  width: 100%;
+  max-width: 1090px;
   font-size: 24px;
   text-transform: uppercase;
 }
@@ -777,11 +783,15 @@ button:focus {
 
 .four-img-template {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .four-img-template div.center-container {
   display: flex;
   flex-direction: column;
+  width: -webkit-fill-available;
 }
 
 .four-img-template h2.header, .four-img-template h3.subheader {
@@ -794,7 +804,8 @@ button:focus {
 .four-img-template h2.header {
   font-size: 24px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
+  max-width: 1090px;
 }
 
 .four-img-template h3.subheader {
@@ -1029,6 +1040,7 @@ button:focus {
   }
   .three-img-temp h3 {
     width: 100%;
+    max-width: 1090px;
   }
   .three-img-temp .img-text-container {
     width: 320px;
@@ -1141,8 +1153,6 @@ button:focus {
   /* END text-only template */
   /* START two small image template */
   .two-small-image-temp {
-    display: flex;
-    flex-direction: column;
     margin: 0 auto;
     padding: 0px 20px;
   }
@@ -1160,7 +1170,7 @@ button:focus {
     align-self: flex-start;
   }
   .caption-cont {
-    margin-left: 20px;
+    margin: 0 20px 0 20px
   }
   /* END two small image template */
   /* START three img template */
@@ -1258,7 +1268,6 @@ button:focus {
   }
   .section-cont h4 {
     max-width: 1090px;
-    text-align: center;
   }
   .section-one {
     margin-right: 90px;
