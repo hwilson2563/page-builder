@@ -1040,6 +1040,7 @@ button:focus {
   }
   .three-img-temp h3 {
     width: 100%;
+    max-width: 1090px;
   }
   .three-img-temp .img-text-container {
     width: 320px;
