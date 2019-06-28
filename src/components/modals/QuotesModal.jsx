@@ -1,19 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
-
-const OptionTitle = styled.div`
-  width: 100%;
-`
-const ImageOption = styled.div`
-  width: 100%;
-  display: flex;
-  height: 32px;
-  align-items: center;
-  padding: 5px 0;
-`
 
 const QuotesModal = props => {
   const { updateFormData, data } = props
