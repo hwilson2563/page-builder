@@ -7,7 +7,7 @@ import { EntryContainer, Input, Label, TextArea, ErrorMessage } from './formEntr
 // import { doValidation } from '../../../../globals/services/validation'
 
 const FormEntry = props => {
-  const { name, required, type, group, updateFormData, textArea } = props
+  const { name, required, type, group, updateFormData, textArea, checked } = props
   let storedValue = props.value
   let storedError = props.error
   let label = props.required ? props.label : props.label + ' (Optional)'
@@ -49,6 +49,7 @@ const FormEntry = props => {
       }
     }
   }
+  let checkedValue = type === 'radio' ? checked : inputValue
   const handleChange = target => {
     let newValue
     if (type === 'radio') {
