@@ -12,7 +12,6 @@ const OneImageText = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
-  let paragraph = templateData.paragraph ? templateData.paragraph.value : 'place title here'
 
   return (
     // <!-- START ONE IMAGE-TEXT-TEMPLATE HERE-->
@@ -23,7 +22,14 @@ const OneImageText = props => {
           <h3>{title}</h3>
           {/* <!-- you can add/remove the p tags (each one represents a paragraph break) -->
     <!-- start p tags --> */}
-          <p>{paragraph}</p>
+          {templateData.groups ? (
+            templateData.groups.map((item, idx) => {
+              let paragraph = item.paragraph ? item.paragraph.value : 'place paragraph text here'
+              return <p key={idx} dangerouslySetInnerHTML={{__html: paragraph}}/>
+            })
+          ) : (
+            <p>{'place paragraph here'}</p>
+          )}
           {/* <!-- end p tags --> */}
         </div>
       </div>

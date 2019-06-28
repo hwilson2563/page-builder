@@ -12,21 +12,32 @@ const ThreeImage = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText1 = templateData.altText1 ? templateData.altText1.value : ''
   let subheader1 = templateData.subheader1 ? templateData.subheader1.value : 'place info item title here'
-  let paragraph1 = templateData.paragraph1 ? templateData.paragraph1.value : 'put paragraph text here'
 
   let image2 = templateData.image2
     ? templateData.image2.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText2 = templateData.altText2 ? templateData.altText2.value : ''
   let subheader2 = templateData.subheader2 ? templateData.subheader2.value : 'place info item title here'
-  let paragraph2 = templateData.paragraph2 ? templateData.paragraph2.value : 'put paragraph text here'
 
   let image3 = templateData.image3
     ? templateData.image3.value
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText3 = templateData.altText3 ? templateData.altText3.value : ''
   let subheader3 = templateData.subheader3 ? templateData.subheader3.value : 'place info item title here'
-  let paragraph3 = templateData.paragraph3 ? templateData.paragraph3.value : 'put paragraph text here'
+
+  // setting values for first, second, third, and fourth set of paragraphs for mapping through later
+  let first =
+    templateData.groups && templateData.groups[0]
+      ? Object.values(templateData.groups[0])
+      : [{ value: 'put paragraph text here' }]
+  let second =
+    templateData.groups && templateData.groups[1]
+      ? Object.values(templateData.groups[1])
+      : [{ value: 'put paragraph text here' }]
+  let third =
+    templateData.groups && templateData.groups[2]
+      ? Object.values(templateData.groups[2])
+      : [{ value: 'put paragraph text here' }]
 
   return (
     // <!-- START OF THREE IMG TEMPLATE  -->
@@ -39,7 +50,9 @@ const ThreeImage = props => {
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>{paragraph1}</p>
+            {first.map((p, idx) => {
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
+            })}
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
@@ -50,7 +63,9 @@ const ThreeImage = props => {
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>{paragraph2}</p>
+            {second.map((p, idx) => {
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
+            })}
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>
@@ -61,7 +76,9 @@ const ThreeImage = props => {
           <div className='read-more-container'>
             {/* <!-- add/remove p tags as needed -->
         <!-- START of p tags --> */}
-            <p>{paragraph3}</p>
+            {third.map((p, idx) => {
+              return <p key={idx} dangerouslySetInnerHTML={{__html: p.value}}/>
+            })}
             {/* <!-- END of p tags --> */}
           </div>
           <button className={'read-more-button'}>read more</button>

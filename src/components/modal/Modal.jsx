@@ -57,6 +57,7 @@ const Modal = props => {
     updateFormData,
     updateTemplateData,
     saveModalData,
+    cleanOutImages,
     selectedTemplates,
     template,
     copyData,
@@ -84,6 +85,7 @@ const Modal = props => {
                 error={error}
                 saveModalData={saveModalData}
                 updateTemplateData={updateTemplateData}
+                cleanOutImages={cleanOutImages}
               />
             ) : (
               <IframeModal copyData={copyData} currentView={currentView} goBack={goBack} moveForward={moveForward} />
@@ -103,6 +105,7 @@ Modal.propTypes = {
   formData: PropTypes.object,
   formProps: PropTypes.func,
   updateFormData: PropTypes.func,
+  cleanOutImages: PropTypes.func,
   updateTemplateData: PropTypes.func,
   copyData: PropTypes.string,
   currentView: PropTypes.object,

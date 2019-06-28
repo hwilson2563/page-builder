@@ -12,10 +12,11 @@ const Linking = props => {
     : 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/grey-img-icon.svg'
   let altText = templateData.altText ? templateData.altText.value : ''
   let title = templateData.title ? templateData.title.value : 'Place Title Here'
-  let paragraph = templateData.paragraph ? templateData.paragraph.value : 'Place a paragraph here'
-  let link = templateData.link ? templateData.link.value : '#section-id'
-  let ariaLabel = templateData.ariaLabel ? templateData.ariaLabel.value : ''
-  let anchorTitle = templateData.anchorTitle ? templateData.anchorTitle.value : 'Anchor Link Title 1'
+
+  let paragraphs =
+    templateData.groups && templateData.groups[0]
+      ? Object.values(templateData.groups[0])
+      : [{ value: 'place paragraph text here' }]
 
   return (
     // <!-- START OF LINKING TEMPLATE -->
@@ -28,7 +29,9 @@ const Linking = props => {
             {/* <!-- below add/remove p tags for more/less paragraph breaks --> */}
             <div className='linking-text'>
               {/* <!-- BEGINNING OF PARAGRAPH SECTION --> */}
-              <p>{paragraph}</p>
+              {paragraphs.map((p, idx) => {
+                return <p key={idx} dangerouslySetInnerHTML={{ __html: p.value }} />
+              })}
               {/* <!-- END OF PARAGRAPH SECTION --> */}
             </div>
           </div>
@@ -38,9 +41,25 @@ const Linking = props => {
         <!-- replace each #section-id with the section's id you wish to link to  -->
         <!-- max of 6 links allowed, remove any a tag not used -->
         <!-- START OF ANCHOR SECTION --> */}
-          <a href={link} aria-label={ariaLabel}>
-            {anchorTitle}
-          </a>
+          {templateData.groups ? (
+            templateData.groups.forEach((item, idx) => {
+              if (templateData.groups.indexOf(item) > 0) {
+                let link = item.link ? item.link.value : '#section-id'
+                let ariaLabel = item.ariaLabel ? item.ariaLabel.value : ''
+                let anchorTitle = item.anchorTitle ? item.anchorTitle.value : 'Anchor Link Title 1'
+                return (
+                  <a key={idx} href={link} aria-label={ariaLabel}>
+                    {anchorTitle}
+                  </a>
+                )
+              }
+            })
+          ) : (
+            <a href='#section-id' aria-label=''>
+              Anchor Link Title 1
+            </a>
+          )}
+
           {/* <!-- END OF ANCHOR SECTION --> */}
         </div>
       </div>

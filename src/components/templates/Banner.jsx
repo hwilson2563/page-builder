@@ -22,7 +22,7 @@ const Banner = props => {
       className={'banner-temp ' + backgroundDark + ' ' + addPadding}>
       <div className='banner-text'>
         <h1>{title}</h1>
-        <p>{subheader}</p>
+        <p dangerouslySetInnerHTML={{__html: subheader}}/>
       </div>
     </div>
   )

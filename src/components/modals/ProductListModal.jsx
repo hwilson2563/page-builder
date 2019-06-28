@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
 import FormEntry from '../modal/FormEntry'
+import Button from '../modal/parts/Button'
 
 const SubHeader = styled.p`
   width: 100%;
@@ -13,28 +14,6 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-`
-const StyledButton = styled.button`
-  margin: 5px;
-  font-size: 18px;
-  font-weight: 700;
-  height: 20px;
-  outline: none;
-  height: 45px;
-  width: 100%;
-  border: 2px solid ${props => props.theme.backgroundAccent};
-  background-color: white;
-  font-family: ${props => props.theme.fontBody};
-  text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.mainPrimary};
-  border-radius: 3px;
-  margin-bottom: 40px;
-  transition: 0.3s ease-in-out;
-  :hover {
-    cursor: pointer;
-    background-color: ${props => props.theme.backgroundAccent};
-  }
 `
 
 const ProductListModal = props => {
@@ -87,7 +66,7 @@ const ProductListModal = props => {
           )
         })}
         {productsRender.length > 1 && (
-          <StyledButton onClick={() => buildAllProductFields(false, idx)}>Remove</StyledButton>
+          <Button handleClick={() => buildAllProductFields(false, idx)} buttonText={'Remove'} />
         )}
       </Fragment>
     )
@@ -113,7 +92,7 @@ const ProductListModal = props => {
       />
       {productsRender.map((product, idx) => createProducts(idx))}
       <ButtonContainer>
-        <StyledButton onClick={() => buildAllProductFields(true)}>Add Product</StyledButton>
+        <Button handleClick={() => buildAllProductFields(true)} buttonText={'Add Product'} />
       </ButtonContainer>
     </>
   )
