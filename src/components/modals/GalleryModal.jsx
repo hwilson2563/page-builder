@@ -32,17 +32,17 @@ const GalleryModal = props => {
             if (image.includes('image') || image.includes('imgAltText')) {
               let position = image.substr(image.length - 1)
               if (!storedImg[position]) {
-                storedImg[position] = position
+                storedImg[position] = Number(position)
               }
             }
           })
           newGroup[0].images = storedImg
-          !clonedData[groupIdx] ? clonedData.push(newGroup) : clonedData[groupIdx][0].images = storedImg
+          !clonedData[groupIdx] ? clonedData.push(newGroup) : (clonedData[groupIdx][0].images = storedImg)
         })
         setGalleryFormRender(clonedData)
       }
     },
-    [data.groups, galleryFormRender]
+    [data.groups]
   )
   let isMaxGalleries = galleryFormRender.length === 5
 
@@ -63,7 +63,7 @@ const GalleryModal = props => {
     setGalleryFormRender(createdGalleries)
   }
 
-  const buildImgFields = (addImg, idx, count) => {
+  const buildImgFields = (idx, count) => {
     let createdGalleries = [...galleryFormRender]
     createdGalleries[idx][0].images = count
     setGalleryFormRender(createdGalleries)
@@ -103,9 +103,9 @@ const GalleryModal = props => {
           )
         })}
         <GalleryButtons>
-          <Button handleClick={() => buildImgFields(true, galleryIdx, [0])} buttonText={'1 Image'} />
-          <Button handleClick={() => buildImgFields(true, galleryIdx, [0, 1])} buttonText={'2 Images'} />
-          <Button handleClick={() => buildImgFields(true, galleryIdx, [0, 1, 2])} buttonText={'3 Images'} />
+          <Button handleClick={() => buildImgFields(galleryIdx, [0])} buttonText={'1 Image'} />
+          <Button handleClick={() => buildImgFields(galleryIdx, [0, 1])} buttonText={'2 Images'} />
+          <Button handleClick={() => buildImgFields(galleryIdx, [0, 1, 2])} buttonText={'3 Images'} />
         </GalleryButtons>
         {galleryFormRender[galleryIdx][0]['images'] &&
           galleryFormRender[galleryIdx][0]['images'].map(idx => {
