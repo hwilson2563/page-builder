@@ -1,5 +1,63 @@
+import { theme } from './globalStyles'
+
+export const determineScreen = (width, headerFooter) => {
+  let screen
+  // sets the main breakpoints for header and footer
+  if (headerFooter) {
+    if (width < theme.tabletHeader) {
+      screen = 'mobile'
+    } else if (width < theme.desktop) {
+      screen = 'tablet'
+    } else {
+      screen = 'desktop'
+    }
+    // sets the breakpoints for everything else
+  } else {
+    if (width < theme.tablet) {
+      screen = 'mobile'
+    } else if (width < theme.desktop) {
+      screen = 'tablet'
+    } else {
+      screen = 'desktop'
+    }
+  }
+  return screen
+}
+
+export const removeSelectedTemplates = (templates, idx) => {
+  templates.splice(idx, 1)
+  return templates
+}
+
+export const addSelectedTemplates = (component, templates) => {
+  component.data = {}
+  templates.push(component)
+  return templates
+}
+export const moveUpSelectedTemplates = (templates, idx) => {
+  let newLocation = idx - 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
+export const moveDownSelectedTemplates = (templates, idx) => {
+  let newLocation = idx + 1
+  templates.splice(newLocation, 0, templates.splice(idx, 1)[0])
+  return templates
+}
+
+// template functionality //
+export const showMore = button => {
+  var parentElement = button.parentElement
+  parentElement.classList.toggle('more')
+  if (button.textContent === 'read more') {
+    button.textContent = 'read less'
+  } else {
+    button.textContent = 'read more'
+  }
+}
 // display read more button only in tablet and only if height is larger than 300px
-function readMore () {
+export const readMore = () => {
   var inTabletView = window.innerWidth < 1020 && window.innerWidth > 740
   if (inTabletView) {
     var readMoreContainer = document.getElementsByClassName('read-more-container')
@@ -19,19 +77,8 @@ function readMore () {
     }
   }
 }
-// when window resizes make sure to hide read more button if not in tablet
-window.addEventListener('resize', readMore)
-//  start of onclick function attached to show more button
-function showMore (button) {
-  var parentElement = button.parentElement
-  parentElement.classList.toggle('more')
-  if (button.textContent === 'read more') {
-    button.textContent = 'read less'
-  } else {
-    button.textContent = 'read more'
-  }
-}
-function addReadMoreClicks () {
+
+export const addReadMoreClicks = () => {
   readMore()
   var readMoreButtons = document.getElementsByClassName('read-more-button')
   if (readMoreButtons && readMoreButtons.length > 0) {
@@ -42,9 +89,6 @@ function addReadMoreClicks () {
     }
   }
 }
-// add read more funtions to the read more read less buttons
-window.addEventListener('load', addReadMoreClicks())
-
 
 //
 // GALLERY TEMPLATE BEGINS
@@ -180,6 +224,12 @@ function buildSingleGallery (galleryData) {
 
   // this builds each gallery option for the user to select
   function buildGalleryButtons () {
+    // tablet display active selected button
+    var selectedButton = document.createElement('button')
+    selectedButton.setAttribute('class', 'selected-gallery dropdown-button active')
+    selectedButton.setAttribute('aria-label', 'click for dropdown menu options')
+    buttonContainer.appendChild(selectedButton)
+
     objectProperyNames.forEach(function (galleryName, idx) {
       var isActiveGallery = objectProperyNames[idx] === selectedGallery
       var galleryNamingConvention = galleryName + galleryIndex + idx
@@ -194,7 +244,6 @@ function buildSingleGallery (galleryData) {
         changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
-
       // this creates styled dropdown for mobile
       var dropDownElement = document.createElement('button')
       dropDownElement.setAttribute('class', galleryNamingConvention)
@@ -204,7 +253,6 @@ function buildSingleGallery (galleryData) {
         changeGallery(galleryName, idx)
         changeInfoSection(galleryName)
       }
-
       buttonContainer.appendChild(buttonElement)
       buttonContainer.appendChild(dropDownElement)
 
@@ -236,7 +284,7 @@ function buildSingleGallery (galleryData) {
       return galleriesJSON[gallery]
     })
     var lastGalleryEmpty =
-      galleriesHTMLCollection[galleryIndex].children[0].children[0].children[1].children.length === 1
+      galleriesHTMLCollection[galleryIndex].children[0].children[0].children[1].children.length === 0
 
     if (lastGalleryEmpty) {
       // this loops through array of galleries
@@ -256,7 +304,7 @@ function buildSingleGallery (galleryData) {
   }
 }
 
-function buildGallery () {
+export function buildGallery () {
   var galleriesJSON = document.getElementsByClassName('galleries')
   var imageContainer // container for gallery images HTML element
   var bulletContainer // container for image bullet buttons HTML element
@@ -273,6 +321,10 @@ function buildGallery () {
       buttonContainer = document.getElementsByClassName('selection-container-btn')[idx]
       var scriptInnerText = JSON.parse(document.getElementById(galleriesJSON[idx].id).innerText)
 
+      imageContainer.innerHTML = ''
+      bulletContainer.innerHTML = ''
+      buttonContainer.innerHTML = ''
+
       var galleryData = {
         galleryIndex: idx,
         imageContainer: imageContainer,
@@ -287,7 +339,128 @@ function buildGallery () {
     galleriesJSON = false
   }
 }
-buildGallery()
-//
-// GALLERY TEMPLATE ENDS
-//
+export function buildJSON (templateData) {
+  let eachGallery = {}
+
+  // builds object in array
+  if (templateData.groups) {
+    templateData.groups.forEach(gallery => {
+      let galleryName = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoTitle = gallery.infoTitle ? gallery.infoTitle.value : 'Info Title'
+      let ariaLabel = gallery.galleryName ? gallery.galleryName.value : 'Gallery Name'
+      let infoBodyText = gallery.infoBodyText ? gallery.infoBodyText.value : 'Info Body text'
+      eachGallery[galleryName] = [
+        {
+          galleryButtonAriaLabel: ariaLabel,
+          infoTitle: infoTitle,
+          infoText: infoBodyText
+        }
+      ]
+      let groupArray = Object.getOwnPropertyNames(gallery)
+      let images = []
+      let altText = []
+      groupArray.forEach((item, idx) => {
+        if (item.includes('image') || item.includes('imgAltText')) {
+          if (item.includes('image')) {
+            let position = item.substr(item.length - 1)
+            images[position] = gallery[item].value
+          }
+          if (item.includes('imgAltText')) {
+            let position = item.substr(item.length - 1)
+            altText[position] = gallery[item].value
+          }
+        }
+      })
+      images.forEach((image, idx) => {
+        let imageObject = {
+          imageSource:
+            image || 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+          altTag: altText[idx] || '',
+          selected: idx === 0
+        }
+        eachGallery[galleryName].push(imageObject)
+      })
+    })
+  } else {
+    eachGallery['GalleryName'] = [
+      {
+        galleryButtonAriaLabel: 'Gallery Name',
+        infoTitle: 'Info Title',
+        infoText: 'Info Body Text Here'
+      },
+      {
+        imageSource: 'https://dev.woodlanddirect.com/learningcenter/pagebuilder+/svgs/placeholder-img-grey.svg',
+        altTag: 'imgAltText',
+        selected: true
+      }
+    ]
+  }
+  return eachGallery
+}
+
+export const getEmptyInputs = (data, inputs) => {
+  // get inputs with class of input
+  // these are none grouped inputs
+  let incompleteFields = {}
+  if (inputs.length > 0) {
+    for (let x = 0; x < inputs.length; x++) {
+      // see if current input is already saved to the data array, required and as no value
+      if (inputs[x].required && inputs[x].value === '' && !data[inputs[x].name]) {
+        incompleteFields[inputs[x].name] = { value: '', error: false }
+      }
+    }
+    // fields that need filled out
+    return incompleteFields
+  }
+}
+
+export const getGroupInputs = (data, groups) => {
+  let numberOfInputs = groups.length
+  let newGroups = []
+  if (groups && numberOfInputs > 0) {
+    let numberOfGroups = Number(groups[numberOfInputs - 1].classList[1])
+    for (let x = 0; x < numberOfGroups; x++) {
+      let group = {}
+      for (let y = 0; y < numberOfInputs; y++) {
+        if (data.groups && data.groups[x] && data.groups[x][groups[y].name]) {
+          group[groups[y].name] = data.groups[x][groups[y].name]
+        } else if (Number(groups[y].classList[1]) === x + 1) {
+          group[groups[y].name] = { value: '', error: false }
+        }
+      }
+      newGroups.push(group)
+    }
+  }
+  return newGroups
+}
+
+export const getErrorData = (clonedData, clonedGroups, incompleteFields) => {
+  let errorPresent = false
+  // if groups are present see if error is in stored data
+  if (clonedGroups.length > 0) {
+    clonedGroups.forEach((groups, idx) => {
+      let groupArray = Object.getOwnPropertyNames(groups)
+      groupArray.forEach(input => {
+        if (clonedGroups[idx][input].error === false) {
+          errorPresent = true
+        }
+      })
+    })
+    clonedData.groups = clonedGroups
+  }
+  // see if error is present in stored data
+  if (Object.getOwnPropertyNames(clonedData).length > 0) {
+    let arrayData = Object.getOwnPropertyNames(clonedData)
+    arrayData.forEach(input => {
+      if (input !== 'groups' && clonedData[input].error === false) {
+        errorPresent = true
+      }
+    })
+  }
+  // if incomplete fields are found add them to state
+  if (Object.getOwnPropertyNames(incompleteFields).length > 0) {
+    errorPresent = true
+    clonedData = { ...clonedData, ...incompleteFields }
+  }
+  return { clonedData, errorPresent }
+}
