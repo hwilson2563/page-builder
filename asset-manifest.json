@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/wdprogramming/page-builder.git/static/js/main.00f76fae.chunk.js",
-    "main.js.map": "/wdprogramming/page-builder.git/static/js/main.00f76fae.chunk.js.map",
-    "runtime~main.js": "/wdprogramming/page-builder.git/static/js/runtime~main.99cabe99.js",
-    "runtime~main.js.map": "/wdprogramming/page-builder.git/static/js/runtime~main.99cabe99.js.map",
-    "static/js/2.cccf4305.chunk.js": "/wdprogramming/page-builder.git/static/js/2.cccf4305.chunk.js",
-    "static/js/2.cccf4305.chunk.js.map": "/wdprogramming/page-builder.git/static/js/2.cccf4305.chunk.js.map",
-    "index.html": "/wdprogramming/page-builder.git/index.html",
-    "precache-manifest.06ec876a42b04d04e183df00e3eff9c3.js": "/wdprogramming/page-builder.git/precache-manifest.06ec876a42b04d04e183df00e3eff9c3.js",
-    "service-worker.js": "/wdprogramming/page-builder.git/service-worker.js"
+    "main.js": "/page-builder/static/js/main.00f76fae.chunk.js",
+    "main.js.map": "/page-builder/static/js/main.00f76fae.chunk.js.map",
+    "runtime~main.js": "/page-builder/static/js/runtime~main.ae5c451d.js",
+    "runtime~main.js.map": "/page-builder/static/js/runtime~main.ae5c451d.js.map",
+    "static/js/2.f2076908.chunk.js": "/page-builder/static/js/2.f2076908.chunk.js",
+    "static/js/2.f2076908.chunk.js.map": "/page-builder/static/js/2.f2076908.chunk.js.map",
+    "index.html": "/page-builder/index.html",
+    "precache-manifest.69a6e5515a436f812367616ecc53f254.js": "/page-builder/precache-manifest.69a6e5515a436f812367616ecc53f254.js",
+    "service-worker.js": "/page-builder/service-worker.js"
   }
 }
