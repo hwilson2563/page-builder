@@ -2,7 +2,7 @@
   "name": "page-builder",
   "version": "6.17.19",
   "private": true,
-  "homepage": "https://github.com/wdprogramming/page-builder.git",
+  "homepage": "https://wdprogramming.github.io/page-builder/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
