@@ -1,5 +1,5 @@
 ## [Woodland Direct](https://www.woodlanddirect.com/) Page Builder
-## Authors
+## Contributors
 (alphabetical order)
 * [Erica Perry](https://github.com/ComeAlongErica)
 * [Hilary Wilson](https://github.com/hwilson2563)
