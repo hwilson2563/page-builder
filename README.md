@@ -1,4 +1,13 @@
-## Page Builder
+## [Woodland Direct](https://www.woodlanddirect.com/) Page Builder
+## Authors
+(alphabetical order)
+* [Erica Perry](https://github.com/ComeAlongErica)
+* [Hilary Wilson](https://github.com/hwilson2563)
+* [Lauren Wallace](https://github.com/laurewallace)
+* [Ted Weiss](https://github.com/tedweiss)
+* [Woodland Direct (github)](https://github.com/wdprogramming)
+
+## [View Project Here](https://wdprogramming.github.io/page-builder/)
 
 ### Release Notes for 6.17.19 : 
 * create side bar with animations and close and open features
